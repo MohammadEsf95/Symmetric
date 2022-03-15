@@ -1,0 +1,62 @@
+<div class="col-12 grid container-div">
+  <div class="col-4 center">
+    <div class="col-12 center" style="margin-top: 5vh">
+      <span class="title">SYMMETRIC STRENGTH</span>
+    </div>
+    <div class="col-12 register-form" *ngIf="!emailSent">
+      <div class="col-12 center register-header">
+        <span>Register</span>
+      </div>
+      <form [formGroup]="registrationForm">
+        <div class="col-12" style="text-align: left;">
+        <span>
+          Enter your email address, then a confirmation email will be sent to you. Your email address will never be sold or shared.
+        </span>
+          <span class="p-float-label content-input" style="margin-top: 25px">
+            <input id="float-email-input" class="input-width-100" type="email" pInputText [(ngModel)]="email"
+                   formControlName="email">
+            <label for="float-email-input">Email</label>
+        </span>
+        </div>
+        <div class="col-12">
+          <div class="field-checkbox">
+            <p-checkbox [(ngModel)]="checked" formControlName="checked" id="binary" [binary]="true"></p-checkbox>
+            <label for="binary">I agree to the Privacy Policy and Terms of Use.
+            </label>
+          </div>
+          <div class="register-btn">
+            <p-button label="Sign up" (onClick)="register()" [disabled]="!checked || email==null || !registrationForm.get('email')!.valid"></p-button>
+          </div>
+          <div class="col-12 grid google-or-facebook-login">
+            <div class="col-6" style="text-align: left;">
+              <a>Or sign up with: </a>
+            </div>
+            <div class="col-6 padding-unset google-or-facebook-login-btn-container">
+              <div>
+                <button pButton pRipple type="button" icon="pi" class="g-login p-button-rounded fa-google-plus-circle"
+                        style="float: right;" (click)="loginWithGoogle()"></button>
+              </div>
+              <div style="padding-right: 2px">
+                <button pButton pRipple type="button" icon="pi" class="p-button-rounded fa-facebook"
+                        style="float: right" (click)="loginWithFacebook()"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="col-12 register-form" *ngIf="emailSent">
+      <div class="col-12 center register-header">
+        <span>Check your email</span>
+      </div>
+      <div class="col-12 center" style="text-align: left; padding-left: 23px">
+        <span class="center">
+          A confirmation email has been sent to your email address.
+        </span>
+      </div>
+      <div class="col-10 center spam-warning">
+        <span><a style="font-weight: 600">Note:</a> If you don't receive the email, check to make sure it didn't get caught in your spam folder.</span>
+      </div>
+    </div>
+  </div>
+</div>

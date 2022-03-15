@@ -1,0 +1,51 @@
+<div class="container-fluid container-div">
+  <div class="row" style="margin-top: 8vh;">
+    <div class="center col-md-4">
+      <span class="title">SYMMETRIC STRENGTH</span>
+    </div>
+  </div>
+  <div class="col-12 grid">
+    <div class="center content col-4">
+      <h3 class="sign-in-header">Sign In</h3>
+      <div class="login-form col-12">
+        <div class="col-12">
+        <span class="p-float-label content-input">
+            <input id="float-email-input" class="login-input" type="text" pInputText [(ngModel)]="signInDto.email">
+            <label for="float-email-input">Username</label>
+        </span>
+        </div>
+        <div class="col-12">
+        <span class="p-float-label content-input" style="margin-top: 4vh">
+            <input id="float-password-input" class="login-input" type="password" pInputText [(ngModel)]="signInDto.password">
+            <label for="float-password-input">Password</label>
+        </span>
+        </div>
+        <div class="button-holder col-12 grid">
+          <div class="col-6 padding-unset" style="direction: ltr;">
+            <p-button label="Login" [loading]="loading[3]"
+                      (onClick)="login(3)"></p-button>
+          </div>
+          <div class="col-6 padding-unset" style="float: right;">
+            <a class="forgot-password" (click)="navigateToForgotPassword()">Forgot password?</a>
+          </div>
+          <div class="col-6 padding-unset" style="margin-top: 5vh">
+            <a style="float: left">Or login with: </a>
+          </div>
+          <div class="col-6 padding-unset" style="display: flex; direction: rtl;margin-top: 5vh">
+            <div>
+              <button pButton pRipple type="button" icon="pi" class="g-login p-button-rounded fa-google-plus-circle"
+                      style="float: right;" (click)="loginWithGoogle()"></button>
+            </div>
+            <div style="padding-right: 2px">
+              <button pButton pRipple type="button" icon="pi" class="p-button-rounded fa-facebook"
+                      style="float: right" (click)="loginWithFacebook()"></button>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 center create-account" type="button" (click)="navigateToRegister()">
+          <span style="color: white">Create an account</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

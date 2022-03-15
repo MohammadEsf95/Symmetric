@@ -1,0 +1,51 @@
+/* You can add global styles to this file, and also import other style files */
+.center {
+  margin: 0 auto;
+}
+
+.padding-unset {
+  padding: unset !important;
+}
+
+.g-login {
+  background-color: red !important;
+  padding: 3px !important;
+}
+
+.title {
+  display: table;
+  margin: 0 auto;
+  color: #e26a6a;
+  font-size: 30px;
+}
+
+.container-div {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
+  background: #364150;
+}
+
+.register-form {
+  margin-top: 5vh;
+  background-color: whitesmoke;
+  text-align: center;
+  border-radius: 10px;
+  height: fit-content;
+}
+.register-header {
+  color: #77c1b7;
+  font-size: 35px;
+}
+
+.input-width-100 {
+  width: 100%
+}
+
+.google-or-facebook-login-btn-container {
+  display: flex;
+  direction: rtl;
+}

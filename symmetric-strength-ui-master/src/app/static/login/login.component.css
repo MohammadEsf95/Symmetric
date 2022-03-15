@@ -1,0 +1,67 @@
+
+.sign-in-header {
+  margin-top: 4vh;
+  color: #77c1b7;
+}
+
+.login-form {
+  margin-top: 7vh;
+  /*height: 40vh;*/
+}
+
+.content {
+  /*display: flex;*/
+  margin-top: 5vh;
+  background-color: whitesmoke;
+  text-align: center;
+  border-radius: 10px;
+  width: 30%;
+  height: fit-content;
+}
+
+.content-input {
+  width: 85%;
+  margin: 0 auto;
+}
+
+.login-input {
+  width: 100%
+}
+
+.button-holder {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 85%;
+  margin: 0 auto;
+  margin-top: 3vh;
+  direction: ltr;
+}
+
+:host ::ng-deep .p-button {
+  float: left;
+  background-color: #59b7b0;
+  border: unset;
+}
+
+:host ::ng-deep .p-button:hover {
+  float: left;
+  background-color: #3f817c;
+  border: unset;
+}
+
+.forgot-password {
+  cursor: pointer;
+  float: right;
+}
+
+.create-account {
+  background-color: #767973;
+  margin-top: 5px;
+  margin-bottom: -16px;
+  border-radius: 5px 5px 0 0;
+}
+
+.create-account:hover {
+  background-color: #585b55;
+}
