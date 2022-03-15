@@ -1,0 +1,76 @@
+.title-and-login-status-container {
+}
+
+.header-title {
+  color: #e26a6a;
+  font-weight: 500;
+  font-size: 25px;
+}
+
+.login-span {
+  direction: rtl;
+}
+
+:host ::ng-deep .login-span .p-button {
+  color: #7089a2;
+  font-weight: 700;
+  background: transparent;
+  direction: ltr;
+  border: none;
+}
+
+:host ::ng-deep .login-span .p-button:hover {
+  background: antiquewhite;
+}
+
+:host ::ng-deep .p-menubar {
+  background-color: #444d58;
+}
+
+:host ::ng-deep .p-menubar-root-list {
+  padding-left : 300px;
+}
+
+:host ::ng-deep .p-menuitem-text {
+  color: white!important;
+}
+
+:host ::ng-deep .p-menubar .p-menubar-root-list .p-menuitem .p-menuitem-link:hover{
+  background: #7089a2;;
+}
+
+:host ::ng-deep .p-menuitem-link:not(.p-disabled)focus{
+  background: #7089a2;
+}
+
+:host ::ng-deep .p-menubar-root-list .p-menuitem-active p-menubarsub .p-submenu-list {
+  background-color: #444d58;
+}
+
+:host ::ng-deep .p-menubar-root-list .p-menuitem-active p-menubarsub .p-submenu-list:hover {
+  background: #7089a2;
+}
+
+:host ::ng-deep .p-menubar-root-list .p-menuitem-active p-menubarsub .p-submenu-list:focus {
+  background: #7089a2;
+}
+
+:host ::ng-deep .p-menubar-root-list .p-menuitem-active p-menubarsub .p-submenu-list::selection {
+  background: #7089a2;
+}
+
+:host ::ng-deep .p-menubar .p-menuitem-link {
+  background: #444d58;
+}
+
+:host ::ng-deep .p-menubar .p-menuitem-link:focus {
+  background: #444d58;
+}
+
+:host ::ng-deep .p-menubar .p-menuitem-link:hover {
+  background: #444d58;
+}
+
+:host ::ng-deep .p-menubar .p-menuitem-link::selection {
+  background: #444d58;
+}
