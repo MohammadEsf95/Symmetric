@@ -11,6 +11,11 @@
   direction: rtl;
 }
 
+.page-title {
+  font-size: 25px;
+  color: #697892;
+}
+
 :host ::ng-deep .login-span .p-button {
   color: #7089a2;
   font-weight: 700;
