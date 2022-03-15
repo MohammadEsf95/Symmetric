@@ -16,6 +16,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {MessageService} from "primeng/api";
 import {ToastModule} from "primeng/toast";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {RouterModule} from "@angular/router";
 
 @NgModule({
   declarations: [

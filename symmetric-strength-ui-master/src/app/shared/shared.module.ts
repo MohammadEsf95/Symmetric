@@ -18,8 +18,6 @@ import {BrowserModule} from "@angular/platform-browser";
           HeaderComponent
       ],
     imports: [
-      BrowserModule,
-      BrowserAnimationsModule,
       ButtonModule,
       MegaMenuModule,
       MenubarModule,
