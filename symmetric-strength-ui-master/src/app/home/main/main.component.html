@@ -1,0 +1,139 @@
+<div class="col-12 main-background">
+  <div class="col-8 center content">
+    <div class="col-12 grid">
+      <div class="col-9 grid">
+        <div class="col-12 grid">
+          <div class="col-6 grid">
+            <div class="col-12 grid">
+              <div class="col-6">
+                <label for="units" class="input-label">Units</label>
+                <p-dropdown id="units" [options]="units" [(ngModel)]="selectedUnit" styleClass="dropdown-def"
+                            placeholder="Select Unit" optionLabel="name" (onChange)="changeUnit($event)"></p-dropdown>
+              </div>
+              <div class="col-6" style="padding-left: 15px">
+                <label for="values" class="input-label">Round calculation to nearest</label>
+                <p-dropdown id="values" [options]="values" [(ngModel)]="selectedValue" styleClass="dropdown-def"
+                            placeholder="Select Weight" optionLabel="number"></p-dropdown>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="col-12" style="padding-left: 15px">
+      <div>
+        <h1 style="font-size: 25px; color: #697892;">Select the lifts that you train.</h1>
+        <span>These lifts will be used to determine your strength levels. For the most complete results, choose at least one lift per category.</span>
+      </div>
+      <div class="col-12 grid" style="margin-top: 35px">
+        <div class="col-4">
+          <h5 style="font-size: 15px; color: #888">Squat</h5>
+          <div *ngFor="let squat of squats" class="field-checkbox checkbox-group">
+            <p-checkbox name="group2" value="squat" [value]="squat" [(ngModel)]="selectedCategories"
+                        [inputId]="squat.key"></p-checkbox>
+            <label [for]="squat.key">{{squat.name}}</label>
+          </div>
+        </div>
+        <div class="col-4">
+          <h5 style="font-size: 15px; color: #888">Floor Pull</h5>
+          <div *ngFor="let fp of floorPull" class="field-checkbox checkbox-group">
+            <p-checkbox name="group2" value="fpfp" [value]="fp" [(ngModel)]="selectedCategories"
+                        [inputId]="fp.key"></p-checkbox>
+            <label [for]="fp.key">{{fp.name}}</label>
+          </div>
+        </div>
+        <div class="col-4">
+          <h5 style="font-size: 15px; color: #888">Horizontal Press</h5>
+          <div *ngFor="let hp of horizontalPress" class="field-checkbox checkbox-group">
+            <p-checkbox name="group2" value="hp" [value]="hp" [(ngModel)]="selectedCategories"
+                        [inputId]="hp.key"></p-checkbox>
+            <label [for]="hp.key">{{hp.name}}</label>
+          </div>
+        </div>
+        <div class="col-4">
+          <h5 style="font-size: 15px; color: #888">Vertical Press</h5>
+          <div *ngFor="let vp of verticalPress" class="field-checkbox checkbox-group">
+            <p-checkbox name="group2" value="vp" [value]="vp" [(ngModel)]="selectedCategories"
+                        [inputId]="vp.key"></p-checkbox>
+            <label [for]="vp.key">{{vp.name}}</label>
+          </div>
+        </div>
+        <div class="col-4">
+          <h5 style="font-size: 15px; color: #888">Pull-up / Row</h5>
+          <div *ngFor="let pu of pullUps" class="field-checkbox checkbox-group">
+            <p-checkbox name="group2" value="pu" [value]="pu" [(ngModel)]="selectedCategories"
+                        [inputId]="pu.key"></p-checkbox>
+            <label [for]="pu.key">{{pu.name}}</label>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="col-12 grid">
+        <div>
+          <h1 style="font-size: 25px; color: #697892;">Enter your sex, bodyweight, & age.</h1>
+          <span>Your strength score adjusts by sex, bodyweight, and age, allowing you to measure yourself against any other lifter.</span>
+        </div>
+        <div class="col-8 grid" style="margin-top: 15px;">
+          <div class="col-4">
+            <span class="p-float-label">
+            <p-dropdown styleClass="dropdown-def" inputId="dropdown" [autoDisplayFirst]="false" [options]="genders"
+                        [(ngModel)]="value8"
+                        optionLabel="type"></p-dropdown>
+            <label for="dropdown">Sex</label>
+            </span>
+          </div>
+          <div class="col-4">
+            <span class="p-float-label">
+            <p-inputNumber [min]="0" [(ngModel)]="bodyWeight" [showButtons]="true" inputId="stacked"
+                           [suffix]="' ' + selectedUnit.label">
+            </p-inputNumber>
+            <label for="stacked">Body weight</label>
+            </span>
+          </div>
+          <div class="col-4">
+            <span class="p-float-label">
+            <p-inputNumber [min]="0" [(ngModel)]="age" [showButtons]="true" inputId="age">
+            </p-inputNumber>
+            <label for="age">Age (Optional)</label>
+            </span>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="col-12 grid">
+        <div>
+          <h1 style="font-size: 25px; color: #697892;">Enter your best recent sets.</h1>
+          <span>Finally, for each lift you train, enter your most difficult set that you have completed recently. Each set should be 10 or fewer reps.</span>
+        </div>
+        <div class="col-12">
+          <div class="col-8 grid" *ngFor="let category of selectedCategories">
+            <div class="col-4" style="display: flex; align-items: center;">
+              <label for="category.id">{{category.name}}</label>
+            </div>
+            <div class="col-4">
+              <span class="p-float-label">
+            <p-inputNumber [min]="0" [(ngModel)]="category.weight" [showButtons]="true" inputId="stacked"
+                           [suffix]="' ' + selectedUnit.label">
+            </p-inputNumber>
+            <label for="stacked">Weight {{selectedUnit.label}}</label>
+            </span>
+            </div>
+            <div class="col-4">
+              <span class="p-float-label">
+            <p-inputNumber [min]="0" [(ngModel)]="category.reps" [showButtons]="true" inputId="stacked">
+            </p-inputNumber>
+            <label for="stacked">reps</label>
+            </span>
+            </div>
+            <div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12">
+          <p-button label="Analyze Strength"></p-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
