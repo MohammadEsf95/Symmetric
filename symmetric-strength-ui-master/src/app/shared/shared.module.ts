@@ -15,7 +15,8 @@ import {BrowserModule} from "@angular/platform-browser";
     FooterComponent
   ],
       exports: [
-          HeaderComponent
+          HeaderComponent,
+          FooterComponent
       ],
     imports: [
       ButtonModule,
