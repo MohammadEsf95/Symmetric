@@ -7,6 +7,7 @@ import {FormsModule} from "@angular/forms";
 import {CheckboxModule} from "primeng/checkbox";
 import {CommonModule} from "@angular/common";
 import {InputNumberModule} from "primeng/inputnumber";
+import {ButtonModule} from "primeng/button";
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import {InputNumberModule} from "primeng/inputnumber";
     FormsModule,
     CheckboxModule,
     CommonModule,
-    InputNumberModule
+    InputNumberModule,
+    ButtonModule
   ],
   providers: [
 
