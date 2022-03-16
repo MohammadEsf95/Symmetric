@@ -4,6 +4,9 @@ import {HomeRoutingModule} from "./home-routing.module";
 import {SharedModule} from "../shared/shared.module";
 import {DropdownModule} from "primeng/dropdown";
 import {FormsModule} from "@angular/forms";
+import {CheckboxModule} from "primeng/checkbox";
+import {CommonModule} from "@angular/common";
+import {InputNumberModule} from "primeng/inputnumber";
 
 @NgModule({
   declarations: [
@@ -13,7 +16,10 @@ import {FormsModule} from "@angular/forms";
     HomeRoutingModule,
     SharedModule,
     DropdownModule,
-    FormsModule
+    FormsModule,
+    CheckboxModule,
+    CommonModule,
+    InputNumberModule
   ],
   providers: [
 

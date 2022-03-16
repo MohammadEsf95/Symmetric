@@ -6,10 +6,21 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
+
   units: any[] = [];
   selectedUnit: any = {};
   selectedValue: number = 0;
   values : any[] = [];
+  selectedCategories: any[] = [];
+  squats: any[] = [{name: 'Back Squat', key: 'A'}, {name: 'Front Squad', key: 'M'}];
+  floorPull: any[] = [{name: 'Deadlift', key: 'D'}, {name: 'Sumo Deadlift', key: 'SD'}, {name: 'Power Clean', key: 'PC'}];
+  horizontalPress: any[] = [{name: 'Bench Press', key: 'BP'}, {name: 'Incline Bench Press', key: 'IBP'}, {name: 'Dip', key: 'Di'}];
+  verticalPress: any[] = [{name: 'Overhead Press', key: 'OP'}, {name: 'Push Press', key: 'PP'}, {name: 'Snatch Press', key: 'Sp'}];
+  pullUps: any[] = [{name: 'Chin-up', key: 'Cu'}, {name: 'Pull-up', key: 'Pu'}, {name: 'Pendlay Row', key: 'Pr'}];
+  genders: any[] = [{type: 'Male'}, {type: 'Female'}];
+  value8: any;
+  bodyWeight: any;
+  age: any;
 
 
   constructor() {

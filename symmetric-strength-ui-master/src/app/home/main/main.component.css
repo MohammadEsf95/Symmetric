@@ -19,10 +19,10 @@
 }
 
 :host ::ng-deep .dropdown-def:hover {
-  border-color: #3fc7bf!important;
+  border-color: #3fc7bf !important;
 }
 
-:host ::ng-deep .p-dropdown:not(.p-disabled).p-focus {
+:host ::ng-deep .dropdown-def:not(.p-disabled).p-focus {
   border-top: none;
   border-right: none;
   border-left: none;
@@ -32,4 +32,43 @@
 
 .input-label {
   font-size: 13px;
+}
+
+.checkbox-group {
+  margin-top: 20px;
+}
+
+.weight-input {
+
+}
+
+:host ::ng-deep .p-inputnumber-buttons-stacked .p-inputnumber-input {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-color: #45b6af;
+  border-width: medium;
+}
+
+/*:host ::ng-deep .p-inputnumber-buttons-stacked .p-inputnumber-button-group .p-button.p-inputnumber-button {*/
+/*  color:  #3fc7bf;*/
+/*}*/
+
+:host ::ng-deep .p-inputnumber-buttons-stacked .p-inputnumber-button-group .p-button.p-inputnumber-button  {
+  background: #3fc7bf;
+}
+
+:host ::ng-deep .p-inputnumber-buttons-stacked .p-inputnumber-button-group:hover {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  box-shadow: none;
+  border-color: #3fc7bf;
+}
+
+:host ::ng-deep .p-inputtext:enabled:focus {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  box-shadow: none;
 }
