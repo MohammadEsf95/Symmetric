@@ -2,6 +2,8 @@ import {NgModule} from "@angular/core";
 import {MainComponent} from "./main/main.component";
 import {HomeRoutingModule} from "./home-routing.module";
 import {SharedModule} from "../shared/shared.module";
+import {DropdownModule} from "primeng/dropdown";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -9,7 +11,9 @@ import {SharedModule} from "../shared/shared.module";
   ],
   imports: [
     HomeRoutingModule,
-    SharedModule
+    SharedModule,
+    DropdownModule,
+    FormsModule
   ],
   providers: [
 

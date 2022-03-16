@@ -1,0 +1,31 @@
+<div class="col-12 main-background">
+  <div class="col-8 center content">
+    <div class="col-12 grid">
+      <div class="col-9 grid">
+        <div class="col-12 grid">
+          <div class="col-6 grid">
+            <div class="col-12 grid">
+              <div class="col-6">
+                <label for="units" class="input-label">Units</label>
+                <p-dropdown id="units" [options]="units" [(ngModel)]="selectedUnit" styleClass="dropdown-def"
+                            placeholder="Select Unit" optionLabel="name" (onChange)="changeUnit($event)"></p-dropdown>
+              </div>
+              <div class="col-6" style="padding-left: 15px">
+                <label for="values" class="input-label">Round calculation to nearest</label>
+                <p-dropdown id="values" [options]="values" [(ngModel)]="selectedValue" styleClass="dropdown-def"
+                            placeholder="Select Weight" optionLabel="number"></p-dropdown>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="col-12" style="padding-left: 15px">
+      <div>
+        <h1 style="font-size: 25px; color: #697892;">Select the lifts that you train.</h1>
+        <span>These lifts will be used to determine your strength levels. For the most complete results, choose at least one lift per category.</span>
+      </div>
+    </div>
+  </div>
+</div>

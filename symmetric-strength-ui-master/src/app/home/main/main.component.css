@@ -1,0 +1,35 @@
+
+.main-background {
+  height: 100%;
+  background-color: #eff3f8;
+}
+
+.content {
+  background: white;
+  border-radius: 2px;
+}
+
+:host ::ng-deep .dropdown-def {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-color: #45b6af;
+  border-width: medium;
+  width: 200px;
+}
+
+:host ::ng-deep .dropdown-def:hover {
+  border-color: #3fc7bf!important;
+}
+
+:host ::ng-deep .p-dropdown:not(.p-disabled).p-focus {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  box-shadow: none;
+  border-color: #3fc7bf;
+}
+
+.input-label {
+  font-size: 13px;
+}
