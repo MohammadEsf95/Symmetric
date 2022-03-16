@@ -85,7 +85,8 @@
           </div>
           <div class="col-4">
             <span class="p-float-label">
-            <p-inputNumber [min]="0" [(ngModel)]="bodyWeight" [showButtons]="true" inputId="stacked" [suffix]="' ' + selectedUnit.label">
+            <p-inputNumber [min]="0" [(ngModel)]="bodyWeight" [showButtons]="true" inputId="stacked"
+                           [suffix]="' ' + selectedUnit.label">
             </p-inputNumber>
             <label for="stacked">Body weight</label>
             </span>
@@ -96,6 +97,37 @@
             </p-inputNumber>
             <label for="age">Age (Optional)</label>
             </span>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="col-12 grid">
+        <div>
+          <h1 style="font-size: 25px; color: #697892;">Enter your best recent sets.</h1>
+          <span>Finally, for each lift you train, enter your most difficult set that you have completed recently. Each set should be 10 or fewer reps.</span>
+        </div>
+        <div class="col-12">
+          <div class="col-8 grid" *ngFor="let category of selectedCategories">
+            <div class="col-4" style="display: flex; align-items: center;">
+              <label for="category.id">{{category.name}}</label>
+            </div>
+            <div class="col-4">
+              <span class="p-float-label">
+            <p-inputNumber [min]="0" [(ngModel)]="category.weight" [showButtons]="true" inputId="stacked"
+                           [suffix]="' ' + selectedUnit.label">
+            </p-inputNumber>
+            <label for="stacked">Weight {{selectedUnit.label}}</label>
+            </span>
+            </div>
+            <div class="col-4">
+              <span class="p-float-label">
+            <p-inputNumber [min]="0" [(ngModel)]="category.reps" [showButtons]="true" inputId="stacked">
+            </p-inputNumber>
+            <label for="stacked">reps</label>
+            </span>
+            </div>
+            <div>
+            </div>
           </div>
         </div>
       </div>

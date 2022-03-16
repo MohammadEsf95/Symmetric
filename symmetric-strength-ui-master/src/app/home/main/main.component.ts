@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {TrainingDto} from "../../shared/dto/TrainingDto";
 
 @Component({
   selector: 'app-main',
@@ -11,7 +12,7 @@ export class MainComponent implements OnInit {
   selectedUnit: any = {};
   selectedValue: number = 0;
   values : any[] = [];
-  selectedCategories: any[] = [];
+  selectedCategories: TrainingDto[] = [];
   squats: any[] = [{name: 'Back Squat', key: 'A'}, {name: 'Front Squad', key: 'M'}];
   floorPull: any[] = [{name: 'Deadlift', key: 'D'}, {name: 'Sumo Deadlift', key: 'SD'}, {name: 'Power Clean', key: 'PC'}];
   horizontalPress: any[] = [{name: 'Bench Press', key: 'BP'}, {name: 'Incline Bench Press', key: 'IBP'}, {name: 'Dip', key: 'Di'}];
