@@ -1,9 +1,8 @@
 <div class="col-12 main-background">
-  <div class="col-8 center content">
+  <div class="col-8 xl:col-8 lg:col-8 md:col-10 sm:col-12 center content">
     <div class="col-12 grid">
       <div class="col-9 grid">
-        <div class="col-12 grid">
-          <div class="col-6 grid">
+          <div class="col-9 xl:col-9 lg:col-9 md:col-10 sm:col-12 grid">
             <div class="col-12 grid">
               <div class="col-6">
                 <label for="units" class="input-label">Units</label>
@@ -15,7 +14,6 @@
                 <p-dropdown id="values" [options]="values" [(ngModel)]="selectedValue" styleClass="dropdown-def"
                             placeholder="Select Weight" optionLabel="number"></p-dropdown>
               </div>
-            </div>
           </div>
         </div>
       </div>
@@ -74,7 +72,7 @@
           <h1 style="font-size: 25px; color: #697892;">Enter your sex, bodyweight, & age.</h1>
           <span>Your strength score adjusts by sex, bodyweight, and age, allowing you to measure yourself against any other lifter.</span>
         </div>
-        <div class="col-8 grid" style="margin-top: 15px;">
+        <div class="col-10 grid" style="margin-top: 15px;">
           <div class="col-4">
             <span class="p-float-label">
             <p-dropdown styleClass="dropdown-def" inputId="dropdown" [autoDisplayFirst]="false" [options]="genders"
@@ -107,7 +105,7 @@
           <span>Finally, for each lift you train, enter your most difficult set that you have completed recently. Each set should be 10 or fewer reps.</span>
         </div>
         <div class="col-12">
-          <div class="col-8 grid" *ngFor="let category of selectedCategories">
+          <div class="col-10 grid" *ngFor="let category of selectedCategories">
             <div class="col-4" style="display: flex; align-items: center;">
               <label for="category.id">{{category.name}}</label>
             </div>

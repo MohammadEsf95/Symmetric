@@ -49,8 +49,7 @@ export class AuthService {
   }
 
   setPassword(setPasswordDto: SetPasswordDto): Observable<any> {
-    return this.http.post(this.endpoint + 'set-password', {
-      setPasswordDto,
+    return this.http.post(this.endpoint + 'set-password', setPasswordDto,{
       headers: new HttpHeaders({'Content-Type': 'application/json'})
     }).pipe(
       catchError(err => {

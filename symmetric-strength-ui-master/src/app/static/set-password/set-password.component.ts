@@ -65,6 +65,8 @@ export class SetPasswordComponent implements OnInit {
         if(data.success == true) {
           // this.emailSent = true;
           this.toastr.add({severity:'success', summary:'Successfully', detail:'Successfully registered!'})
+          localStorage.setItem('registerToken', data.data.token)
+          this.router.navigate(['/home'])
         } else {
           this.toastr.add({severity:'error', summary:'Error', detail: JSON.stringify(data.errors[0].message)})
         }

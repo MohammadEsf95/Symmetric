@@ -10,6 +10,7 @@ import {Router} from "@angular/router";
 export class HeaderComponent implements OnInit {
 
   items: MenuItem[];
+  isLoggedIn: boolean = false;
 
   constructor(private router: Router,) {
     this.items = [{
@@ -48,6 +49,10 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log('kir: ',localStorage.getItem('registerToken'))
+    if(localStorage.getItem('registerToken')) {
+
+    }
   }
 
   navigateToRegister() {
