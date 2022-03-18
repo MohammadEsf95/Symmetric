@@ -17,7 +17,7 @@
     <div class="col-12 sub-header">
       <div class="col-8 center">
         <div class="page-title">
-          <h1 style="font-size: 25px;">Analyze Your Strength <small style="color: #9eacb4">Find strengths and weaknesses and measure yourself against other lifters</small></h1>
+          <h1 *ngIf="router.url === '/home'" style="font-size: 25px;"> {{homePageTitle}} <small style="color: #9eacb4">Find strengths and weaknesses and measure yourself against other lifters</small></h1>
         </div>
       </div>
     </div>

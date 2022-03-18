@@ -7,7 +7,11 @@ export const PUBLIC_ROUTES: Routes = [
     loadChildren: () => import('../../home/home.module').then(m => m.HomeModule)
   },
   {
-    path: 'static',
+    path: 'about',
+    loadChildren: () => import('../../about/about.module').then(m => m.AboutModule)
+  },
+  {
+    path: 'auth',
     loadChildren: () => import('../../static/static.module').then(m => m.StaticModule)
   }
 ];

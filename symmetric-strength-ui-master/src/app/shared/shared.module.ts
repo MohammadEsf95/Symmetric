@@ -7,6 +7,7 @@ import {MenubarModule} from "primeng/menubar";
 import {InputTextModule} from "primeng/inputtext";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {BrowserModule} from "@angular/platform-browser";
+import {CommonModule} from "@angular/common";
 
 @NgModule(
   {
@@ -23,6 +24,7 @@ import {BrowserModule} from "@angular/platform-browser";
       MegaMenuModule,
       MenubarModule,
       InputTextModule,
+      CommonModule,
     ]
   }
 )

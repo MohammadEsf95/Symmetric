@@ -11,10 +11,12 @@ export class HeaderComponent implements OnInit {
 
   items: MenuItem[];
   isLoggedIn: boolean = false;
+  homePageTitle: string = 'Analyze Your Strength';
 
-  constructor(private router: Router,) {
+  constructor(public router: Router,) {
     this.items = [{
       label: 'Home',
+      routerLink: '/home'
       // items: [{
       //   label: 'New',
       //   icon: 'pi pi-fw pi-plus',
@@ -44,7 +46,8 @@ export class HeaderComponent implements OnInit {
         ]
       },
       {
-        label: 'About'
+        label: 'About',
+        routerLink: '/about'
       }]
   }
 
