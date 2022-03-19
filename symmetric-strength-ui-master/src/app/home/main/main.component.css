@@ -1,9 +1,4 @@
 
-.main-background {
-  height: 100%;
-  background-color: #eff3f8;
-}
-
 .content {
   background: white;
   border-radius: 2px;
@@ -49,10 +44,6 @@
   border-color: #45b6af;
   border-width: medium;
 }
-
-/*:host ::ng-deep .p-inputnumber-buttons-stacked .p-inputnumber-button-group .p-button.p-inputnumber-button {*/
-/*  color:  #3fc7bf;*/
-/*}*/
 
 :host ::ng-deep .p-inputnumber-buttons-stacked .p-inputnumber-button-group .p-button.p-inputnumber-button  {
   background: #3fc7bf;

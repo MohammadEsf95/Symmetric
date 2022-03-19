@@ -1,1 +1,38 @@
-<p>strength-standards works!</p>
+<div class="col-12 main-background">
+  <div class="col-8 xl:col-8 lg:col-8 md:col-10 sm:col-12 center content">
+    <div class="col-12 grid">
+      <h2 class="ss-header">FIND STRENGTH STANDARDS BY SEX & BODYWEIGHT</h2>
+    </div>
+    <hr>
+    <div class="col-12 grid">
+      <div class="col-3" style="padding-left: 5px">
+        <label for="units" class="input-label">Units</label>
+        <p-dropdown id="units" [options]="units" [(ngModel)]="selectedUnit" styleClass="dropdown-def"
+                    placeholder="Select Unit" optionLabel="name"></p-dropdown>
+      </div>
+      <div class="col-3" style="padding-left: 5px">
+        <label for="genders" class="input-label">Sex</label>
+        <p-dropdown id="genders" [options]="genders" [(ngModel)]="selectedGender" styleClass="dropdown-def"
+                    optionLabel="type"></p-dropdown>
+      </div>
+      <div class="col-3" style="position: relative; padding-left: 0">
+              <span class="p-float-label" style="bottom: 8px; position: absolute;">
+            <p-inputNumber [min]="0" [(ngModel)]="bodyWeight" [showButtons]="true" inputId="bodyweight"
+                           [suffix]="' ' + selectedUnit.label">
+            </p-inputNumber>
+            <label for="bodyweight">Weight {{selectedUnit.label}}</label>
+            </span>
+      </div>
+      <div class="col-3" style="position: relative">
+            <span class="p-float-label" style="bottom: 8px; position: absolute;">
+            <p-inputNumber id="age" [min]="0" [(ngModel)]="age" [showButtons]="true" inputId="age">
+            </p-inputNumber>
+            <label for="age">Age (Optional)</label>
+            </span>
+      </div>
+    </div>
+    <div class="col-12">
+      <p-button label="View Strength Standards"></p-button>
+    </div>
+  </div>
+</div>

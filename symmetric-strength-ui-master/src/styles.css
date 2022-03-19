@@ -3,6 +3,16 @@
   margin: 0 auto;
 }
 
+.main-background {
+  height: 100%;
+  background-color: #eff3f8;
+}
+
+.content {
+  background: white;
+  border-radius: 2px;
+}
+
 .padding-unset {
   padding: unset !important;
 }

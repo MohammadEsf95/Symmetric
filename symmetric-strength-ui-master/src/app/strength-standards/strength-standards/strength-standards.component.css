@@ -1,0 +1,75 @@
+.ss-header {
+  color: #e26a6a;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+:host ::ng-deep .dropdown-def {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-color: #45b6af;
+  border-width: medium;
+  width: 200px;
+}
+
+:host ::ng-deep .dropdown-def:hover {
+  border-color: #3fc7bf !important;
+}
+
+:host ::ng-deep .dropdown-def:not(.p-disabled).p-focus {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  box-shadow: none;
+  border-color: #3fc7bf;
+}
+
+:host ::ng-deep .p-inputnumber-buttons-stacked .p-inputnumber-input {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  border-color: #45b6af;
+  border-width: medium;
+}
+
+:host ::ng-deep .p-inputnumber-buttons-stacked .p-inputnumber-button-group .p-button.p-inputnumber-button  {
+  background: #3fc7bf;
+  width: 23px;
+  border: none;
+  border-radius: 2px;
+  opacity: 0.75;
+}
+
+:host ::ng-deep .p-inputnumber-buttons-stacked .p-inputnumber-button-group:hover {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  box-shadow: none;
+  border-color: #3fc7bf;
+}
+
+:host ::ng-deep .p-inputtext:enabled:focus {
+  border-top: none;
+  border-right: none;
+  border-left: none;
+  box-shadow: none;
+}
+
+:host ::ng-deep .p-button {
+  background: #e26a6a;
+  border: 1px solid #e26a6a;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  font-size: 18px
+}
+
+:host ::ng-deep .p-button:hover {
+  background: #dc4c4c;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+:host ::ng-deep .p-button:focus {
+  background: #dc4c4c;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  box-shadow: none;
+}
