@@ -73,7 +73,7 @@
         <div class="col-10 grid" style="margin-top: 15px;">
           <div class="col-4">
             <span class="p-float-label">
-            <p-dropdown styleClass="dropdown-def" inputId="dropdown" [autoDisplayFirst]="false" [options]="genders"
+            <p-dropdown id="dropdown" styleClass="dropdown-def" inputId="dropdown" [autoDisplayFirst]="false" [options]="genders"
                         [(ngModel)]="value8"
                         optionLabel="type"></p-dropdown>
             <label for="dropdown">Sex</label>
@@ -81,7 +81,7 @@
           </div>
           <div class="col-4">
             <span class="p-float-label">
-            <p-inputNumber [min]="0" [(ngModel)]="bodyWeight" [showButtons]="true" inputId="stacked"
+            <p-inputNumber id="stacked" [min]="0" [(ngModel)]="bodyWeight" [showButtons]="true" inputId="stacked"
                            [suffix]="' ' + selectedUnit.label">
             </p-inputNumber>
             <label for="stacked">Body weight</label>
@@ -89,7 +89,7 @@
           </div>
           <div class="col-4">
             <span class="p-float-label">
-            <p-inputNumber [min]="0" [(ngModel)]="age" [showButtons]="true" inputId="age">
+            <p-inputNumber id="age" [min]="0" [(ngModel)]="age" [showButtons]="true" inputId="age">
             </p-inputNumber>
             <label for="age">Age (Optional)</label>
             </span>
