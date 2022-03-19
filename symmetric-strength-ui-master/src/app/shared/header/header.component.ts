@@ -12,6 +12,8 @@ export class HeaderComponent implements OnInit {
   items: MenuItem[];
   isLoggedIn: boolean = false;
   homePageTitle: string = 'Analyze Your Strength';
+  strengthStandardsTitle: string = 'Strength Standards';
+  about: string = 'About';
 
   constructor(public router: Router,) {
     this.items = [{
@@ -31,10 +33,7 @@ export class HeaderComponent implements OnInit {
     },
       {
         label: 'Strength Standards',
-        // items: [
-        //   {label: 'Delete', icon: 'pi pi-fw pi-trash'},
-        //   {label: 'Refresh', icon: 'pi pi-fw pi-refresh'}
-        // ]
+        routerLink: '/strength-standards'
       },
       {
         label: 'Calculators',

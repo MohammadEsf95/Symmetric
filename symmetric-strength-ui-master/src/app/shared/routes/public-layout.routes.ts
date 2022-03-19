@@ -13,5 +13,9 @@ export const PUBLIC_ROUTES: Routes = [
   {
     path: 'auth',
     loadChildren: () => import('../../static/static.module').then(m => m.StaticModule)
+  },
+  {
+    path: 'strength-standards',
+    loadChildren: () => import('../../strength-standards/strength-standards.module').then(m => m.StrengthStandardsModule)
   }
 ];
