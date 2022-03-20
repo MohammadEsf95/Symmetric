@@ -17,5 +17,9 @@ export const PUBLIC_ROUTES: Routes = [
   {
     path: 'strength-standards',
     loadChildren: () => import('../../strength-standards/strength-standards.module').then(m => m.StrengthStandardsModule)
+  },
+  {
+    path: 'calculator',
+    loadChildren: () => import('../../calculators/calculators.module').then(m => m.CalculatorsModule)
   }
 ];
