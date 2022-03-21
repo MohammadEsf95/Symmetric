@@ -1,3 +1,7 @@
 :host ::ng-deep .p-accordion p-accordiontab .p-accordion-content {
   font-size: 13px
 }
+
+.note {
+  font-size: 14px;
+}

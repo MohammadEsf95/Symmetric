@@ -23,69 +23,173 @@
         <p-accordion [multiple]="true">
           <p-accordionTab header="What is the strength score?">
             <p>First, let us compare a couple other measures of strength.</p>
-            <p>By measuring your total weight lifted, you are measuring <strong>absolute strength</strong>. For example, you squat 360 pounds, and your friend squats 300 pounds, then you have higher absolute strength than your friend. Absolute strength favors the heavier lifter.</p>
-            <p>What does the strength score measure, then? The strength score measures <em>how well you would fare in a strength competition against lifters at your sex and bodyweight</em>.</p>
-            <p>Suppose you are a 250 pound male that can deadlift 500 pounds, and you have a friend that is a 115 pound woman that can deadlift 350 pounds. Suppose that you both were to attend a national deadlifting competition, with you competing against 10 other 250 pound male deadlifters, and your friend competing against 10 other 115 pound female deadlifters. While you have a very respectable deadlift, you would most likely not fare well in a national competition. However, as a 115 woman, your friend's deadlift is elite, and it is likely that she would place highly, if not win. In this example, your deadlift score was 83, and your friend's score was 119. Therefore, she is the better lifter.</p>
-            <p>The strength score favors neither the heavier nor lighter lifter, man nor woman, young nor old. Therefore, the strength score is a good tool to measure yourself against any other lifter!</p>
+            <p>By measuring your total weight lifted, you are measuring <strong>absolute strength</strong>. For example,
+              you squat 360 pounds, and your friend squats 300 pounds, then you have higher absolute strength than your
+              friend. Absolute strength favors the heavier lifter.</p>
+            <p>What does the strength score measure, then? The strength score measures <em>how well you would fare in a
+              strength competition against lifters at your sex and bodyweight</em>.</p>
+            <p>Suppose you are a 250 pound male that can deadlift 500 pounds, and you have a friend that is a 115 pound
+              woman that can deadlift 350 pounds. Suppose that you both were to attend a national deadlifting
+              competition, with you competing against 10 other 250 pound male deadlifters, and your friend competing
+              against 10 other 115 pound female deadlifters. While you have a very respectable deadlift, you would most
+              likely not fare well in a national competition. However, as a 115 woman, your friend's deadlift is elite,
+              and it is likely that she would place highly, if not win. In this example, your deadlift score was 83, and
+              your friend's score was 119. Therefore, she is the better lifter.</p>
+            <p>The strength score favors neither the heavier nor lighter lifter, man nor woman, young nor old.
+              Therefore, the strength score is a good tool to measure yourself against any other lifter!</p>
           </p-accordionTab>
           <p-accordionTab header="How is the strength score determined?">
-            <p>The strength score is closely related to the <a href="https://en.wikipedia.org/wiki/Wilks_Coefficient">Wilks score</a>, which is commonly used in powerlifting to compare totals across weight classes. While the Wilks score is designed to measure powerlifting totals, the strength score is designed to measure strength per-lift.</p>
-            <p>The exact definition of the strength score for a single lift is this: If the lifter were as strong in the performed lift as he or she were in all other lifts, then the score of the lift is equal to 1/4 of the lifter's hypothetical powerlifting wilks, in addition to an age adjustment (see the <a href="#references">references</a> below) if the lifter is younger than 23 or older than 40.</p>
-            <p>The "total" strength score averages the highest scores in each category: The squat, floor pull, pull-up, horizontal press, and vertical press.</p>
-            <p>The score for a single muscle group is measured by a weighted average of the lifts which involve that muscle group.</p>
+            <p>The strength score is closely related to the <a href="https://en.wikipedia.org/wiki/Wilks_Coefficient">Wilks
+              score</a>, which is commonly used in powerlifting to compare totals across weight classes. While the Wilks
+              score is designed to measure powerlifting totals, the strength score is designed to measure strength
+              per-lift.</p>
+            <p>The exact definition of the strength score for a single lift is this: If the lifter were as strong in the
+              performed lift as he or she were in all other lifts, then the score of the lift is equal to 1/4 of the
+              lifter's hypothetical powerlifting wilks, in addition to an age adjustment (see the <a href="#references">references</a>
+              below) if the lifter is younger than 23 or older than 40.</p>
+            <p>The "total" strength score averages the highest scores in each category: The squat, floor pull, pull-up,
+              horizontal press, and vertical press.</p>
+            <p>The score for a single muscle group is measured by a weighted average of the lifts which involve that
+              muscle group.</p>
           </p-accordionTab>
           <p-accordionTab header="What is the symmetry score?">
-            <p>The symmetry score is a measure of how much the strength levels among your lifts vary. For example, a 140 lb woman with a 110 lb bench press and a 165 lb squat will have a high symmetry score, since those two lifts are close to average for her strength level. On the other hand, if she had a 130 lb bench and a 145 lb squat, she would have a lower symmetry score, since her bench is disproportionately high and her squat is disproportionately low in comparison to other female lifters at her level.</p>
-            <p>100 is the highest possible score, and indicates that all your lifts are equal to those of an average lifter at your strength level. Negative scores are possible and indicate pronounced asymmetry. Higher scores are not necessarily better than lower scores, since some lifters might naturally be stronger on certain lifts due to their builds, leverages, or other non training-related factors.</p>
+            <p>The symmetry score is a measure of how much the strength levels among your lifts vary. For example, a 140
+              lb woman with a 110 lb bench press and a 165 lb squat will have a high symmetry score, since those two
+              lifts are close to average for her strength level. On the other hand, if she had a 130 lb bench and a 145
+              lb squat, she would have a lower symmetry score, since her bench is disproportionately high and her squat
+              is disproportionately low in comparison to other female lifters at her level.</p>
+            <p>100 is the highest possible score, and indicates that all your lifts are equal to those of an average
+              lifter at your strength level. Negative scores are possible and indicate pronounced asymmetry. Higher
+              scores are not necessarily better than lower scores, since some lifters might naturally be stronger on
+              certain lifts due to their builds, leverages, or other non training-related factors.</p>
           </p-accordionTab>
           <p-accordionTab header="How are comparisons to the average lifter determined?">
-            <p>Ratios among different compound lifts for the average lifters were gathered from powerlifting world records, published strength standards, and other sources. See the "References" section for more information.</p>
-            <p>Some may argue that the "average" lifter isn't likely to train the less common lifts or is biased toward upper-body and "vanity" lifts. While this may be true, the "average" lifter on this site is assumed to have trained each lift equally.</p>
+            <p>Ratios among different compound lifts for the average lifters were gathered from powerlifting world
+              records, published strength standards, and other sources. See the "References" section for more
+              information.</p>
+            <p>Some may argue that the "average" lifter isn't likely to train the less common lifts or is biased toward
+              upper-body and "vanity" lifts. While this may be true, the "average" lifter on this site is assumed to
+              have trained each lift equally.</p>
           </p-accordionTab>
-          <p-accordionTab header="On my relative strengths and weaknesses chart, the percentages don't add up to 0%. Why is this?">
-            <p>Your relative scores are comparing you with other lifters that are at your same overall score, which is based on your <em>best</em> lift in all five categories. Therefore, if you enter multiple lifts per category, your average lift score may actually be lower than your overall score, which would cause the percentages to average to below 0%.</p>
-            <p>The reason Symmetric Strength uses the best lifts in each category rather than just averaging every lift entered is because of muscle group overlap. For example, if somebody checked four lifts - the Bench, Incline Bench, Dip, and Deadlift - and was elite in the first three and intermediate in the deadlift, then all we can conclude is that the lifter is incredibly strong at horizontal pressing and comparitively weak in the floor pull. We wouldn't want to count the horizontal press three times.</p>
-            <p>If you only enter one lift per category (except the "Miscellaneous" category), the percentages are guaranteed to add up to 0%, give or take 1% due to rounding.</p>
+          <p-accordionTab
+            header="On my relative strengths and weaknesses chart, the percentages don't add up to 0%. Why is this?">
+            <p>Your relative scores are comparing you with other lifters that are at your same overall score, which is
+              based on your <em>best</em> lift in all five categories. Therefore, if you enter multiple lifts per
+              category, your average lift score may actually be lower than your overall score, which would cause the
+              percentages to average to below 0%.</p>
+            <p>The reason Symmetric Strength uses the best lifts in each category rather than just averaging every lift
+              entered is because of muscle group overlap. For example, if somebody checked four lifts - the Bench,
+              Incline Bench, Dip, and Deadlift - and was elite in the first three and intermediate in the deadlift, then
+              all we can conclude is that the lifter is incredibly strong at horizontal pressing and comparitively weak
+              in the floor pull. We wouldn't want to count the horizontal press three times.</p>
+            <p>If you only enter one lift per category (except the "Miscellaneous" category), the percentages are
+              guaranteed to add up to 0%, give or take 1% due to rounding.</p>
           </p-accordionTab>
-          <p-accordionTab header="After going to the gym for a couple years, I am still classified as a novice. Why are the standards set so high? ">
-            <p>The classifications compare you to strength athletes, rather than average gymgoers. Even being one of the strongest lifters in an average commercial gym won't guarantee you an "advanced" or higher classification.</p>
-            <p>However, if you find yourself still in the "novice" category after a couple years of lifting, consider following an established strength training routine, such as <a href="https://www.amazon.com/gp/product/0982522738/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0982522738&amp;linkCode=as2&amp;tag=symstr-startingstrength-20&amp;linkId=FQSEE4MRVIDIQIH7">Starting Strength</a><img src="https://ir-na.amazon-adsystem.com/e/ir?t=symstr-startingstrength-20&amp;l=as2&amp;o=1&amp;a=0982522738" width="1" height="1" border="0" alt="" style="border: none !important; margin: 0px !important; display: none !important;"> or <a href="https://www.amazon.com/gp/product/B00686OYGQ/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=B00686OYGQ&amp;linkCode=as2&amp;tag=symstr-531-20&amp;linkId=23PCSEY7MMB26YGE">Wendler's 5/3/1</a><img src="https://ir-na.amazon-adsystem.com/e/ir?t=symstr-531-20&amp;l=as2&amp;o=1&amp;a=B00686OYGQ" width="1" height="1" border="0" alt="" style="border: none !important; margin: 0px !important; display: none !important;">.</p>
+          <p-accordionTab
+            header="After going to the gym for a couple years, I am still classified as a novice. Why are the standards set so high? ">
+            <p>The classifications compare you to strength athletes, rather than average gymgoers. Even being one of the
+              strongest lifters in an average commercial gym won't guarantee you an "advanced" or higher
+              classification.</p>
+            <p>However, if you find yourself still in the "novice" category after a couple years of lifting, consider
+              following an established strength training routine, such as <a
+                href="https://www.amazon.com/gp/product/0982522738/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0982522738&amp;linkCode=as2&amp;tag=symstr-startingstrength-20&amp;linkId=FQSEE4MRVIDIQIH7">Starting
+                Strength</a><img
+                src="https://ir-na.amazon-adsystem.com/e/ir?t=symstr-startingstrength-20&amp;l=as2&amp;o=1&amp;a=0982522738"
+                width="1" height="1" border="0" alt=""
+                style="border: none !important; margin: 0px !important; display: none !important;"> or <a
+                href="https://www.amazon.com/gp/product/B00686OYGQ/ref=as_li_tl?ie=UTF8&amp;camp=1789&amp;creative=9325&amp;creativeASIN=B00686OYGQ&amp;linkCode=as2&amp;tag=symstr-531-20&amp;linkId=23PCSEY7MMB26YGE">Wendler's
+                5/3/1</a><img
+                src="https://ir-na.amazon-adsystem.com/e/ir?t=symstr-531-20&amp;l=as2&amp;o=1&amp;a=B00686OYGQ"
+                width="1" height="1" border="0" alt=""
+                style="border: none !important; margin: 0px !important; display: none !important;">.</p>
           </p-accordionTab>
           <p-accordionTab header="Why are the lifting standards set so low?">
-            <p>Some might feel like the classifications are overly generous. If you are used to powerlifting classifications, note that the weight entered in Symmetric Strength is intended to be the weight at which your lifts were performed, rather than your competition weight. If you cut weight for a lifting competition and enter that weight in Symmetric Strength, your score will be inflated higher than it actually is.</p>
+            <p>Some might feel like the classifications are overly generous. If you are used to powerlifting
+              classifications, note that the weight entered in Symmetric Strength is intended to be the weight at which
+              your lifts were performed, rather than your competition weight. If you cut weight for a lifting
+              competition and enter that weight in Symmetric Strength, your score will be inflated higher than it
+              actually is.</p>
           </p-accordionTab>
           <p-accordionTab header="I can do more than 10 pull-ups or dips. Why can't I enter more than 10 reps?">
-            <p>Symmetric Strength uses a one rep max formula to calculate the strength of your lifts. Research shows that this formula becomes significantly less accurate after 10 reps; therefore, Symmetric Strength limits the maximum number of repetitions to 10.</p>
-            <p>The reason symmetric strength doesn't allow over 10 reps for lifts is that the site is measuring strength, not endurance. At the higher rep ranges, endurance starts to become a factor, making it more difficult to determine the strength required to perform the lift at the given weight and high rep count.</p>
-            <p>If you can do more than 10 pull-ups or dips, then try adding some weight using either a dumbbell between your legs or a dip belt. Then, next time you enter your lift, select the "weighted" option. Using weighted pull-ups and dips is the best way to increase pull-up and dip strength!</p>
+            <p>Symmetric Strength uses a one rep max formula to calculate the strength of your lifts. Research shows
+              that this formula becomes significantly less accurate after 10 reps; therefore, Symmetric Strength limits
+              the maximum number of repetitions to 10.</p>
+            <p>The reason symmetric strength doesn't allow over 10 reps for lifts is that the site is measuring
+              strength, not endurance. At the higher rep ranges, endurance starts to become a factor, making it more
+              difficult to determine the strength required to perform the lift at the given weight and high rep
+              count.</p>
+            <p>If you can do more than 10 pull-ups or dips, then try adding some weight using either a dumbbell between
+              your legs or a dip belt. Then, next time you enter your lift, select the "weighted" option. Using weighted
+              pull-ups and dips is the best way to increase pull-up and dip strength!</p>
           </p-accordionTab>
           <p-accordionTab header="Some of my lifts are significantly better than others. Is this bad?">
-            <p>Not necessarily! Each lifter is different. If you have long arms, for example, you may find that your deadlift is stronger than average, while your pressing movements may lag behind. Depending your build, you might be naturally strong in some areas and weaker in others. Furthermore, if you compete in a specific sport, you will want to specialize in certain lifts. Powerlifters specialize in the bench press, squat, and deadlift, for example, while weightlifters will have a stronger power clean, front squat, and so on.</p>
+            <p>Not necessarily! Each lifter is different. If you have long arms, for example, you may find that your
+              deadlift is stronger than average, while your pressing movements may lag behind. Depending your build, you
+              might be naturally strong in some areas and weaker in others. Furthermore, if you compete in a specific
+              sport, you will want to specialize in certain lifts. Powerlifters specialize in the bench press, squat,
+              and deadlift, for example, while weightlifters will have a stronger power clean, front squat, and so
+              on.</p>
             <p>On the other hand, asymmetric lifts could be a sign of a few different issues:</p>
             <ul>
-              <li>You could be using improper form on some lifts. For instance, if you aren't squatting to proper depth, your squat score will look higher than it actually is. Likewise, the bench press should be performed with a brief pause on the chest for the set you record on Symmetric Strength. See the "Lifts &amp; proper form" section in this page for form information on each lift. Improper form can artificially lower scores (if lifts are performed inefficiently) or raise them (if the lifts aren't performed with a full range of motion).</li>
-              <li>You could have a muscle imbalance. If you are still a novice, don't worry about asymmetry, and instead focus on proper form and building a solid base of overall strength. If you're beyond the novice stage, you may want to focus on training the lagging lift(s) to bring them in line with the rest of your lifts.</li>
+              <li>You could be using improper form on some lifts. For instance, if you aren't squatting to proper depth,
+                your squat score will look higher than it actually is. Likewise, the bench press should be performed
+                with a brief pause on the chest for the set you record on Symmetric Strength. See the "Lifts &amp;
+                proper form" section in this page for form information on each lift. Improper form can artificially
+                lower scores (if lifts are performed inefficiently) or raise them (if the lifts aren't performed with a
+                full range of motion).
+              </li>
+              <li>You could have a muscle imbalance. If you are still a novice, don't worry about asymmetry, and instead
+                focus on proper form and building a solid base of overall strength. If you're beyond the novice stage,
+                you may want to focus on training the lagging lift(s) to bring them in line with the rest of your lifts.
+              </li>
             </ul>
           </p-accordionTab>
           <p-accordionTab header="How is the strength of different muscle groups determined?">
-            <p>Each lift stresses certain muscle groups more than others. Suppose you have a strong bench press, but a weak overhead press. The triceps and the chest are the primary muscle groups involved in the bench press, whereas the overhead press stresses the triceps and the shoulders. In this case, there is a strong chance that your chest is strong yet your shoulders are lagging.</p>
-            <p>Symmetric Strength uses the same reasoning when predicting the strength of your different muscle groups. The more lifts you record into symmetric strength, the more accurate the figure will be. Since each lifter performs lifts differently, the figure won't be a perfect representation of your strengths and weaknesses; however, it provides a generally accurate overview.</p>
-            <p>If Symmetric Strength does not have enough data to determine the strength of a muscle group, the muscle group will remain grey.</p>
+            <p>Each lift stresses certain muscle groups more than others. Suppose you have a strong bench press, but a
+              weak overhead press. The triceps and the chest are the primary muscle groups involved in the bench press,
+              whereas the overhead press stresses the triceps and the shoulders. In this case, there is a strong chance
+              that your chest is strong yet your shoulders are lagging.</p>
+            <p>Symmetric Strength uses the same reasoning when predicting the strength of your different muscle groups.
+              The more lifts you record into symmetric strength, the more accurate the figure will be. Since each lifter
+              performs lifts differently, the figure won't be a perfect representation of your strengths and weaknesses;
+              however, it provides a generally accurate overview.</p>
+            <p>If Symmetric Strength does not have enough data to determine the strength of a muscle group, the muscle
+              group will remain grey.</p>
           </p-accordionTab>
-          <p-accordionTab header="Why does my friend have a higher strength score than me, despite all my lifts being better?">
-            <p>You weigh more than your friend. Since the strength score adjusts by weight, your friend may have a higher strength score despite having lower lifts. Refer to "What is the strength score?" for further explanation.</p>
-            <p>Additionally, the strength score adjusts by age and sex. For example, a woman at the same weight as a man with the same lift numbers will have a higher strength score.</p>
+          <p-accordionTab
+            header="Why does my friend have a higher strength score than me, despite all my lifts being better?">
+            <p>You weigh more than your friend. Since the strength score adjusts by weight, your friend may have a
+              higher strength score despite having lower lifts. Refer to "What is the strength score?" for further
+              explanation.</p>
+            <p>Additionally, the strength score adjusts by age and sex. For example, a woman at the same weight as a man
+              with the same lift numbers will have a higher strength score.</p>
           </p-accordionTab>
-          <p-accordionTab header="Why does my friend have a higher strength score than me, even though I am pound-for-pound stronger?">
-            <p>Though the strength score adjusts by weight, it does not do so linearly. For example, it is much easier for a light lifter to hit a double-bodyweight front squat than it is for a heavy lifter. Refer to "What is the strength score?" for further explanation.</p>
+          <p-accordionTab
+            header="Why does my friend have a higher strength score than me, even though I am pound-for-pound stronger?">
+            <p>Though the strength score adjusts by weight, it does not do so linearly. For example, it is much easier
+              for a light lifter to hit a double-bodyweight front squat than it is for a heavy lifter. Refer to "What is
+              the strength score?" for further explanation.</p>
           </p-accordionTab>
           <p-accordionTab header="What is a good long-term strength score goal?">
-            <p>This will depend on a number of factors, such as age and genetics. For the average relatively young (&lt;40) lifter, a strength score of 100 is close to the limit of what is attainable without the use of performance-enhancing drugs. To reach this level usually requires consistent strength training for a period of 5-10 years.</p>
-            <p>Symmetric Strength uses the same reasoning when predicting the strength of your different muscle groups. The more lifts you record into symmetric strength, the more accurate the figure will be. Since each lifter performs lifts differently, the figure won't be a perfect representation of your strengths and weaknesses; however, it provides a generally accurate overview.</p>
-            <p>If Symmetric Strength does not have enough data to determine the strength of a muscle group, the muscle group will remain grey.</p>
+            <p>This will depend on a number of factors, such as age and genetics. For the average relatively young (&lt;40)
+              lifter, a strength score of 100 is close to the limit of what is attainable without the use of
+              performance-enhancing drugs. To reach this level usually requires consistent strength training for a
+              period of 5-10 years.</p>
+            <p>Symmetric Strength uses the same reasoning when predicting the strength of your different muscle groups.
+              The more lifts you record into symmetric strength, the more accurate the figure will be. Since each lifter
+              performs lifts differently, the figure won't be a perfect representation of your strengths and weaknesses;
+              however, it provides a generally accurate overview.</p>
+            <p>If Symmetric Strength does not have enough data to determine the strength of a muscle group, the muscle
+              group will remain grey.</p>
           </p-accordionTab>
-          <p-accordionTab header="Since the strength score is adjusted for bodyweight, what is a good target weight to get my score as high as possible? Should I cut or bulk?">
-            <p>Again, this will vary per individual. For a general estimate of a good target weight, see the "ideal weight calculator". Find the weight listed under the "Maximum Muscular Potential" section at 10% or 12% body fat. This will likely be close to the weight which will get you your highest strength score. To reach your highest potential strength score, however, you may need to spend periods of time bulking (gaining weight while gaining strength) and cutting (losing weight while maintaining as much strength as possible). Many lifters find that that they plateau if they stay at the same weight.</p>
+          <p-accordionTab
+            header="Since the strength score is adjusted for bodyweight, what is a good target weight to get my score as high as possible? Should I cut or bulk?">
+            <p>Again, this will vary per individual. For a general estimate of a good target weight, see the "ideal
+              weight calculator". Find the weight listed under the "Maximum Muscular Potential" section at 10% or 12%
+              body fat. This will likely be close to the weight which will get you your highest strength score. To reach
+              your highest potential strength score, however, you may need to spend periods of time bulking (gaining
+              weight while gaining strength) and cutting (losing weight while maintaining as much strength as possible).
+              Many lifters find that that they plateau if they stay at the same weight.</p>
           </p-accordionTab>
           <p-accordionTab header="How were the lifts for Symmetric Strength chosen? Will other lifts be added?">
             <p>The lifts chosen for Symmetric Strength meet the following criteria:</p>
@@ -93,105 +197,351 @@
               <li>They each have a clearly defined form and range of motion.</li>
               <li>They don't require specialized equipment (e.g. machines) that may vary from gym to gym.</li>
               <li>They are relatively simple to perform.</li>
-              <li>They are good "benchmark" lifts; that is, the lifter's proficiency in the lift serves as a good indication of strength in certain areas.</li>
+              <li>They are good "benchmark" lifts; that is, the lifter's proficiency in the lift serves as a good
+                indication of strength in certain areas.
+              </li>
               <li>They are suitable for 1RM attempts.</li>
               <li>They can be progressed in small weight increments indefinitely.</li>
             </ol>
             <p>For these reasons, the following commonly requested lifts will not be added:</p>
             <ul>
-              <li>Upright rows and shrugs, as they violate #1, #4, and #5. One lifter may be able to shrug 200 lbs using a certain form, and another at a similar strength level may be able to "power shrug" 400 lbs.</li>
+              <li>Upright rows and shrugs, as they violate #1, #4, and #5. One lifter may be able to shrug 200 lbs using
+                a certain form, and another at a similar strength level may be able to "power shrug" 400 lbs.
+              </li>
               <li>Calf raises and similar movements, as they violate #1, #2, and #5.</li>
-              <li>Very technical lifts such as the clean and jerk, as they violate #3 and, for all but advanced lifters, #4. One lifter may have a significantly better clean and jerk than another at a similar strength level if they spent years perfecting the form.</li>
-              <li>Dumbbell lifts, as they violate #6, and to a lesser extent, #5. 125 lb+ dumbbells are uncommon in most gyms, and lifters rarely try for 1RMs on dumbbell lifts.</li>
+              <li>Very technical lifts such as the clean and jerk, as they violate #3 and, for all but advanced lifters,
+                #4. One lifter may have a significantly better clean and jerk than another at a similar strength level
+                if they spent years perfecting the form.
+              </li>
+              <li>Dumbbell lifts, as they violate #6, and to a lesser extent, #5. 125 lb+ dumbbells are uncommon in most
+                gyms, and lifters rarely try for 1RMs on dumbbell lifts.
+              </li>
             </ul>
             <p>The following lifts are under research and consideration:</p>
-            <ul><li>Power Snatch</li>
+            <ul>
+              <li>Power Snatch</li>
               <li>Zercher Squat</li>
               <li>Decline Bench Press</li>
               <li>Snatch-grip Deadlift</li>
             </ul>
-            <p>If you have any suggestions or data on the above lifts, please contact <a href="mailto:support@symmetricstrength.com">support@symmetricstrength.com</a>.</p>
+            <p>If you have any suggestions or data on the above lifts, please contact <a
+              href="mailto:support@symmetricstrength.com">support@symmetricstrength.com</a>.</p>
           </p-accordionTab>
-          <p-accordionTab header="I want to improve the score of one of my muscle groups. Which lifts correspond with certain muscle groups?">
+          <p-accordionTab
+            header="I want to improve the score of one of my muscle groups. Which lifts correspond with certain muscle groups?">
             <p>Here is a list of muscle groups and the most relevant lifts for each on Symmetric Strength:</p>
             <ul>
               <li><strong>Upper traps: </strong>
-              Deadlift, sumo deadlift, power clean, snatch press</li>
+                Deadlift, sumo deadlift, power clean, snatch press
+              </li>
               <li><strong>Middle traps: </strong>
-                Deadlift, sumo deadlift, power clean, snatch press, pull-up, Pendlay row</li>
+                Deadlift, sumo deadlift, power clean, snatch press, pull-up, Pendlay row
+              </li>
               <li><strong>Lower traps: </strong>
-                Dip, snatch press, pull-up, pendlay row</li>
+                Dip, snatch press, pull-up, pendlay row
+              </li>
               <li><strong>Anterior delts: </strong>
-                Overhead press, push press, snatch press, incline bench press, bench press, dips</li>
+                Overhead press, push press, snatch press, incline bench press, bench press, dips
+              </li>
               <li><strong>Lateral delts: </strong>
-                Snatch press, overhead press, push press</li>
+                Snatch press, overhead press, push press
+              </li>
               <li><strong>Posterior delts: </strong>
-                Pendlay row, pull-up, chin-up</li>
+                Pendlay row, pull-up, chin-up
+              </li>
               <li><strong>Pecs (Clavicular head): </strong>
-                Incline bench press, bench press, dip</li>
+                Incline bench press, bench press, dip
+              </li>
               <li><strong>Pecs (Sternal head): </strong>
-                Bench press, dip, incline bench press</li>
+                Bench press, dip, incline bench press
+              </li>
               <li><strong>Biceps: </strong>
-                Chin-up, pull-up, pendlay row</li>
+                Chin-up, pull-up, pendlay row
+              </li>
               <li><strong>Triceps: </strong>
-                Bench press, incline bench press, dip, overhead press, push press, snatch press</li>
+                Bench press, incline bench press, dip, overhead press, push press, snatch press
+              </li>
               <li><strong>Forearms: </strong>
-                Pull-up, deadlift, sumo deadlift, power clean</li>
+                Pull-up, deadlift, sumo deadlift, power clean
+              </li>
               <li><strong>Obliques &amp; serratus: </strong>
-                Deadlift, sumo deadlift, power clean, pull-up, chin-up, Pendlay row</li>
+                Deadlift, sumo deadlift, power clean, pull-up, chin-up, Pendlay row
+              </li>
               <li><strong>Abdominals: </strong>
-                Front squat, chin-up, back squat, deadlift, sumo deadlift, power clean, pull-up</li>
+                Front squat, chin-up, back squat, deadlift, sumo deadlift, power clean, pull-up
+              </li>
               <li><strong>Lats: </strong>
-                Pull-up, chin-up, Pendlay row</li>
+                Pull-up, chin-up, Pendlay row
+              </li>
               <li><strong>Spinal erectors: </strong>
-                Deadlift, power clean, back squat, sumo deadlift</li>
+                Deadlift, power clean, back squat, sumo deadlift
+              </li>
               <li><strong>Glutes: </strong>
-                Back squat, sumo deadlift, front squat, deadlift, power clean</li>
+                Back squat, sumo deadlift, front squat, deadlift, power clean
+              </li>
               <li><strong>Hamstrings: </strong>
-                Sumo deadlift, deadlift, back squat, power clean</li>
+                Sumo deadlift, deadlift, back squat, power clean
+              </li>
               <li><strong>Quads: </strong>
-                Front squat, back squat, sumo deadlift, power clean, deadlift</li>
+                Front squat, back squat, sumo deadlift, power clean, deadlift
+              </li>
               <li><strong>Hip flexors: </strong>
-                Back squat, front squat, sumo deadlift</li>
+                Back squat, front squat, sumo deadlift
+              </li>
               <li><strong>Hip adductors: </strong>
-                Back squat, front squat, sumo deadlift, push press</li>
+                Back squat, front squat, sumo deadlift, push press
+              </li>
               <li><strong>Calves: </strong>
-                Power clean, push press (Note: the calves have a minor role in these lifts. Train calves in isolation.)</li>
+                Power clean, push press (Note: the calves have a minor role in these lifts. Train calves in isolation.)
+              </li>
             </ul>
-            <p>Note that these are not the <em>only</em> lifts affecting the above muscle groups. For example, there is some spinal erector involvement in the front squat. However, the list above outlines the most important lifts per muscle group.</p>
+            <p>Note that these are not the <em>only</em> lifts affecting the above muscle groups. For example, there is
+              some spinal erector involvement in the front squat. However, the list above outlines the most important
+              lifts per muscle group.</p>
           </p-accordionTab>
           <p-accordionTab header="What does the age field do? I changed my age but it didn't affect my results.">
-            <p>The "age" field only adjusts strength scores for lifters younger than 23 or older than 40. See the <a href="#references">references</a> section for more information.</p>
+            <p>The "age" field only adjusts strength scores for lifters younger than 23 or older than 40. See the <a
+              href="#references">references</a> section for more information.</p>
           </p-accordionTab>
           <p-accordionTab header="Will Symmetric Strength factor height into calculations in the future?">
             <p>Currently, there is no plan to add a "height" option. There are two reasons for this:</p>
-            <p>The first reason is that there isn't enough height data available for high-level lifters to make a reliable formula that will factor in height. Symmetric Strength will always favor accuracy over added features.</p>
-            <p>The other side of the equation is that in most strength sports, at very high levels, weight classes essentially become height classes. If you look at elite olympic lifters or powerlifters, you'll notice that the competitors tend to be around the same height with others in their weight class. This is because there tends to be a weight which maximizes the lifters strength for their height. See the <a href="/calculator/ideal_bodyweight">ideal weight calculator</a> for information on these weights. It would be extremely rare to see a 150 lb 6'0" male being anywhere near competitive in most strength sports. That is, a large part of becoming an advanced lifter is eating enough to reach a weight that maximizes your strength for your height.</p>
-            <p>There is something to be said about height increasing the range of motion on most lifts, but actually, if you research some of the best benchers, deadlifters, and so on, they aren't all short - but they have all reached a weight that maximized their potential.</p>
+            <p>The first reason is that there isn't enough height data available for high-level lifters to make a
+              reliable formula that will factor in height. Symmetric Strength will always favor accuracy over added
+              features.</p>
+            <p>The other side of the equation is that in most strength sports, at very high levels, weight classes
+              essentially become height classes. If you look at elite olympic lifters or powerlifters, you'll notice
+              that the competitors tend to be around the same height with others in their weight class. This is because
+              there tends to be a weight which maximizes the lifters strength for their height. See the <a
+                href="/calculator/ideal_bodyweight">ideal weight calculator</a> for information on these weights. It
+              would be extremely rare to see a 150 lb 6'0" male being anywhere near competitive in most strength sports.
+              That is, a large part of becoming an advanced lifter is eating enough to reach a weight that maximizes
+              your strength for your height.</p>
+            <p>There is something to be said about height increasing the range of motion on most lifts, but actually, if
+              you research some of the best benchers, deadlifters, and so on, they aren't all short - but they have all
+              reached a weight that maximized their potential.</p>
           </p-accordionTab>
           <p-accordionTab header="Some of my stats changed slightly even though my lifts did not. Why is this?">
-            <p>The analysis calculations are often refined to be consistent with new data and research, which may cause your stats to change slightly from time to time.</p>
+            <p>The analysis calculations are often refined to be consistent with new data and research, which may cause
+              your stats to change slightly from time to time.</p>
           </p-accordionTab>
           <p-accordionTab header="How can I share my strength stats?">
-            <p>Easy! Click the "log in / register" button at the top of the page to create a free account. You can make an account quickly using Facebook or Google, or you can use the standard email registration. After you create an account, you'll be given a public lifter page which you can share with others!</p>
+            <p>Easy! Click the "log in / register" button at the top of the page to create a free account. You can make
+              an account quickly using Facebook or Google, or you can use the standard email registration. After you
+              create an account, you'll be given a public lifter page which you can share with others!</p>
           </p-accordionTab>
-          <p-accordionTab header="I'd like to share my strength profile but I want to keep my age and bodyweight private. Is this possible?">
-            <p>There is an option to hide your age and bodyweight in the "Settings" page if you are logged in. Doing this will hide the following from your public profile:</p>
-            <ul><li>The age and weight display next to your user name.</li>
-              <li>Your "lifts vs average" chart, since otherwise users could find your bodyweight based on your total (bodyweight + added weight) dip, pull-up, or chin-up max.</li>
+          <p-accordionTab
+            header="I'd like to share my strength profile but I want to keep my age and bodyweight private. Is this possible?">
+            <p>There is an option to hide your age and bodyweight in the "Settings" page if you are logged in. Doing
+              this will hide the following from your public profile:</p>
+            <ul>
+              <li>The age and weight display next to your user name.</li>
+              <li>Your "lifts vs average" chart, since otherwise users could find your bodyweight based on your total
+                (bodyweight + added weight) dip, pull-up, or chin-up max.
+              </li>
               <li>Your "lift 1RM" progress chart, for the same reason as above.</li>
               <li>Your strength standards table, since the standards are based on age and bodyweight.</li>
             </ul>
-            <p>However, even though your age and bodyweight won't be visible on the page, nearly every statistic displayed on your page is calculated using your age and bodyweight, so it is theoretically possible to deduce this information. Age and bodyweight may also be present in the page source code and via the Symmetric Strength API. If you are very concerned about age and bodyweight privacy, please disable your public page.</p>
+            <p>However, even though your age and bodyweight won't be visible on the page, nearly every statistic
+              displayed on your page is calculated using your age and bodyweight, so it is theoretically possible to
+              deduce this information. Age and bodyweight may also be present in the page source code and via the
+              Symmetric Strength API. If you are very concerned about age and bodyweight privacy, please disable your
+              public page.</p>
           </p-accordionTab>
-          <p-accordionTab header="I accidentally logged incorrect lift information on Symmetric Strength, and now my progress charts are off. Can I delete old lifting logs?">
-            <p>You can! On your strength progress chart, click on one of the incorrect data points. A prompt will appear below the chart asking whether you would like to delete the corresponding lifting log.</p>
+          <p-accordionTab
+            header="I accidentally logged incorrect lift information on Symmetric Strength, and now my progress charts are off. Can I delete old lifting logs?">
+            <p>You can! On your strength progress chart, click on one of the incorrect data points. A prompt will appear
+              below the chart asking whether you would like to delete the corresponding lifting log.</p>
           </p-accordionTab>
-          <p-accordionTab header="If I buy the Android app, can I also get the iOS app at no extra cost (or vice versa)?">
-            <p>Sorry, but if you want to use the app on both iOS and Android devices, you'll have to purchase both the iOS and Android apps.</p>
+          <p-accordionTab
+            header="If I buy the Android app, can I also get the iOS app at no extra cost (or vice versa)?">
+            <p>Sorry, but if you want to use the app on both iOS and Android devices, you'll have to purchase both the
+              iOS and Android apps.</p>
           </p-accordionTab>
         </p-accordion>
       </div>
     </div>
   </div>
+  <div class="col-8 xl:col-8 lg:col-8 md:col-10 sm:col-12 center content" style="margin-top: 25px;">
+    <div class="col-12 grid" style="padding: 12px 20px 15px;">
+      <h2 class="title-header" style="padding: 10px">Lifts &amp; Proper Form
+      </h2>
+      <hr>
+      <div class="col-12" style="font-size: 14px">
+        <h3 style="font-size: 23px">Back Squat</h3>
+        <p>With the barbell on your back, descend until the top surface of your thighs is lower than the top of your
+          knees ("below parallel"), then stand back into an upright position where the knees are locked. For the
+          purposes of measuring on Symmetric Strength, the squat is not complete unless your legs move below parallel
+          with the ground, and knee wraps should not be used.</p>
+        <p><a href="https://www.youtube.com/watch?v=7fmrKmJMQnw"><i class="fa fa-youtube-play"></i> Watch powerlifter
+          Jonnie Candito teach the squat [2:34]</a></p>
+        <p><a href="https://www.youtube.com/watch?v=bs_Ej32IYgo"><i class="fa fa-youtube-play"></i> Watch Alan Thrall
+          teach the squat [26:06]</a></p>
+        <p><a href="https://www.youtube.com/watch?v=U5zrloYWwxw"><i class="fa fa-youtube-play"></i> Watch powerlifter
+          Chris Duffin teach the squat. [34:51]</a></p>
+      </div>
+      <div class="col-12" style="font-size: 14px">
+        <h3 style="font-size: 23px">Front Squat</h3>
+        <p>With the barbell resting on your shoulders (using either an olympic-style "clean" grip or a
+          bodybuilding-style "cross" grip), descend until the top of your thighs is lower than the top of your knees,
+          then stand back into an upright position where the knees are locked. For the purposes of measuring on
+          Symmetric Strength, the front squat is not complete unless your legs move below parallel with the ground, and
+          knee wraps should not be used.</p>
+        <p><a href="https://youtu.be/wyDbagKS7Rg"><i class="fa fa-youtube-play"></i> Watch powerlifter Jonnie Candito
+          teach the front squat [2:25]</a></p>
+        <p><a href="https://www.youtube.com/watch?v=vzVCqLyGVd0"><i class="fa fa-youtube-play"></i> Watch Alan Thrall
+          teach how to front squat with poor mobility [6:10]</a></p>
+      </div>
+      <div class="col-12" style="font-size: 14px">
+        <h3 style="font-size: 23px">Deadlift</h3>
+        <p>With the barbell resting on your shoulders (using either an olympic-style "clean" grip or a
+          bodybuilding-style "cross" grip), descend until the top of your thighs is lower than the top of your knees,
+          then stand back into an upright position where the knees are locked. For the purposes of measuring on
+          Symmetric Strength, the front squat is not complete unless your legs move below parallel with the ground, and
+          knee wraps should not be used.</p>
+        <p><a href="https://www.youtube.com/watch?v=u6UgD1H_AXw"><i class="fa fa-youtube-play"></i> Watch Jonnie Candito
+          teach the deadlift [2:34]</a></p>
+        <p><a href="https://www.youtube.com/watch?v=Y1IGeJEXpF4"><i class="fa fa-youtube-play"></i> Watch Alan Thrall
+          teach the deadlift [9:41]</a></p>
+      </div>
+      <div class="col-12" style="font-size: 14px">
+        <h3 style="font-size: 23px">Sumo Deadlift</h3>
+        <p>With the barbell on the floor, grab the bar such that your grip is between your legs ("sumo" stance), then
+          lift the barbell until your knees and hips are locked and your shoulders are back. For the purposes of
+          measuring on Symmetric Strength, lifting straps should not be used.</p>
+        <p><a href="https://www.youtube.com/watch?v=u07SQkfLfrQ"><i class="fa fa-youtube-play"></i> Watch strength coach
+          JL Holdsworth teach the sumo deadlift [6:59]</a></p>
+        <p><a href="https://youtu.be/lDt8HwxVST0"><i class="fa fa-youtube-play"></i> Watch record-holding powerlifter Ed
+          Coan teach the sumo deadlift [18:16]</a></p>
+        <p><a href="https://www.youtube.com/watch?v=ioo4LKjwQfg"><i class="fa fa-youtube-play"></i> Watch record-holding
+          powerlifter Dan Green discuss three common sumo deadlift mistakes [3:26]</a></p>
+      </div>
+      <div class="col-12" style="font-size: 14px">
+        <h3 style="font-size: 23px">Power Clean</h3>
+        <p>With the barbell on the floor, grab the bar such that your grip is outside your legs, then lift the barbell.
+          Once the barbell is above your knees, raise the bar explosively and rack it onto your shoulders, then stand
+          upright.</p>
+        <p><a href="https://www.youtube.com/watch?v=mPsxlNjv7Aw"><i class="fa fa-youtube-play"></i> Watch Alan Thrall
+          teach the power clean [12:28]</a></p>
+      </div>
+      <div class="col-12" style="font-size: 14px">
+        <h3 style="font-size: 23px">Bench Press</h3>
+        <p>While lying on a flat bench, unrack the barbell and move it above your chest with locked elbows. After the
+          barbell is unracked, lower the barbell until the barbell touches the chest, then pause for one second, then
+          raise the barbell above your chest until your elbows are locked. Your head, upper back, and glutes should be
+          in contact with the bench throughout the entire lift, and your feet should remain on the ground. For the
+          purposes of powerlifting competitions and measuring on Symmetric Strength, the bench press is not complete
+          unless there is a pause at the bottom of the rep.</p>
+        <p><a href="https://www.youtube.com/watch?v=mPsxlNjv7Aw"><i class="fa fa-youtube-play"></i> Watch Alan Thrall
+          teach the power clean [12:28]</a></p>
+        <p><a href="https://www.youtube.com/watch?v=BYKScL2sgCs"><i class="fa fa-youtube-play"></i> Watch Alan Thrall
+          teach the bench press [10:59]</a></p>
+        <p><a href="https://youtu.be/ily2X9LCEfg"><i class="fa fa-youtube-play"></i> Watch Chris Duffin discuss how to
+          involve the lats in the bench press. [13:56]</a></p>
+        <p><a href="https://www.youtube.com/watch?v=XGkRDcMeSTY"><i class="fa fa-youtube-play"></i> Watch Jonnie Candito
+          explain how to fail the bench press without injuring yourself. [5:42]</a></p>
+        <div class="note note-warning"><strong>Warning:</strong> Study the form videos above in order to protect the
+          shoulders while performing this lift.
+        </div>
+      </div>
+      <div class="col-12" style="font-size: 14px">
+        <h3 style="font-size: 23px">Incline Bench Press</h3>
+        <p>While lying on an incline bench (30-45 degrees), unrack the barbell and move it above your chest with locked
+          elbows. After the barbell is unracked, lower the barbell until the barbell touches the chest, then pause for
+          one second, then raise the barbell above your chest until your elbows are locked. Your head, upper back, and
+          glutes should be in contact with the bench throughout the entire lift, and your feet should remain on the
+          ground. For the purposes of measuring on Symmetric Strength, the incline bench press is not complete unless
+          there is a pause at the bottom of the rep.</p>
+        <p><a href="https://youtu.be/DbFgADa2PL8"><i class="fa fa-youtube-play"></i> Watch Scott Herman teach the
+          incline bench press [3:54]</a></p>
+        <div class="note note-warning"><strong>Warning:</strong> Study the both the bench press and incline bench press
+          form videos above in order to protect the shoulders while performing this lift. If you experience shoulder
+          pain while performing this movement, either adjust your form or replace the lift with the standard bench
+          press.
+        </div>
+      </div>
+      <div class="col-12" style="font-size: 14px">
+        <h3 style="font-size: 23px">Dip</h3>
+        <p>While at a dip station (either assisted, unassisted, or with weight hanging from you), begin by grabbing the
+          bars and supporting yourself with locked elbows. Lower yourself until the top of your elbows are above the top
+          of your shoulders ("below parallel"), then press yourself back up until your elbows are once again locked. For
+          the purposes of measuring on Symmetric Strength, the dip is not complete unless your upper arms move below
+          parallel with the ground.</p>
+        <p><a href="https://youtu.be/2i3o0bFZT_s"><i class="fa fa-youtube-play"></i> Watch Scott Herman teach the
+          weighted dip [2:04]</a></p>
+        <div class="note note-warning"><strong>Warning:</strong> If you experience any shoulder or clavicle pain while
+          performing this lift, either adjust your form or replace the lift with the bench press.
+        </div>
+      </div>
+      <div class="col-12" style="font-size: 14px">
+        <h3 style="font-size: 23px">Overhead Press</h3>
+        <p>Stand and hold the barbell directly in front of you under your chin, then press the barbell above your head
+          until your elbows are locked while maintaining an upright stance throughout the lift. For the purposes of
+          measuring on Symmetric Strength, this lift should be done while standing, not sitting.</p>
+        <p><a href="https://www.youtube.com/watch?v=wol7Hko8RhY"><i class="fa fa-youtube-play"></i> Watch Alan Thrall
+          teach the overhead press [9:47]</a></p>
+        <p><a href="https://www.youtube.com/watch?v=CnBmiBqp-AI"><i class="fa fa-youtube-play"></i> Watch Mark Rippetoe
+          teach the overhead press [11:43]</a></p>
+      </div>
+      <div class="col-12" style="font-size: 14px">
+        <h3 style="font-size: 23px">Push Press</h3>
+        <p>Stand and hold the barbell directly in front of you under your chin. Slightly bend the knees and hips, then
+          explosively drive upward and press the bar overhead until your elbows are locked.</p>
+        <p><a href="https://youtu.be/fFY7CGKjGNM"><i class="fa fa-youtube-play"></i> Watch Scott Herman teach the push
+          press [4:55]</a></p>
+      </div>
+      <div class="col-12" style="font-size: 14px">
+        <h3 style="font-size: 23px">Snatch Press</h3>
+        <p>Stand with the barbell resting on your back with a snatch grip (a very wide grip), then press the barbell
+          above your head until your elbows are locked. See <a
+            href="https://breakingmuscle.com/olympic-weightlifting/how-to-determine-your-snatch-grip-width">this
+            article</a> to determine your snatch grip width.</p>
+        <p><a href="https://youtu.be/5WKw8kuN298"><i class="fa fa-youtube-play"></i> Watch Kevin Cornell teach the
+          snatch press [2:12]</a></p>
+        <p><a href="https://www.youtube.com/watch?v=Oqr4GnICbvE"><i class="fa fa-youtube-play"></i> Watch Dmitry Klokov
+          perform the snatch press or "Klokov press" [3:19]</a></p>
+        <div class="note note-warning"><strong>Warning:</strong> If you experience any shoulder pain while performing
+          this lift, either adjust your form, work on shoulder mobility, or replace the lift with the overhead press.
+        </div>
+      </div>
+      <div class="col-12" style="font-size: 14px">
+        <h3 style="font-size: 23px">Chin-up</h3>
+        <p>Grab a horizontal bar above you (either assisted, unassisted, or with weight hanging from you) using a
+          supinated grip (palms facing you) and begin the lift in with locked elbows with packed shoulders in a "dead
+          hang" position. Lift yourself upward until your chin is above the bar, without using momentum or "kipping".
+          For the purposes of measuring on Symmetric Strength, the chin-up is not complete if you "kip" yourself up to
+          the top.</p>
+        <p><a href="https://youtu.be/bZ6Ysk9jf6E"><i class="fa fa-youtube-play"></i> Watch Scott Herman teach the
+          weighted chin-up. [2:23]</a></p>
+        <p><a href="https://youtu.be/F239gCCmnoA"><i class="fa fa-youtube-play"></i> Watch how to "pack" your shoulders
+          during the chin-up or pull-up. [7:09]</a></p>
+      </div>
+      <div class="col-12" style="font-size: 14px">
+        <h3 style="font-size: 23px">Pull-up</h3>
+        <p>Grab a horizontal bar above you (either assisted, unassisted, or with weight hanging from you) using a
+          pronated grip (palms facing away from you) and begin the lift in with locked elbows with packed shoulders in a
+          "dead hang" position. Lift yourself upward until your chin is above the bar, without using momentum or
+          "kipping". For the purposes of measuring on Symmetric Strength, the pull-up is not complete if you "kip"
+          yourself up to the top.</p>
+        <p><a href="https://www.youtube.com/watch?v=HuuyDNGrCI8"><i class="fa fa-youtube-play"></i> Watch Scott Herman
+          teach the weighted pull-up [1:52]</a></p>
+        <p><a href="https://youtu.be/F239gCCmnoA"><i class="fa fa-youtube-play"></i> Watch how to "pack" your shoulders
+          during the chin-up or pull-up. [7:09]</a></p>
+      </div>
+      <div class="col-12" style="font-size: 14px">
+        <h3 style="font-size: 23px">Pendlay Row</h3>
+        <p>With the barbell in front of you, bend your knees slightly and grab the barbell with an overhand grip such
+          that your back is parallel to the ground. Explosively pull the weight up and touch the barbell with your lower
+          chest or upper abdominal area, then bring the barbell back to the ground. For the purposes of measuring on
+          Symmetric Strength, when explosively pulling the weight up, you may use some hip extension to initiate the
+          lift as long as the hip angle never surpasses 30 degrees from the starting point, and lifting straps may be
+          used. Your form should be somewhere between the two videos shown below:</p>
+        <p><a href="https://youtu.be/ZlRrIsoDpKg"><i class="fa fa-youtube-play"></i> Watch Olympic Weightlifting coach Glenn Pendlay teach the Pendlay row.</a>
+        </p>
+        <p><a href="https://youtu.be/OFDUA5S0B7M"><i class="fa fa-youtube-play"></i> Watch an example of a heavy Pendlay row with borderline form. When measuring your Pendlay row max on Symmetric Strength, you should not use any more hip extension than the lifter in this video.</a>
+        </p>
+        <div class="note note-info"><strong>Note:</strong> Row guidelines vary greatly among coaches, books, and websites. When entering your Pendlay row weight into Symmetric Strength, make sure you are following the guidelines above for the most accurate results.
+        </div>
+      </div>
+    </div>
   </div>
+</div>
