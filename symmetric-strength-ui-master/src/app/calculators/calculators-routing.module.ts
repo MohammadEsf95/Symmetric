@@ -24,10 +24,10 @@ const routes: Routes = [
         }
       },
       {
-        path: 'wilk',
+        path: 'wilks',
         component: WilkComponent,
         data: {
-          title: 'wilk'
+          title: 'wilks'
         }
       },
       {

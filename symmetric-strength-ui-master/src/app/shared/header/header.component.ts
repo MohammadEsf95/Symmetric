@@ -38,10 +38,22 @@ export class HeaderComponent implements OnInit {
       {
         label: 'Calculators',
         items: [
-          {label: '1RM Calculator'},
-          {label: 'Wilks Calculator'},
-          {label: 'TDEE Calculator'},
-          {label: 'Ideal Bodyweight Calculator'},
+          {
+            label: '1RM Calculator',
+            routerLink: '/calculator/one_rep_max'
+          },
+          {
+            label: 'Wilks Calculator',
+            routerLink: '/calculator/wilks'
+          },
+          {
+            label: 'TDEE Calculator',
+            routerLink: '/calculator/tdee'
+          },
+          {
+            label: 'Ideal Bodyweight Calculator',
+            routerLink: '/calculator/ideal_bodyweight'
+          },
         ]
       },
       {
@@ -51,8 +63,8 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('kir: ',localStorage.getItem('registerToken'))
-    if(localStorage.getItem('registerToken')) {
+    console.log('kir: ', localStorage.getItem('registerToken'))
+    if (localStorage.getItem('registerToken')) {
 
     }
   }
