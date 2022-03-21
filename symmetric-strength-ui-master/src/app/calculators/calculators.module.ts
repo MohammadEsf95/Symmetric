@@ -5,6 +5,9 @@ import { RmCalculatorComponent } from './rm-calculator/rm-calculator.component';
 import { WilkComponent } from './wilk/wilk.component';
 import { TdeeComponent } from './tdee/tdee.component';
 import { IdealBodyweightComponent } from './ideal-bodyweight/ideal-bodyweight.component';
+import {InputNumberModule} from "primeng/inputnumber";
+import {FormsModule} from "@angular/forms";
+import {ButtonModule} from "primeng/button";
 
 @NgModule({
   declarations:[
@@ -15,7 +18,10 @@ import { IdealBodyweightComponent } from './ideal-bodyweight/ideal-bodyweight.co
   ],
   imports:[
     CalculatorsRoutingModule,
-    SharedModule
+    SharedModule,
+    FormsModule,
+    ButtonModule,
+    InputNumberModule
   ],
   providers:[]
 })

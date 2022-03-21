@@ -1,1 +1,27 @@
-<p>rm-calculator works!</p>
+<div class="col-12 main-background">
+  <div class="col-8 xl:col-8 lg:col-8 md:col-10 sm:col-12 center content">
+    <div class="col-10 grid">
+      <div class="col-4" style="margin-top: 10px">
+            <span class="p-float-label">
+            <p-inputNumber id="weight" [min]="0" [(ngModel)]="weight" [showButtons]="true" inputId="weight">
+            </p-inputNumber>
+            <label for="weight">Weight</label>
+            </span>
+      </div>
+      <div class="col-4" style="margin-top: 10px">
+            <span class="p-float-label">
+            <p-inputNumber id="reps" [min]="0" [(ngModel)]="reps" [showButtons]="true" inputId="reps">
+            </p-inputNumber>
+            <label for="reps">Reps</label>
+            </span>
+      </div>
+    </div>
+    <div class="col-12">
+      <p-button label="Calculate 1RM"></p-button>
+    </div>
+<!--    <div class="alert alert-block alert-danger error-panel ng-scope" *ngIf="oneRepMaxCtrl.state.errors.errorList.length > 0" style=""><h4 class="alert-heading">Please correct the following and try again:</h4>-->
+<!--      <ul><li ng-repeat="error in oneRepMaxCtrl.state.errors.errorList" ng-bind="error" class="ng-binding ng-scope">Enter the weight lifted.</li>&lt;!&ndash; end ngRepeat: error in oneRepMaxCtrl.state.errors.errorList &ndash;&gt;<li ng-repeat="error in oneRepMaxCtrl.state.errors.errorList" ng-bind="error" class="ng-binding ng-scope">Enter between 1 and 10 reps.</li>-->
+<!--      </ul>-->
+<!--    </div>-->
+  </div>
+</div>

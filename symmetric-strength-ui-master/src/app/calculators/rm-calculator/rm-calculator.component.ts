@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RmCalculatorComponent implements OnInit {
 
+  reps: any;
+  weight: any;
+
   constructor() { }
 
   ngOnInit(): void {
