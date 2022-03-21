@@ -20,6 +20,11 @@
           <h1 *ngIf="router.url === '/home'" style="font-size: 25px;"> {{homePageTitle}} <small style="color: #9eacb4">Find strengths and weaknesses and measure yourself against other lifters</small></h1>
           <h1 *ngIf="router.url === '/strength-standards'" style="font-size: 25px;"> {{strengthStandardsTitle}}</h1>
           <h1 *ngIf="router.url === '/about'" style="font-size: 25px;"> {{about}} <small style="color: #9eacb4; font-size: 13px">Additional information & references</small></h1>
+          <h1 *ngIf="router.url === '/calculator/one_rep_max'" style="font-size: 25px;"> {{oneRmCalc}}</h1>
+          <h1 *ngIf="router.url === '/calculator/wilks'" style="font-size: 25px;"> {{wilksCalc}} <small style="color: #9eacb4; font-size: 13px">Calculate your powerlifting wilks score</small></h1>
+          <h1 *ngIf="router.url === '/calculator/tdee'" style="font-size: 25px;"> {{tdeeCalc}} <small style="color: #9eacb4; font-size: 13px">Calculate your total daily energy expenditure (how many calories you burn per day)</small></h1>
+          <h1 *ngIf="router.url === '/calculator/ideal_bodyweight'" style="font-size: 25px;"> {{idealBodyweightCalc}} <small style="color: #9eacb4; font-size: 13px">Find your ideal bodyweight based on your height and fitness goals</small></h1>
+
         </div>
       </div>
     </div>

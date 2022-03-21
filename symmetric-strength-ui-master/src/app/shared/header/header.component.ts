@@ -14,6 +14,10 @@ export class HeaderComponent implements OnInit {
   homePageTitle: string = 'Analyze Your Strength';
   strengthStandardsTitle: string = 'Strength Standards';
   about: string = 'About Symmetric Strength';
+  oneRmCalc: string = '1RM Calculator'
+  wilksCalc: string = 'Wilks Calculator'
+  tdeeCalc: string = 'TDEE Calculator'
+  idealBodyweightCalc: string = 'TDEE Calculator'
 
   constructor(public router: Router,) {
     this.items = [{
