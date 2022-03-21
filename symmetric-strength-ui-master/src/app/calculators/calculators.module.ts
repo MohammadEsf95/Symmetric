@@ -8,6 +8,7 @@ import { IdealBodyweightComponent } from './ideal-bodyweight/ideal-bodyweight.co
 import {InputNumberModule} from "primeng/inputnumber";
 import {FormsModule} from "@angular/forms";
 import {ButtonModule} from "primeng/button";
+import {DropdownModule} from "primeng/dropdown";
 
 @NgModule({
   declarations:[
@@ -21,6 +22,7 @@ import {ButtonModule} from "primeng/button";
     SharedModule,
     FormsModule,
     ButtonModule,
+    DropdownModule,
     InputNumberModule
   ],
   providers:[]

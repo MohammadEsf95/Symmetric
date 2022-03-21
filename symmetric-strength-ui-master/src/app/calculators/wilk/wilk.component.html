@@ -1,1 +1,91 @@
-<p>wilk works!</p>
+<div class="col-12 main-background">
+  <div class="col-8 xl:col-8 lg:col-8 md:col-10 sm:col-12 center content">
+    <div class="col-12 grid">
+      <div class="col-3" style="padding-left: 5px">
+        <label for="units" class="input-label">Units</label>
+        <p-dropdown id="units" [options]="units" [(ngModel)]="selectedUnit" styleClass="dropdown-def"
+                    placeholder="Select Unit" optionLabel="name"></p-dropdown>
+      </div>
+      <div class="col-3" style="padding-left: 5px">
+        <label for="genders" class="input-label">Sex</label>
+        <p-dropdown id="genders" [options]="genders" [(ngModel)]="selectedGender" styleClass="dropdown-def"
+                    optionLabel="type"></p-dropdown>
+      </div>
+      <div class="col-3" style="position: relative; padding-left: 0">
+              <span class="p-float-label" style="bottom: 8px; position: absolute;">
+            <p-inputNumber [min]="0" [(ngModel)]="bodyWeight" [showButtons]="true" inputId="bodyweight"
+                           [suffix]="' ' + selectedUnit.label">
+            </p-inputNumber>
+            <label for="bodyweight">Body weight {{selectedUnit.label}}</label>
+            </span>
+      </div>
+      <hr>
+      <div class="col-12" style="margin-top: 50px;font-weight: 300;">
+        <h2 style="font-size: 27px;">Enter your best back squat, bench press, and deadlift. <small style="font-size: 15px;color: #888;display: block;margin-top: 2px">If you enter more than one rep, Symmetric Strength will estimate your one rep max.</small></h2>
+        <div class="col-10 grid">
+          <div class="col-4">
+            <h5 class="lift-title">Back Squat</h5>
+          </div>
+          <div class="col-4" style="position: relative; padding-left: 0">
+              <span class="p-float-label" style="bottom: 8px; position: absolute;">
+            <p-inputNumber [min]="0" [(ngModel)]="backSquatWeight" [showButtons]="true" inputId="backSquatWeight"
+                           [suffix]="' ' + selectedUnit.label">
+            </p-inputNumber>
+            <label for="backSquatWeight">Weight {{selectedUnit.label}}</label>
+            </span>
+          </div>
+          <div class="col-4" style="margin-top: 10px">
+            <span class="p-float-label">
+            <p-inputNumber id="backSquatReps" [min]="1" [(ngModel)]="backSquatReps" [showButtons]="true" inputId="backSquatReps">
+            </p-inputNumber>
+            <label for="backSquatReps">Reps</label>
+            </span>
+          </div>
+        </div>
+        <div class="col-10 grid">
+          <div class="col-4">
+            <h5 class="lift-title">Bench Press</h5>
+          </div>
+          <div class="col-4" style="position: relative; padding-left: 0">
+              <span class="p-float-label" style="bottom: 8px; position: absolute;">
+            <p-inputNumber [min]="0" [(ngModel)]="benchPressWeight" [showButtons]="true" inputId="benchPressWeight"
+                           [suffix]="' ' + selectedUnit.label">
+            </p-inputNumber>
+            <label for="benchPressWeight">Weight {{selectedUnit.label}}</label>
+            </span>
+          </div>
+          <div class="col-4" style="margin-top: 10px">
+            <span class="p-float-label">
+            <p-inputNumber id="backSquatReps" [min]="1" [(ngModel)]="backSquatReps" [showButtons]="true" inputId="backSquatReps">
+            </p-inputNumber>
+            <label for="backSquatReps">Reps</label>
+            </span>
+          </div>
+        </div>
+        <div class="col-10 grid">
+          <div class="col-4">
+            <h5 class="lift-title">Deadlift</h5>
+          </div>
+          <div class="col-4" style="position: relative; padding-left: 0">
+              <span class="p-float-label" style="bottom: 8px; position: absolute;">
+            <p-inputNumber [min]="0" [(ngModel)]="deadlift" [showButtons]="true" inputId="deadlift"
+                           [suffix]="' ' + selectedUnit.label">
+            </p-inputNumber>
+            <label for="deadlift">Weight {{selectedUnit.label}}</label>
+            </span>
+          </div>
+          <div class="col-4" style="margin-top: 10px">
+            <span class="p-float-label">
+            <p-inputNumber id="backSquatReps" [min]="1" [(ngModel)]="backSquatReps" [showButtons]="true" inputId="backSquatReps">
+            </p-inputNumber>
+            <label for="backSquatReps">Reps</label>
+            </span>
+          </div>
+        </div>
+        <div class="col-12">
+          <p-button label="Calculate Wilks"></p-button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
