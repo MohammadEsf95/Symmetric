@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   isLoggedIn: boolean = false;
   homePageTitle: string = 'Analyze Your Strength';
   strengthStandardsTitle: string = 'Strength Standards';
-  about: string = 'About';
+  about: string = 'About Symmetric Strength';
 
   constructor(public router: Router,) {
     this.items = [{
