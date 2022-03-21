@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
   oneRmCalc: string = '1RM Calculator'
   wilksCalc: string = 'Wilks Calculator'
   tdeeCalc: string = 'TDEE Calculator'
-  idealBodyweightCalc: string = 'TDEE Calculator'
+  idealBodyweightCalc: string = 'Ideal Bodyweight Calculator'
 
   constructor(public router: Router,) {
     this.items = [{
