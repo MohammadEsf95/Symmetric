@@ -1,1 +1,37 @@
-<p>ideal-bodyweight works!</p>
+<div class="col-12 main-background">
+  <div class="col-8 xl:col-8 lg:col-8 md:col-10 sm:col-12 center content">
+    <div class="col-12 grid">
+      <div class="col-3" style="padding-left: 5px">
+        <label for="units" class="input-label">Units</label>
+        <p-dropdown id="units" [options]="units" [(ngModel)]="selectedUnit" styleClass="dropdown-def"
+                    placeholder="Select Unit" optionLabel="name"></p-dropdown>
+      </div>
+      <div class="col-3" style="padding-left: 5px">
+        <label for="genders" class="input-label">Sex</label>
+        <p-dropdown id="genders" [options]="genders" [(ngModel)]="selectedGender" styleClass="dropdown-def"
+                    optionLabel="type"></p-dropdown>
+      </div>
+    </div>
+    <div class="col-12 grid">
+      <div class="col-3" style="padding-left: 5px">
+              <span class="p-float-label">
+            <p-inputNumber [min]="0" [(ngModel)]="feet" [showButtons]="true" inputId="feet"
+                           [suffix]="' ft'">
+            </p-inputNumber>
+            <label for="feet">Feet</label>
+            </span>
+      </div>
+      <div class="col-3" style="padding-left: 15px">
+              <span class="p-float-label">
+            <p-inputNumber [min]="0" [(ngModel)]="inches" [showButtons]="true" inputId="inches"
+                           [suffix]="' in'">
+            </p-inputNumber>
+            <label for="bodyweight">Inches</label>
+            </span>
+      </div>
+    </div>
+    <div class="col-12" style="margin-top: 20px; padding-left: 5px">
+      <p-button label="Calculate Ideal Bodyweight"></p-button>
+    </div>
+    </div>
+</div>

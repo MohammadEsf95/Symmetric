@@ -7,9 +7,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IdealBodyweightComponent implements OnInit {
 
-  constructor() { }
+  units: any[] = [];
+  genders: any[] = [{type: 'Male'}, {type: 'Female'}];
+  selectedUnit: any = {};
+  selectedGender: any = {};
+  feet: any;
+  inches: any;
+
+  constructor() {
+    this.units = [
+      {name: 'Metric', label: 'KG'},
+      {name: 'Imperial', label: 'LBS'}
+    ]
+  }
 
   ngOnInit(): void {
+    this.selectedUnit = this.units[0];
+    this.selectedGender = this.genders[0];
   }
 
 }
