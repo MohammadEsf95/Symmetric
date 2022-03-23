@@ -68,10 +68,10 @@ export class LoginComponent implements OnInit {
   }
 
   navigateToForgotPassword() {
-    this.router.navigate(['/static/forgot-password']);
+    this.router.navigate(['/auth/forgot-password']);
   }
 
   navigateToRegister() {
-    this.router.navigate(['/static/register']);
+    this.router.navigate(['/auth/register']);
   }
 }

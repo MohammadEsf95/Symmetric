@@ -53,7 +53,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
           },
           {
             id: FacebookLoginProvider.PROVIDER_ID,
-            provider: new FacebookLoginProvider("YourFacebookAppID")
+            provider: new FacebookLoginProvider("366291448689657\n" +
+              "f51b7a48b703f50a75fddb82c39a4b51")
           }
         ]
       } as SocialAuthServiceConfig,

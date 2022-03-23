@@ -79,3 +79,11 @@
 :host ::ng-deep .p-menubar .p-menuitem-link::selection {
   background: #444d58;
 }
+
+:host ::ng-deep .p-menubar .p-menubar-root-list>.p-menuitem.p-menuitem-active>.p-menuitem-link, .p-menubar .p-menubar-root-list>.p-menuitem.p-menuitem-active>.p-menuitem-link:not(.p-disabled):hover {
+  background: #444d58;
+}
+
+.menu-container {
+  padding: 0;
+}

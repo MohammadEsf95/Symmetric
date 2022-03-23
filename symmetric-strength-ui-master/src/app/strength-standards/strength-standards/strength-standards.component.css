@@ -10,7 +10,7 @@
   border-left: none;
   border-color: #45b6af;
   border-width: medium;
-  width: 200px;
+  width: 220px;
 }
 
 :host ::ng-deep .dropdown-def:hover {
@@ -31,6 +31,7 @@
   border-left: none;
   border-color: #45b6af;
   border-width: medium;
+  width: 120px;
 }
 
 :host ::ng-deep .p-inputnumber-buttons-stacked .p-inputnumber-button-group .p-button.p-inputnumber-button  {

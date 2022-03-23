@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit {
   constructor(public router: Router,) {
     this.items = [{
       label: 'Home',
-      routerLink: '/home'
+      routerLink: '/'
       // items: [{
       //   label: 'New',
       //   icon: 'pi pi-fw pi-plus',
@@ -67,7 +67,6 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('kir: ', localStorage.getItem('registerToken'))
     if (localStorage.getItem('registerToken')) {
 
     }
