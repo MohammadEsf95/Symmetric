@@ -94,3 +94,7 @@
     padding-left: 80px;
   }
 }
+
+input, label {
+  display:block;
+}
