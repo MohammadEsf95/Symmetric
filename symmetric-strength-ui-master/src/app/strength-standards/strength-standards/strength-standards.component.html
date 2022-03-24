@@ -1,33 +1,33 @@
 <div class="col-12 main-background">
-  <div class="col-8 xl:col-8 lg:col-8 md:col-10 sm:col-12 center content">
+  <div class="col-8 xl:col-8 lg:col-8 md:col-12 sm:col-12 center content">
     <div class="col-12 grid">
       <h2 class="ss-header">FIND STRENGTH STANDARDS BY SEX & BODYWEIGHT</h2>
     </div>
     <hr>
-    <div class="col-12 grid container-fluid">
-      <div class="xl:col-3 lg:col-4 md:col-4 sm:col-6">
+    <div class="col-12 grid">
+      <div class="xl:col-3 lg:col-3 md:col-3 sm:col-6">
         <label for="units" class="input-label" style="font-size: 13px">Units</label>
         <p-dropdown id="units" [options]="units" [(ngModel)]="selectedUnit" styleClass="dropdown-def"
                     placeholder="Select Unit" optionLabel="name"></p-dropdown>
       </div>
-      <div class="xl:col-3 lg:col-4 md:col-4 sm:col-6" style="padding-left: 35px">
+      <div class="xl:col-3 lg:col-3 md:col-3 sm:col-6">
         <label for="genders" class="input-label" style="font-size: 13px">Sex</label>
         <p-dropdown id="genders" [options]="genders" [(ngModel)]="selectedGender" styleClass="dropdown-def"
                     optionLabel="type"></p-dropdown>
       </div>
-      <div class="xl:col-2 lg:col-2 md:col-2 sm:col-6" style="position: relative; padding-left: 50px">
-              <span class="p-float-label" style="bottom: 8px; position: absolute;">
+      <div class="xl:col-2 lg:col-2 md:col-2 sm:col-6">
+              <span class="p-float-label ss-inputs">
             <p-inputNumber [min]="0" [(ngModel)]="bodyWeight" [showButtons]="true" inputId="bodyweight"
                            [suffix]="' ' + selectedUnit.label">
             </p-inputNumber>
             <label for="bodyweight">Weight {{selectedUnit.label}}</label>
             </span>
       </div>
-      <div class="xl:col-2 lg:col-2 md:col-2 sm:col-6" style="position: relative; padding-left:60px">
-            <span class="p-float-label" style="bottom: 8px; position: absolute;">
+      <div class="xl:col-2 lg:col-2 md:col-2 sm:col-6" style="padding-left:30px">
+            <span class="p-float-label ss-inputs">
             <p-inputNumber id="age" [min]="0" [(ngModel)]="age" [showButtons]="true" inputId="age">
             </p-inputNumber>
-            <label for="age">Age (Optional)</label>
+            <label for="age" style="font-size:13px">Age (Optional)</label>
             </span>
       </div>
     </div>

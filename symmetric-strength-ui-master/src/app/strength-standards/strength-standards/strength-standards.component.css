@@ -10,7 +10,7 @@
   border-left: none;
   border-color: #45b6af;
   border-width: medium;
-  width: 220px;
+  width: 170px;
 }
 
 :host ::ng-deep .dropdown-def:hover {
@@ -31,7 +31,7 @@
   border-left: none;
   border-color: #45b6af;
   border-width: medium;
-  width: 120px;
+  width: 110px;
 }
 
 :host ::ng-deep .p-inputnumber-buttons-stacked .p-inputnumber-button-group .p-button.p-inputnumber-button  {
@@ -73,4 +73,22 @@
   background: #dc4c4c;
   transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   box-shadow: none;
+}
+
+input, label {
+  display:block;
+}
+
+.ss-inputs {
+  margin-top: 20px;
+}
+
+:host ::ng-deep .ss-inputs .p-inputnumber-buttons-stacked .p-inputnumber-input {
+
+}
+
+@media screen and (max-width: 768px) {
+  .ss-inputs {
+    position: relative;
+  }
 }
