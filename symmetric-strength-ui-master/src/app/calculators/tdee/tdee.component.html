@@ -1,17 +1,17 @@
 <div class="col-12 main-background">
-  <div class="col-8 xl:col-8 lg:col-8 md:col-10 sm:col-12 center content">
+  <div class="xl:col-8 lg:col-8 md:col-10 sm:col-12 center content">
     <div class="col-12 grid">
-      <div class="col-3" style="padding-left: 5px">
+      <div class="xl:col-3 lg:col-4 md:col-4 sm:col-12" style="padding-left: 5px">
         <label for="units" class="input-label">Units</label>
         <p-dropdown id="units" [options]="units" [(ngModel)]="selectedUnit" styleClass="dropdown-def"
                     placeholder="Select Unit" optionLabel="name"></p-dropdown>
       </div>
-      <div class="col-3" style="padding-left: 5px">
+      <div class="xl:col-3 lg:col-4 md:col-4 sm:col-12" style="padding-left: 5px">
         <label for="genders" class="input-label">Sex</label>
         <p-dropdown id="genders" [options]="genders" [(ngModel)]="selectedGender" styleClass="dropdown-def"
                     optionLabel="type"></p-dropdown>
       </div>
-      <div class="col-3" style="position: relative">
+      <div class="xl:col-3 lg:col-4 md:col-4 sm:col-12" style="position: relative">
             <span class="p-float-label" style="bottom: 8px; position: absolute;">
             <p-inputNumber id="age" [min]="0" [(ngModel)]="age" [showButtons]="true" inputId="age">
             </p-inputNumber>
