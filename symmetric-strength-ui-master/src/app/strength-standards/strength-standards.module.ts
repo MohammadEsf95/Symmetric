@@ -4,7 +4,7 @@ import {SharedModule} from "../shared/shared.module";
 import {StrengthStandardsRoutingModule} from "./strength-standards-routing.module";
 import {DropdownModule} from "primeng/dropdown";
 import {CommonModule} from "@angular/common";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {InputNumberModule} from "primeng/inputnumber";
 import {ButtonModule} from "primeng/button";
 
@@ -19,7 +19,8 @@ import {ButtonModule} from "primeng/button";
     SharedModule,
     FormsModule,
     CommonModule,
-    ButtonModule
+    ButtonModule,
+    ReactiveFormsModule
   ],
   providers:[]
 })

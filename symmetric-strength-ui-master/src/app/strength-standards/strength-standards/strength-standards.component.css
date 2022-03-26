@@ -92,3 +92,7 @@ input, label {
     position: relative;
   }
 }
+
+.fa.untrained {
+  color: #673ab7;
+}
