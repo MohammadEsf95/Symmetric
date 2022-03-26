@@ -1,19 +1,19 @@
 <div class="col-12 main-background">
-  <div class="col-8 xl:col-8 lg:col-8 md:col-10 sm:col-12 center content">
+  <div class="xl:col-8 lg:col-8 md:col-10 sm:col-12 center content">
     <div class="col-12 grid">
-      <div class="col-3" style="padding-left: 5px">
+      <div class="xl:col-3 lg:col-3 md:col-12 sm:col-12">
         <label for="units" class="input-label">Units</label>
         <p-dropdown id="units" [options]="units" [(ngModel)]="selectedUnit" styleClass="dropdown-def"
                     placeholder="Select Unit" optionLabel="name"></p-dropdown>
       </div>
-      <div class="col-3" style="padding-left: 5px">
+      <div class="xl:col-3 lg:col-3 md:col-12 sm:col-12 inches-and-sex">
         <label for="genders" class="input-label">Sex</label>
         <p-dropdown id="genders" [options]="genders" [(ngModel)]="selectedGender" styleClass="dropdown-def"
                     optionLabel="type"></p-dropdown>
       </div>
     </div>
     <div class="col-12 grid">
-      <div class="col-3" style="padding-left: 5px">
+      <div class="xl:col-3 lg:col-3 md:col-12 sm:col-12">
               <span class="p-float-label">
             <p-inputNumber [min]="0" [(ngModel)]="feet" [showButtons]="true" inputId="feet"
                            [suffix]="' ft'">
@@ -21,7 +21,7 @@
             <label for="feet">Feet</label>
             </span>
       </div>
-      <div class="col-3" style="padding-left: 15px">
+      <div class="xl:col-3 lg:col-3 md:col-12 sm:col-12 inches-and-sex">
               <span class="p-float-label">
             <p-inputNumber [min]="0" [(ngModel)]="inches" [showButtons]="true" inputId="inches"
                            [suffix]="' in'">

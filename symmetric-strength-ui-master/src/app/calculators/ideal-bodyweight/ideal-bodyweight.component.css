@@ -60,3 +60,18 @@
   transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   box-shadow: none;
 }
+
+
+@media screen and (min-width: 992px) {
+  .inches-and-sex {
+    padding-left: 85px;
+  }
+}
+
+.inches {
+
+}
+
+input, label {
+  display:block;
+}
