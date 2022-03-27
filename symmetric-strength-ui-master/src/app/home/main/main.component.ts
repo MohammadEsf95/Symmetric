@@ -110,10 +110,32 @@ export class MainComponent implements OnInit {
             value => {
                 if (value.liftName === 'Back Squat') {
                     this.liftFields.backSquat = value;
-                } else if (value.liftName === 'Front Squad') {
-
-                } else if (value.liftName === 'Back Squat') {
-
+                } else if (value.liftName === 'Front Squat') {
+                    this.liftFields.frontSquat = value;
+                } else if (value.liftName === 'Deadlift') {
+                    this.liftFields.deadlift = value;
+                } else if (value.liftName === 'Sumo Deadlift') {
+                    this.liftFields.sumoDeadlift = value;
+                } else if (value.liftName === 'Power Clean') {
+                    this.liftFields.powerClean = value;
+                } else if (value.liftName === 'Bench Press') {
+                    this.liftFields.benchPress = value;
+                } else if (value.liftName === 'Incline Bench Press') {
+                    this.liftFields.inclineBenchPress = value;
+                } else if (value.liftName === 'Dip') {
+                    this.liftFields.dip = value;
+                } else if (value.liftName === 'Overhead Press') {
+                    this.liftFields.overheadPress = value;
+                } else if (value.liftName === 'Push Press') {
+                    this.liftFields.pushPress = value;
+                } else if (value.liftName === 'Snatch Press') {
+                    this.liftFields.snatchPress = value;
+                } else if (value.liftName === 'Chin-up') {
+                    this.liftFields.chinup = value;
+                } else if (value.liftName === 'Pull-up') {
+                    this.liftFields.pullup = value;
+                } else if (value.liftName === 'Pendlay Row') {
+                    this.liftFields.pendlayRow = value;
                 }
             }
         )
