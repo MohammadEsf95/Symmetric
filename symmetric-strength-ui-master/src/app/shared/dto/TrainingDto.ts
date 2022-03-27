@@ -1,5 +1,5 @@
 export class TrainingDto {
-  name?:string;
+  liftName?:string;
   weight?:number;
   reps?:number;
 }

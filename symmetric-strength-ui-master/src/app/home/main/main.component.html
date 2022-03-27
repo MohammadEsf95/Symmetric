@@ -26,7 +26,7 @@
           <div *ngFor="let squat of squats" class="field-checkbox checkbox-group">
             <p-checkbox name="group2" value="squat" [value]="squat" [(ngModel)]="selectedCategories"
                         [inputId]="squat.key"></p-checkbox>
-            <label [for]="squat.key">{{squat.name}}</label>
+            <label [for]="squat.key">{{squat.liftName}}</label>
           </div>
         </div>
         <div class="col-4">
@@ -34,7 +34,7 @@
           <div *ngFor="let fp of floorPull" class="field-checkbox checkbox-group">
             <p-checkbox name="group2" value="fpfp" [value]="fp" [(ngModel)]="selectedCategories"
                         [inputId]="fp.key"></p-checkbox>
-            <label [for]="fp.key">{{fp.name}}</label>
+            <label [for]="fp.key">{{fp.liftName}}</label>
           </div>
         </div>
         <div class="col-4">
@@ -42,7 +42,7 @@
           <div *ngFor="let hp of horizontalPress" class="field-checkbox checkbox-group">
             <p-checkbox name="group2" value="hp" [value]="hp" [(ngModel)]="selectedCategories"
                         [inputId]="hp.key"></p-checkbox>
-            <label [for]="hp.key">{{hp.name}}</label>
+            <label [for]="hp.key">{{hp.liftName}}</label>
           </div>
         </div>
         <div class="col-4">
@@ -50,7 +50,7 @@
           <div *ngFor="let vp of verticalPress" class="field-checkbox checkbox-group">
             <p-checkbox name="group2" value="vp" [value]="vp" [(ngModel)]="selectedCategories"
                         [inputId]="vp.key"></p-checkbox>
-            <label [for]="vp.key">{{vp.name}}</label>
+            <label [for]="vp.key">{{vp.liftName}}</label>
           </div>
         </div>
         <div class="col-4">
@@ -58,7 +58,7 @@
           <div *ngFor="let pu of pullUps" class="field-checkbox checkbox-group">
             <p-checkbox name="group2" value="pu" [value]="pu" [(ngModel)]="selectedCategories"
                         [inputId]="pu.key"></p-checkbox>
-            <label [for]="pu.key">{{pu.name}}</label>
+            <label [for]="pu.key">{{pu.liftName}}</label>
           </div>
         </div>
       </div>
@@ -73,7 +73,7 @@
             <span class="p-float-label">
             <p-dropdown id="dropdown" styleClass="dropdown-def" inputId="dropdown" [autoDisplayFirst]="false"
                         [options]="genders"
-                        [(ngModel)]="value8"
+                        [(ngModel)]="selectedGender"
                         optionLabel="type"></p-dropdown>
             <label for="dropdown">Sex</label>
             </span>
@@ -104,7 +104,7 @@
         <div class="col-12">
           <div class="col-10 grid" *ngFor="let category of selectedCategories">
             <div class="xl:col-4 lg:col-4 md:col-12 sm:col-12" style="display: flex; align-items: center;">
-              <label for="category.id">{{category.name}}</label>
+              <label for="category.id">{{category.liftName}}</label>
             </div>
             <div class="xl:col-4 lg:col-4 md:col-6 sm:col-6">
               <span class="p-float-label">
@@ -126,9 +126,30 @@
           </div>
         </div>
         <div class="col-12">
-          <p-button label="Analyze Strength"></p-button>
+          <p-button label="Analyze Strength" (onClick)="submit()"></p-button>
         </div>
       </div>
     </div>
   </div>
-</div>
+  <div class="xl:col-8 lg:col-8 md:col-10 sm:col-12 col-12 center content">
+    <div class="xl:col-4 lg:col-4 md:col-4 sm:col-12">
+      <div class="dashboard-stat subpar" style=""><div class="visual"><i class="fa fa-bar-chart-o"></i>
+      </div>
+        <div class="details"><div class="number ng-binding">Score: 20.9</div>
+          <div class="desc ng-binding">Subpar</div>
+        </div>
+        <div class="more"><div><span class="lift-category-stats ng-binding">Squat: 26.8</span> <span class="lift-category-classification ng-binding">[Subpar]</span>
+        </div>
+          <div><span class="lift-category-stats ng-binding">Floor Pull: </span> <span class="lift-category-classification ng-binding">[Not entered]</span>
+          </div>
+          <div><span class="lift-category-stats ng-binding">Horizontal Press: 14.9</span> <span class="lift-category-classification ng-binding">[Subpar]</span>
+          </div>
+          <div><span class="lift-category-stats ng-binding">Vertical Press: </span> <span class="lift-category-classification ng-binding">[Not entered]</span>
+          </div>
+          <div><span class="lift-category-stats ng-binding">Pull-up / Row: </span> <span class="lift-category-classification ng-binding">[Not entered]</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>

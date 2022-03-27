@@ -98,3 +98,37 @@
 input, label {
   display:block;
 }
+
+.dashboard-stat.subpar {
+  background-color: #e91e63;
+}
+
+.dashboard-stat {
+  color: #fff;
+  text-shadow: 1px 1px 10px rgb(0 0 0 / 30%);
+}
+
+.dashboard-stat .visual>i {
+  opacity: .1;
+  text-shadow: none;
+}
+
+.dashboard-stat .details .desc {
+  font-size: 18px;
+}
+
+.dashboard-stat.subpar .more {
+  background-color: #dd1d5e;
+}
+.dashboard-stat .more {
+  opacity: 1;
+}
+
+.lift-category-stats {
+  font-size: 14px;
+}
+
+.lift-category-classification {
+  font-style: italic;
+  margin-left: 5px;
+}

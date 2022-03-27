@@ -8,6 +8,7 @@ import {CheckboxModule} from "primeng/checkbox";
 import {CommonModule} from "@angular/common";
 import {InputNumberModule} from "primeng/inputnumber";
 import {ButtonModule} from "primeng/button";
+import {ChartModule} from 'primeng/chart';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import {ButtonModule} from "primeng/button";
     CheckboxModule,
     CommonModule,
     InputNumberModule,
-    ButtonModule
+    ButtonModule,
+    ChartModule
   ],
   providers: [
 
