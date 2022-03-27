@@ -12,8 +12,8 @@ export class StrengthStandardService {
   constructor(private http: HttpClient) {
   }
 
-  calculateStandard(metric: string, sex: string, bodyweight: string, age: number) : Observable<any> {
-    return this.http.get(this.endpoint + 'calculate-standards?unitsystem=' + metric + '&sex=' + sex + '&bodyweight=' + bodyweight + '&age=' + age,{
+  calculateStandard(metric: string, sex: string, bodyweight: string, age: number, reps: number, round: number) : Observable<any> {
+    return this.http.get(this.endpoint + 'calculate-standards?unitsystem=' + metric + '&sex=' + sex + '&bodyweight=' + bodyweight + '&age=' + age + '&rep=' + reps + '&round=' + round,{
       headers: new HttpHeaders({'Content-Type': 'application/json'})
     }).pipe(
       catchError(err => {

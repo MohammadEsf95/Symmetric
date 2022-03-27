@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {StrengthStandardService} from "./shared/strength-standard.service";
 import {StandardDto} from "./shared/StandardDto";
+import {StandardResponseDto} from "./shared/StandardResponseDto";
 
 @Component({
   selector: 'app-strength-standards',
@@ -10,6 +11,7 @@ import {StandardDto} from "./shared/StandardDto";
 })
 export class StrengthStandardsComponent implements OnInit {
 
+  response: StandardResponseDto = {};
   units: any[] = [];
   genders: any[] = [{type: 'Male'}, {type: 'Female'}];
   standardDto: StandardDto = {};
@@ -64,20 +66,31 @@ export class StrengthStandardsComponent implements OnInit {
     this.selectedUnit = this.units[0];
     this.selectedGender = this.genders[0];
     this.selectedRep = this.reps[0];
-    this.rounds = [
-      {value: 1, label: 1 + ' ' + this.selectedUnit.label},
-      {value: 2.5, label: 1 + ' ' + this.selectedUnit.label},
-      {value: 5, label: 1 + ' ' + this.selectedUnit.label},
-      {value: 10, label: 1 + ' ' + this.selectedUnit.label},
-    ]
+    this.selectedRound = {value: 1, label: 1 + ' ' + this.selectedUnit.label};
   }
 
   submit() {
-    this.strengthStandardService.calculateStandard(this.selectedUnit.name, this.selectedGender.type, this.bodyWeight, this.age).subscribe(data => {
+    this.rounds = [
+      {value: 1, label: 1 + ' ' + this.selectedUnit.label},
+      {value: 2.5, label: 2.5 + ' ' + this.selectedUnit.label},
+      {value: 5, label: 5 + ' ' + this.selectedUnit.label},
+      {value: 10, label: 10 + ' ' + this.selectedUnit.label},
+    ]
+    this.strengthStandardService.calculateStandard(this.selectedUnit.name, this.selectedGender.type, this.bodyWeight, this.age, this.selectedRep.value, this.selectedRound.value).subscribe(data => {
       if(data.success) {
         this.standardsPage = true;
+        this.response = data.data;
       }
-      console.log('kir: ',data)
     })
+  }
+
+  onChangeRound(event: any) {
+    this.selectedRound = event.value;
+    this.submit();
+  }
+
+  onChangeRep(event: any) {
+    this.selectedRep = event.value;
+    this.submit();
   }
 }

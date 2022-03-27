@@ -93,6 +93,50 @@ input, label {
   }
 }
 
+.fa.subpar {
+  color: #e91e63;
+}
+
 .fa.untrained {
   color: #673ab7;
+}
+
+.fa.novice {
+  color: #3f51b5;
+}
+
+.fa.intermediate {
+  color: #009688;
+}
+
+.fa.proficient {
+  color: #4caf50;
+}
+
+.fa.advanced {
+  color: #cddc39;
+}
+
+.fa.exceptional {
+  color: #ffc107;
+}
+
+.fa.elite {
+  color: #ff5722;
+}
+
+.fa.world-class {
+  color: #f44336;
+}
+
+.strength-classification {
+  margin-bottom: 10px;
+}
+
+.strength-classification .classification-name {
+  display: inline-block;
+}
+
+.strength-classification .classification-description {
+  display: inline;
 }
