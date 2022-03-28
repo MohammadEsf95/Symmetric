@@ -40,3 +40,10 @@
   box-shadow: none;
 }
 
+.more-stats-items .item-name {
+  white-space: nowrap;
+}
+
+.font-massive {
+  font-size: 40px;
+}

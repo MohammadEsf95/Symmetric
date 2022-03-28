@@ -17,11 +17,53 @@
       </div>
     </div>
     <div class="col-12">
-      <p-button label="Calculate 1RM"></p-button>
+      <p-button label="Calculate 1RM" (onClick)="submit()"></p-button>
     </div>
-<!--    <div class="alert alert-block alert-danger error-panel ng-scope" *ngIf="oneRepMaxCtrl.state.errors.errorList.length > 0" style=""><h4 class="alert-heading">Please correct the following and try again:</h4>-->
-<!--      <ul><li ng-repeat="error in oneRepMaxCtrl.state.errors.errorList" ng-bind="error" class="ng-binding ng-scope">Enter the weight lifted.</li>&lt;!&ndash; end ngRepeat: error in oneRepMaxCtrl.state.errors.errorList &ndash;&gt;<li ng-repeat="error in oneRepMaxCtrl.state.errors.errorList" ng-bind="error" class="ng-binding ng-scope">Enter between 1 and 10 reps.</li>-->
-<!--      </ul>-->
-<!--    </div>-->
   </div>
-</div>
+  <div *ngIf="resultShow" class="xl:col-8 lg:col-8 md:col-10 sm:col-12 center content" style="margin-top: 20px">
+    <div class="col-12">
+      <div class="portlet light"><div class="portlet-body"><div class="row list-separated more-stats-items"><div class="col-md-3 col-xs-6"><div class="item-name font-grey-mint font-lg">1RM</div>
+        <div class="font-massive font-red-flamingo ng-binding">{{rmCalcDtoResp.oneRepMax}}</div>
+      </div>
+      </div>
+        <p>Below is a table of other estimated rep maxes:</p>
+        <table class="table table-striped table-bordered table-hover"><thead><tr><th>Rep Max</th>
+          <th>Weight</th>
+        </tr>
+        </thead>
+          <tbody>
+          <tr *ngFor="let rm of rmCalcDtoResp.repMaxes">
+            <td>{{rm.title}}</td>
+            <td>{{rm.weight}}</td>
+          </tr>
+<!--          <tr ng-repeat="rm in oneRepMaxCtrl.state.results.repMaxes" class="ng-scope" style=""><td class="ng-binding">1RM</td>-->
+<!--            <td class="ng-binding">80</td>-->
+<!--          </tr>-->
+<!--          <tr ng-repeat="rm in oneRepMaxCtrl.state.results.repMaxes" class="ng-scope"><td class="ng-binding">2RM</td>-->
+<!--            <td class="ng-binding">76</td>-->
+<!--          </tr>&lt;!&ndash; end ngRepeat: rm in oneRepMaxCtrl.state.results.repMaxes &ndash;&gt;<tr ng-repeat="rm in oneRepMaxCtrl.state.results.repMaxes" class="ng-scope"><td class="ng-binding">3RM</td>-->
+<!--            <td class="ng-binding">73</td>-->
+<!--          </tr>&lt;!&ndash; end ngRepeat: rm in oneRepMaxCtrl.state.results.repMaxes &ndash;&gt;<tr ng-repeat="rm in oneRepMaxCtrl.state.results.repMaxes" class="ng-scope"><td class="ng-binding">4RM</td>-->
+<!--            <td class="ng-binding">70</td>-->
+<!--          </tr>&lt;!&ndash; end ngRepeat: rm in oneRepMaxCtrl.state.results.repMaxes &ndash;&gt;<tr ng-repeat="rm in oneRepMaxCtrl.state.results.repMaxes" class="ng-scope"><td class="ng-binding">5RM</td>-->
+<!--            <td class="ng-binding">68</td>-->
+<!--          </tr>&lt;!&ndash; end ngRepeat: rm in oneRepMaxCtrl.state.results.repMaxes &ndash;&gt;<tr ng-repeat="rm in oneRepMaxCtrl.state.results.repMaxes" class="ng-scope"><td class="ng-binding">6RM</td>-->
+<!--            <td class="ng-binding">66</td>-->
+<!--          </tr>&lt;!&ndash; end ngRepeat: rm in oneRepMaxCtrl.state.results.repMaxes &ndash;&gt;<tr ng-repeat="rm in oneRepMaxCtrl.state.results.repMaxes" class="ng-scope"><td class="ng-binding">7RM</td>-->
+<!--            <td class="ng-binding">64</td>-->
+<!--          </tr>&lt;!&ndash; end ngRepeat: rm in oneRepMaxCtrl.state.results.repMaxes &ndash;&gt;<tr ng-repeat="rm in oneRepMaxCtrl.state.results.repMaxes" class="ng-scope"><td class="ng-binding">8RM</td>-->
+<!--            <td class="ng-binding">62</td>-->
+<!--          </tr>&lt;!&ndash; end ngRepeat: rm in oneRepMaxCtrl.state.results.repMaxes &ndash;&gt;<tr ng-repeat="rm in oneRepMaxCtrl.state.results.repMaxes" class="ng-scope"><td class="ng-binding">9RM</td>-->
+<!--            <td class="ng-binding">61</td>-->
+<!--          </tr>&lt;!&ndash; end ngRepeat: rm in oneRepMaxCtrl.state.results.repMaxes &ndash;&gt;<tr ng-repeat="rm in oneRepMaxCtrl.state.results.repMaxes" class="ng-scope"><td class="ng-binding">10RM</td>-->
+<!--            <td class="ng-binding">59</td>-->
+<!--          </tr>&lt;!&ndash; end ngRepeat: rm in oneRepMaxCtrl.state.results.repMaxes &ndash;&gt;-->
+          </tbody>
+        </table>
+        <div class="note note-info"><p>Symmetric Strength uses Wathan's formula for all rep max calculations. A study on the accuracy of seven different rep max prediction formulas found Wathan's formula to be the most accurate. See the <a href="/about#references">References</a> section for more information.</p>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+  </div>

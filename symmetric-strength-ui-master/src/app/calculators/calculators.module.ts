@@ -9,6 +9,7 @@ import {InputNumberModule} from "primeng/inputnumber";
 import {FormsModule} from "@angular/forms";
 import {ButtonModule} from "primeng/button";
 import {DropdownModule} from "primeng/dropdown";
+import {CommonModule} from "@angular/common";
 
 @NgModule({
   declarations:[
@@ -23,7 +24,8 @@ import {DropdownModule} from "primeng/dropdown";
     FormsModule,
     ButtonModule,
     DropdownModule,
-    InputNumberModule
+    InputNumberModule,
+    CommonModule
   ],
   providers:[]
 })
