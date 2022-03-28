@@ -9,6 +9,7 @@ import {CommonModule} from "@angular/common";
 import {InputNumberModule} from "primeng/inputnumber";
 import {ButtonModule} from "primeng/button";
 import {ChartModule} from 'primeng/chart';
+import {TabViewModule} from 'primeng/tabview';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {ChartModule} from 'primeng/chart';
     CommonModule,
     InputNumberModule,
     ButtonModule,
-    ChartModule
+    ChartModule,
+    TabViewModule
   ],
   providers: [
 

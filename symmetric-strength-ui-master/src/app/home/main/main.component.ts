@@ -41,6 +41,9 @@ export class MainComponent implements OnInit {
     analyzeRequest: AnalyzeRequestDto = {};
     analyzeResponse: AnalyzeResponseDto = {};
     liftFields: LiftFieldsDto = {};
+    respLiftFields: LiftFieldsDto = {};
+    horizontalOptions: any;
+    liftVsAverageChart: any;
 
     constructor(
         private analyzeService: AnalyzeService
@@ -74,6 +77,51 @@ export class MainComponent implements OnInit {
         this.liftFields.chinup = this.pullUps[0]
         this.liftFields.pullup = this.pullUps[1]
         this.liftFields.pendlayRow = this.pullUps[2]
+
+        this.liftVsAverageChart = {
+            labels: [],
+            datasets: [
+                {
+                    label: 'Average',
+                    backgroundColor: '#999',
+                    data: []
+                },
+                {
+                    label: 'You',
+                    backgroundColor: '#c425a2',
+                    data: []
+                }
+            ]
+        };
+
+        this.horizontalOptions = {
+            indexAxis: 'y',
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#495057'
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    ticks: {
+                        color: '#495057'
+                    },
+                    grid: {
+                        color: '#ebedef'
+                    }
+                },
+                y: {
+                    ticks: {
+                        color: '#495057'
+                    },
+                    grid: {
+                        color: '#ebedef'
+                    }
+                }
+            }
+        };
     }
 
     changeUnit(event: any) {
@@ -110,32 +158,46 @@ export class MainComponent implements OnInit {
             value => {
                 if (value.liftName === 'Back Squat') {
                     this.liftFields.backSquat = value;
+                    this.liftFields.backSquat.checked = true;
                 } else if (value.liftName === 'Front Squat') {
                     this.liftFields.frontSquat = value;
+                    this.liftFields.frontSquat.checked = true;
                 } else if (value.liftName === 'Deadlift') {
                     this.liftFields.deadlift = value;
+                    this.liftFields.deadlift.checked = true;
                 } else if (value.liftName === 'Sumo Deadlift') {
                     this.liftFields.sumoDeadlift = value;
+                    this.liftFields.sumoDeadlift.checked = true;
                 } else if (value.liftName === 'Power Clean') {
                     this.liftFields.powerClean = value;
+                    this.liftFields.powerClean.checked = true;
                 } else if (value.liftName === 'Bench Press') {
                     this.liftFields.benchPress = value;
+                    this.liftFields.benchPress.checked = true;
                 } else if (value.liftName === 'Incline Bench Press') {
                     this.liftFields.inclineBenchPress = value;
+                    this.liftFields.inclineBenchPress.checked = true;
                 } else if (value.liftName === 'Dip') {
                     this.liftFields.dip = value;
+                    this.liftFields.dip.checked = true;
                 } else if (value.liftName === 'Overhead Press') {
                     this.liftFields.overheadPress = value;
+                    this.liftFields.overheadPress.checked = true;
                 } else if (value.liftName === 'Push Press') {
                     this.liftFields.pushPress = value;
+                    this.liftFields.pushPress.checked = true;
                 } else if (value.liftName === 'Snatch Press') {
                     this.liftFields.snatchPress = value;
+                    this.liftFields.snatchPress.checked = true;
                 } else if (value.liftName === 'Chin-up') {
                     this.liftFields.chinup = value;
+                    this.liftFields.chinup.checked = true;
                 } else if (value.liftName === 'Pull-up') {
                     this.liftFields.pullup = value;
+                    this.liftFields.pullup.checked = true;
                 } else if (value.liftName === 'Pendlay Row') {
                     this.liftFields.pendlayRow = value;
+                    this.liftFields.pendlayRow.checked = true;
                 }
             }
         )
@@ -146,6 +208,16 @@ export class MainComponent implements OnInit {
         this.analyzeService.analyze(this.analyzeRequest).subscribe(data => {
             if (data.success) {
                 this.analyzeResponse = data.data;
+
+                console.log('kir: ', this.analyzeResponse)
+
+                this.selectedCategories.forEach(value => {
+                    if (value.reps) {
+                        this.liftVsAverageChart.labels.push(value.liftName);
+                        this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.backSquat?.userScore);
+                        this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.backSquat?.expected);
+                    }
+                })
             }
         })
     }

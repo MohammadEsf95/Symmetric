@@ -131,22 +131,43 @@
       </div>
     </div>
   </div>
-  <div class="xl:col-8 lg:col-8 md:col-10 sm:col-12 col-12 center content">
-    <div class="xl:col-4 lg:col-4 md:col-4 sm:col-12">
-      <div class="dashboard-stat subpar" style=""><div class="visual"><i class="fa fa-bar-chart-o"></i>
+  <div class="xl:col-8 lg:col-8 md:col-10 sm:col-12 col-12 center" style="padding-left:0">
+    <div class="col-12 grid">
+      <div class="xl:col-4 lg:col-4 md:col-4 sm:col-12" style="padding-left:0">
+        <div class="dashboard-stat subpar" style=""><div class="visual"><i class="fa fa-bar-chart-o"></i>
+        </div>
+          <div class="details"><div class="number ng-binding">Score: 20.9</div>
+            <div class="desc ng-binding">Subpar</div>
+          </div>
+          <div class="more"><div><span class="lift-category-stats ng-binding">Squat: 26.8</span> <span class="lift-category-classification ng-binding">[Subpar]</span>
+          </div>
+            <div><span class="lift-category-stats ng-binding">Floor Pull: </span> <span class="lift-category-classification ng-binding">[Not entered]</span>
+            </div>
+            <div><span class="lift-category-stats ng-binding">Horizontal Press: 14.9</span> <span class="lift-category-classification ng-binding">[Subpar]</span>
+            </div>
+            <div><span class="lift-category-stats ng-binding">Vertical Press: </span> <span class="lift-category-classification ng-binding">[Not entered]</span>
+            </div>
+            <div><span class="lift-category-stats ng-binding">Pull-up / Row: </span> <span class="lift-category-classification ng-binding">[Not entered]</span>
+            </div>
+          </div>
+        </div>
       </div>
-        <div class="details"><div class="number ng-binding">Score: 20.9</div>
-          <div class="desc ng-binding">Subpar</div>
-        </div>
-        <div class="more"><div><span class="lift-category-stats ng-binding">Squat: 26.8</span> <span class="lift-category-classification ng-binding">[Subpar]</span>
-        </div>
-          <div><span class="lift-category-stats ng-binding">Floor Pull: </span> <span class="lift-category-classification ng-binding">[Not entered]</span>
-          </div>
-          <div><span class="lift-category-stats ng-binding">Horizontal Press: 14.9</span> <span class="lift-category-classification ng-binding">[Subpar]</span>
-          </div>
-          <div><span class="lift-category-stats ng-binding">Vertical Press: </span> <span class="lift-category-classification ng-binding">[Not entered]</span>
-          </div>
-          <div><span class="lift-category-stats ng-binding">Pull-up / Row: </span> <span class="lift-category-classification ng-binding">[Not entered]</span>
+      <div class="xl:col-8 lg:col-8 md:col-8 sm:col-12 content">
+        <div class="portlet light">
+          <div class="portlet-body">
+            <p-tabView>
+              <p-tabPanel header="Relative strengths and weaknesses">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                  ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                  Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              </p-tabPanel>
+              <p-tabPanel header="Lifts vs average">
+                <div class="card">
+                  <h5>Lifts vs Average</h5>
+                  <p-chart type="bar" [data]="liftVsAverageChart" [options]="horizontalOptions"></p-chart>
+                </div>
+              </p-tabPanel>
+            </p-tabView>
           </div>
         </div>
       </div>
