@@ -132,3 +132,100 @@ input, label {
   font-style: italic;
   margin-left: 5px;
 }
+
+.boldish {
+  font-weight: 600;
+}
+
+.lift-classification {
+  font-style: italic;
+  margin-left: 5px;
+  font-size: 13px;
+}
+
+.muscle-figure {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  height: auto;
+}
+
+.muscle-figure-legend {
+  display: inline-block;
+  max-width: 200px;
+  vertical-align: bottom;
+}
+
+.muscle-figure-legend ul {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.fa.subpar {
+  color: #e91e63;
+}
+
+.fa.untrained {
+  color: #673ab7;
+}
+
+.fa.novice {
+  color: #3f51b5;
+}
+
+.fa.intermediate {
+  color: #009688;
+}
+
+.fa.proficient {
+  color: #4caf50;
+}
+
+.fa.advanced {
+  color: #cddc39;
+}
+
+.fa.exceptional {
+  color: #ffc107;
+}
+
+.fa.elite {
+  color: #ff5722;
+}
+
+.fa.world-class {
+  color: #f44336;
+}
+
+.more-stats-items>div {
+  margin-bottom: 10px;
+}
+
+.more-stats-items>div {
+  margin-bottom: 10px;
+}
+
+.login-push .btn {
+  width: 200px;
+  text-align: left;
+}
+
+.login-push .facebook-btn {
+  background-color: #3b5998;
+  color: #fff;
+}
+
+.login-push .email-btn {
+  background-color: #428bca;
+  color: #fff;
+}
+
+.login-push .google-plus-btn {
+  background-color: #dd4b3e;
+  color: #fff;
+}
+
+.more-stats-items .item-name {
+  white-space: nowrap;
+}

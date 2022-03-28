@@ -159,6 +159,24 @@
   border-radius: 4px 4px 0 0;
 }
 
+.portlet.light>.portlet-title {
+  padding: 0;
+  min-height: 48px;
+}
+
+.portlet.light>.portlet-title>.caption {
+  color: #666;
+  padding: 10px 0;
+}
+
+.portlet>.portlet-title>.caption {
+  float: left;
+  display: inline-block;
+  font-size: 18px;
+  line-height: 18px;
+  padding: 10px 0;
+}
+
 .portlet.box>.portlet-title>.caption {
   padding: 11px 0 9px;
 }
@@ -312,4 +330,110 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   filter: alpha(opacity=70);
 }
 
+.portlet.light>.portlet-title>.caption.caption-md>.caption-subject {
+  font-size: 15px;
+}
 
+.portlet.light>.portlet-title>.caption>.caption-subject {
+  font-size: 16px;
+}
+.theme-font {
+  color: #e26a6a!important;
+}
+.theme-font {
+  color: #4db3a4;
+}
+.uppercase {
+  text-transform: uppercase!important;
+}
+.bold {
+  font-weight: 700!important;
+}
+
+.hidden {
+  display: none!important;
+}
+.hidden {
+  display: none!important;
+  visibility: hidden!important;
+}
+img {
+  vertical-align: middle;
+}
+img {
+  border: 0;
+}
+
+.panel-default {
+  border-color: #e0e0e0;
+}
+
+.panel {
+  margin-bottom: 20px;
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
+  box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
+}
+
+.panel-heading {
+  padding: 10px 15px;
+  border-bottom: 1px solid transparent;
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+}
+
+.panel-default>.panel-heading {
+  color: #333;
+  background-color: #f9f9f9;
+  border-color: #e0e0e0;
+}
+
+.panel .panel-body {
+  font-size: 13px;
+}
+.panel-body {
+  padding: 15px;
+}
+
+.panel-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 16px;
+  color: inherit;
+}
+
+.list-unstyled {
+  padding-left: 0;
+  list-style: none;
+}
+ul, ol {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.list-separated {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.row {
+  margin-right: -15px;
+  margin-left: -15px;
+}
+
+.font-grey-mint {
+  color: #9eacb4!important;
+}
+
+.font-sm {
+  font-size: 13px;
+}
+
+.font-red-flamingo {
+  color: #ef4836!important;
+}
+.font-hg {
+  font-size: 23px;
+}
