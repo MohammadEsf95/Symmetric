@@ -5,6 +5,7 @@ import {SignInDto} from "../../shared/dto/SignInDto";
 import {catchError, Observable, throwError} from "rxjs";
 import {RmCalcReqDto} from "./RmCalcReqDto";
 import {WilksCalcReqDto} from "./WilksCalcReqDto";
+import {TdeeReqDto} from "./TdeeReqDto";
 
 @Injectable({providedIn: "root"})
 export class CalculatorService {
@@ -27,6 +28,17 @@ export class CalculatorService {
 
   wilksCalc(wilksCalcDto: WilksCalcReqDto): Observable<any> {
     return this.http.post(this.endpoint + 'calculate-wilks', wilksCalcDto, {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    }).pipe(
+      catchError(err => {
+        console.log('Handling error and rethrowing it...', err);
+        return throwError(err);
+      })
+    );
+  }
+
+  tdeeCalc(tdeeCalcDto: TdeeReqDto): Observable<any> {
+    return this.http.post(this.endpoint + 'calculate-tdee', tdeeCalcDto, {
       headers: new HttpHeaders({'Content-Type': 'application/json'})
     }).pipe(
       catchError(err => {

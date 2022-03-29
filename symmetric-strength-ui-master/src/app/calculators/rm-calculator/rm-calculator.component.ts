@@ -36,7 +36,6 @@ export class RmCalculatorComponent implements OnInit {
       if(data.success) {
         this.rmCalcDtoResp = data.data
         this.resultShow = true;
-        console.log('kir: ', this.rmCalcDtoResp)
       } else {
         this.toastr.add({severity:'error', summary:'Error', detail: JSON.stringify(data.errors[0].message)})
       }

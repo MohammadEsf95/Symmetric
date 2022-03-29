@@ -51,6 +51,10 @@
   border-color: #3fc7bf;
 }
 
+.font-massive {
+  font-size: 40px;
+}
+
 :host ::ng-deep .p-button {
   background: #e26a6a;
   border: 1px solid #e26a6a;

@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {TdeeReqDto} from "../shared/TdeeReqDto";
+import {TdeeRespDto} from "../shared/TdeeRespDto";
+import {CalculatorService} from "../shared/calculator.service";
+import {MessageService} from "primeng/api";
 
 @Component({
   selector: 'app-tdee',
@@ -18,8 +22,14 @@ export class TdeeComponent implements OnInit {
   bodyFat: any;
   feet: any;
   inches: any;
+  tdeeReq: TdeeReqDto = {};
+  tdeeResp: TdeeRespDto = {};
+  showResponse: boolean = false;
 
-  constructor() {
+  constructor(
+    private calculatorService: CalculatorService,
+    private toastr: MessageService
+  ) {
     this.units = [
       {name: 'Metric', label: 'KG'},
       {name: 'Imperial', label: 'LBS'}
@@ -42,4 +52,24 @@ export class TdeeComponent implements OnInit {
     this.selectedActivity = this.activityLevels[2];
   }
 
+  submit() {
+    //TODO only works in imperial, fix metric
+    this.tdeeReq.unitsystem = this.selectedUnit.name;
+    this.tdeeReq.sex = this.selectedGender.type;
+    this.tdeeReq.age = this.age;
+    this.tdeeReq.activity_level = this.selectedActivity.name;
+    this.tdeeReq.bodyweight = this.bodyWeight;
+    this.tdeeReq.feet = this.feet;
+    this.tdeeReq.inches = this.inches;
+    this.tdeeReq.bodyfat = this.bodyFat;
+
+    this.calculatorService.tdeeCalc(this.tdeeReq).subscribe(data => {
+      if(data.success) {
+        this.tdeeResp = data.data;
+        this.showResponse = true;
+      } else {
+        this.toastr.add({severity:'error', summary:'Error', detail: JSON.stringify(data.errors[0].message)})
+      }
+    })
+  }
 }
