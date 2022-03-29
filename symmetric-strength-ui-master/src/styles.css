@@ -453,3 +453,187 @@ ul, ol {
   -o-border-radius: 0 4px 4px 0;
   border-radius: 0 4px 4px 0;
 }
+
+.social-icons {
+  padding: 0;
+  margin: 0;
+}
+
+.margin-bottom-40 {
+  margin-bottom: 40px!important;
+}
+
+.social-icons li .facebook {
+  background: url('../src/assets/img/social/facebook.png') no-repeat;
+}
+
+.social-icons li .twitter {
+  background: url('../src/assets/img/social/twitter.png') no-repeat;
+}
+
+.social-icons li .googleplus {
+  background: url('../src/assets/img/social/googleplus.png') no-repeat;
+}
+
+.page-prefooter .social-icons {
+  padding-top: 9px;
+}
+
+.page-prefooter {
+  background: #48525e;
+  color: #a2abb7;
+}
+
+.page-prefooter {
+  padding: 30px 0;
+  clear: both;
+}
+.page-prefooter {
+  background: #48525e;
+  color: #a2abb7;
+}
+
+.page-prefooter .social-icons li {
+  opacity: .35;
+  filter: alpha(opacity=35);
+}
+
+.social-icons li {
+  float: left;
+  display: inline;
+  list-style: none;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  text-indent: -9999px;
+}
+
+.social-icons li>a {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+  width: 28px;
+  height: 28px;
+  display: block;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  transition: all .3s ease-in-out;
+  -o-transition: all .3s ease-in-out;
+  -ms-transition: all .3s ease-in-out;
+  -moz-transition: all .3s ease-in-out;
+  -webkit-transition: all .3s ease-in-out;
+}
+
+.page-footer a {
+  font-weight: 400;
+  color: #e26a6a;
+}
+
+.page-prefooter a {
+  color: #e26a6a;
+}
+.page-prefooter a {
+  color: #4db3a4;
+}
+
+.rrssb-buttons {
+  box-sizing: border-box;
+  font-family: helvetica neue,Helvetica,Arial,sans-serif;
+  height: 36px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.rrssb-buttons li {
+  box-sizing: border-box;
+  float: left;
+  height: 100%;
+  line-height: 13px;
+  list-style: none;
+  margin: 0;
+  padding: 0 2px;
+}
+
+.rrssb-buttons li a {
+  background-color: #ccc;
+  border-radius: 2px;
+  box-sizing: border-box;
+  display: block;
+  font-size: 11px;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 700;
+  height: 100%;
+  padding: 11px 7px 12px 27px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  -webkit-transition: background-color .2s ease-in-out;
+  transition: background-color .2s ease-in-out;
+  width: 100%;
+}
+
+.rrssb-buttons li a .rrssb-text {
+  color: #fff;
+}
+
+.rrssb-buttons li a .rrssb-icon svg {
+  height: 17px;
+  width: 17px;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+.rrssb-buttons li a .rrssb-icon svg path, .rrssb-buttons li a .rrssb-icon svg polygon {
+  fill: #fff;
+}
+
+.rrssb-buttons li.rrssb-twitter a {
+  background-color: #26c4f1;
+}
+
+.rrssb-buttons li.rrssb-facebook a {
+  background-color: #306199;
+}
+
+.rrssb-buttons li a .rrssb-icon {
+  display: block;
+  left: 10px;
+  padding-top: 9px;
+  position: absolute;
+  top: 0;
+  width: 10%;
+}
+
+.rrssb-buttons li.rrssb-googleplus a {
+  background-color: #e93f2e;
+}
+
+.rrssb-buttons li.small a .rrssb-icon {
+  left: auto;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  top: auto;
+  width: 100%;
+}
+
+.rrssb-buttons li.small a {
+  padding: 0;
+}
+.rrssb-buttons li.rrssb-pinterest a {
+  background-color: #b81621;
+}
+
+.rrssb-buttons li.small a .rrssb-text {
+  visibility: hidden;
+}
+
+.rrssb-buttons li a .rrssb-text {
+  color: #fff;
+}
