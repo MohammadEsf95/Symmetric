@@ -31,7 +31,275 @@
       </div>
     </div>
     <div class="col-12" style="margin-top: 20px; padding-left: 5px">
-      <p-button label="Calculate Ideal Bodyweight"></p-button>
+      <p-button label="Calculate Ideal Bodyweight" (onClick)="submit()"></p-button>
     </div>
+  </div>
+  <div *ngIf="showResult" class="xl:col-8 lg:col-8 md:col-10 sm:col-12 center content" style="margin-top: 20px; margin-bottom: 20px">
+    <div class="col-12">
+      <div class="portlet light">
+        <div class="portlet-body"><!-- ngIf: idealBodyweightCtrl.state.results.sex === 'Male' -->
+          <div ng-if="idealBodyweightCtrl.state.results.sex === 'Male'" class="ng-scope">
+            <div class="row">
+              <div class="col-md-12">
+                <h2>Maximum muscular potential for drug-free athletes
+                  <small *ngIf="selectedGender.type == 'Male'">The maximum bodyweight at the following body fat
+                    percentages for average men at your height.</small>
+                  <small *ngIf="selectedGender.type == 'Female'">The maximum bodyweight at the following body fat
+                    percentages for average women at your height.</small>
+                </h2>
+              </div>
+            </div>
+            <div class="row list-separated more-stats-items">
+              <div class="col-md-12">
+                <div *ngIf="selectedGender.type == 'Male'"
+                  class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.male!.maximumMuscularPotential55}}
+                  <span class="font-hg font-grey-mint ng-binding">&nbsp;lbs at 5.5% body fat</span>
+                </div>
+                <div *ngIf="selectedGender.type == 'Female'" class="row list-separated more-stats-items">
+                  <div class="col-md-12">
+                    <div
+                      class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.female!.maximumMuscularPotential12}}
+                      <span class="font-hg font-grey-mint ng-binding">&nbsp;lbs at 5.5% body fat</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="row list-separated more-stats-items">
+                  <div class="col-md-12">
+                    <div *ngIf="selectedGender.type == 'Male'" class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.male!.maximumMuscularPotential8}}<span
+                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs at 8% body fat</span>
+                    </div>
+                    <div *ngIf="selectedGender.type == 'Female'" class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.female!.maximumMuscularPotential15}}<span
+                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs at 8% body fat</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="row list-separated more-stats-items">
+                  <div class="col-md-12">
+                    <div *ngIf="selectedGender.type == 'Male'" class="font-massive font-red-flamingo ng-binding">
+                      {{idealBodyweightResp.male!.maximumMuscularPotential10}}<span class="font-hg font-grey-mint ng-binding">&nbsp;lbs at 10% body fat</span>
+                    </div>
+                    <div *ngIf="selectedGender.type == 'Female'" class="font-massive font-red-flamingo ng-binding">
+                      {{idealBodyweightResp.female!.maximumMuscularPotential18}}<span class="font-hg font-grey-mint ng-binding">&nbsp;lbs at 10% body fat</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="row list-separated more-stats-items">
+                  <div class="col-md-12">
+                    <div *ngIf="selectedGender.type == 'Male'" class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.male!.maximumMuscularPotential12}}<span
+                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs at 12% body fat</span>
+                    </div>
+                    <div *ngIf="selectedGender.type == 'Female'" class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.female!.maximumMuscularPotential18}}<span
+                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs at 12% body fat</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="row list-separated more-stats-items">
+                  <div class="col-md-12">
+                    <div *ngIf="selectedGender.type == 'Male'" class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.male!.maximumMuscularPotential15}}<span
+                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs at 15% body fat</span>
+                    </div>
+                    <div *ngIf="selectedGender.type == 'Female'" class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.female!.maximumMuscularPotential21}}<span
+                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs at 15% body fat</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="note"><p>The weights listed above were calculated using Martin Berkhan's formula in his
+                  article <a href="http://www.leangains.com/2010/12/maximum-muscular-potential.html">here</a>. The
+                  weights at the lower bodyfat percentages are heavily supported by research using the fat free mass
+                  index (FFMI), although athletes at higher bodyfat percentages may be able to reach higher FFMIs. See
+                  the <a href="/about#references">references</a> section for more information.</p>
+                </div>
+                <div class="row">
+                  <div class="col-md-12"><h2>Powerlifting
+                    <small >The average weight of elite raw powerlifters at your
+                    height.</small></h2>
+                  </div>
+                </div>
+                <div class="row list-separated more-stats-items">
+                  <div class="col-md-12">
+                    <div *ngIf="selectedGender.type == 'Male'" class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.male!.powerlifting}}<span
+                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs (Most federations)</span>
+                    </div>
+                    <div *ngIf="selectedGender.type == 'Female'" class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.female!.powerlifting}}<span
+                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs (Most federations)</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="row list-separated more-stats-items">
+                  <div class="col-md-12">
+                    <div *ngIf="selectedGender.type == 'Male'" class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.male!.powerliftingIPF}}<span
+                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs (IPF)</span>
+                    </div>
+                    <div *ngIf="selectedGender.type == 'Female'" class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.female!.powerliftingIPF}}<span
+                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs (IPF)</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="note"><p>This weight is based off powerlifting weight classes and powerlifting records. Note
+                  that there is some variation at elite levels of powerlifting; in addition, the weight above is the
+                  "weigh-in" weight. Most high-level competitors will weigh more prior to the competition and quickly
+                  drop weight to meet their weight class. See the <a href="/about#references">references</a> section for
+                  more information.</p>
+                </div>
+                <div class="row">
+                  <div class="col-md-12"><h2>Olympic Weightlifting <small>The average weight of elite weightlifters at
+                    your height.</small></h2>
+                  </div>
+                </div>
+                <div class="row list-separated more-stats-items">
+                  <div class="col-md-12">
+                    <div *ngIf="selectedGender.type == 'Male'" class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.male!.weightlifting}}<span
+                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs</span>
+                    </div>
+                    <div *ngIf="selectedGender.type == 'Female'" class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.female!.weightlifting}}<span
+                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="note"><p>This weight is based off weightlifting weight classes and weightlifting records.
+                  Note that there is some variation at elite levels of weightlifting; in addition, the weight above is
+                  the "weigh-in" weight. Most high-level competitors will weigh more prior to the competition and
+                  quickly drop weight to meet their weight class. See the <a href="/about#references">references</a>
+                  section for more information.</p>
+                </div>
+                <div *ngIf="selectedGender.type == 'Male'" class="row">
+                  <div class="col-md-12"><h2>Mixed Martial Arts
+                    <small>The average weight of elite MMA fighters at your
+                    height.</small></h2>
+                  </div>
+                </div>
+                <div *ngIf="selectedGender.type == 'Male'" class="row list-separated more-stats-items">
+                  <div class="col-md-12">
+                    <div class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.male!.mma}}<span
+                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs</span>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="selectedGender.type == 'Male'" class="note"><p>This weight is based off UFC weight classes and records. Note that the weight above
+                  is the "weigh-in" weight. High-level competitors will weigh dramatically more prior to the competition
+                  and quickly drop weight to meet their weight class. See the <a href="/about#references">references</a>
+                  section for more information.</p>
+                </div>
+                <div *ngIf="selectedGender.type == 'Male'" class="row">
+                  <div class="col-md-12"><h2>Bodybuilding <small>The average weight of elite bodybuilders at your
+                    height.</small></h2>
+                  </div>
+                </div>
+                <div *ngIf="selectedGender.type == 'Male'" class="row list-separated more-stats-items">
+                  <div class="col-md-12">
+                    <div class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.male!.bodybuilding}}<span
+                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs</span>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="selectedGender.type == 'Male'" class="note"><p>This weight is based off Mr. Olympia records in the last 15 years. Note that there
+                  is significant variation of weight at elite levels of bodybuilding. See the <a
+                    href="/about#references">references</a> section for more information.</p>
+                </div>
+                <div class="row">
+                  <div *ngIf="selectedGender.type == 'Male'" class="col-md-12"><h2>Bodybuilding, IFBB Classic Division <small>The ideal weight at your height
+                    to compete in the IFBB Classic division.</small></h2>
+                  </div>
+                </div>
+                <div *ngIf="selectedGender.type == 'Male'" class="row list-separated more-stats-items">
+                  <div class="col-md-12">
+                    <div class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.male!.classicBodybuilding}}<span
+                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs</span>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="selectedGender.type == 'Male'" class="note"><p>This weight is based off the IFBB Classic division height classes and weight
+                  limits. See the <a href="/about#references">references</a> section for more information.</p>
+                </div>
+                <div *ngIf="selectedGender.type == 'Male'" class="row">
+                  <div class="col-md-12"><h2>Bodybuilding, IFBB Fitness Division <small>The ideal weight at your height
+                    to compete in the IFBB Fitness division.</small></h2>
+                  </div>
+                </div>
+                <div *ngIf="selectedGender.type == 'Male'" class="row list-separated more-stats-items">
+                  <div class="col-md-12">
+                    <div class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.male!.fitnessBodybuilding}}<span
+                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs</span>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="selectedGender.type == 'Male'" class="note"><p>This weight is based off the IFBB Fitness division height classes and weight
+                  limits. See the <a href="/about#references">references</a> section for more information.</p>
+                </div>
+                <div class="row">
+                  <div class="col-md-12"><h2>Marathon running <small>The ideal weight at your height to compete in
+                    marathons.</small></h2>
+                  </div>
+                </div>
+                <div *ngIf="selectedGender.type == 'Male'" class="row list-separated more-stats-items">
+                  <div class="col-md-12">
+                    <div class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.male!.marathoning}}<span
+                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs</span>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="selectedGender.type == 'Female'" class="row list-separated more-stats-items">
+                  <div class="col-md-12">
+                    <div class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.female!.marathoning}}<span
+                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs</span>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="selectedGender.type == 'Male'" class="note"><p>This weight is based off the average weights of world record marathon runners at
+                  your height. See the <a href="/about#references">references</a> section for more information.</p>
+                </div>
+                <div class="row">
+                  <div class="col-md-12"><h2>Sprinting <small>The ideal weight at your height to compete as a 100m
+                    sprinter.</small></h2>
+                  </div>
+                </div>
+                <div class="row list-separated more-stats-items">
+                  <div class="col-md-12">
+                    <div *ngIf="selectedGender.type == 'Male'" class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.male!.sprinting}}<span
+                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs</span>
+                    </div>
+                    <div *ngIf="selectedGender.type == 'Female'" class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.female!.sprinting}}<span
+                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs</span>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="selectedGender.type == 'Male'" class="note"><p>This weight is based off the average weights of world record 100 meter sprinters at
+                  your height. See the <a href="/about#references">references</a> section for more information.</p>
+                </div>
+                <div class="row">
+                  <div *ngIf="selectedGender.type == 'Female'" class="col-md-12"><h2>Bodybuilding, IFBB Figure and Fitness Divisions <small>The ideal weight at your height to compete in the IFBB Figure or Fitness divisions.</small></h2>
+                  </div>
+                </div>
+                <div *ngIf="selectedGender.type == 'Female'" class="row list-separated more-stats-items">
+                  <div class="col-md-12">
+                    <div class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.female!.figureFitnessBodybuilding}}<span
+                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs</span>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="selectedGender.type == 'Female'" class="note"><p>This weight is based off the average weight of women's figure and fitness competitors with NPC or IFBB pro cards at your height. See the <a href="/about#references">references</a> section for more information.</p>
+                </div>
+                <div class="row">
+                  <div *ngIf="selectedGender.type == 'Female'" class="col-md-12"><h2>Bodybuilding, IFBB Bikini Division <small>The ideal weight at your height to compete in the IFBB Bikini division.</small></h2>
+                  </div>
+                </div>
+                <div *ngIf="selectedGender.type == 'Female'" class="row list-separated more-stats-items">
+                  <div class="col-md-12">
+                    <div class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.female!.bikiniBodybuilding}}<span
+                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs</span>
+                    </div>
+                  </div>
+                </div>
+                <div *ngIf="selectedGender.type == 'Female'" class="note"><p>This weight is based off the average weight of bikini competitors with NPC or IFBB pro cards at your height. See the <a href="/about#references">references</a> section for more information.</p>
+                </div>
+              </div><!-- end ngIf: idealBodyweightCtrl.state.results.sex === 'Male' -->
+              <!-- ngIf: idealBodyweightCtrl.state.results.sex === 'Female' -->
+              <div class="note note-info"><p><strong>Tip:</strong>
+                See the <a href="/calculator/tdee">Total Daily Energy Expenditure calculator</a> to find out how many
+                calories to eat each day in order to lose or gain weight.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</div>

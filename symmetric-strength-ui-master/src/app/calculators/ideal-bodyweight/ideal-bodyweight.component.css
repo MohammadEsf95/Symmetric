@@ -75,3 +75,27 @@
 input, label {
   display:block;
 }
+
+h2 {
+  font-size: 27px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: open sans,sans-serif;
+  font-weight: 300;
+}
+
+h2 small {
+  font-size: 15px;
+  color: #888;
+  display: block;
+  margin-top: 2px;
+}
+
+.font-massive {
+  font-size: 40px;
+}
+
+.note {
+  font-size: 14px;
+}
