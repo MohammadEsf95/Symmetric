@@ -71,3 +71,7 @@
 input, label {
   display:block;
 }
+
+.font-massive {
+  font-size: 40px;
+}
