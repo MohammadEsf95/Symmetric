@@ -22,14 +22,15 @@ export class IdealBodyweightComponent implements OnInit {
   idealBodyweightReq: IdealBodyWeightReqDto = {};
   idealBodyweightResp: IdealBodyWeightRespDto = {};
   showResult: boolean = false;
+  centimeters: any;
 
   constructor(
     private calculatorService: CalculatorService,
     private toastr: MessageService
   ) {
     this.units = [
-      {name: 'Metric', label: 'KG'},
-      {name: 'Imperial', label: 'LBS'}
+      {name: 'Metric', label: 'kg'},
+      {name: 'Imperial', label: 'lbs'}
     ]
   }
 
@@ -43,12 +44,12 @@ export class IdealBodyweightComponent implements OnInit {
     this.idealBodyweightReq.sex = this.selectedGender.type;
     this.idealBodyweightReq.inches = this.inches;
     this.idealBodyweightReq.feet = this.feet;
+    this.idealBodyweightReq.centimeters = this.centimeters;
 
     this.calculatorService.idealBodyWeightCalc(this.idealBodyweightReq).subscribe(data => {
       if(data.success) {
         this.idealBodyweightResp = data.data;
         this.showResult = true;
-        console.log('kir: ', this.idealBodyweightResp)
       } else {
         this.toastr.add({severity:'error', summary:'Error', detail: JSON.stringify(data.errors[0].message)})
       }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {filter} from "rxjs";
 import {NavigationEnd, Router} from "@angular/router";
 
@@ -16,15 +16,16 @@ export class FooterComponent implements OnInit {
   ) {
     this.router.events.pipe(
       filter(e => e instanceof NavigationEnd)
-  ).subscribe(event => this.modifyHeader(event));
+    ).subscribe(event => this.modifyHeader(event));
   }
 
   ngOnInit(): void {
   }
 
-  modifyHeader(location:any) {
+  modifyHeader(location: any) {
     if (location.url === '/auth/login' || location.url === '/auth/set-password' ||
-      location.url === '/auth/forgot-password' || location.url === '/auth/register') {
+      location.url === '/auth/forgot-password' || location.url === '/auth/register'
+      || location.url === '/auth/set-username') {
       this.showHeader = false;
     } else {
       this.showHeader = true;

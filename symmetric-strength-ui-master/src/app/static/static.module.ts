@@ -10,14 +10,16 @@ import {RegisterComponent} from './register/register.component';
 import {CheckboxModule} from "primeng/checkbox";
 import {ForgotPasswordComponent} from './forgot-password/forgot-password.component';
 import {CommonModule} from "@angular/common";
-import { SetPasswordComponent } from './set-password/set-password.component';
+import {SetPasswordComponent} from './set-password/set-password.component';
+import {SetUsernameComponent} from './set-username/set-username.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
     RegisterComponent,
     ForgotPasswordComponent,
-    SetPasswordComponent
+    SetPasswordComponent,
+    SetUsernameComponent
   ],
   imports: [
     SharedModule,

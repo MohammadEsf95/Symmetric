@@ -4,6 +4,7 @@ import {LoginComponent} from "./login/login.component";
 import {RegisterComponent} from "./register/register.component";
 import {ForgotPasswordComponent} from "./forgot-password/forgot-password.component";
 import {SetPasswordComponent} from "./set-password/set-password.component";
+import {SetUsernameComponent} from "./set-username/set-username.component";
 
 const routes: Routes = [
   {
@@ -41,6 +42,13 @@ const routes: Routes = [
           component: SetPasswordComponent,
           data: {
             title: 'set-password'
+          }
+        },
+        {
+          path: 'set-username',
+          component: SetUsernameComponent,
+          data: {
+            title: 'set-username'
           }
         }
       ]

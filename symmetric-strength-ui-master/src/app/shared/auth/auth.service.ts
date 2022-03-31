@@ -4,6 +4,7 @@ import {HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 import {SignInDto} from "../dto/SignInDto";
 import {catchError, map, Observable, take, throwError} from "rxjs";
 import {SetPasswordDto} from "../dto/SetPasswordDto";
+import {CompleteProfileDto} from "../dto/CompleteProfileDto";
 
 @Injectable({providedIn: "root"})
 export class AuthService {
@@ -59,10 +60,9 @@ export class AuthService {
     );
   }
 
-  completeProfile(xAuthToken: string): Observable<string> {
-    return this.http.post<string>(this.endpoint + 'complete-profile', {
-      xAuthToken,
-      headers: new HttpHeaders({'Content-Type': 'application/json'})
+  completeProfile(completeProfileDto: CompleteProfileDto, xAuthToken: string): Observable<any> {
+    return this.http.post<string>(this.endpoint + 'complete-profile', completeProfileDto, {
+      headers: new HttpHeaders({'Content-Type': 'application/json', 'x-auth-token' : xAuthToken})
     }).pipe(
       catchError(this.errorHandler)
     )

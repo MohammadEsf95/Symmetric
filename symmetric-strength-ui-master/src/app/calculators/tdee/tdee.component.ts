@@ -25,6 +25,7 @@ export class TdeeComponent implements OnInit {
   tdeeReq: TdeeReqDto = {};
   tdeeResp: TdeeRespDto = {};
   showResponse: boolean = false;
+  centimeters: any;
 
   constructor(
     private calculatorService: CalculatorService,
@@ -62,6 +63,7 @@ export class TdeeComponent implements OnInit {
     this.tdeeReq.feet = this.feet;
     this.tdeeReq.inches = this.inches;
     this.tdeeReq.bodyfat = this.bodyFat;
+    this.tdeeReq.centimeters = this.centimeters;
 
     this.calculatorService.tdeeCalc(this.tdeeReq).subscribe(data => {
       if(data.success) {

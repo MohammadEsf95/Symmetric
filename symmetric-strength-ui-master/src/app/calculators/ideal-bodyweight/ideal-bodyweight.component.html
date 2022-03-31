@@ -13,7 +13,7 @@
       </div>
     </div>
     <div class="col-12 grid">
-      <div class="xl:col-3 lg:col-3 md:col-12 sm:col-12">
+      <div *ngIf="selectedUnit.name == 'Imperial'" class="xl:col-3 lg:col-3 md:col-12 sm:col-12">
               <span class="p-float-label">
             <p-inputNumber [min]="0" [(ngModel)]="feet" [showButtons]="true" inputId="feet"
                            [suffix]="' ft'">
@@ -21,12 +21,20 @@
             <label for="feet">Feet</label>
             </span>
       </div>
-      <div class="xl:col-3 lg:col-3 md:col-12 sm:col-12 inches-and-sex">
+      <div *ngIf="selectedUnit.name == 'Imperial'" class="xl:col-3 lg:col-3 md:col-12 sm:col-12 inches-and-sex">
               <span class="p-float-label">
             <p-inputNumber [min]="0" [(ngModel)]="inches" [showButtons]="true" inputId="inches"
                            [suffix]="' in'">
             </p-inputNumber>
             <label for="bodyweight">Inches</label>
+            </span>
+      </div>
+      <div *ngIf="selectedUnit.name == 'Metric'" class="xl:col-3 lg:col-3 md:col-12 sm:col-12">
+              <span class="p-float-label">
+            <p-inputNumber [min]="0" [(ngModel)]="centimeters" [showButtons]="true" inputId="centimeters"
+                           [suffix]="' cm'">
+            </p-inputNumber>
+            <label for="centimeters">Centimeters</label>
             </span>
       </div>
     </div>
@@ -53,53 +61,53 @@
               <div class="col-md-12">
                 <div *ngIf="selectedGender.type == 'Male'"
                   class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.male!.maximumMuscularPotential55}}
-                  <span class="font-hg font-grey-mint ng-binding">&nbsp;lbs at 5.5% body fat</span>
+                  <span class="font-hg font-grey-mint ng-binding">&nbsp;{{selectedUnit.label}} at 5.5% body fat</span>
                 </div>
                 <div *ngIf="selectedGender.type == 'Female'" class="row list-separated more-stats-items">
                   <div class="col-md-12">
                     <div
                       class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.female!.maximumMuscularPotential12}}
-                      <span class="font-hg font-grey-mint ng-binding">&nbsp;lbs at 5.5% body fat</span>
+                      <span class="font-hg font-grey-mint ng-binding">&nbsp;{{selectedUnit.label}} at 5.5% body fat</span>
                     </div>
                   </div>
                 </div>
                 <div class="row list-separated more-stats-items">
                   <div class="col-md-12">
                     <div *ngIf="selectedGender.type == 'Male'" class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.male!.maximumMuscularPotential8}}<span
-                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs at 8% body fat</span>
+                      class="font-hg font-grey-mint ng-binding">&nbsp;{{selectedUnit.label}} at 8% body fat</span>
                     </div>
                     <div *ngIf="selectedGender.type == 'Female'" class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.female!.maximumMuscularPotential15}}<span
-                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs at 8% body fat</span>
+                      class="font-hg font-grey-mint ng-binding">&nbsp;{{selectedUnit.label}} at 8% body fat</span>
                     </div>
                   </div>
                 </div>
                 <div class="row list-separated more-stats-items">
                   <div class="col-md-12">
                     <div *ngIf="selectedGender.type == 'Male'" class="font-massive font-red-flamingo ng-binding">
-                      {{idealBodyweightResp.male!.maximumMuscularPotential10}}<span class="font-hg font-grey-mint ng-binding">&nbsp;lbs at 10% body fat</span>
+                      {{idealBodyweightResp.male!.maximumMuscularPotential10}}<span class="font-hg font-grey-mint ng-binding">&nbsp;{{selectedUnit.label}} at 10% body fat</span>
                     </div>
                     <div *ngIf="selectedGender.type == 'Female'" class="font-massive font-red-flamingo ng-binding">
-                      {{idealBodyweightResp.female!.maximumMuscularPotential18}}<span class="font-hg font-grey-mint ng-binding">&nbsp;lbs at 10% body fat</span>
+                      {{idealBodyweightResp.female!.maximumMuscularPotential18}}<span class="font-hg font-grey-mint ng-binding">&nbsp;{{selectedUnit.label}} at 10% body fat</span>
                     </div>
                   </div>
                 </div>
                 <div class="row list-separated more-stats-items">
                   <div class="col-md-12">
                     <div *ngIf="selectedGender.type == 'Male'" class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.male!.maximumMuscularPotential12}}<span
-                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs at 12% body fat</span>
+                      class="font-hg font-grey-mint ng-binding">&nbsp;{{selectedUnit.label}} at 12% body fat</span>
                     </div>
                     <div *ngIf="selectedGender.type == 'Female'" class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.female!.maximumMuscularPotential18}}<span
-                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs at 12% body fat</span>
+                      class="font-hg font-grey-mint ng-binding">&nbsp;{{selectedUnit.label}} at 12% body fat</span>
                     </div>
                   </div>
                 </div>
                 <div class="row list-separated more-stats-items">
                   <div class="col-md-12">
                     <div *ngIf="selectedGender.type == 'Male'" class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.male!.maximumMuscularPotential15}}<span
-                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs at 15% body fat</span>
+                      class="font-hg font-grey-mint ng-binding">&nbsp;{{selectedUnit.label}} at 15% body fat</span>
                     </div>
                     <div *ngIf="selectedGender.type == 'Female'" class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.female!.maximumMuscularPotential21}}<span
-                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs at 15% body fat</span>
+                      class="font-hg font-grey-mint ng-binding">&nbsp;{{selectedUnit.label}} at 15% body fat</span>
                     </div>
                   </div>
                 </div>
@@ -118,20 +126,20 @@
                 <div class="row list-separated more-stats-items">
                   <div class="col-md-12">
                     <div *ngIf="selectedGender.type == 'Male'" class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.male!.powerlifting}}<span
-                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs (Most federations)</span>
+                      class="font-hg font-grey-mint ng-binding">&nbsp;{{selectedUnit.label}} (Most federations)</span>
                     </div>
                     <div *ngIf="selectedGender.type == 'Female'" class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.female!.powerlifting}}<span
-                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs (Most federations)</span>
+                      class="font-hg font-grey-mint ng-binding">&nbsp;{{selectedUnit.label}} (Most federations)</span>
                     </div>
                   </div>
                 </div>
                 <div class="row list-separated more-stats-items">
                   <div class="col-md-12">
                     <div *ngIf="selectedGender.type == 'Male'" class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.male!.powerliftingIPF}}<span
-                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs (IPF)</span>
+                      class="font-hg font-grey-mint ng-binding">&nbsp;{{selectedUnit.label}} (IPF)</span>
                     </div>
                     <div *ngIf="selectedGender.type == 'Female'" class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.female!.powerliftingIPF}}<span
-                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs (IPF)</span>
+                      class="font-hg font-grey-mint ng-binding">&nbsp;{{selectedUnit.label}} (IPF)</span>
                     </div>
                   </div>
                 </div>
@@ -149,10 +157,10 @@
                 <div class="row list-separated more-stats-items">
                   <div class="col-md-12">
                     <div *ngIf="selectedGender.type == 'Male'" class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.male!.weightlifting}}<span
-                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs</span>
+                      class="font-hg font-grey-mint ng-binding">&nbsp;{{selectedUnit.label}}</span>
                     </div>
                     <div *ngIf="selectedGender.type == 'Female'" class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.female!.weightlifting}}<span
-                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs</span>
+                      class="font-hg font-grey-mint ng-binding">&nbsp;{{selectedUnit.label}}</span>
                     </div>
                   </div>
                 </div>
@@ -171,7 +179,7 @@
                 <div *ngIf="selectedGender.type == 'Male'" class="row list-separated more-stats-items">
                   <div class="col-md-12">
                     <div class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.male!.mma}}<span
-                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs</span>
+                      class="font-hg font-grey-mint ng-binding">&nbsp;{{selectedUnit.label}}</span>
                     </div>
                   </div>
                 </div>
@@ -188,7 +196,7 @@
                 <div *ngIf="selectedGender.type == 'Male'" class="row list-separated more-stats-items">
                   <div class="col-md-12">
                     <div class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.male!.bodybuilding}}<span
-                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs</span>
+                      class="font-hg font-grey-mint ng-binding">&nbsp;{{selectedUnit.label}}</span>
                     </div>
                   </div>
                 </div>
@@ -204,7 +212,7 @@
                 <div *ngIf="selectedGender.type == 'Male'" class="row list-separated more-stats-items">
                   <div class="col-md-12">
                     <div class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.male!.classicBodybuilding}}<span
-                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs</span>
+                      class="font-hg font-grey-mint ng-binding">&nbsp;{{selectedUnit.label}}</span>
                     </div>
                   </div>
                 </div>
@@ -219,7 +227,7 @@
                 <div *ngIf="selectedGender.type == 'Male'" class="row list-separated more-stats-items">
                   <div class="col-md-12">
                     <div class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.male!.fitnessBodybuilding}}<span
-                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs</span>
+                      class="font-hg font-grey-mint ng-binding">&nbsp;{{selectedUnit.label}}</span>
                     </div>
                   </div>
                 </div>
@@ -234,14 +242,14 @@
                 <div *ngIf="selectedGender.type == 'Male'" class="row list-separated more-stats-items">
                   <div class="col-md-12">
                     <div class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.male!.marathoning}}<span
-                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs</span>
+                      class="font-hg font-grey-mint ng-binding">&nbsp;{{selectedUnit.label}}</span>
                     </div>
                   </div>
                 </div>
                 <div *ngIf="selectedGender.type == 'Female'" class="row list-separated more-stats-items">
                   <div class="col-md-12">
                     <div class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.female!.marathoning}}<span
-                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs</span>
+                      class="font-hg font-grey-mint ng-binding">&nbsp;{{selectedUnit.label}}</span>
                     </div>
                   </div>
                 </div>
@@ -256,10 +264,10 @@
                 <div class="row list-separated more-stats-items">
                   <div class="col-md-12">
                     <div *ngIf="selectedGender.type == 'Male'" class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.male!.sprinting}}<span
-                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs</span>
+                      class="font-hg font-grey-mint ng-binding">&nbsp;{{selectedUnit.label}}</span>
                     </div>
                     <div *ngIf="selectedGender.type == 'Female'" class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.female!.sprinting}}<span
-                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs</span>
+                      class="font-hg font-grey-mint ng-binding">&nbsp;{{selectedUnit.label}}</span>
                     </div>
                   </div>
                 </div>
@@ -273,7 +281,7 @@
                 <div *ngIf="selectedGender.type == 'Female'" class="row list-separated more-stats-items">
                   <div class="col-md-12">
                     <div class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.female!.figureFitnessBodybuilding}}<span
-                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs</span>
+                      class="font-hg font-grey-mint ng-binding">&nbsp;{{selectedUnit.label}}</span>
                     </div>
                   </div>
                 </div>
@@ -286,7 +294,7 @@
                 <div *ngIf="selectedGender.type == 'Female'" class="row list-separated more-stats-items">
                   <div class="col-md-12">
                     <div class="font-massive font-red-flamingo ng-binding">{{idealBodyweightResp.female!.bikiniBodybuilding}}<span
-                      class="font-hg font-grey-mint ng-binding">&nbsp;lbs</span>
+                      class="font-hg font-grey-mint ng-binding">&nbsp;{{selectedUnit.label}}</span>
                     </div>
                   </div>
                 </div>

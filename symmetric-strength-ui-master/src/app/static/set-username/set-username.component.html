@@ -1,0 +1,57 @@
+<div class="col-12 grid container-div">
+  <div class="col-4 center login">
+    <div class="col-12 center" style="margin-top: 5vh">
+      <span class="title">SYMMETRIC STRENGTH</span>
+    </div>
+    <div class="content">
+      <div class="alert alert-info" id="message">Password updated</div>
+      <div id="wrapper" ng-app="symmetricstrengthwizard" class="ng-scope">
+        <div>
+          <form class="login-form ng-pristine ng-valid" role="form" ng-submit="wizardCtrl.submit()" novalidate=""><h3
+            class="form-title">Welcome!</h3>
+            <p>Enter a user name. If you enable your public lifter page, this will be shown to others.</p>
+            <div class="form-group"><label class="control-label visible-ie8 visible-ie9">User name</label>
+              <input class="form-control form-control-solid placeholder-no-fix ng-pristine ng-valid ng-touched"
+                     [(ngModel)]="username" (change)="typeUserName()" type="text"
+                     autocomplete="off" placeholder="User name" name="username" autofocus="">
+            </div>
+            <div class="form-group" id="make-public-form-group"><label class="check"><input
+              [(ngModel)]="completeProfileDto.public_page" name="enable-public" type="checkbox"
+              class="ng-pristine ng-untouched ng-valid"> Share my lifter stats with others.
+            </label>
+            </div>
+            <!-- ngIf: wizardCtrl.state.makePublic -->
+            <div class="form-group ng-scope" ng-if="wizardCtrl.state.makePublic" id="hide-weight-form-group"><label
+              class="check"><input [(ngModel)]="completeProfileDto.hide_weight" name="hide-weight" type="checkbox"
+                                   class="ng-pristine ng-untouched ng-valid"> Hide my age and bodyweight on my public
+              page.
+            </label>
+            </div><!-- end ngIf: wizardCtrl.state.makePublic -->
+            <p id="body-weight-note"><small><strong>Note:</strong> Read the <a href="/about#faq" target="_blank">FAQ</a>
+              regarding age and bodyweight privacy.</small>
+            </p>
+            <div ng-if="wizardCtrl.state.makePublic" class="ng-scope"><p>Your public page will be located at:</p>
+              <div class="form-group">
+                <input class="form-control form-control-solid placeholder-no-fix ng-pristine ng-untouched ng-valid"
+                id="public-url" [(ngModel)]="publicPageUrl" type="text" autocomplete="off" name="publicurl"
+                readonly="">
+              </div>
+              <p>This page will show the lifting stats you enter into Symmetric Strength.</p>
+            </div>
+            <div class="form-actions">
+              <button class="btn btn-success uppercase" type="submit" (click)="submit()">Submit</button>
+            </div>
+            <!-- ngIf: wizardCtrl.state.error -->
+          </form>
+        </div>
+        <div><a href="/auth/logout/">Log out</a>
+        </div>
+      </div>
+      <script src="https://symmetricstrength.com/static/res/libs.js?etag=W_iKDuqc"></script>
+      <script src="https://symmetricstrength.com/static/res/angular.js?etag=D6lEYJMt"></script>
+      <script src="https://symmetricstrength.com/static/res/angular/symmetricstrengthwizard.js?etag=OrNa1Fua"></script>
+      <script src="https://symmetricstrength.com/static/res/angular/components/wizard.js?etag=zYyReJbz"></script>
+    </div>
+    <div class="copyright">2015 © Symmetric Strength.</div>
+  </div>
+</div>
