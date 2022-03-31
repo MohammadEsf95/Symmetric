@@ -237,10 +237,128 @@ input, label {
   stroke: #af174a;
 }
 
-#muscle-figure-male path.subpar.active{
+#muscle-figure-male, #muscle-figure-female path.subpar.active{
   fill: #af174a;
   stroke: #750f32;
 }
+
+#muscle-figure-male, #muscle-figure-female {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  height: auto;
+}
+
+#muscle-figure-male, #muscle-figure-female .path {
+  transition: all 250ms;
+  stroke: #000000;
+  stroke-width: 2px;
+  stroke-opacity: 0.0;
+  fill-opacity: 0.0;
+}
+
+#muscle-figure-male, #muscle-figure-female .path.active {
+  stroke-opacity: 0.5;
+}
+
+#muscle-figure-male path.untrained, #muscle-figure-female path.untrained {
+  fill: #456de5;
+  fill-opacity: 0.5;
+  stroke-opacity: 0.3;
+  stroke: #3f51b5;
+}
+
+#muscle-figure-male, #muscle-figure-female path.untrained.active {
+  fill: #3f51b5;
+  stroke: #456de5;
+}
+
+#muscle-figure-male path.novice, #muscle-figure-female path.novice {
+  fill: #456de5;
+  fill-opacity: 0.5;
+  stroke-opacity: 0.3;
+  stroke: #3f51b5;
+}
+
+#muscle-figure-male path.subpar, #muscle-figure-female path.novice.active {
+  fill: #3f51b5;
+  stroke: #456de5;
+}
+
+#muscle-figure-male path.intermediate, #muscle-figure-female path.intermediate {
+  fill: #2bb1a2;
+  fill-opacity: 0.5;
+  stroke-opacity: 0.3;
+  stroke: #3f51b5;
+}
+
+#muscle-figure-male path.subpar, #muscle-figure-female path.intermediate.active {
+   fill: #3f51b5;
+   stroke: #2bb1a2;
+ }
+
+#muscle-figure-male path.subpar, #muscle-figure-female path.advanced {
+  fill: #beb021;
+  fill-opacity: 0.5;
+  stroke-opacity: 0.3;
+  stroke: #cddc39;
+}
+
+#muscle-figure-male path.subpar, #muscle-figure-female path.advanced.active {
+  fill: #cddc39;
+  stroke: #beb021;
+}
+
+#muscle-figure-male path.subpar, #muscle-figure-female path.proficient {
+  fill: #76ba37;
+  fill-opacity: 0.5;
+  stroke-opacity: 0.3;
+  stroke: #4caf50;
+}
+
+#muscle-figure-male path.subpar, #muscle-figure-female path.proficient.active {
+  fill: #4caf50;
+  stroke: #76ba37;
+}
+
+#muscle-figure-male path.subpar, #muscle-figure-female path.exceptional {
+  fill: #d18e35;
+  fill-opacity: 0.5;
+  stroke-opacity: 0.3;
+  stroke: #ffc107
+}
+
+#muscle-figure-male path.subpar, #muscle-figure-female path.exceptional.active {
+  fill: #ffc107;
+  stroke: #d18e35;
+}
+
+#muscle-figure-male path.subpar, #muscle-figure-female path.elite {
+  fill: #e5562d;
+  fill-opacity: 0.5;
+  stroke-opacity: 0.3;
+  stroke: #ff5722;
+}
+
+#muscle-figure-male path.subpar, #muscle-figure-female path.elite.active {
+  fill: #ff5722;
+  stroke: #e5562d;
+}
+
+#muscle-figure-male path.subpar, #muscle-figure-female path.world-class {
+  fill: #dd3247;
+  fill-opacity: 0.5;
+  stroke-opacity: 0.3;
+  stroke: #f44336;
+}
+
+#muscle-figure-male path.subpar, #muscle-figure-female path.world-class.active {
+  fill: #f44336;
+  stroke: #dd3247;
+}
+
+
 
 .app-image {
 
