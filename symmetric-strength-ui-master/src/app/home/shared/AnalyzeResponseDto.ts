@@ -88,6 +88,7 @@ export class AnalyzeResponseDto {
     squat?: number
     floorPull?: number
     horizontalPress?: number
+    verticalPress?: number
     pullup?: number
   }
   muscleGroups?: {

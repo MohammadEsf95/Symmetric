@@ -142,24 +142,31 @@
             <div class="desc ng-binding">{{analyzeResponse.scoreClass}}</div>
           </div>
           <div *ngIf="analyzeResponse.categories" class="more">
-            <div><span *ngIf="analyzeResponse.categories.squat" class="lift-category-stats ng-binding">{{analyzeResponse.categories.squat}}</span>
-              <span *ngIf="analyzeResponse.categories.squat" class="lift-category-classification ng-binding">[Subpar]</span>
+            <div><span *ngIf="analyzeResponse.categories.squat"
+                       class="lift-category-stats ng-binding">{{analyzeResponse.categories.squat}}</span>
+              <span *ngIf="analyzeResponse.categories.squat"
+                    class="lift-category-classification ng-binding">[Subpar]</span>
               <span *ngIf="!analyzeResponse.categories.squat" class="lift-category-classification ng-binding">[Not entered]</span>
             </div>
             <div>
-              <span *ngIf="analyzeResponse.categories.floorPull" class="lift-category-stats ng-binding">{{analyzeResponse.categories.floorPull}}</span>
+              <span *ngIf="analyzeResponse.categories.floorPull"
+                    class="lift-category-stats ng-binding">{{analyzeResponse.categories.floorPull}}</span>
               <span *ngIf="analyzeResponse.categories.floorPull" class="lift-category-classification ng-binding">[Subpar]</span>
               <span *ngIf="!analyzeResponse.categories.floorPull" class="lift-category-classification ng-binding">[Not entered]</span>
             </div>
-            <div><span *ngIf="analyzeResponse.categories.horizontalPress" class="lift-category-stats ng-binding">{{analyzeResponse.categories.horizontalPress}}</span>
+            <div><span *ngIf="analyzeResponse.categories.horizontalPress"
+                       class="lift-category-stats ng-binding">{{analyzeResponse.categories.horizontalPress}}</span>
               <span *ngIf="analyzeResponse.categories.horizontalPress" class="lift-category-classification ng-binding">[Subpar]</span>
               <span *ngIf="!analyzeResponse.categories.horizontalPress" class="lift-category-classification ng-binding">[Not entered]</span>
             </div>
-            <!--            <div><span class="lift-category-stats ng-binding">{{analyzeResponse.categories.verticalPress}}</span> <span-->
-            <!--              class="lift-category-classification ng-binding">[Not entered]</span>-->
-            <!--            </div>-->
-            <div><span *ngIf="analyzeResponse.categories.pullup" class="lift-category-stats ng-binding">{{analyzeResponse.categories.pullup}}</span>
-              <span *ngIf="analyzeResponse.categories.pullup" class="lift-category-classification ng-binding">[Subpar]</span>
+            <div><span class="lift-category-stats ng-binding">{{analyzeResponse.categories.verticalPress}}</span>
+              <span *ngIf="analyzeResponse.categories.verticalPress" class="lift-category-classification ng-binding">[Subpar]</span>
+              <span *ngIf="!analyzeResponse.categories.verticalPress" class="lift-category-classification ng-binding">[Not entered]</span>
+            </div>
+            <div><span *ngIf="analyzeResponse.categories.pullup"
+                       class="lift-category-stats ng-binding">{{analyzeResponse.categories.pullup}}</span>
+              <span *ngIf="analyzeResponse.categories.pullup"
+                    class="lift-category-classification ng-binding">[Subpar]</span>
               <span *ngIf="!analyzeResponse.categories.pullup" class="lift-category-classification ng-binding">[Not entered]</span>
             </div>
           </div>
@@ -649,67 +656,391 @@
                     style=""></path>
             </svg><!-- end ngIf: mainCtrl.state.sex === 'Male' -->
             <!-- ngIf: mainCtrl.state.sex === 'Female' -->
-            <svg *ngIf="selectedGender.type == 'Female'" id="muscle-figure-female" xmlns="http://www.w3.org/2000/svg" width="700" height="800" viewBox="0 0 700 800" class="" style=""><image width="700" height="800" xlink:href="/assets/img/female-musculature.jpg"></image>
-              <path class="upper-chest novice" ng-class="{'active':mainCtrl.hovering.upperChest}" ng-mouseenter="mainCtrl.hovering.upperChest=true" ng-mouseleave="mainCtrl.hovering.upperChest=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Pecs</div><div class=&quot;tooltip-subheader&quot;>(Clavicular head)</div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 54.3</div><div class=&quot;tooltip-classification&quot;>[Novice]</div></div>" data-html="true" data-container="#canvas-container" d="M 468.62,167.75 L 470.25,163.00 476.88,160.25 484.75,160.38 493.00,160.12 502.12,160.62 510.12,162.62 515.25,165.00 517.00,168.62 514.75,168.38 511.38,167.62 504.62,167.12 494.25,167.00 480.88,167.38 468.62,167.75 Z"></path>
-              <path class="lower-chest novice" ng-class="{'active':mainCtrl.hovering.lowerChest}" ng-mouseenter="mainCtrl.hovering.lowerChest=true" ng-mouseleave="mainCtrl.hovering.lowerChest=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Pecs</div><div class=&quot;tooltip-subheader&quot;>(Sternal head)</div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 54</div><div class=&quot;tooltip-classification&quot;>[Novice]</div></div>" data-html="true" data-container="#canvas-container" d="M 513.38,189.88 L 503.62,189.25 491.25,188.25 482.12,189.62 475.12,192.50 469.88,198.75 466.25,205.12 465.75,213.25 466.12,219.50 462.62,209.62 461.88,193.12 463.88,184.25 465.62,177.25 468.50,167.75 478.00,167.75 491.38,167.25 501.25,167.25 510.38,167.88 516.62,168.75 515.50,181.00 513.38,189.88 Z" style=""></path>
-              <path class="hip-adductors proficient" ng-class="{'active':mainCtrl.hovering.hipAdductors}" ng-mouseenter="mainCtrl.hovering.hipAdductors=true" ng-mouseleave="mainCtrl.hovering.hipAdductors=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Hip Adductors</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 85.7</div><div class=&quot;tooltip-classification&quot;>[Proficient]</div></div>" data-html="true" data-container="#canvas-container" d="M 507.25,344.75 L 504.50,345.00 502.25,342.12 496.25,349.88 485.88,365.75 476.88,385.00 469.00,398.12 467.25,402.75 467.88,408.62 470.62,428.75 481.25,464.00 483.25,443.62 483.12,431.50 500.75,374.88 507.25,344.75 Z"></path>
-              <path class="hip-adductors proficient" ng-class="{'active':mainCtrl.hovering.hipAdductors}" ng-mouseenter="mainCtrl.hovering.hipAdductors=true" ng-mouseleave="mainCtrl.hovering.hipAdductors=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Hip Adductors</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 85.7</div><div class=&quot;tooltip-classification&quot;>[Proficient]</div></div>" data-html="true" data-container="#canvas-container" d="M 414.25,346.00 L 418.38,344.12 427.00,356.50 439.00,380.88 452.25,402.50 450.62,419.38 446.38,441.50 442.75,458.50 440.62,440.75 437.50,426.75 427.75,407.12 417.00,368.00 414.25,346.00 Z"></path>
-              <path class="hip-flexors advanced" ng-class="{'active':mainCtrl.hovering.hipFlexors}" ng-mouseenter="mainCtrl.hovering.hipFlexors=true" ng-mouseleave="mainCtrl.hovering.hipFlexors=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Hip Flexors</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 88.4</div><div class=&quot;tooltip-classification&quot;>[Advanced]</div></div>" data-html="true" data-container="#canvas-container" d="M 442.38,458.38 L 440.38,440.38 437.50,427.00 427.75,406.75 422.62,388.75 416.88,367.75 414.00,346.12 410.75,342.00 406.25,339.38 401.62,334.88 396.88,349.38 394.12,362.38 390.38,377.12 387.50,391.38 387.25,403.50 387.50,423.50 389.12,431.75 391.25,406.75 395.88,392.38 408.00,363.50 413.88,394.50 434.38,452.25 437.62,468.62 439.12,497.62 442.38,458.38 Z" style=""></path>
-              <path class="hip-flexors advanced" ng-class="{'active':mainCtrl.hovering.hipFlexors}" ng-mouseenter="mainCtrl.hovering.hipFlexors=true" ng-mouseleave="mainCtrl.hovering.hipFlexors=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Hip Flexors</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 88.4</div><div class=&quot;tooltip-classification&quot;>[Advanced]</div></div>" data-html="true" data-container="#canvas-container" d="M 481.38,466.38 L 483.00,443.50 483.12,431.38 488.50,413.38 494.62,394.38 501.12,375.12 502.75,365.38 507.50,344.62 513.50,337.88 517.75,334.88 521.50,348.00 525.75,363.88 530.12,380.12 532.75,393.12 534.38,406.38 534.88,424.25 533.75,414.25 532.50,408.25 530.38,397.12 516.75,374.75 511.00,367.88 509.38,376.88 505.75,395.62 499.62,411.88 494.25,428.00 490.88,441.25 488.62,453.75 487.50,460.25 487.00,488.12 486.50,504.50 483.38,478.25 481.38,466.38 Z" style=""></path>
-              <path class="quads advanced" ng-class="{'active':mainCtrl.hovering.quads}" ng-mouseenter="mainCtrl.hovering.quads=true" ng-mouseleave="mainCtrl.hovering.quads=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Quads</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 87.9</div><div class=&quot;tooltip-classification&quot;>[Advanced]</div></div>" data-html="true" data-container="#canvas-container" d="M 491.25,542.75 L 488.25,521.50 486.50,503.12 487.12,484.38 487.25,461.38 490.50,442.38 492.75,433.62 499.12,413.38 505.75,396.00 509.38,376.88 510.75,367.88 516.75,374.62 525.38,389.12 530.38,397.62 533.50,414.00 534.12,423.50 533.75,440.38 533.62,468.75 532.25,548.00 527.38,543.12 521.50,532.50 519.00,524.88 518.50,511.62 520.25,504.88 517.25,508.50 514.75,511.38 510.12,511.62 506.62,510.12 502.12,508.00 502.75,513.75 504.62,524.12 504.62,542.00 500.88,546.88 495.75,546.25 491.25,542.75 Z" style=""></path>
-              <path class="quads advanced" ng-class="{'active':mainCtrl.hovering.quads}" ng-mouseenter="mainCtrl.hovering.quads=true" ng-mouseleave="mainCtrl.hovering.quads=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Quads</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 87.9</div><div class=&quot;tooltip-classification&quot;>[Advanced]</div></div>" data-html="true" data-container="#canvas-container" d="M 396.00,546.38 L 396.50,527.38 393.25,489.25 390.75,457.88 389.38,431.62 391.62,406.88 396.00,392.62 407.88,364.00 409.88,373.25 413.38,393.50 421.38,416.88 431.12,443.38 434.38,452.38 437.62,468.88 438.12,483.50 438.88,507.75 436.88,527.00 434.88,538.12 430.38,544.62 427.38,545.50 424.25,541.62 424.25,520.50 427.12,503.00 423.00,509.00 418.25,511.25 413.12,509.88 409.00,506.38 406.12,502.25 409.12,514.12 410.25,521.62 408.75,531.00 405.62,538.00 396.00,546.38 Z" style=""></path>
-              <path class="front-delts novice" ng-class="{'active':mainCtrl.hovering.frontDelts}" ng-mouseenter="mainCtrl.hovering.frontDelts=true" ng-mouseleave="mainCtrl.hovering.frontDelts=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Delts</div><div class=&quot;tooltip-subheader&quot;>(Anterior)</div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 54.3</div><div class=&quot;tooltip-classification&quot;>[Novice]</div></div>" data-html="true" data-container="#canvas-container" d="M 402.62,152.75 L 395.38,157.88 390.38,163.38 387.12,174.62 388.00,204.62 404.75,179.00 402.50,172.38 403.25,163.25 415.62,157.25 402.62,152.75 Z"></path>
-              <path class="serratus-and-obliques subpar" ng-class="{'active':mainCtrl.hovering.serratusAndObliques}" ng-mouseenter="mainCtrl.hovering.serratusAndObliques=true" ng-mouseleave="mainCtrl.hovering.serratusAndObliques=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Obliques</div><div class=&quot;tooltip-subheader&quot;>&amp; Serratus</div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 20.2</div><div class=&quot;tooltip-classification&quot;>[Subpar]</div></div>" data-html="true" data-container="#canvas-container" d="M 245.50,326.00 L 250.00,288.50 261.75,249.25 261.50,264.75 259.75,280.00 258.50,302.25 266.50,321.25 256.50,320.50 245.50,326.00 Z"></path>
-              <path class="serratus-and-obliques subpar" ng-class="{'active':mainCtrl.hovering.serratusAndObliques}" ng-mouseenter="mainCtrl.hovering.serratusAndObliques=true" ng-mouseleave="mainCtrl.hovering.serratusAndObliques=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Obliques</div><div class=&quot;tooltip-subheader&quot;>&amp; Serratus</div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 20.2</div><div class=&quot;tooltip-classification&quot;>[Subpar]</div></div>" data-html="true" data-container="#canvas-container" d="M 171.00,300.50 L 172.00,328.00 161.25,321.25 156.75,321.75 164.75,300.75 163.50,271.75 171.00,300.50 Z"></path>
-              <path class="lats-and-teres-major subpar" ng-class="{'active':mainCtrl.hovering.latsAndTeresMajor}" ng-mouseenter="mainCtrl.hovering.latsAndTeresMajor=true" ng-mouseleave="mainCtrl.hovering.latsAndTeresMajor=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Lats</div><div class=&quot;tooltip-subheader&quot;>&amp; Teres Major</div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 14.8</div><div class=&quot;tooltip-classification&quot;>[Subpar]</div></div>" data-html="true" data-container="#canvas-container" d="M 227.00,217.50 L 228.50,208.00 233.00,208.50 263.50,187.00 258.75,193.50 257.00,202.25 256.00,209.25 259.25,230.25 262.25,247.75 250.75,285.25 246.75,311.00 245.25,326.50 238.25,330.50 233.75,298.75 222.50,280.50 214.00,268.25 211.25,254.50 217.25,232.75 227.00,217.50 Z"></path>
-              <path class="lats-and-teres-major subpar" ng-class="{'active':mainCtrl.hovering.latsAndTeresMajor}" ng-mouseenter="mainCtrl.hovering.latsAndTeresMajor=true" ng-mouseleave="mainCtrl.hovering.latsAndTeresMajor=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Lats</div><div class=&quot;tooltip-subheader&quot;>&amp; Teres Major</div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 14.8</div><div class=&quot;tooltip-classification&quot;>[Subpar]</div></div>" data-html="true" data-container="#canvas-container" d="M 151.00,193.00 L 174.75,209.25 179.00,208.50 182.00,217.50 192.50,233.25 200.25,249.50 202.50,268.50 189.25,286.25 180.75,321.75 172.50,327.50 171.25,300.00 164.25,274.25 154.00,227.50 155.00,203.00 151.00,193.00 Z"></path>
-              <path class="rotator-cuff subpar" ng-class="{'active':mainCtrl.hovering.rotatorCuff}" ng-mouseenter="mainCtrl.hovering.rotatorCuff=true" ng-mouseleave="mainCtrl.hovering.rotatorCuff=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Rotator Cuff</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 12.4</div><div class=&quot;tooltip-classification&quot;>[Subpar]</div></div>" data-html="true" data-container="#canvas-container" d="M 241.75,159.50 L 259.75,162.75 266.25,164.50 263.75,186.50 233.00,208.75 229.00,208.25 229.50,202.75 241.75,159.50 Z"></path>
-              <path class="rotator-cuff subpar" ng-class="{'active':mainCtrl.hovering.rotatorCuff}" ng-mouseenter="mainCtrl.hovering.rotatorCuff=true" ng-mouseleave="mainCtrl.hovering.rotatorCuff=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Rotator Cuff</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 12.4</div><div class=&quot;tooltip-classification&quot;>[Subpar]</div></div>" data-html="true" data-container="#canvas-container" d="M 141.25,165.25 L 148.25,164.00 162.00,160.50 177.50,203.00 179.50,208.50 174.75,208.75 150.75,192.75 139.50,173.00 141.25,165.25 Z"></path>
-              <path class="upper-traps unknown" ng-class="{'active':mainCtrl.hovering.upperTraps}" ng-mouseenter="mainCtrl.hovering.upperTraps=true" ng-mouseleave="mainCtrl.hovering.upperTraps=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Upper Traps</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: Unknown</div><div class=&quot;tooltip-classification&quot;></div></div>" data-html="true" data-container="#canvas-container" d="M 403.75,150.00 L 417.00,149.50 427.50,148.38 435.12,144.88 430.12,150.00 427.00,156.00 415.75,154.88 403.75,150.00 Z"></path>
-              <path class="glutes proficient" ng-class="{'active':mainCtrl.hovering.glutes}" ng-mouseenter="mainCtrl.hovering.glutes=true" ng-mouseleave="mainCtrl.hovering.glutes=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Glutes</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 85.7</div><div class=&quot;tooltip-classification&quot;>[Proficient]</div></div>" data-html="true" data-container="#canvas-container" d="M 173.50,417.25 L 162.75,411.75 153.00,403.25 148.00,386.75 149.00,369.25 151.50,355.75 152.50,342.00 154.25,330.75 155.75,324.75 160.75,325.75 169.75,332.00 191.50,347.25 194.75,355.25 201.50,362.00 210.00,361.75 215.00,355.50 216.75,349.25 232.25,338.50 241.75,333.50 256.25,324.75 265.25,325.00 266.75,355.00 268.50,382.50 267.25,397.50 265.25,410.50 257.25,417.25 246.75,423.75 232.00,421.25 221.00,414.75 214.00,407.50 211.00,402.25 206.75,402.50 202.25,407.25 190.25,415.50 173.50,417.25 Z" style=""></path>
-              <path class="spinal-erectors intermediate" ng-class="{'active':mainCtrl.hovering.spinalErectors}" ng-mouseenter="mainCtrl.hovering.spinalErectors=true" ng-mouseleave="mainCtrl.hovering.spinalErectors=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Spinal Erectors</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 60.1</div><div class=&quot;tooltip-classification&quot;>[Intermediate]</div></div>" data-html="true" data-container="#canvas-container" d="M 190.75,341.75 L 180.75,335.50 172.00,327.50 180.75,321.75 188.75,286.25 202.00,268.50 200.25,248.25 198.00,215.25 191.50,159.25 192.25,135.00 195.50,111.25 200.75,107.75 208.75,113.25 213.75,135.25 214.50,159.00 211.25,185.25 211.00,252.75 214.00,269.25 223.00,280.50 233.50,298.75 238.25,330.50 212.50,346.75 212.50,354.00 205.75,356.75 198.75,351.75" style=""></path>
-              <path class="calves unknown" ng-class="{'active':mainCtrl.hovering.calves}" ng-mouseenter="mainCtrl.hovering.calves=true" ng-mouseleave="mainCtrl.hovering.calves=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Calves</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: Unknown</div><div class=&quot;tooltip-classification&quot;></div></div>" data-html="true" data-container="#canvas-container" d="M 429.00,576.00 L 421.75,589.25 417.12,597.88 415.88,607.25 416.12,633.00 416.50,658.62 419.62,645.00 423.12,626.62 426.25,609.38 428.00,599.25 429.00,576.00 Z"></path>
-              <path class="serratus-and-obliques subpar" ng-class="{'active':mainCtrl.hovering.serratusAndObliques}" ng-mouseenter="mainCtrl.hovering.serratusAndObliques=true" ng-mouseleave="mainCtrl.hovering.serratusAndObliques=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Obliques</div><div class=&quot;tooltip-subheader&quot;>&amp; Serratus</div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 20.2</div><div class=&quot;tooltip-classification&quot;>[Subpar]</div></div>" data-html="true" data-container="#canvas-container" d="M 408.75,249.50 L 414.75,243.62 424.25,244.12 425.88,247.50 425.50,255.38 422.12,258.62 425.25,261.75 425.50,274.12 422.00,276.75 425.38,279.12 426.00,290.25 423.50,292.25 423.75,295.12 426.38,297.38 426.12,304.75 422.88,307.12 427.12,312.38 427.50,327.50 426.75,337.50 431.38,359.00 420.50,343.12 411.25,332.62 406.88,317.38 413.00,301.12 412.50,283.62 409.88,266.25 408.75,249.50 Z"></path>
-              <path class="serratus-and-obliques subpar" ng-class="{'active':mainCtrl.hovering.serratusAndObliques}" ng-mouseenter="mainCtrl.hovering.serratusAndObliques=true" ng-mouseleave="mainCtrl.hovering.serratusAndObliques=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Obliques</div><div class=&quot;tooltip-subheader&quot;>&amp; Serratus</div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 20.2</div><div class=&quot;tooltip-classification&quot;>[Subpar]</div></div>" data-html="true" data-container="#canvas-container" d="M 496.00,244.00 L 494.12,247.38 494.62,254.25 497.75,258.12 494.88,262.25 494.00,273.00 497.50,275.12 494.00,278.62 494.12,290.00 497.25,291.88 493.75,296.38 493.62,304.75 498.00,306.88 492.62,311.25 490.00,354.75 494.50,347.50 511.25,330.00 512.00,323.62 513.25,318.50 508.25,307.00 507.12,301.88 507.25,283.88 509.12,264.50 510.62,251.62 509.00,246.75 502.25,243.12 496.00,244.00 Z"></path>
-              <path class="abdominals intermediate" ng-class="{'active':mainCtrl.hovering.abdominals}" ng-mouseenter="mainCtrl.hovering.abdominals=true" ng-mouseleave="mainCtrl.hovering.abdominals=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Abdominals</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 70.4</div><div class=&quot;tooltip-classification&quot;>[Intermediate]</div></div>" data-html="true" data-container="#canvas-container" d="M 429.25,242.62 L 444.62,230.88 451.50,224.38 452.88,220.00 466.38,220.38 472.25,227.25 478.75,233.50 489.12,239.75 491.88,241.50 491.00,262.62 490.50,283.38 490.12,297.88 488.50,328.00 482.38,351.25 467.50,388.75 451.75,387.88 437.25,350.50 432.25,322.50 431.75,304.00 429.62,296.25 430.12,280.38 430.75,263.25 429.00,254.75 429.25,242.62 Z" style=""></path>
-              <path class="hip-adductors proficient" ng-class="{'active':mainCtrl.hovering.hipAdductors}" ng-mouseenter="mainCtrl.hovering.hipAdductors=true" ng-mouseleave="mainCtrl.hovering.hipAdductors=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Hip Adductors</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 85.7</div><div class=&quot;tooltip-classification&quot;>[Proficient]</div></div>" data-html="true" data-container="#canvas-container" d="M 245.50,424.00 L 232.25,421.25 220.75,414.75 227.50,440.75 236.25,467.75 242.25,508.50 241.50,470.50 242.50,453.00"></path>
-              <path class="hip-adductors proficient" ng-class="{'active':mainCtrl.hovering.hipAdductors}" ng-mouseenter="mainCtrl.hovering.hipAdductors=true" ng-mouseleave="mainCtrl.hovering.hipAdductors=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Hip Adductors</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 85.7</div><div class=&quot;tooltip-classification&quot;>[Proficient]</div></div>" data-html="true" data-container="#canvas-container" d="M 174.00,417.25 L 190.50,415.25 203.25,407.00 201.75,421.50 198.75,440.25 191.75,469.25 188.50,488.75 184.25,513.75 178.00,437.00 174.00,417.25 Z"></path>
-              <path class="quads advanced" ng-class="{'active':mainCtrl.hovering.quads}" ng-mouseenter="mainCtrl.hovering.quads=true" ng-mouseleave="mainCtrl.hovering.quads=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Quads</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 87.9</div><div class=&quot;tooltip-classification&quot;>[Advanced]</div></div>" data-html="true" data-container="#canvas-container" d="M 192.50,467.50 L 189.75,516.00 187.25,541.50 182.50,560.25 178.25,567.75 183.00,542.25 184.00,514.50 192.50,467.50 Z" style=""></path>
-              <path class="hamstrings proficient" ng-class="{'active':mainCtrl.hovering.hamstrings}" ng-mouseenter="mainCtrl.hovering.hamstrings=true" ng-mouseleave="mainCtrl.hovering.hamstrings=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Hamstrings</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 79.9</div><div class=&quot;tooltip-classification&quot;>[Proficient]</div></div>" data-html="true" data-container="#canvas-container" d="M 272.50,441.25 L 267.00,427.75 262.75,424.25 245.75,424.50 242.75,430.50 242.75,452.50 242.75,508.25 245.00,527.00 251.00,549.00 257.00,568.75 261.25,547.00 264.50,554.50 271.75,539.25 289.75,557.00 287.00,536.75 283.00,523.00 280.75,499.25 277.25,483.50 278.00,466.50 272.50,441.25 Z" style=""></path>
-              <path class="hamstrings proficient" ng-class="{'active':mainCtrl.hovering.hamstrings}" ng-mouseenter="mainCtrl.hovering.hamstrings=true" ng-mouseleave="mainCtrl.hovering.hamstrings=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Hamstrings</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 79.9</div><div class=&quot;tooltip-classification&quot;>[Proficient]</div></div>" data-html="true" data-container="#canvas-container" d="M 149.00,438.25 L 149.75,426.00 154.75,418.25 163.50,416.25 174.00,417.75 177.50,434.25 184.00,516.00 182.50,543.25 177.75,568.50 175.00,582.25 172.00,558.25 167.50,549.00 163.00,552.50 155.00,540.00 142.75,559.25 146.00,518.50 147.00,485.25 147.25,458.00 149.00,438.25 Z" style=""></path>
-              <path class="quads advanced" ng-class="{'active':mainCtrl.hovering.quads}" ng-mouseenter="mainCtrl.hovering.quads=true" ng-mouseleave="mainCtrl.hovering.quads=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Quads</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 87.9</div><div class=&quot;tooltip-classification&quot;>[Advanced]</div></div>" data-html="true" data-container="#canvas-container" d="M 273.00,442.25 L 276.25,399.75 282.00,409.25 283.50,418.25 284.75,443.00 286.25,468.50 286.75,494.25 286.75,537.50 283.25,522.25 281.00,498.50 277.75,483.50 277.75,466.75 273.00,442.25 Z" style=""></path>
-              <path class="quads advanced" ng-class="{'active':mainCtrl.hovering.quads}" ng-mouseenter="mainCtrl.hovering.quads=true" ng-mouseleave="mainCtrl.hovering.quads=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Quads</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 87.9</div><div class=&quot;tooltip-classification&quot;>[Advanced]</div></div>" data-html="true" data-container="#canvas-container" d="M 142.50,397.50 L 139.50,417.50 142.25,468.75 146.25,518.75 147.00,487.00 147.25,458.00 148.50,440.50 146.00,418.50 142.50,397.50 Z" style=""></path>
-              <path class="calves unknown" ng-class="{'active':mainCtrl.hovering.calves}" ng-mouseenter="mainCtrl.hovering.calves=true" ng-mouseleave="mainCtrl.hovering.calves=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Calves</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: Unknown</div><div class=&quot;tooltip-classification&quot;></div></div>" data-html="true" data-container="#canvas-container" d="M 155.25,540.25 L 163.50,553.25 167.25,549.00 171.50,558.00 175.00,587.50 175.25,615.50 169.00,648.25 164.25,670.25 160.00,688.25 157.75,722.25 154.25,734.50 150.00,740.25 142.25,744.50 136.25,734.25 134.50,716.75 135.75,680.25 132.25,645.00 131.00,604.00 137.00,572.75 145.75,555.00 155.25,540.25 Z"></path>
-              <path class="calves unknown" ng-class="{'active':mainCtrl.hovering.calves}" ng-mouseenter="mainCtrl.hovering.calves=true" ng-mouseleave="mainCtrl.hovering.calves=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Calves</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: Unknown</div><div class=&quot;tooltip-classification&quot;></div></div>" data-html="true" data-container="#canvas-container" d="M 261.50,547.75 L 264.50,554.50 271.75,539.25 276.25,542.50 289.75,557.25 295.00,570.75 299.25,600.75 299.25,629.75 299.00,690.75 296.25,708.25 290.75,717.25 283.50,717.50 281.00,713.00 277.25,680.00 265.75,639.25 258.25,608.25 257.00,569.25 261.50,547.75 Z"></path>
-              <path class="triceps novice" ng-class="{'active':mainCtrl.hovering.triceps}" ng-mouseenter="mainCtrl.hovering.triceps=true" ng-mouseleave="mainCtrl.hovering.triceps=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Triceps</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 54.3</div><div class=&quot;tooltip-classification&quot;>[Novice]</div></div>" data-html="true" data-container="#canvas-container" d="M 126.75,209.00 L 126.25,230.25 123.75,253.00 122.50,266.75 122.38,273.38 127.88,280.75 141.12,288.62 148.88,278.75 149.50,261.12 152.50,244.25 154.12,226.25 154.62,211.00 155.62,203.12 148.12,187.50 144.50,182.00 139.38,172.75 137.50,179.88 137.12,188.50 126.75,209.00 Z" style=""></path>
-              <path class="triceps novice" ng-class="{'active':mainCtrl.hovering.triceps}" ng-mouseenter="mainCtrl.hovering.triceps=true" ng-mouseleave="mainCtrl.hovering.triceps=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Triceps</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 54.3</div><div class=&quot;tooltip-classification&quot;>[Novice]</div></div>" data-html="true" data-container="#canvas-container" d="M 266.62,167.62 L 263.75,186.62 259.25,192.88 256.75,202.50 256.25,209.88 257.62,219.75 261.38,242.38 264.25,257.38 266.38,267.38 267.12,280.50 272.25,288.50 284.88,280.50 290.12,275.38 293.75,265.38 291.00,244.50 288.00,223.25 286.62,212.25 275.50,197.12 266.62,167.62 Z"></path>
-              <path class="forearms subpar" ng-class="{'active':mainCtrl.hovering.forearms}" ng-mouseenter="mainCtrl.hovering.forearms=true" ng-mouseleave="mainCtrl.hovering.forearms=false" bs-tooltip="" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Forearms</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 16.4</div><div class=&quot;tooltip-classification&quot;>[Subpar]</div></div>" data-html="true" data-container="#canvas-container" d="M 267.25,281.00 L 272.38,288.88 284.50,280.88 290.25,275.12 293.62,265.62 297.00,283.12 301.12,304.62 302.62,324.75 304.12,351.88 305.00,372.12 289.25,372.50 284.25,353.88 277.62,334.75 271.62,314.88 268.62,295.88 267.25,281.00 Z" style=""></path>
-              <path class="forearms subpar" ng-class="{'active':mainCtrl.hovering.forearms}" ng-mouseenter="mainCtrl.hovering.forearms=true" ng-mouseleave="mainCtrl.hovering.forearms=false" bs-tooltip="" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Forearms</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 16.4</div><div class=&quot;tooltip-classification&quot;>[Subpar]</div></div>" data-html="true" data-container="#canvas-container" d="M 116.25,372.12 L 116.00,324.38 116.62,298.50 122.38,273.50 128.00,281.12 140.88,288.88 148.88,278.75 148.88,296.75 144.88,319.50 140.00,340.00 134.25,362.88 132.62,372.25 116.25,372.12 Z" style=""></path>
-              <path class="rear-delts subpar" ng-class="{'active':mainCtrl.hovering.rearDelts}" ng-mouseenter="mainCtrl.hovering.rearDelts=true" ng-mouseleave="mainCtrl.hovering.rearDelts=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Delts</div><div class=&quot;tooltip-subheader&quot;>(Posterior)</div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 11.7</div><div class=&quot;tooltip-classification&quot;>[Subpar]</div></div>" data-html="true" data-container="#canvas-container" d="M 272.62,154.12 L 263.62,154.12 260.75,156.12 259.38,163.12 266.12,164.38 272.62,188.38 275.62,197.00 286.75,212.38 287.50,174.25 281.38,164.38 272.62,154.12 Z" style=""></path>
-              <path class="rear-delts subpar" ng-class="{'active':mainCtrl.hovering.rearDelts}" ng-mouseenter="mainCtrl.hovering.rearDelts=true" ng-mouseleave="mainCtrl.hovering.rearDelts=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Delts</div><div class=&quot;tooltip-subheader&quot;>(Posterior)</div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 11.7</div><div class=&quot;tooltip-classification&quot;>[Subpar]</div></div>" data-html="true" data-container="#canvas-container" d="M 127.00,169.50 L 130.25,162.25 135.25,157.00 140.88,154.25 146.50,155.62 148.00,164.38 141.00,165.38 139.62,172.75 137.25,180.00 137.12,188.75 126.75,209.38 127.00,169.50 Z" style=""></path>
-              <path class="side-delts unknown" ng-class="{'active':mainCtrl.hovering.sideDelts}" ng-mouseenter="mainCtrl.hovering.sideDelts=true" ng-mouseleave="mainCtrl.hovering.sideDelts=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Delts</div><div class=&quot;tooltip-subheader&quot;>(Lateral)</div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: Unknown</div><div class=&quot;tooltip-classification&quot;></div></div>" data-html="true" data-container="#canvas-container" d="M 272.50,154.38 L 281.12,151.62 284.38,155.50 286.25,160.62 287.00,167.62 287.38,174.12 281.75,164.62 276.75,158.88 272.50,154.38 Z"></path>
-              <path class="side-delts unknown" ng-class="{'active':mainCtrl.hovering.sideDelts}" ng-mouseenter="mainCtrl.hovering.sideDelts=true" ng-mouseleave="mainCtrl.hovering.sideDelts=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Delts</div><div class=&quot;tooltip-subheader&quot;>(Lateral)</div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: Unknown</div><div class=&quot;tooltip-classification&quot;></div></div>" data-html="true" data-container="#canvas-container" d="M 131.62,153.75 L 128.50,159.62 127.25,168.88 130.12,162.25 135.25,157.12 140.50,154.38 131.62,153.75 Z"></path>
-              <path class="calves unknown" ng-class="{'active':mainCtrl.hovering.calves}" ng-mouseenter="mainCtrl.hovering.calves=true" ng-mouseleave="mainCtrl.hovering.calves=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Calves</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: Unknown</div><div class=&quot;tooltip-classification&quot;></div></div>" data-html="true" data-container="#canvas-container" d="M 398.25,558.25 L 390.38,565.75 388.50,585.12 389.88,612.62 393.50,646.38 395.00,671.75 401.75,674.62 404.88,675.25 410.50,673.38 408.62,646.75 407.38,618.12 404.50,598.12 403.12,579.38 402.00,565.00 398.25,558.25 Z"></path>
-              <path class="calves unknown" ng-class="{'active':mainCtrl.hovering.calves}" ng-mouseenter="mainCtrl.hovering.calves=true" ng-mouseleave="mainCtrl.hovering.calves=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Calves</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: Unknown</div><div class=&quot;tooltip-classification&quot;></div></div>" data-html="true" data-container="#canvas-container" d="M 501.00,590.25 L 508.00,601.25 514.00,611.12 516.62,624.88 517.50,648.38 518.75,675.88 518.75,690.88 513.50,669.00 507.50,643.38 502.50,622.00 501.38,613.00 501.00,590.25 Z"></path>
-              <path class="calves unknown" ng-class="{'active':mainCtrl.hovering.calves}" ng-mouseenter="mainCtrl.hovering.calves=true" ng-mouseleave="mainCtrl.hovering.calves=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Calves</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: Unknown</div><div class=&quot;tooltip-classification&quot;></div></div>" data-html="true" data-container="#canvas-container" d="M 531.75,564.25 L 538.50,575.50 541.88,589.00 544.00,614.38 544.00,643.88 543.00,665.12 543.12,704.75 525.50,700.88 525.12,642.88 526.62,612.00 528.12,575.75 531.75,564.25 Z"></path>
-              <path class="triceps novice" ng-class="{'active':mainCtrl.hovering.triceps}" ng-mouseenter="mainCtrl.hovering.triceps=true" ng-mouseleave="mainCtrl.hovering.triceps=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Triceps</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 54.3</div><div class=&quot;tooltip-classification&quot;>[Novice]</div></div>" data-html="true" data-container="#canvas-container" d="M 517.88,181.88 L 530.62,200.12 534.25,207.12 536.50,218.62 539.25,241.25 541.12,256.00 541.75,265.75 536.12,281.12 528.00,273.25 532.50,260.62 533.12,249.50 532.88,237.88 531.50,229.12 523.75,196.12 517.88,181.88 Z"></path>
-              <path class="upper-traps unknown" ng-class="{'active':mainCtrl.hovering.upperTraps}" ng-mouseenter="mainCtrl.hovering.upperTraps=true" ng-mouseleave="mainCtrl.hovering.upperTraps=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Upper Traps</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: Unknown</div><div class=&quot;tooltip-classification&quot;></div></div>" data-html="true" data-container="#canvas-container" d="M 479.88,141.12 L 479.38,155.12 482.50,156.75 492.50,156.50 508.12,152.62 516.50,149.50 495.25,148.88 485.62,145.50 479.88,141.12 Z"></path>
-              <path class="middle-traps subpar" ng-class="{'active':mainCtrl.hovering.middleTraps}" ng-mouseenter="mainCtrl.hovering.middleTraps=true" ng-mouseleave="mainCtrl.hovering.middleTraps=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Middle Traps</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 11.7</div><div class=&quot;tooltip-classification&quot;>[Subpar]</div></div>" data-html="true" data-container="#canvas-container" d="M 214.00,135.62 L 230.75,141.38 238.88,143.38 253.75,145.12 238.38,150.25 230.75,153.12 220.62,157.12 214.25,159.12 214.00,135.62 Z"></path>
-              <path class="lower-traps subpar" ng-class="{'active':mainCtrl.hovering.lowerTraps}" ng-mouseenter="mainCtrl.hovering.lowerTraps=true" ng-mouseleave="mainCtrl.hovering.lowerTraps=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Lower Traps</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 11.7</div><div class=&quot;tooltip-classification&quot;>[Subpar]</div></div>" data-html="true" data-container="#canvas-container" d="M 214.38,159.50 L 232.25,153.00 226.50,160.62 228.00,171.12 228.12,184.12 229.50,203.62 226.75,217.62 218.88,229.38 214.62,241.25 211.00,254.50 211.50,213.38 211.12,186.00 212.62,169.50 214.38,159.50 Z"></path>
-              <path class="lower-traps subpar" ng-class="{'active':mainCtrl.hovering.lowerTraps}" ng-mouseenter="mainCtrl.hovering.lowerTraps=true" ng-mouseleave="mainCtrl.hovering.lowerTraps=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Lower Traps</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 11.7</div><div class=&quot;tooltip-classification&quot;>[Subpar]</div></div>" data-html="true" data-container="#canvas-container" d="M 191.38,159.38 L 174.00,152.12 178.12,159.75 177.00,168.62 177.50,180.25 177.25,202.88 182.38,217.62 192.62,233.12 200.50,249.38 198.38,216.12 192.75,171.00 191.38,159.38 Z"></path>
-              <path class="middle-traps subpar" ng-class="{'active':mainCtrl.hovering.middleTraps}" ng-mouseenter="mainCtrl.hovering.middleTraps=true" ng-mouseleave="mainCtrl.hovering.middleTraps=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Middle Traps</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 11.7</div><div class=&quot;tooltip-classification&quot;>[Subpar]</div></div>" data-html="true" data-container="#canvas-container" d="M 155.38,144.88 L 164.62,143.25 171.12,141.50 177.88,140.25 192.75,135.38 191.25,159.38 171.88,151.12 161.88,147.38 155.38,144.88 Z"></path>
-              <path class="upper-traps unknown" ng-class="{'active':mainCtrl.hovering.upperTraps}" ng-mouseenter="mainCtrl.hovering.upperTraps=true" ng-mouseleave="mainCtrl.hovering.upperTraps=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Upper Traps</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: Unknown</div><div class=&quot;tooltip-classification&quot;></div></div>" data-html="true" data-container="#canvas-container" d="M 205.62,96.38 L 212.12,97.00 212.88,103.38 215.75,113.50 220.25,120.38 225.38,128.50 229.38,134.12 240.25,138.38 250.50,140.12 261.00,141.75 259.12,145.12 250.50,144.88 239.12,143.38 228.62,140.75 214.12,135.50 209.88,118.25 206.75,104.00 205.62,96.38 Z"></path>
-              <path class="upper-traps unknown" ng-class="{'active':mainCtrl.hovering.upperTraps}" ng-mouseenter="mainCtrl.hovering.upperTraps=true" ng-mouseleave="mainCtrl.hovering.upperTraps=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Upper Traps</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: Unknown</div><div class=&quot;tooltip-classification&quot;></div></div>" data-html="true" data-container="#canvas-container" d="M 195.12,97.00 L 190.25,100.38 190.38,108.62 189.12,113.38 187.00,118.12 184.50,127.88 180.38,133.88 174.25,137.50 161.88,140.62 148.00,142.75 149.88,144.88 155.50,144.75 162.62,143.50 172.00,141.25 177.75,140.25 183.62,138.25 192.38,135.38 192.50,130.62 194.00,118.50 196.12,103.25 195.12,97.00 Z"></path>
-              <path class="upper-chest novice" ng-class="{'active':mainCtrl.hovering.upperChest}" ng-mouseenter="mainCtrl.hovering.upperChest=true" ng-mouseleave="mainCtrl.hovering.upperChest=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Pecs</div><div class=&quot;tooltip-subheader&quot;>(Clavicular head)</div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 54.3</div><div class=&quot;tooltip-classification&quot;>[Novice]</div></div>" data-html="true" data-container="#canvas-container" d="M 403.88,163.25 L 407.25,161.25 415.88,157.25 424.75,158.25 434.25,159.25 444.62,159.75 450.38,161.12 451.62,166.88 446.00,164.75 438.00,164.38 428.88,164.12 412.88,163.12 403.88,163.25 Z"></path>
-              <path class="side-delts unknown" ng-class="{'active':mainCtrl.hovering.sideDelts}" ng-mouseenter="mainCtrl.hovering.sideDelts=true" ng-mouseleave="mainCtrl.hovering.sideDelts=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Delts</div><div class=&quot;tooltip-subheader&quot;>(Lateral)</div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: Unknown</div><div class=&quot;tooltip-classification&quot;></div></div>" data-html="true" data-container="#canvas-container" d="M 402.75,152.50 L 399.75,150.75 395.75,151.25 389.38,155.88 384.25,164.00 381.88,171.50 382.00,189.38 382.88,218.88 384.75,209.75 388.12,204.38 387.12,174.38 390.25,163.50 394.88,158.25 402.75,152.50 Z"></path>
-              <path class="side-delts unknown" ng-class="{'active':mainCtrl.hovering.sideDelts}" ng-mouseenter="mainCtrl.hovering.sideDelts=true" ng-mouseleave="mainCtrl.hovering.sideDelts=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Delts</div><div class=&quot;tooltip-subheader&quot;>(Lateral)</div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: Unknown</div><div class=&quot;tooltip-classification&quot;></div></div>" data-html="true" data-container="#canvas-container" d="M 515.38,152.25 L 521.38,151.12 526.12,152.12 530.38,156.00 534.50,162.12 537.12,170.00 537.88,179.00 536.50,218.88 534.25,207.12 530.62,200.00 531.62,190.50 530.88,170.25 527.25,159.62 522.75,155.25 515.38,152.25 Z"></path>
-              <path class="front-delts novice" ng-class="{'active':mainCtrl.hovering.frontDelts}" ng-mouseenter="mainCtrl.hovering.frontDelts=true" ng-mouseleave="mainCtrl.hovering.frontDelts=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Delts</div><div class=&quot;tooltip-subheader&quot;>(Anterior)</div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 54.3</div><div class=&quot;tooltip-classification&quot;>[Novice]</div></div>" data-html="true" data-container="#canvas-container" d="M 494.00,159.50 L 508.75,154.62 515.25,152.50 522.62,155.25 527.38,159.88 530.75,170.00 531.25,179.88 531.50,190.12 530.62,200.00 516.00,179.12 516.75,168.12 514.62,164.75 509.75,162.38 501.88,160.38 494.00,159.50 Z"></path>
-              <path class="triceps novice" ng-class="{'active':mainCtrl.hovering.triceps}" ng-mouseenter="mainCtrl.hovering.triceps=true" ng-mouseleave="mainCtrl.hovering.triceps=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Triceps</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 54.3</div><div class=&quot;tooltip-classification&quot;>[Novice]</div></div>" data-html="true" data-container="#canvas-container" d="M 401.50,184.38 L 387.88,204.50 385.00,209.50 382.62,218.88 379.62,250.75 379.25,257.50 383.38,270.88 384.88,281.12 391.62,273.50 388.50,265.88 387.00,248.50 388.50,229.38 390.75,218.38 396.25,199.62 401.50,184.38 Z"></path>
-              <path class="biceps subpar" ng-class="{'active':mainCtrl.hovering.biceps}" ng-mouseenter="mainCtrl.hovering.biceps=true" ng-mouseleave="mainCtrl.hovering.biceps=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Biceps</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 13.2</div><div class=&quot;tooltip-classification&quot;>[Subpar]</div></div>" data-html="true" data-container="#canvas-container" d="M 401.62,183.62 L 395.88,201.50 390.38,219.88 388.50,230.12 387.12,247.75 388.75,265.75 391.75,273.25 397.88,282.12 403.62,285.25 404.75,257.88 407.88,246.38 405.38,239.50 402.62,224.88 402.62,211.00 405.75,198.62 405.88,190.00 404.62,179.38 401.62,183.62 Z" style=""></path>
-              <path class="biceps subpar" ng-class="{'active':mainCtrl.hovering.biceps}" ng-mouseenter="mainCtrl.hovering.biceps=true" ng-mouseleave="mainCtrl.hovering.biceps=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Biceps</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 13.2</div><div class=&quot;tooltip-classification&quot;>[Subpar]</div></div>" data-html="true" data-container="#canvas-container" d="M 517.62,181.62 L 523.75,196.88 530.62,225.00 532.75,237.38 533.25,249.25 532.38,260.75 528.12,273.25 522.38,282.62 516.75,285.12 515.25,264.38 513.38,250.75 515.25,238.75 519.25,225.00 519.75,212.38 514.38,197.50 513.38,189.38 515.88,179.12 517.62,181.62 Z"></path>
-              <path class="forearms subpar" ng-class="{'active':mainCtrl.hovering.forearms}" ng-mouseenter="mainCtrl.hovering.forearms=true" ng-mouseleave="mainCtrl.hovering.forearms=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Forearms</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 16.4</div><div class=&quot;tooltip-classification&quot;>[Subpar]</div></div>" data-html="true" data-container="#canvas-container" d="M 516.75,285.62 L 522.12,283.00 528.25,273.25 535.88,281.38 541.75,266.00 545.88,286.88 549.38,302.50 551.00,322.75 552.12,338.12 552.25,370.50 546.12,369.38 537.12,370.00 529.50,342.75 522.38,321.12 518.62,304.25 516.75,285.62 Z" style=""></path>
-              <path class="forearms subpar" ng-class="{'active':mainCtrl.hovering.forearms}" ng-mouseenter="mainCtrl.hovering.forearms=true" ng-mouseleave="mainCtrl.hovering.forearms=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Forearms</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 16.4</div><div class=&quot;tooltip-classification&quot;>[Subpar]</div></div>" data-html="true" data-container="#canvas-container" d="M 379.38,258.00 L 383.00,269.50 385.00,281.12 391.75,273.25 397.88,281.88 403.25,285.25 401.62,301.62 396.88,324.38 388.88,349.62 383.50,369.25 379.75,367.75 367.75,367.38 369.25,334.62 370.25,305.38 374.00,287.00 377.38,270.00 379.38,258.00 Z" style=""></path>
-              <path class="lower-chest novice" ng-class="{'active':mainCtrl.hovering.lowerChest}" ng-mouseenter="mainCtrl.hovering.lowerChest=true" ng-mouseleave="mainCtrl.hovering.lowerChest=false" bs-tooltip="" data-animation="none" data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Pecs</div><div class=&quot;tooltip-subheader&quot;>(Sternal head)</div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 54</div><div class=&quot;tooltip-classification&quot;>[Novice]</div></div>" data-html="true" data-container="#canvas-container" d="M 406.00,190.12 L 405.00,180.00 402.62,172.88 403.50,163.38 413.75,163.12 427.38,164.25 440.88,164.62 445.88,164.88 451.38,166.75 457.12,186.88 456.88,196.00 457.12,203.62 454.38,211.38 453.00,205.12 450.12,198.88 445.88,193.50 438.38,190.12 429.62,188.25 417.50,189.50 406.00,190.12 Z" style=""></path>
+            <svg *ngIf="selectedGender.type == 'Female'" id="muscle-figure-female" xmlns="http://www.w3.org/2000/svg"
+                 width="700" height="800" viewBox="0 0 700 800" class="" style="">
+              <image width="700" height="800" xlink:href="/assets/img/female-musculature.jpg"></image>
+              <path class="upper-chest novice" ng-class="{'active':mainCtrl.hovering.upperChest}"
+                    ng-mouseenter="mainCtrl.hovering.upperChest=true" ng-mouseleave="mainCtrl.hovering.upperChest=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Pecs</div><div class=&quot;tooltip-subheader&quot;>(Clavicular head)</div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 54.3</div><div class=&quot;tooltip-classification&quot;>[Novice]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 468.62,167.75 L 470.25,163.00 476.88,160.25 484.75,160.38 493.00,160.12 502.12,160.62 510.12,162.62 515.25,165.00 517.00,168.62 514.75,168.38 511.38,167.62 504.62,167.12 494.25,167.00 480.88,167.38 468.62,167.75 Z"></path>
+              <path class="lower-chest novice" ng-class="{'active':mainCtrl.hovering.lowerChest}"
+                    ng-mouseenter="mainCtrl.hovering.lowerChest=true" ng-mouseleave="mainCtrl.hovering.lowerChest=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Pecs</div><div class=&quot;tooltip-subheader&quot;>(Sternal head)</div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 54</div><div class=&quot;tooltip-classification&quot;>[Novice]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 513.38,189.88 L 503.62,189.25 491.25,188.25 482.12,189.62 475.12,192.50 469.88,198.75 466.25,205.12 465.75,213.25 466.12,219.50 462.62,209.62 461.88,193.12 463.88,184.25 465.62,177.25 468.50,167.75 478.00,167.75 491.38,167.25 501.25,167.25 510.38,167.88 516.62,168.75 515.50,181.00 513.38,189.88 Z"
+                    style=""></path>
+              <path class="hip-adductors proficient" ng-class="{'active':mainCtrl.hovering.hipAdductors}"
+                    ng-mouseenter="mainCtrl.hovering.hipAdductors=true"
+                    ng-mouseleave="mainCtrl.hovering.hipAdductors=false" bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Hip Adductors</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 85.7</div><div class=&quot;tooltip-classification&quot;>[Proficient]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 507.25,344.75 L 504.50,345.00 502.25,342.12 496.25,349.88 485.88,365.75 476.88,385.00 469.00,398.12 467.25,402.75 467.88,408.62 470.62,428.75 481.25,464.00 483.25,443.62 483.12,431.50 500.75,374.88 507.25,344.75 Z"></path>
+              <path class="hip-adductors proficient" ng-class="{'active':mainCtrl.hovering.hipAdductors}"
+                    ng-mouseenter="mainCtrl.hovering.hipAdductors=true"
+                    ng-mouseleave="mainCtrl.hovering.hipAdductors=false" bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Hip Adductors</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 85.7</div><div class=&quot;tooltip-classification&quot;>[Proficient]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 414.25,346.00 L 418.38,344.12 427.00,356.50 439.00,380.88 452.25,402.50 450.62,419.38 446.38,441.50 442.75,458.50 440.62,440.75 437.50,426.75 427.75,407.12 417.00,368.00 414.25,346.00 Z"></path>
+              <path class="hip-flexors advanced" ng-class="{'active':mainCtrl.hovering.hipFlexors}"
+                    ng-mouseenter="mainCtrl.hovering.hipFlexors=true" ng-mouseleave="mainCtrl.hovering.hipFlexors=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Hip Flexors</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 88.4</div><div class=&quot;tooltip-classification&quot;>[Advanced]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 442.38,458.38 L 440.38,440.38 437.50,427.00 427.75,406.75 422.62,388.75 416.88,367.75 414.00,346.12 410.75,342.00 406.25,339.38 401.62,334.88 396.88,349.38 394.12,362.38 390.38,377.12 387.50,391.38 387.25,403.50 387.50,423.50 389.12,431.75 391.25,406.75 395.88,392.38 408.00,363.50 413.88,394.50 434.38,452.25 437.62,468.62 439.12,497.62 442.38,458.38 Z"
+                    style=""></path>
+              <path class="hip-flexors advanced" ng-class="{'active':mainCtrl.hovering.hipFlexors}"
+                    ng-mouseenter="mainCtrl.hovering.hipFlexors=true" ng-mouseleave="mainCtrl.hovering.hipFlexors=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Hip Flexors</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 88.4</div><div class=&quot;tooltip-classification&quot;>[Advanced]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 481.38,466.38 L 483.00,443.50 483.12,431.38 488.50,413.38 494.62,394.38 501.12,375.12 502.75,365.38 507.50,344.62 513.50,337.88 517.75,334.88 521.50,348.00 525.75,363.88 530.12,380.12 532.75,393.12 534.38,406.38 534.88,424.25 533.75,414.25 532.50,408.25 530.38,397.12 516.75,374.75 511.00,367.88 509.38,376.88 505.75,395.62 499.62,411.88 494.25,428.00 490.88,441.25 488.62,453.75 487.50,460.25 487.00,488.12 486.50,504.50 483.38,478.25 481.38,466.38 Z"
+                    style=""></path>
+              <path class="quads advanced" ng-class="{'active':mainCtrl.hovering.quads}"
+                    ng-mouseenter="mainCtrl.hovering.quads=true" ng-mouseleave="mainCtrl.hovering.quads=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Quads</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 87.9</div><div class=&quot;tooltip-classification&quot;>[Advanced]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 491.25,542.75 L 488.25,521.50 486.50,503.12 487.12,484.38 487.25,461.38 490.50,442.38 492.75,433.62 499.12,413.38 505.75,396.00 509.38,376.88 510.75,367.88 516.75,374.62 525.38,389.12 530.38,397.62 533.50,414.00 534.12,423.50 533.75,440.38 533.62,468.75 532.25,548.00 527.38,543.12 521.50,532.50 519.00,524.88 518.50,511.62 520.25,504.88 517.25,508.50 514.75,511.38 510.12,511.62 506.62,510.12 502.12,508.00 502.75,513.75 504.62,524.12 504.62,542.00 500.88,546.88 495.75,546.25 491.25,542.75 Z"
+                    style=""></path>
+              <path class="quads advanced" ng-class="{'active':mainCtrl.hovering.quads}"
+                    ng-mouseenter="mainCtrl.hovering.quads=true" ng-mouseleave="mainCtrl.hovering.quads=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Quads</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 87.9</div><div class=&quot;tooltip-classification&quot;>[Advanced]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 396.00,546.38 L 396.50,527.38 393.25,489.25 390.75,457.88 389.38,431.62 391.62,406.88 396.00,392.62 407.88,364.00 409.88,373.25 413.38,393.50 421.38,416.88 431.12,443.38 434.38,452.38 437.62,468.88 438.12,483.50 438.88,507.75 436.88,527.00 434.88,538.12 430.38,544.62 427.38,545.50 424.25,541.62 424.25,520.50 427.12,503.00 423.00,509.00 418.25,511.25 413.12,509.88 409.00,506.38 406.12,502.25 409.12,514.12 410.25,521.62 408.75,531.00 405.62,538.00 396.00,546.38 Z"
+                    style=""></path>
+              <path class="front-delts novice" ng-class="{'active':mainCtrl.hovering.frontDelts}"
+                    ng-mouseenter="mainCtrl.hovering.frontDelts=true" ng-mouseleave="mainCtrl.hovering.frontDelts=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Delts</div><div class=&quot;tooltip-subheader&quot;>(Anterior)</div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 54.3</div><div class=&quot;tooltip-classification&quot;>[Novice]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 402.62,152.75 L 395.38,157.88 390.38,163.38 387.12,174.62 388.00,204.62 404.75,179.00 402.50,172.38 403.25,163.25 415.62,157.25 402.62,152.75 Z"></path>
+              <path class="serratus-and-obliques subpar" ng-class="{'active':mainCtrl.hovering.serratusAndObliques}"
+                    ng-mouseenter="mainCtrl.hovering.serratusAndObliques=true"
+                    ng-mouseleave="mainCtrl.hovering.serratusAndObliques=false" bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Obliques</div><div class=&quot;tooltip-subheader&quot;>&amp; Serratus</div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 20.2</div><div class=&quot;tooltip-classification&quot;>[Subpar]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 245.50,326.00 L 250.00,288.50 261.75,249.25 261.50,264.75 259.75,280.00 258.50,302.25 266.50,321.25 256.50,320.50 245.50,326.00 Z"></path>
+              <path class="serratus-and-obliques subpar" ng-class="{'active':mainCtrl.hovering.serratusAndObliques}"
+                    ng-mouseenter="mainCtrl.hovering.serratusAndObliques=true"
+                    ng-mouseleave="mainCtrl.hovering.serratusAndObliques=false" bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Obliques</div><div class=&quot;tooltip-subheader&quot;>&amp; Serratus</div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 20.2</div><div class=&quot;tooltip-classification&quot;>[Subpar]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 171.00,300.50 L 172.00,328.00 161.25,321.25 156.75,321.75 164.75,300.75 163.50,271.75 171.00,300.50 Z"></path>
+              <path class="lats-and-teres-major subpar" ng-class="{'active':mainCtrl.hovering.latsAndTeresMajor}"
+                    ng-mouseenter="mainCtrl.hovering.latsAndTeresMajor=true"
+                    ng-mouseleave="mainCtrl.hovering.latsAndTeresMajor=false" bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Lats</div><div class=&quot;tooltip-subheader&quot;>&amp; Teres Major</div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 14.8</div><div class=&quot;tooltip-classification&quot;>[Subpar]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 227.00,217.50 L 228.50,208.00 233.00,208.50 263.50,187.00 258.75,193.50 257.00,202.25 256.00,209.25 259.25,230.25 262.25,247.75 250.75,285.25 246.75,311.00 245.25,326.50 238.25,330.50 233.75,298.75 222.50,280.50 214.00,268.25 211.25,254.50 217.25,232.75 227.00,217.50 Z"></path>
+              <path class="lats-and-teres-major subpar" ng-class="{'active':mainCtrl.hovering.latsAndTeresMajor}"
+                    ng-mouseenter="mainCtrl.hovering.latsAndTeresMajor=true"
+                    ng-mouseleave="mainCtrl.hovering.latsAndTeresMajor=false" bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Lats</div><div class=&quot;tooltip-subheader&quot;>&amp; Teres Major</div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 14.8</div><div class=&quot;tooltip-classification&quot;>[Subpar]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 151.00,193.00 L 174.75,209.25 179.00,208.50 182.00,217.50 192.50,233.25 200.25,249.50 202.50,268.50 189.25,286.25 180.75,321.75 172.50,327.50 171.25,300.00 164.25,274.25 154.00,227.50 155.00,203.00 151.00,193.00 Z"></path>
+              <path class="rotator-cuff subpar" ng-class="{'active':mainCtrl.hovering.rotatorCuff}"
+                    ng-mouseenter="mainCtrl.hovering.rotatorCuff=true"
+                    ng-mouseleave="mainCtrl.hovering.rotatorCuff=false" bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Rotator Cuff</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 12.4</div><div class=&quot;tooltip-classification&quot;>[Subpar]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 241.75,159.50 L 259.75,162.75 266.25,164.50 263.75,186.50 233.00,208.75 229.00,208.25 229.50,202.75 241.75,159.50 Z"></path>
+              <path class="rotator-cuff subpar" ng-class="{'active':mainCtrl.hovering.rotatorCuff}"
+                    ng-mouseenter="mainCtrl.hovering.rotatorCuff=true"
+                    ng-mouseleave="mainCtrl.hovering.rotatorCuff=false" bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Rotator Cuff</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 12.4</div><div class=&quot;tooltip-classification&quot;>[Subpar]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 141.25,165.25 L 148.25,164.00 162.00,160.50 177.50,203.00 179.50,208.50 174.75,208.75 150.75,192.75 139.50,173.00 141.25,165.25 Z"></path>
+              <path class="upper-traps unknown" ng-class="{'active':mainCtrl.hovering.upperTraps}"
+                    ng-mouseenter="mainCtrl.hovering.upperTraps=true" ng-mouseleave="mainCtrl.hovering.upperTraps=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Upper Traps</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: Unknown</div><div class=&quot;tooltip-classification&quot;></div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 403.75,150.00 L 417.00,149.50 427.50,148.38 435.12,144.88 430.12,150.00 427.00,156.00 415.75,154.88 403.75,150.00 Z"></path>
+              <path class="glutes proficient" ng-class="{'active':mainCtrl.hovering.glutes}"
+                    ng-mouseenter="mainCtrl.hovering.glutes=true" ng-mouseleave="mainCtrl.hovering.glutes=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Glutes</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 85.7</div><div class=&quot;tooltip-classification&quot;>[Proficient]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 173.50,417.25 L 162.75,411.75 153.00,403.25 148.00,386.75 149.00,369.25 151.50,355.75 152.50,342.00 154.25,330.75 155.75,324.75 160.75,325.75 169.75,332.00 191.50,347.25 194.75,355.25 201.50,362.00 210.00,361.75 215.00,355.50 216.75,349.25 232.25,338.50 241.75,333.50 256.25,324.75 265.25,325.00 266.75,355.00 268.50,382.50 267.25,397.50 265.25,410.50 257.25,417.25 246.75,423.75 232.00,421.25 221.00,414.75 214.00,407.50 211.00,402.25 206.75,402.50 202.25,407.25 190.25,415.50 173.50,417.25 Z"
+                    style=""></path>
+              <path class="spinal-erectors intermediate" ng-class="{'active':mainCtrl.hovering.spinalErectors}"
+                    ng-mouseenter="mainCtrl.hovering.spinalErectors=true"
+                    ng-mouseleave="mainCtrl.hovering.spinalErectors=false" bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Spinal Erectors</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 60.1</div><div class=&quot;tooltip-classification&quot;>[Intermediate]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 190.75,341.75 L 180.75,335.50 172.00,327.50 180.75,321.75 188.75,286.25 202.00,268.50 200.25,248.25 198.00,215.25 191.50,159.25 192.25,135.00 195.50,111.25 200.75,107.75 208.75,113.25 213.75,135.25 214.50,159.00 211.25,185.25 211.00,252.75 214.00,269.25 223.00,280.50 233.50,298.75 238.25,330.50 212.50,346.75 212.50,354.00 205.75,356.75 198.75,351.75"
+                    style=""></path>
+              <path class="calves unknown" ng-class="{'active':mainCtrl.hovering.calves}"
+                    ng-mouseenter="mainCtrl.hovering.calves=true" ng-mouseleave="mainCtrl.hovering.calves=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Calves</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: Unknown</div><div class=&quot;tooltip-classification&quot;></div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 429.00,576.00 L 421.75,589.25 417.12,597.88 415.88,607.25 416.12,633.00 416.50,658.62 419.62,645.00 423.12,626.62 426.25,609.38 428.00,599.25 429.00,576.00 Z"></path>
+              <path class="serratus-and-obliques subpar" ng-class="{'active':mainCtrl.hovering.serratusAndObliques}"
+                    ng-mouseenter="mainCtrl.hovering.serratusAndObliques=true"
+                    ng-mouseleave="mainCtrl.hovering.serratusAndObliques=false" bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Obliques</div><div class=&quot;tooltip-subheader&quot;>&amp; Serratus</div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 20.2</div><div class=&quot;tooltip-classification&quot;>[Subpar]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 408.75,249.50 L 414.75,243.62 424.25,244.12 425.88,247.50 425.50,255.38 422.12,258.62 425.25,261.75 425.50,274.12 422.00,276.75 425.38,279.12 426.00,290.25 423.50,292.25 423.75,295.12 426.38,297.38 426.12,304.75 422.88,307.12 427.12,312.38 427.50,327.50 426.75,337.50 431.38,359.00 420.50,343.12 411.25,332.62 406.88,317.38 413.00,301.12 412.50,283.62 409.88,266.25 408.75,249.50 Z"></path>
+              <path class="serratus-and-obliques subpar" ng-class="{'active':mainCtrl.hovering.serratusAndObliques}"
+                    ng-mouseenter="mainCtrl.hovering.serratusAndObliques=true"
+                    ng-mouseleave="mainCtrl.hovering.serratusAndObliques=false" bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Obliques</div><div class=&quot;tooltip-subheader&quot;>&amp; Serratus</div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 20.2</div><div class=&quot;tooltip-classification&quot;>[Subpar]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 496.00,244.00 L 494.12,247.38 494.62,254.25 497.75,258.12 494.88,262.25 494.00,273.00 497.50,275.12 494.00,278.62 494.12,290.00 497.25,291.88 493.75,296.38 493.62,304.75 498.00,306.88 492.62,311.25 490.00,354.75 494.50,347.50 511.25,330.00 512.00,323.62 513.25,318.50 508.25,307.00 507.12,301.88 507.25,283.88 509.12,264.50 510.62,251.62 509.00,246.75 502.25,243.12 496.00,244.00 Z"></path>
+              <path class="abdominals intermediate" ng-class="{'active':mainCtrl.hovering.abdominals}"
+                    ng-mouseenter="mainCtrl.hovering.abdominals=true" ng-mouseleave="mainCtrl.hovering.abdominals=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Abdominals</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 70.4</div><div class=&quot;tooltip-classification&quot;>[Intermediate]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 429.25,242.62 L 444.62,230.88 451.50,224.38 452.88,220.00 466.38,220.38 472.25,227.25 478.75,233.50 489.12,239.75 491.88,241.50 491.00,262.62 490.50,283.38 490.12,297.88 488.50,328.00 482.38,351.25 467.50,388.75 451.75,387.88 437.25,350.50 432.25,322.50 431.75,304.00 429.62,296.25 430.12,280.38 430.75,263.25 429.00,254.75 429.25,242.62 Z"
+                    style=""></path>
+              <path class="hip-adductors proficient" ng-class="{'active':mainCtrl.hovering.hipAdductors}"
+                    ng-mouseenter="mainCtrl.hovering.hipAdductors=true"
+                    ng-mouseleave="mainCtrl.hovering.hipAdductors=false" bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Hip Adductors</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 85.7</div><div class=&quot;tooltip-classification&quot;>[Proficient]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 245.50,424.00 L 232.25,421.25 220.75,414.75 227.50,440.75 236.25,467.75 242.25,508.50 241.50,470.50 242.50,453.00"></path>
+              <path class="hip-adductors proficient" ng-class="{'active':mainCtrl.hovering.hipAdductors}"
+                    ng-mouseenter="mainCtrl.hovering.hipAdductors=true"
+                    ng-mouseleave="mainCtrl.hovering.hipAdductors=false" bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Hip Adductors</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 85.7</div><div class=&quot;tooltip-classification&quot;>[Proficient]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 174.00,417.25 L 190.50,415.25 203.25,407.00 201.75,421.50 198.75,440.25 191.75,469.25 188.50,488.75 184.25,513.75 178.00,437.00 174.00,417.25 Z"></path>
+              <path class="quads advanced" ng-class="{'active':mainCtrl.hovering.quads}"
+                    ng-mouseenter="mainCtrl.hovering.quads=true" ng-mouseleave="mainCtrl.hovering.quads=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Quads</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 87.9</div><div class=&quot;tooltip-classification&quot;>[Advanced]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 192.50,467.50 L 189.75,516.00 187.25,541.50 182.50,560.25 178.25,567.75 183.00,542.25 184.00,514.50 192.50,467.50 Z"
+                    style=""></path>
+              <path class="hamstrings proficient" ng-class="{'active':mainCtrl.hovering.hamstrings}"
+                    ng-mouseenter="mainCtrl.hovering.hamstrings=true" ng-mouseleave="mainCtrl.hovering.hamstrings=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Hamstrings</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 79.9</div><div class=&quot;tooltip-classification&quot;>[Proficient]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 272.50,441.25 L 267.00,427.75 262.75,424.25 245.75,424.50 242.75,430.50 242.75,452.50 242.75,508.25 245.00,527.00 251.00,549.00 257.00,568.75 261.25,547.00 264.50,554.50 271.75,539.25 289.75,557.00 287.00,536.75 283.00,523.00 280.75,499.25 277.25,483.50 278.00,466.50 272.50,441.25 Z"
+                    style=""></path>
+              <path class="hamstrings proficient" ng-class="{'active':mainCtrl.hovering.hamstrings}"
+                    ng-mouseenter="mainCtrl.hovering.hamstrings=true" ng-mouseleave="mainCtrl.hovering.hamstrings=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Hamstrings</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 79.9</div><div class=&quot;tooltip-classification&quot;>[Proficient]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 149.00,438.25 L 149.75,426.00 154.75,418.25 163.50,416.25 174.00,417.75 177.50,434.25 184.00,516.00 182.50,543.25 177.75,568.50 175.00,582.25 172.00,558.25 167.50,549.00 163.00,552.50 155.00,540.00 142.75,559.25 146.00,518.50 147.00,485.25 147.25,458.00 149.00,438.25 Z"
+                    style=""></path>
+              <path class="quads advanced" ng-class="{'active':mainCtrl.hovering.quads}"
+                    ng-mouseenter="mainCtrl.hovering.quads=true" ng-mouseleave="mainCtrl.hovering.quads=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Quads</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 87.9</div><div class=&quot;tooltip-classification&quot;>[Advanced]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 273.00,442.25 L 276.25,399.75 282.00,409.25 283.50,418.25 284.75,443.00 286.25,468.50 286.75,494.25 286.75,537.50 283.25,522.25 281.00,498.50 277.75,483.50 277.75,466.75 273.00,442.25 Z"
+                    style=""></path>
+              <path class="quads advanced" ng-class="{'active':mainCtrl.hovering.quads}"
+                    ng-mouseenter="mainCtrl.hovering.quads=true" ng-mouseleave="mainCtrl.hovering.quads=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Quads</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 87.9</div><div class=&quot;tooltip-classification&quot;>[Advanced]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 142.50,397.50 L 139.50,417.50 142.25,468.75 146.25,518.75 147.00,487.00 147.25,458.00 148.50,440.50 146.00,418.50 142.50,397.50 Z"
+                    style=""></path>
+              <path class="calves unknown" ng-class="{'active':mainCtrl.hovering.calves}"
+                    ng-mouseenter="mainCtrl.hovering.calves=true" ng-mouseleave="mainCtrl.hovering.calves=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Calves</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: Unknown</div><div class=&quot;tooltip-classification&quot;></div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 155.25,540.25 L 163.50,553.25 167.25,549.00 171.50,558.00 175.00,587.50 175.25,615.50 169.00,648.25 164.25,670.25 160.00,688.25 157.75,722.25 154.25,734.50 150.00,740.25 142.25,744.50 136.25,734.25 134.50,716.75 135.75,680.25 132.25,645.00 131.00,604.00 137.00,572.75 145.75,555.00 155.25,540.25 Z"></path>
+              <path class="calves unknown" ng-class="{'active':mainCtrl.hovering.calves}"
+                    ng-mouseenter="mainCtrl.hovering.calves=true" ng-mouseleave="mainCtrl.hovering.calves=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Calves</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: Unknown</div><div class=&quot;tooltip-classification&quot;></div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 261.50,547.75 L 264.50,554.50 271.75,539.25 276.25,542.50 289.75,557.25 295.00,570.75 299.25,600.75 299.25,629.75 299.00,690.75 296.25,708.25 290.75,717.25 283.50,717.50 281.00,713.00 277.25,680.00 265.75,639.25 258.25,608.25 257.00,569.25 261.50,547.75 Z"></path>
+              <path class="triceps novice" ng-class="{'active':mainCtrl.hovering.triceps}"
+                    ng-mouseenter="mainCtrl.hovering.triceps=true" ng-mouseleave="mainCtrl.hovering.triceps=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Triceps</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 54.3</div><div class=&quot;tooltip-classification&quot;>[Novice]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 126.75,209.00 L 126.25,230.25 123.75,253.00 122.50,266.75 122.38,273.38 127.88,280.75 141.12,288.62 148.88,278.75 149.50,261.12 152.50,244.25 154.12,226.25 154.62,211.00 155.62,203.12 148.12,187.50 144.50,182.00 139.38,172.75 137.50,179.88 137.12,188.50 126.75,209.00 Z"
+                    style=""></path>
+              <path class="triceps novice" ng-class="{'active':mainCtrl.hovering.triceps}"
+                    ng-mouseenter="mainCtrl.hovering.triceps=true" ng-mouseleave="mainCtrl.hovering.triceps=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Triceps</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 54.3</div><div class=&quot;tooltip-classification&quot;>[Novice]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 266.62,167.62 L 263.75,186.62 259.25,192.88 256.75,202.50 256.25,209.88 257.62,219.75 261.38,242.38 264.25,257.38 266.38,267.38 267.12,280.50 272.25,288.50 284.88,280.50 290.12,275.38 293.75,265.38 291.00,244.50 288.00,223.25 286.62,212.25 275.50,197.12 266.62,167.62 Z"></path>
+              <path class="forearms subpar" ng-class="{'active':mainCtrl.hovering.forearms}"
+                    ng-mouseenter="mainCtrl.hovering.forearms=true" ng-mouseleave="mainCtrl.hovering.forearms=false"
+                    bs-tooltip=""
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Forearms</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 16.4</div><div class=&quot;tooltip-classification&quot;>[Subpar]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 267.25,281.00 L 272.38,288.88 284.50,280.88 290.25,275.12 293.62,265.62 297.00,283.12 301.12,304.62 302.62,324.75 304.12,351.88 305.00,372.12 289.25,372.50 284.25,353.88 277.62,334.75 271.62,314.88 268.62,295.88 267.25,281.00 Z"
+                    style=""></path>
+              <path class="forearms subpar" ng-class="{'active':mainCtrl.hovering.forearms}"
+                    ng-mouseenter="mainCtrl.hovering.forearms=true" ng-mouseleave="mainCtrl.hovering.forearms=false"
+                    bs-tooltip=""
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Forearms</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 16.4</div><div class=&quot;tooltip-classification&quot;>[Subpar]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 116.25,372.12 L 116.00,324.38 116.62,298.50 122.38,273.50 128.00,281.12 140.88,288.88 148.88,278.75 148.88,296.75 144.88,319.50 140.00,340.00 134.25,362.88 132.62,372.25 116.25,372.12 Z"
+                    style=""></path>
+              <path class="rear-delts subpar" ng-class="{'active':mainCtrl.hovering.rearDelts}"
+                    ng-mouseenter="mainCtrl.hovering.rearDelts=true" ng-mouseleave="mainCtrl.hovering.rearDelts=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Delts</div><div class=&quot;tooltip-subheader&quot;>(Posterior)</div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 11.7</div><div class=&quot;tooltip-classification&quot;>[Subpar]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 272.62,154.12 L 263.62,154.12 260.75,156.12 259.38,163.12 266.12,164.38 272.62,188.38 275.62,197.00 286.75,212.38 287.50,174.25 281.38,164.38 272.62,154.12 Z"
+                    style=""></path>
+              <path class="rear-delts subpar" ng-class="{'active':mainCtrl.hovering.rearDelts}"
+                    ng-mouseenter="mainCtrl.hovering.rearDelts=true" ng-mouseleave="mainCtrl.hovering.rearDelts=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Delts</div><div class=&quot;tooltip-subheader&quot;>(Posterior)</div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 11.7</div><div class=&quot;tooltip-classification&quot;>[Subpar]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 127.00,169.50 L 130.25,162.25 135.25,157.00 140.88,154.25 146.50,155.62 148.00,164.38 141.00,165.38 139.62,172.75 137.25,180.00 137.12,188.75 126.75,209.38 127.00,169.50 Z"
+                    style=""></path>
+              <path class="side-delts unknown" ng-class="{'active':mainCtrl.hovering.sideDelts}"
+                    ng-mouseenter="mainCtrl.hovering.sideDelts=true" ng-mouseleave="mainCtrl.hovering.sideDelts=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Delts</div><div class=&quot;tooltip-subheader&quot;>(Lateral)</div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: Unknown</div><div class=&quot;tooltip-classification&quot;></div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 272.50,154.38 L 281.12,151.62 284.38,155.50 286.25,160.62 287.00,167.62 287.38,174.12 281.75,164.62 276.75,158.88 272.50,154.38 Z"></path>
+              <path class="side-delts unknown" ng-class="{'active':mainCtrl.hovering.sideDelts}"
+                    ng-mouseenter="mainCtrl.hovering.sideDelts=true" ng-mouseleave="mainCtrl.hovering.sideDelts=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Delts</div><div class=&quot;tooltip-subheader&quot;>(Lateral)</div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: Unknown</div><div class=&quot;tooltip-classification&quot;></div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 131.62,153.75 L 128.50,159.62 127.25,168.88 130.12,162.25 135.25,157.12 140.50,154.38 131.62,153.75 Z"></path>
+              <path class="calves unknown" ng-class="{'active':mainCtrl.hovering.calves}"
+                    ng-mouseenter="mainCtrl.hovering.calves=true" ng-mouseleave="mainCtrl.hovering.calves=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Calves</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: Unknown</div><div class=&quot;tooltip-classification&quot;></div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 398.25,558.25 L 390.38,565.75 388.50,585.12 389.88,612.62 393.50,646.38 395.00,671.75 401.75,674.62 404.88,675.25 410.50,673.38 408.62,646.75 407.38,618.12 404.50,598.12 403.12,579.38 402.00,565.00 398.25,558.25 Z"></path>
+              <path class="calves unknown" ng-class="{'active':mainCtrl.hovering.calves}"
+                    ng-mouseenter="mainCtrl.hovering.calves=true" ng-mouseleave="mainCtrl.hovering.calves=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Calves</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: Unknown</div><div class=&quot;tooltip-classification&quot;></div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 501.00,590.25 L 508.00,601.25 514.00,611.12 516.62,624.88 517.50,648.38 518.75,675.88 518.75,690.88 513.50,669.00 507.50,643.38 502.50,622.00 501.38,613.00 501.00,590.25 Z"></path>
+              <path class="calves unknown" ng-class="{'active':mainCtrl.hovering.calves}"
+                    ng-mouseenter="mainCtrl.hovering.calves=true" ng-mouseleave="mainCtrl.hovering.calves=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Calves</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: Unknown</div><div class=&quot;tooltip-classification&quot;></div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 531.75,564.25 L 538.50,575.50 541.88,589.00 544.00,614.38 544.00,643.88 543.00,665.12 543.12,704.75 525.50,700.88 525.12,642.88 526.62,612.00 528.12,575.75 531.75,564.25 Z"></path>
+              <path class="triceps novice" ng-class="{'active':mainCtrl.hovering.triceps}"
+                    ng-mouseenter="mainCtrl.hovering.triceps=true" ng-mouseleave="mainCtrl.hovering.triceps=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Triceps</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 54.3</div><div class=&quot;tooltip-classification&quot;>[Novice]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 517.88,181.88 L 530.62,200.12 534.25,207.12 536.50,218.62 539.25,241.25 541.12,256.00 541.75,265.75 536.12,281.12 528.00,273.25 532.50,260.62 533.12,249.50 532.88,237.88 531.50,229.12 523.75,196.12 517.88,181.88 Z"></path>
+              <path class="upper-traps unknown" ng-class="{'active':mainCtrl.hovering.upperTraps}"
+                    ng-mouseenter="mainCtrl.hovering.upperTraps=true" ng-mouseleave="mainCtrl.hovering.upperTraps=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Upper Traps</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: Unknown</div><div class=&quot;tooltip-classification&quot;></div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 479.88,141.12 L 479.38,155.12 482.50,156.75 492.50,156.50 508.12,152.62 516.50,149.50 495.25,148.88 485.62,145.50 479.88,141.12 Z"></path>
+              <path class="middle-traps subpar" ng-class="{'active':mainCtrl.hovering.middleTraps}"
+                    ng-mouseenter="mainCtrl.hovering.middleTraps=true"
+                    ng-mouseleave="mainCtrl.hovering.middleTraps=false" bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Middle Traps</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 11.7</div><div class=&quot;tooltip-classification&quot;>[Subpar]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 214.00,135.62 L 230.75,141.38 238.88,143.38 253.75,145.12 238.38,150.25 230.75,153.12 220.62,157.12 214.25,159.12 214.00,135.62 Z"></path>
+              <path class="lower-traps subpar" ng-class="{'active':mainCtrl.hovering.lowerTraps}"
+                    ng-mouseenter="mainCtrl.hovering.lowerTraps=true" ng-mouseleave="mainCtrl.hovering.lowerTraps=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Lower Traps</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 11.7</div><div class=&quot;tooltip-classification&quot;>[Subpar]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 214.38,159.50 L 232.25,153.00 226.50,160.62 228.00,171.12 228.12,184.12 229.50,203.62 226.75,217.62 218.88,229.38 214.62,241.25 211.00,254.50 211.50,213.38 211.12,186.00 212.62,169.50 214.38,159.50 Z"></path>
+              <path class="lower-traps subpar" ng-class="{'active':mainCtrl.hovering.lowerTraps}"
+                    ng-mouseenter="mainCtrl.hovering.lowerTraps=true" ng-mouseleave="mainCtrl.hovering.lowerTraps=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Lower Traps</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 11.7</div><div class=&quot;tooltip-classification&quot;>[Subpar]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 191.38,159.38 L 174.00,152.12 178.12,159.75 177.00,168.62 177.50,180.25 177.25,202.88 182.38,217.62 192.62,233.12 200.50,249.38 198.38,216.12 192.75,171.00 191.38,159.38 Z"></path>
+              <path class="middle-traps subpar" ng-class="{'active':mainCtrl.hovering.middleTraps}"
+                    ng-mouseenter="mainCtrl.hovering.middleTraps=true"
+                    ng-mouseleave="mainCtrl.hovering.middleTraps=false" bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Middle Traps</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 11.7</div><div class=&quot;tooltip-classification&quot;>[Subpar]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 155.38,144.88 L 164.62,143.25 171.12,141.50 177.88,140.25 192.75,135.38 191.25,159.38 171.88,151.12 161.88,147.38 155.38,144.88 Z"></path>
+              <path class="upper-traps unknown" ng-class="{'active':mainCtrl.hovering.upperTraps}"
+                    ng-mouseenter="mainCtrl.hovering.upperTraps=true" ng-mouseleave="mainCtrl.hovering.upperTraps=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Upper Traps</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: Unknown</div><div class=&quot;tooltip-classification&quot;></div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 205.62,96.38 L 212.12,97.00 212.88,103.38 215.75,113.50 220.25,120.38 225.38,128.50 229.38,134.12 240.25,138.38 250.50,140.12 261.00,141.75 259.12,145.12 250.50,144.88 239.12,143.38 228.62,140.75 214.12,135.50 209.88,118.25 206.75,104.00 205.62,96.38 Z"></path>
+              <path class="upper-traps unknown" ng-class="{'active':mainCtrl.hovering.upperTraps}"
+                    ng-mouseenter="mainCtrl.hovering.upperTraps=true" ng-mouseleave="mainCtrl.hovering.upperTraps=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Upper Traps</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: Unknown</div><div class=&quot;tooltip-classification&quot;></div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 195.12,97.00 L 190.25,100.38 190.38,108.62 189.12,113.38 187.00,118.12 184.50,127.88 180.38,133.88 174.25,137.50 161.88,140.62 148.00,142.75 149.88,144.88 155.50,144.75 162.62,143.50 172.00,141.25 177.75,140.25 183.62,138.25 192.38,135.38 192.50,130.62 194.00,118.50 196.12,103.25 195.12,97.00 Z"></path>
+              <path class="upper-chest novice" ng-class="{'active':mainCtrl.hovering.upperChest}"
+                    ng-mouseenter="mainCtrl.hovering.upperChest=true" ng-mouseleave="mainCtrl.hovering.upperChest=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Pecs</div><div class=&quot;tooltip-subheader&quot;>(Clavicular head)</div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 54.3</div><div class=&quot;tooltip-classification&quot;>[Novice]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 403.88,163.25 L 407.25,161.25 415.88,157.25 424.75,158.25 434.25,159.25 444.62,159.75 450.38,161.12 451.62,166.88 446.00,164.75 438.00,164.38 428.88,164.12 412.88,163.12 403.88,163.25 Z"></path>
+              <path class="side-delts unknown" ng-class="{'active':mainCtrl.hovering.sideDelts}"
+                    ng-mouseenter="mainCtrl.hovering.sideDelts=true" ng-mouseleave="mainCtrl.hovering.sideDelts=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Delts</div><div class=&quot;tooltip-subheader&quot;>(Lateral)</div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: Unknown</div><div class=&quot;tooltip-classification&quot;></div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 402.75,152.50 L 399.75,150.75 395.75,151.25 389.38,155.88 384.25,164.00 381.88,171.50 382.00,189.38 382.88,218.88 384.75,209.75 388.12,204.38 387.12,174.38 390.25,163.50 394.88,158.25 402.75,152.50 Z"></path>
+              <path class="side-delts unknown" ng-class="{'active':mainCtrl.hovering.sideDelts}"
+                    ng-mouseenter="mainCtrl.hovering.sideDelts=true" ng-mouseleave="mainCtrl.hovering.sideDelts=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Delts</div><div class=&quot;tooltip-subheader&quot;>(Lateral)</div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: Unknown</div><div class=&quot;tooltip-classification&quot;></div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 515.38,152.25 L 521.38,151.12 526.12,152.12 530.38,156.00 534.50,162.12 537.12,170.00 537.88,179.00 536.50,218.88 534.25,207.12 530.62,200.00 531.62,190.50 530.88,170.25 527.25,159.62 522.75,155.25 515.38,152.25 Z"></path>
+              <path class="front-delts novice" ng-class="{'active':mainCtrl.hovering.frontDelts}"
+                    ng-mouseenter="mainCtrl.hovering.frontDelts=true" ng-mouseleave="mainCtrl.hovering.frontDelts=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Delts</div><div class=&quot;tooltip-subheader&quot;>(Anterior)</div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 54.3</div><div class=&quot;tooltip-classification&quot;>[Novice]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 494.00,159.50 L 508.75,154.62 515.25,152.50 522.62,155.25 527.38,159.88 530.75,170.00 531.25,179.88 531.50,190.12 530.62,200.00 516.00,179.12 516.75,168.12 514.62,164.75 509.75,162.38 501.88,160.38 494.00,159.50 Z"></path>
+              <path class="triceps novice" ng-class="{'active':mainCtrl.hovering.triceps}"
+                    ng-mouseenter="mainCtrl.hovering.triceps=true" ng-mouseleave="mainCtrl.hovering.triceps=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Triceps</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 54.3</div><div class=&quot;tooltip-classification&quot;>[Novice]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 401.50,184.38 L 387.88,204.50 385.00,209.50 382.62,218.88 379.62,250.75 379.25,257.50 383.38,270.88 384.88,281.12 391.62,273.50 388.50,265.88 387.00,248.50 388.50,229.38 390.75,218.38 396.25,199.62 401.50,184.38 Z"></path>
+              <path class="biceps subpar" ng-class="{'active':mainCtrl.hovering.biceps}"
+                    ng-mouseenter="mainCtrl.hovering.biceps=true" ng-mouseleave="mainCtrl.hovering.biceps=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Biceps</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 13.2</div><div class=&quot;tooltip-classification&quot;>[Subpar]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 401.62,183.62 L 395.88,201.50 390.38,219.88 388.50,230.12 387.12,247.75 388.75,265.75 391.75,273.25 397.88,282.12 403.62,285.25 404.75,257.88 407.88,246.38 405.38,239.50 402.62,224.88 402.62,211.00 405.75,198.62 405.88,190.00 404.62,179.38 401.62,183.62 Z"
+                    style=""></path>
+              <path class="biceps subpar" ng-class="{'active':mainCtrl.hovering.biceps}"
+                    ng-mouseenter="mainCtrl.hovering.biceps=true" ng-mouseleave="mainCtrl.hovering.biceps=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Biceps</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 13.2</div><div class=&quot;tooltip-classification&quot;>[Subpar]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 517.62,181.62 L 523.75,196.88 530.62,225.00 532.75,237.38 533.25,249.25 532.38,260.75 528.12,273.25 522.38,282.62 516.75,285.12 515.25,264.38 513.38,250.75 515.25,238.75 519.25,225.00 519.75,212.38 514.38,197.50 513.38,189.38 515.88,179.12 517.62,181.62 Z"></path>
+              <path class="forearms subpar" ng-class="{'active':mainCtrl.hovering.forearms}"
+                    ng-mouseenter="mainCtrl.hovering.forearms=true" ng-mouseleave="mainCtrl.hovering.forearms=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Forearms</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 16.4</div><div class=&quot;tooltip-classification&quot;>[Subpar]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 516.75,285.62 L 522.12,283.00 528.25,273.25 535.88,281.38 541.75,266.00 545.88,286.88 549.38,302.50 551.00,322.75 552.12,338.12 552.25,370.50 546.12,369.38 537.12,370.00 529.50,342.75 522.38,321.12 518.62,304.25 516.75,285.62 Z"
+                    style=""></path>
+              <path class="forearms subpar" ng-class="{'active':mainCtrl.hovering.forearms}"
+                    ng-mouseenter="mainCtrl.hovering.forearms=true" ng-mouseleave="mainCtrl.hovering.forearms=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Forearms</div><div class=&quot;tooltip-subheader&quot;></div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 16.4</div><div class=&quot;tooltip-classification&quot;>[Subpar]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 379.38,258.00 L 383.00,269.50 385.00,281.12 391.75,273.25 397.88,281.88 403.25,285.25 401.62,301.62 396.88,324.38 388.88,349.62 383.50,369.25 379.75,367.75 367.75,367.38 369.25,334.62 370.25,305.38 374.00,287.00 377.38,270.00 379.38,258.00 Z"
+                    style=""></path>
+              <path class="lower-chest novice" ng-class="{'active':mainCtrl.hovering.lowerChest}"
+                    ng-mouseenter="mainCtrl.hovering.lowerChest=true" ng-mouseleave="mainCtrl.hovering.lowerChest=false"
+                    bs-tooltip="" data-animation="none"
+                    data-title="<div class=&quot;tooltip-title&quot;><div class=&quot;tooltip-header&quot;>Pecs</div><div class=&quot;tooltip-subheader&quot;>(Sternal head)</div></div><div class=&quot;tooltip-data&quot;><div class=&quot;tooltip-score&quot;>Score: 54</div><div class=&quot;tooltip-classification&quot;>[Novice]</div></div>"
+                    data-html="true" data-container="#canvas-container"
+                    d="M 406.00,190.12 L 405.00,180.00 402.62,172.88 403.50,163.38 413.75,163.12 427.38,164.25 440.88,164.62 445.88,164.88 451.38,166.75 457.12,186.88 456.88,196.00 457.12,203.62 454.38,211.38 453.00,205.12 450.12,198.88 445.88,193.50 438.38,190.12 429.62,188.25 417.50,189.50 406.00,190.12 Z"
+                    style=""></path>
             </svg>
           </div>
           <div class="panel panel-default muscle-figure-legend">
@@ -845,306 +1176,306 @@
         <div class="portlet-body">
           <div class="col-md-12">
             <div class="row">
-                <div class="col-12 grid">
-                  <div class="xl:col-4 lg:col-6 md:col-6 sm:col-12">
-                    <p-dropdown id="reps" [options]="reps" [(ngModel)]="selectedRep"
-                                styleClass="dropdown-def"
-                                optionLabel="label"
-                                (onChange)="onChangeRep($event)"></p-dropdown>
-                    <label for="reps" class="input-label" style="font-size: 13px">Rep maxes</label>
-                  </div>
+              <div class="col-12 grid">
+                <div class="xl:col-4 lg:col-6 md:col-6 sm:col-12">
+                  <p-dropdown id="reps" [options]="reps" [(ngModel)]="selectedRep"
+                              styleClass="dropdown-def"
+                              optionLabel="label"
+                              (onChange)="onChangeRep($event)"></p-dropdown>
+                  <label for="reps" class="input-label" style="font-size: 13px">Rep maxes</label>
                 </div>
-<!--                  <div class="xl:col-4 lg:col-6 md:col-6 sm:col-12">-->
-<!--                    <p-dropdown id="round" formControlName="round" [options]="rounds" [(ngModel)]="selectedRound"-->
-<!--                                styleClass="dropdown-def"-->
-<!--                                optionLabel="label"-->
-<!--                                (onChange)="submit()"></p-dropdown>-->
-<!--                    <label for="round" class="input-label" style="font-size: 13px">Round to nearest</label>-->
-<!--                  </div>-->
-                <!-- ngIf: standardsPage -->
-          </div>
+              </div>
+              <!--                  <div class="xl:col-4 lg:col-6 md:col-6 sm:col-12">-->
+              <!--                    <p-dropdown id="round" formControlName="round" [options]="rounds" [(ngModel)]="selectedRound"-->
+              <!--                                styleClass="dropdown-def"-->
+              <!--                                optionLabel="label"-->
+              <!--                                (onChange)="submit()"></p-dropdown>-->
+              <!--                    <label for="round" class="input-label" style="font-size: 13px">Round to nearest</label>-->
+              <!--                  </div>-->
+              <!-- ngIf: standardsPage -->
             </div>
-            <div class="row">
-              <div class="table-responsive">
-                <table class="table table-striped table-bordered table-hover">
-                  <thead>
-                  <tr>
-                    <th>Lift</th>
-                    <th>Untrained <i class="fa fa-circle untrained"></i></th>
-                    <th>Novice <i class="fa fa-circle novice"></i></th>
-                    <th>Intermediate <i class="fa fa-circle intermediate"></i></th>
-                    <th>Proficient <i class="fa fa-circle proficient"></i></th>
-                    <th>Advanced <i class="fa fa-circle advanced"></i></th>
-                    <th>Exceptional <i class="fa fa-circle exceptional"></i></th>
-                    <th>Elite <i class="fa fa-circle elite"></i></th>
-                    <th>World class <i class="fa fa-circle world-class"></i></th>
-                  </tr>
-                  </thead>
-                  <tbody><!-- ngRepeat: lift in standardsCtrl.lifts -->
-                  <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
-                    <td class="ng-binding">Back Squat
-                      <!-- ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
-                    <td class="ng-binding">{{response.backSquat!.Untrained}}</td>
-                    <td class="ng-binding">{{response.backSquat!.Novice}}</td>
-                    <td class="ng-binding">{{response.backSquat!.Intermediate}}</td>
-                    <td class="ng-binding">{{response.backSquat!.Proficient}}</td>
-                    <td class="ng-binding">{{response.backSquat!.Advanced}}</td>
-                    <td class="ng-binding">{{response.backSquat!.Exceptional}}</td>
-                    <td class="ng-binding">{{response.backSquat!.Elite}}</td>
-                    <td class="ng-binding">{{response.backSquat!["World class"]}}</td>
-                  </tr><!-- end ngRepeat: lift in standardsCtrl.lifts -->
-                  <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
-                    <td class="ng-binding">Front Squat
-                      <!-- ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
-                    <td class="ng-binding">{{response.frontSquat!.Untrained}}</td>
-                    <td class="ng-binding">{{response.frontSquat!.Novice}}</td>
-                    <td class="ng-binding">{{response.frontSquat!.Intermediate}}</td>
-                    <td class="ng-binding">{{response.frontSquat!.Proficient}}</td>
-                    <td class="ng-binding">{{response.frontSquat!.Advanced}}</td>
-                    <td class="ng-binding">{{response.frontSquat!.Exceptional}}</td>
-                    <td class="ng-binding">{{response.frontSquat!.Elite}}</td>
-                    <td class="ng-binding">{{response.frontSquat!["World class"]}}</td>
-                  </tr><!-- end ngRepeat: lift in standardsCtrl.lifts -->
-                  <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
-                    <td class="ng-binding">Deadlift
-                      <!-- ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
-                    <td class="ng-binding">{{response.deadlift!.Untrained}}</td>
-                    <td class="ng-binding">{{response.deadlift!.Novice}}</td>
-                    <td class="ng-binding">{{response.deadlift!.Intermediate}}</td>
-                    <td class="ng-binding">{{response.deadlift!.Proficient}}</td>
-                    <td class="ng-binding">{{response.deadlift!.Advanced}}</td>
-                    <td class="ng-binding">{{response.deadlift!.Exceptional}}</td>
-                    <td class="ng-binding">{{response.deadlift!.Elite}}</td>
-                    <td class="ng-binding">{{response.deadlift!["World class"]}}</td>
-                  </tr><!-- end ngRepeat: lift in standardsCtrl.lifts -->
-                  <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
-                    <td class="ng-binding">Sumo Deadlift
-                      <!-- ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
-                    <td class="ng-binding">{{response.sumoDeadlift!.Untrained}}</td>
-                    <td class="ng-binding">{{response.sumoDeadlift!.Novice}}</td>
-                    <td class="ng-binding">{{response.sumoDeadlift!.Intermediate}}</td>
-                    <td class="ng-binding">{{response.sumoDeadlift!.Proficient}}</td>
-                    <td class="ng-binding">{{response.sumoDeadlift!.Advanced}}</td>
-                    <td class="ng-binding">{{response.sumoDeadlift!.Exceptional}}</td>
-                    <td class="ng-binding">{{response.sumoDeadlift!.Elite}}</td>
-                    <td class="ng-binding">{{response.sumoDeadlift!["World class"]}}</td>
-                  </tr><!-- end ngRepeat: lift in standardsCtrl.lifts -->
-                  <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
-                    <td class="ng-binding">Power Clean
-                      <!-- ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
-                    <td class="ng-binding">{{response.powerClean!.Untrained}}</td>
-                    <td class="ng-binding">{{response.powerClean!.Novice}}</td>
-                    <td class="ng-binding">{{response.powerClean!.Intermediate}}</td>
-                    <td class="ng-binding">{{response.powerClean!.Proficient}}</td>
-                    <td class="ng-binding">{{response.powerClean!.Advanced}}</td>
-                    <td class="ng-binding">{{response.powerClean!.Exceptional}}</td>
-                    <td class="ng-binding">{{response.powerClean!.Elite}}</td>
-                    <td class="ng-binding">{{response.powerClean!["World class"]}}</td>
-                  </tr><!-- end ngRepeat: lift in standardsCtrl.lifts -->
-                  <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
-                    <td class="ng-binding">Bench Press
-                      <!-- ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
-                    <td class="ng-binding">{{response.benchPress!.Untrained}}</td>
-                    <td class="ng-binding">{{response.benchPress!.Novice}}</td>
-                    <td class="ng-binding">{{response.benchPress!.Intermediate}}</td>
-                    <td class="ng-binding">{{response.benchPress!.Proficient}}</td>
-                    <td class="ng-binding">{{response.benchPress!.Advanced}}</td>
-                    <td class="ng-binding">{{response.benchPress!.Exceptional}}</td>
-                    <td class="ng-binding">{{response.benchPress!.Elite}}</td>
-                    <td class="ng-binding">{{response.benchPress!["World class"]}}</td>
-                  </tr><!-- end ngRepeat: lift in standardsCtrl.lifts -->
-                  <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
-                    <td class="ng-binding">Incline Bench Press
-                      <!-- ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
-                    <td class="ng-binding">{{response.inclineBenchPress!.Untrained}}</td>
-                    <td class="ng-binding">{{response.inclineBenchPress!.Novice}}</td>
-                    <td class="ng-binding">{{response.inclineBenchPress!.Intermediate}}</td>
-                    <td class="ng-binding">{{response.inclineBenchPress!.Proficient}}</td>
-                    <td class="ng-binding">{{response.inclineBenchPress!.Advanced}}</td>
-                    <td class="ng-binding">{{response.inclineBenchPress!.Exceptional}}</td>
-                    <td class="ng-binding">{{response.inclineBenchPress!.Elite}}</td>
-                    <td class="ng-binding">{{response.inclineBenchPress!["World class"]}}</td>
-                  </tr><!-- end ngRepeat: lift in standardsCtrl.lifts -->
-                  <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
-                    <td class="ng-binding">Dip <!-- ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --><i
-                      bs-tooltip="" data-container="body"
-                      data-title="&quot;+10 lbs&quot; means 10 lbs added; &quot;-10 lbs&quot; means 10 lbs assisted."
-                      class="fa fa-info-circle ng-scope"
-                      ng-if="lift === 'dip' || lift === 'chinup' || lift === 'pullup'"></i>
-                      <!-- end ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
-                    <td class="ng-binding">{{response.dip!.Untrained}}</td>
-                    <td class="ng-binding">{{response.dip!.Novice}}</td>
-                    <td class="ng-binding">{{response.dip!.Intermediate}}</td>
-                    <td class="ng-binding">{{response.dip!.Proficient}}</td>
-                    <td class="ng-binding">{{response.dip!.Advanced}}</td>
-                    <td class="ng-binding">{{response.dip!.Exceptional}}</td>
-                    <td class="ng-binding">{{response.dip!.Elite}}</td>
-                    <td class="ng-binding">{{response.dip!["World class"]}}</td>
-                  </tr><!-- end ngRepeat: lift in standardsCtrl.lifts -->
-                  <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
-                    <td class="ng-binding">Overhead Press
-                      <!-- ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
-                    <td class="ng-binding">{{response.overheadPress!.Untrained}}</td>
-                    <td class="ng-binding">{{response.overheadPress!.Novice}}</td>
-                    <td class="ng-binding">{{response.overheadPress!.Intermediate}}</td>
-                    <td class="ng-binding">{{response.overheadPress!.Proficient}}</td>
-                    <td class="ng-binding">{{response.overheadPress!.Advanced}}</td>
-                    <td class="ng-binding">{{response.overheadPress!.Exceptional}}</td>
-                    <td class="ng-binding">{{response.overheadPress!.Elite}}</td>
-                    <td class="ng-binding">{{response.overheadPress!["World class"]}}</td>
-                  </tr><!-- end ngRepeat: lift in standardsCtrl.lifts -->
-                  <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
-                    <td class="ng-binding">Push Press
-                      <!-- ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
-                    <td class="ng-binding">{{response.pushPress!.Untrained}}</td>
-                    <td class="ng-binding">{{response.pushPress!.Novice}}</td>
-                    <td class="ng-binding">{{response.pushPress!.Intermediate}}</td>
-                    <td class="ng-binding">{{response.pushPress!.Proficient}}</td>
-                    <td class="ng-binding">{{response.pushPress!.Advanced}}</td>
-                    <td class="ng-binding">{{response.pushPress!.Exceptional}}</td>
-                    <td class="ng-binding">{{response.pushPress!.Elite}}</td>
-                    <td class="ng-binding">{{response.pushPress!["World class"]}}</td>
-                  </tr><!-- end ngRepeat: lift in standardsCtrl.lifts -->
-                  <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
-                    <td class="ng-binding">Snatch Press
-                      <!-- ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
-                    <td class="ng-binding">{{response.snatchPress!.Untrained}}</td>
-                    <td class="ng-binding">{{response.snatchPress!.Novice}}</td>
-                    <td class="ng-binding">{{response.snatchPress!.Intermediate}}</td>
-                    <td class="ng-binding">{{response.snatchPress!.Proficient}}</td>
-                    <td class="ng-binding">{{response.snatchPress!.Advanced}}</td>
-                    <td class="ng-binding">{{response.snatchPress!.Exceptional}}</td>
-                    <td class="ng-binding">{{response.snatchPress!.Elite}}</td>
-                    <td class="ng-binding">{{response.snatchPress!["World class"]}}</td>
-                  </tr><!-- end ngRepeat: lift in standardsCtrl.lifts -->
-                  <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
-                    <td class="ng-binding">Chin-up
-                      <!-- ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --><i bs-tooltip=""
-                                                                                                data-container="body"
-                                                                                                data-title="&quot;+10 lbs&quot; means 10 lbs added; &quot;-10 lbs&quot; means 10 lbs assisted."
-                                                                                                class="fa fa-info-circle ng-scope"
-                                                                                                ng-if="lift === 'dip' || lift === 'chinup' || lift === 'pullup'"></i>
-                      <!-- end ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
-                    <td class="ng-binding">{{response.chinup!.Untrained}}</td>
-                    <td class="ng-binding">{{response.chinup!.Novice}}</td>
-                    <td class="ng-binding">{{response.chinup!.Intermediate}}</td>
-                    <td class="ng-binding">{{response.chinup!.Proficient}}</td>
-                    <td class="ng-binding">{{response.chinup!.Advanced}}</td>
-                    <td class="ng-binding">{{response.chinup!.Exceptional}}</td>
-                    <td class="ng-binding">{{response.chinup!.Elite}}</td>
-                    <td class="ng-binding">{{response.chinup!["World class"]}}</td>
-                  </tr><!-- end ngRepeat: lift in standardsCtrl.lifts -->
-                  <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
-                    <td class="ng-binding">Pull-up
-                      <!-- ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --><i bs-tooltip=""
-                                                                                                data-container="body"
-                                                                                                data-title="&quot;+10 lbs&quot; means 10 lbs added; &quot;-10 lbs&quot; means 10 lbs assisted."
-                                                                                                class="fa fa-info-circle ng-scope"
-                                                                                                ng-if="lift === 'dip' || lift === 'chinup' || lift === 'pullup'"></i>
-                      <!-- end ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
-                    <td class="ng-binding">{{response.pullup!.Untrained}}</td>
-                    <td class="ng-binding">{{response.pullup!.Novice}}</td>
-                    <td class="ng-binding">{{response.pullup!.Intermediate}}</td>
-                    <td class="ng-binding">{{response.pullup!.Proficient}}</td>
-                    <td class="ng-binding">{{response.pullup!.Advanced}}</td>
-                    <td class="ng-binding">{{response.pullup!.Exceptional}}</td>
-                    <td class="ng-binding">{{response.pullup!.Elite}}</td>
-                    <td class="ng-binding">{{response.pullup!["World class"]}}</td>
-                  </tr><!-- end ngRepeat: lift in standardsCtrl.lifts -->
-                  <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
-                    <td class="ng-binding">Pendlay Row
-                      <!-- ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
-                    <td class="ng-binding">{{response.pendlayRow!.Untrained}}</td>
-                    <td class="ng-binding">{{response.pendlayRow!.Novice}}</td>
-                    <td class="ng-binding">{{response.pendlayRow!.Intermediate}}</td>
-                    <td class="ng-binding">{{response.pendlayRow!.Proficient}}</td>
-                    <td class="ng-binding">{{response.pendlayRow!.Advanced}}</td>
-                    <td class="ng-binding">{{response.pendlayRow!.Exceptional}}</td>
-                    <td class="ng-binding">{{response.pendlayRow!.Elite}}</td>
-                    <td class="ng-binding">{{response.pendlayRow!["World class"]}}</td>
-                  </tr><!-- end ngRepeat: lift in standardsCtrl.lifts -->
-                  </tbody>
-                </table>
+          </div>
+          <div class="row">
+            <div class="table-responsive">
+              <table class="table table-striped table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th>Lift</th>
+                  <th>Untrained <i class="fa fa-circle untrained"></i></th>
+                  <th>Novice <i class="fa fa-circle novice"></i></th>
+                  <th>Intermediate <i class="fa fa-circle intermediate"></i></th>
+                  <th>Proficient <i class="fa fa-circle proficient"></i></th>
+                  <th>Advanced <i class="fa fa-circle advanced"></i></th>
+                  <th>Exceptional <i class="fa fa-circle exceptional"></i></th>
+                  <th>Elite <i class="fa fa-circle elite"></i></th>
+                  <th>World class <i class="fa fa-circle world-class"></i></th>
+                </tr>
+                </thead>
+                <tbody><!-- ngRepeat: lift in standardsCtrl.lifts -->
+                <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
+                  <td class="ng-binding">Back Squat
+                    <!-- ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
+                  <td class="ng-binding">{{response.backSquat!.Untrained}}</td>
+                  <td class="ng-binding">{{response.backSquat!.Novice}}</td>
+                  <td class="ng-binding">{{response.backSquat!.Intermediate}}</td>
+                  <td class="ng-binding">{{response.backSquat!.Proficient}}</td>
+                  <td class="ng-binding">{{response.backSquat!.Advanced}}</td>
+                  <td class="ng-binding">{{response.backSquat!.Exceptional}}</td>
+                  <td class="ng-binding">{{response.backSquat!.Elite}}</td>
+                  <td class="ng-binding">{{response.backSquat!["World class"]}}</td>
+                </tr><!-- end ngRepeat: lift in standardsCtrl.lifts -->
+                <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
+                  <td class="ng-binding">Front Squat
+                    <!-- ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
+                  <td class="ng-binding">{{response.frontSquat!.Untrained}}</td>
+                  <td class="ng-binding">{{response.frontSquat!.Novice}}</td>
+                  <td class="ng-binding">{{response.frontSquat!.Intermediate}}</td>
+                  <td class="ng-binding">{{response.frontSquat!.Proficient}}</td>
+                  <td class="ng-binding">{{response.frontSquat!.Advanced}}</td>
+                  <td class="ng-binding">{{response.frontSquat!.Exceptional}}</td>
+                  <td class="ng-binding">{{response.frontSquat!.Elite}}</td>
+                  <td class="ng-binding">{{response.frontSquat!["World class"]}}</td>
+                </tr><!-- end ngRepeat: lift in standardsCtrl.lifts -->
+                <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
+                  <td class="ng-binding">Deadlift
+                    <!-- ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
+                  <td class="ng-binding">{{response.deadlift!.Untrained}}</td>
+                  <td class="ng-binding">{{response.deadlift!.Novice}}</td>
+                  <td class="ng-binding">{{response.deadlift!.Intermediate}}</td>
+                  <td class="ng-binding">{{response.deadlift!.Proficient}}</td>
+                  <td class="ng-binding">{{response.deadlift!.Advanced}}</td>
+                  <td class="ng-binding">{{response.deadlift!.Exceptional}}</td>
+                  <td class="ng-binding">{{response.deadlift!.Elite}}</td>
+                  <td class="ng-binding">{{response.deadlift!["World class"]}}</td>
+                </tr><!-- end ngRepeat: lift in standardsCtrl.lifts -->
+                <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
+                  <td class="ng-binding">Sumo Deadlift
+                    <!-- ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
+                  <td class="ng-binding">{{response.sumoDeadlift!.Untrained}}</td>
+                  <td class="ng-binding">{{response.sumoDeadlift!.Novice}}</td>
+                  <td class="ng-binding">{{response.sumoDeadlift!.Intermediate}}</td>
+                  <td class="ng-binding">{{response.sumoDeadlift!.Proficient}}</td>
+                  <td class="ng-binding">{{response.sumoDeadlift!.Advanced}}</td>
+                  <td class="ng-binding">{{response.sumoDeadlift!.Exceptional}}</td>
+                  <td class="ng-binding">{{response.sumoDeadlift!.Elite}}</td>
+                  <td class="ng-binding">{{response.sumoDeadlift!["World class"]}}</td>
+                </tr><!-- end ngRepeat: lift in standardsCtrl.lifts -->
+                <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
+                  <td class="ng-binding">Power Clean
+                    <!-- ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
+                  <td class="ng-binding">{{response.powerClean!.Untrained}}</td>
+                  <td class="ng-binding">{{response.powerClean!.Novice}}</td>
+                  <td class="ng-binding">{{response.powerClean!.Intermediate}}</td>
+                  <td class="ng-binding">{{response.powerClean!.Proficient}}</td>
+                  <td class="ng-binding">{{response.powerClean!.Advanced}}</td>
+                  <td class="ng-binding">{{response.powerClean!.Exceptional}}</td>
+                  <td class="ng-binding">{{response.powerClean!.Elite}}</td>
+                  <td class="ng-binding">{{response.powerClean!["World class"]}}</td>
+                </tr><!-- end ngRepeat: lift in standardsCtrl.lifts -->
+                <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
+                  <td class="ng-binding">Bench Press
+                    <!-- ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
+                  <td class="ng-binding">{{response.benchPress!.Untrained}}</td>
+                  <td class="ng-binding">{{response.benchPress!.Novice}}</td>
+                  <td class="ng-binding">{{response.benchPress!.Intermediate}}</td>
+                  <td class="ng-binding">{{response.benchPress!.Proficient}}</td>
+                  <td class="ng-binding">{{response.benchPress!.Advanced}}</td>
+                  <td class="ng-binding">{{response.benchPress!.Exceptional}}</td>
+                  <td class="ng-binding">{{response.benchPress!.Elite}}</td>
+                  <td class="ng-binding">{{response.benchPress!["World class"]}}</td>
+                </tr><!-- end ngRepeat: lift in standardsCtrl.lifts -->
+                <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
+                  <td class="ng-binding">Incline Bench Press
+                    <!-- ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
+                  <td class="ng-binding">{{response.inclineBenchPress!.Untrained}}</td>
+                  <td class="ng-binding">{{response.inclineBenchPress!.Novice}}</td>
+                  <td class="ng-binding">{{response.inclineBenchPress!.Intermediate}}</td>
+                  <td class="ng-binding">{{response.inclineBenchPress!.Proficient}}</td>
+                  <td class="ng-binding">{{response.inclineBenchPress!.Advanced}}</td>
+                  <td class="ng-binding">{{response.inclineBenchPress!.Exceptional}}</td>
+                  <td class="ng-binding">{{response.inclineBenchPress!.Elite}}</td>
+                  <td class="ng-binding">{{response.inclineBenchPress!["World class"]}}</td>
+                </tr><!-- end ngRepeat: lift in standardsCtrl.lifts -->
+                <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
+                  <td class="ng-binding">Dip <!-- ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --><i
+                    bs-tooltip="" data-container="body"
+                    data-title="&quot;+10 lbs&quot; means 10 lbs added; &quot;-10 lbs&quot; means 10 lbs assisted."
+                    class="fa fa-info-circle ng-scope"
+                    ng-if="lift === 'dip' || lift === 'chinup' || lift === 'pullup'"></i>
+                    <!-- end ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
+                  <td class="ng-binding">{{response.dip!.Untrained}}</td>
+                  <td class="ng-binding">{{response.dip!.Novice}}</td>
+                  <td class="ng-binding">{{response.dip!.Intermediate}}</td>
+                  <td class="ng-binding">{{response.dip!.Proficient}}</td>
+                  <td class="ng-binding">{{response.dip!.Advanced}}</td>
+                  <td class="ng-binding">{{response.dip!.Exceptional}}</td>
+                  <td class="ng-binding">{{response.dip!.Elite}}</td>
+                  <td class="ng-binding">{{response.dip!["World class"]}}</td>
+                </tr><!-- end ngRepeat: lift in standardsCtrl.lifts -->
+                <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
+                  <td class="ng-binding">Overhead Press
+                    <!-- ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
+                  <td class="ng-binding">{{response.overheadPress!.Untrained}}</td>
+                  <td class="ng-binding">{{response.overheadPress!.Novice}}</td>
+                  <td class="ng-binding">{{response.overheadPress!.Intermediate}}</td>
+                  <td class="ng-binding">{{response.overheadPress!.Proficient}}</td>
+                  <td class="ng-binding">{{response.overheadPress!.Advanced}}</td>
+                  <td class="ng-binding">{{response.overheadPress!.Exceptional}}</td>
+                  <td class="ng-binding">{{response.overheadPress!.Elite}}</td>
+                  <td class="ng-binding">{{response.overheadPress!["World class"]}}</td>
+                </tr><!-- end ngRepeat: lift in standardsCtrl.lifts -->
+                <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
+                  <td class="ng-binding">Push Press
+                    <!-- ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
+                  <td class="ng-binding">{{response.pushPress!.Untrained}}</td>
+                  <td class="ng-binding">{{response.pushPress!.Novice}}</td>
+                  <td class="ng-binding">{{response.pushPress!.Intermediate}}</td>
+                  <td class="ng-binding">{{response.pushPress!.Proficient}}</td>
+                  <td class="ng-binding">{{response.pushPress!.Advanced}}</td>
+                  <td class="ng-binding">{{response.pushPress!.Exceptional}}</td>
+                  <td class="ng-binding">{{response.pushPress!.Elite}}</td>
+                  <td class="ng-binding">{{response.pushPress!["World class"]}}</td>
+                </tr><!-- end ngRepeat: lift in standardsCtrl.lifts -->
+                <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
+                  <td class="ng-binding">Snatch Press
+                    <!-- ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
+                  <td class="ng-binding">{{response.snatchPress!.Untrained}}</td>
+                  <td class="ng-binding">{{response.snatchPress!.Novice}}</td>
+                  <td class="ng-binding">{{response.snatchPress!.Intermediate}}</td>
+                  <td class="ng-binding">{{response.snatchPress!.Proficient}}</td>
+                  <td class="ng-binding">{{response.snatchPress!.Advanced}}</td>
+                  <td class="ng-binding">{{response.snatchPress!.Exceptional}}</td>
+                  <td class="ng-binding">{{response.snatchPress!.Elite}}</td>
+                  <td class="ng-binding">{{response.snatchPress!["World class"]}}</td>
+                </tr><!-- end ngRepeat: lift in standardsCtrl.lifts -->
+                <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
+                  <td class="ng-binding">Chin-up
+                    <!-- ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --><i bs-tooltip=""
+                                                                                              data-container="body"
+                                                                                              data-title="&quot;+10 lbs&quot; means 10 lbs added; &quot;-10 lbs&quot; means 10 lbs assisted."
+                                                                                              class="fa fa-info-circle ng-scope"
+                                                                                              ng-if="lift === 'dip' || lift === 'chinup' || lift === 'pullup'"></i>
+                    <!-- end ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
+                  <td class="ng-binding">{{response.chinup!.Untrained}}</td>
+                  <td class="ng-binding">{{response.chinup!.Novice}}</td>
+                  <td class="ng-binding">{{response.chinup!.Intermediate}}</td>
+                  <td class="ng-binding">{{response.chinup!.Proficient}}</td>
+                  <td class="ng-binding">{{response.chinup!.Advanced}}</td>
+                  <td class="ng-binding">{{response.chinup!.Exceptional}}</td>
+                  <td class="ng-binding">{{response.chinup!.Elite}}</td>
+                  <td class="ng-binding">{{response.chinup!["World class"]}}</td>
+                </tr><!-- end ngRepeat: lift in standardsCtrl.lifts -->
+                <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
+                  <td class="ng-binding">Pull-up
+                    <!-- ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --><i bs-tooltip=""
+                                                                                              data-container="body"
+                                                                                              data-title="&quot;+10 lbs&quot; means 10 lbs added; &quot;-10 lbs&quot; means 10 lbs assisted."
+                                                                                              class="fa fa-info-circle ng-scope"
+                                                                                              ng-if="lift === 'dip' || lift === 'chinup' || lift === 'pullup'"></i>
+                    <!-- end ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
+                  <td class="ng-binding">{{response.pullup!.Untrained}}</td>
+                  <td class="ng-binding">{{response.pullup!.Novice}}</td>
+                  <td class="ng-binding">{{response.pullup!.Intermediate}}</td>
+                  <td class="ng-binding">{{response.pullup!.Proficient}}</td>
+                  <td class="ng-binding">{{response.pullup!.Advanced}}</td>
+                  <td class="ng-binding">{{response.pullup!.Exceptional}}</td>
+                  <td class="ng-binding">{{response.pullup!.Elite}}</td>
+                  <td class="ng-binding">{{response.pullup!["World class"]}}</td>
+                </tr><!-- end ngRepeat: lift in standardsCtrl.lifts -->
+                <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
+                  <td class="ng-binding">Pendlay Row
+                    <!-- ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
+                  <td class="ng-binding">{{response.pendlayRow!.Untrained}}</td>
+                  <td class="ng-binding">{{response.pendlayRow!.Novice}}</td>
+                  <td class="ng-binding">{{response.pendlayRow!.Intermediate}}</td>
+                  <td class="ng-binding">{{response.pendlayRow!.Proficient}}</td>
+                  <td class="ng-binding">{{response.pendlayRow!.Advanced}}</td>
+                  <td class="ng-binding">{{response.pendlayRow!.Exceptional}}</td>
+                  <td class="ng-binding">{{response.pendlayRow!.Elite}}</td>
+                  <td class="ng-binding">{{response.pendlayRow!["World class"]}}</td>
+                </tr><!-- end ngRepeat: lift in standardsCtrl.lifts -->
+                </tbody>
+              </table>
+            </div>
+            <!-- ngIf: !standardsPage --><p class="note ng-scope" ng-if="!standardsPage"><strong>Note:</strong> To
+            view strength standards for any sex and bodyweight, visit the <a href="/standards">strength standards</a>
+            page.
+          </p><!-- end ngIf: !standardsPage -->
+            <h2>Strength classifications</h2>
+            <div class="strength-classification">
+              <div class="classification-name"><i class="fa fa-circle subpar"></i> <strong>Subpar:</strong>
               </div>
-              <!-- ngIf: !standardsPage --><p class="note ng-scope" ng-if="!standardsPage"><strong>Note:</strong> To
-              view strength standards for any sex and bodyweight, visit the <a href="/standards">strength standards</a>
-              page.
-            </p><!-- end ngIf: !standardsPage -->
-              <h2>Strength classifications</h2>
-              <div class="strength-classification">
-                <div class="classification-name"><i class="fa fa-circle subpar"></i> <strong>Subpar:</strong>
-                </div>
-                <div class="classification-description">The lifter is weaker than the average untrained individual of
-                  the same sex and weight. Strength score &lt;30.
-                </div>
+              <div class="classification-description">The lifter is weaker than the average untrained individual of
+                the same sex and weight. Strength score &lt;30.
               </div>
-              <div class="strength-classification">
-                <div class="classification-name"><i class="fa fa-circle untrained"></i> <strong>Untrained:</strong>
-                </div>
-                <div class="classification-description">The lifter has not trained for strength before. The majority of
-                  the population. Strength score 30.
-                </div>
+            </div>
+            <div class="strength-classification">
+              <div class="classification-name"><i class="fa fa-circle untrained"></i> <strong>Untrained:</strong>
               </div>
-              <div class="strength-classification">
-                <div class="classification-name"><i class="fa fa-circle novice"></i> <strong>Novice:</strong>
-                </div>
-                <div class="classification-description">The lifter is stronger than the average untrained lifter of the
-                  same sex and weight. Lifters in this category have typically been training for a few months or more.
-                  Strength score 45.
-                </div>
+              <div class="classification-description">The lifter has not trained for strength before. The majority of
+                the population. Strength score 30.
               </div>
-              <div class="strength-classification">
-                <div class="classification-name"><i class="fa fa-circle intermediate"></i>
-                  <strong>Intermediate:</strong>
-                </div>
-                <div class="classification-description">The lifter has been consistently training, likely for at least a
-                  year. The majority of those who go to the gym regularly fall into this category. Strength score 60.
-                </div>
+            </div>
+            <div class="strength-classification">
+              <div class="classification-name"><i class="fa fa-circle novice"></i> <strong>Novice:</strong>
               </div>
-              <div class="strength-classification">
-                <div class="classification-name"><i class="fa fa-circle proficient"></i> <strong>Proficient:</strong>
-                </div>
-                <div class="classification-description">The lifter has been consistently training with a focus on
-                  strength, likely for 2+ years. Lifters in this category are stronger than most gym regulars. Strength
-                  score 75.
-                </div>
+              <div class="classification-description">The lifter is stronger than the average untrained lifter of the
+                same sex and weight. Lifters in this category have typically been training for a few months or more.
+                Strength score 45.
               </div>
-              <div class="strength-classification">
-                <div class="classification-name"><i class="fa fa-circle advanced"></i> <strong>Advanced:</strong>
-                </div>
-                <div class="classification-description">The lifter has taken a consistent and structured approach to
-                  strength training and dieting for multiple years. At this level, the individual is among the strongest
-                  in an average commercial gym. Many in this category compete in strength sports. Strength score 87.5.
-                </div>
+            </div>
+            <div class="strength-classification">
+              <div class="classification-name"><i class="fa fa-circle intermediate"></i>
+                <strong>Intermediate:</strong>
               </div>
-              <div class="strength-classification">
-                <div class="classification-name"><i class="fa fa-circle exceptional"></i> <strong>Exceptional:</strong>
-                </div>
-                <div class="classification-description">Lifters in this category have typically taken a consistent,
-                  structured approach to diet and strength training for the majority of their adult life and are
-                  competitive at the regional level. For many lifters, this level is near the maximum genetic potential
-                  without the use of performance-enhancing drugs. Strength score 100.
-                </div>
+              <div class="classification-description">The lifter has been consistently training, likely for at least a
+                year. The majority of those who go to the gym regularly fall into this category. Strength score 60.
               </div>
-              <div class="strength-classification">
-                <div class="classification-name"><i class="fa fa-circle elite"></i> <strong>Elite:</strong>
-                </div>
-                <div class="classification-description">Lifters in this category are competitive at the national level.
-                  Those at this level have typically spent a lifetime of rigorous and structured training and dieting.
-                  Strength score 112.5.
-                </div>
+            </div>
+            <div class="strength-classification">
+              <div class="classification-name"><i class="fa fa-circle proficient"></i> <strong>Proficient:</strong>
               </div>
-              <div class="strength-classification">
-                <div class="classification-name"><i class="fa fa-circle world-class"></i> <strong>World class:</strong>
-                </div>
-                <div class="classification-description">Lifters in this category are among the best in the world and
-                  compete at the international level. Those at this level are often gifted individuals who have spent a
-                  lifetime of rigorous and structured training and dieting. Strength score 125.
-                </div>
+              <div class="classification-description">The lifter has been consistently training with a focus on
+                strength, likely for 2+ years. Lifters in this category are stronger than most gym regulars. Strength
+                score 75.
+              </div>
+            </div>
+            <div class="strength-classification">
+              <div class="classification-name"><i class="fa fa-circle advanced"></i> <strong>Advanced:</strong>
+              </div>
+              <div class="classification-description">The lifter has taken a consistent and structured approach to
+                strength training and dieting for multiple years. At this level, the individual is among the strongest
+                in an average commercial gym. Many in this category compete in strength sports. Strength score 87.5.
+              </div>
+            </div>
+            <div class="strength-classification">
+              <div class="classification-name"><i class="fa fa-circle exceptional"></i> <strong>Exceptional:</strong>
+              </div>
+              <div class="classification-description">Lifters in this category have typically taken a consistent,
+                structured approach to diet and strength training for the majority of their adult life and are
+                competitive at the regional level. For many lifters, this level is near the maximum genetic potential
+                without the use of performance-enhancing drugs. Strength score 100.
+              </div>
+            </div>
+            <div class="strength-classification">
+              <div class="classification-name"><i class="fa fa-circle elite"></i> <strong>Elite:</strong>
+              </div>
+              <div class="classification-description">Lifters in this category are competitive at the national level.
+                Those at this level have typically spent a lifetime of rigorous and structured training and dieting.
+                Strength score 112.5.
+              </div>
+            </div>
+            <div class="strength-classification">
+              <div class="classification-name"><i class="fa fa-circle world-class"></i> <strong>World class:</strong>
+              </div>
+              <div class="classification-description">Lifters in this category are among the best in the world and
+                compete at the international level. Those at this level are often gifted individuals who have spent a
+                lifetime of rigorous and structured training and dieting. Strength score 125.
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
 </div>

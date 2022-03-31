@@ -358,7 +358,41 @@ input, label {
   stroke: #dd3247;
 }
 
+#canvas-container {
+  width: 100%;
+  max-width: 700px;
+  max-height: 800px;
+  display: inline-block;
+}
 
+#canvas-container .tooltip {
+  width: 200px;
+}
+#canvas-container .tooltip-title {
+  padding-bottom: 3px;
+  text-align: left;
+}
+#canvas-container .tooltip-header{
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+#canvas-container .tooltip-subheader {
+  font-size: 13px;
+}
+
+#canvas-container .tooltip-data {
+  padding-bottom: 3px;
+  text-align: left;
+}
+
+#canvas-container .tooltip-score {
+  font-size: 15px;
+}
+
+#canvas-container .tooltip-classification {
+  font-size: 12px;
+}
 
 .app-image {
 
