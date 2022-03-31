@@ -6,6 +6,7 @@ import {LiftFieldsDto} from "../shared/LiftFieldsDto";
 import {TrainingDetails} from "../shared/TrainingDetails";
 import {StrengthStandardService} from "../../strength-standards/strength-standards/shared/strength-standard.service";
 import {StandardResponseDto} from "../../strength-standards/strength-standards/shared/StandardResponseDto";
+import {MessageService} from "primeng/api";
 
 @Component({
     selector: 'app-main',
@@ -54,6 +55,7 @@ export class MainComponent implements OnInit {
     response: StandardResponseDto = {};
 
     constructor(
+        private toastr: MessageService,
         private analyzeService: AnalyzeService,
         private strengthStandardService: StrengthStandardService
     ) {
@@ -234,7 +236,6 @@ export class MainComponent implements OnInit {
                 this.strengthStandardService.calculateStandard(this.selectedUnit.name, this.selectedGender.type, this.bodyWeight, this.age, this.selectedRep.value, this.selectedValue).subscribe(data => {
                     if(data.success) {
                         this.response = data.data;
-                        console.log('kir: ', this.response)
                         this.showResult = true;
                     }
                 })
@@ -247,6 +248,8 @@ export class MainComponent implements OnInit {
                         this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.backSquat?.expected);
                     }
                 })
+            } else {
+                this.toastr.add({severity:'error', summary:'Error', detail: JSON.stringify(data.errors[0].message)})
             }
         })
     }
