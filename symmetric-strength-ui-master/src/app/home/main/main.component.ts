@@ -12,6 +12,7 @@ import {TrainingDetails} from "../shared/TrainingDetails";
 })
 export class MainComponent implements OnInit {
 
+    showResult: boolean = false;
     units: any[] = [];
     selectedUnit: any = {};
     selectedValue: number = 0;
@@ -208,8 +209,8 @@ export class MainComponent implements OnInit {
         this.analyzeService.analyze(this.analyzeRequest).subscribe(data => {
             if (data.success) {
                 this.analyzeResponse = data.data;
-
-                console.log('kir: ', this.analyzeResponse)
+                this.showResult = true;
+                console.log('resp: ', this.analyzeResponse)
 
                 this.selectedCategories.forEach(value => {
                     if (value.reps) {
