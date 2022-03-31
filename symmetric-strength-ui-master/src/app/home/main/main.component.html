@@ -240,11 +240,11 @@
           </div>
         </div>
         <div class="portlet-body"><img class="hidden muscle-figure" id="muscle-figure-male-img"
-                                       src="/static/res/img/male-musculature.jpg">
+                                       src="/assets/img/male-musculature.jpg">
           <div id="canvas-container"><!-- ngIf: mainCtrl.state.sex === 'Male' -->
             <svg ng-if="mainCtrl.state.sex === 'Male'" id="muscle-figure-male" xmlns="http://www.w3.org/2000/svg"
                  width="700" height="800" viewBox="0 0 700 800">
-              <image width="700" height="800" xlink:href="/static/res/img/male-musculature.jpg"></image>
+              <image width="700" height="800" xlink:href="/assets/img/male-musculature.jpg"></image>
               <path class="forearms unknown" ng-class="{'active':mainCtrl.hovering.forearms}"
                     ng-mouseenter="mainCtrl.hovering.forearms=true" ng-mouseleave="mainCtrl.hovering.forearms=false"
                     bs-tooltip="" data-animation="none"
@@ -757,14 +757,14 @@
       </div>
       <div class="xl:col-6 lg:col-6 md:col-6 sm:col-12">
         <div class="portlet light">
-          <div class="portlet-body" ng-show="mainCtrl.showAndroidAppImg"><a
+          <div class="portlet-body app-image" ng-show="mainCtrl.showAndroidAppImg"><a
             href="https://play.google.com/store/apps/details?id=com.hansler.android.symmetricstrength"
-            ng-click="mainCtrl.trackSideAppClick()"><img class="app-img" src="/static/res/img/app.png">
+            ng-click="mainCtrl.trackSideAppClick()"><img class="app-img" src="/assets/img/app.png">
           </a>
           </div>
-          <div class="portlet-body ng-hide" ng-show="!mainCtrl.showAndroidAppImg"><a
+          <div class="portlet-body app-image ng-hide" ng-show="!mainCtrl.showAndroidAppImg"><a
             href="https://itunes.apple.com/us/app/symmetric-strength/id1232104742"
-            ng-click="mainCtrl.trackSideAppClick()"><img class="app-img" src="/static/res/img/ios-app.png">
+            ng-click="mainCtrl.trackSideAppClick()"><img class="app-img" src="/assets/img/ios-app.png">
           </a>
           </div>
         </div>
@@ -783,26 +783,24 @@
         <div class="portlet-body">
           <div class="col-md-12">
             <div class="row">
-              <form role="form" novalidate="" class="ng-pristine ng-valid">
-                <div class="form-group form-md-line-input form-md-floating-label col-md-3 col-sm-4 col-xs-6"><select
-                  class="form-control edited ng-pristine ng-untouched ng-valid" id="form-rep-max"
-                  ng-model="standardsCtrl.state.repMax" ng-change="standardsCtrl.calculateStandards()"
-                  convert-to-number="">
-                  <option value="1">1 rep maxes</option>
-                  <option value="2">2 rep maxes</option>
-                  <option value="3">3 rep maxes</option>
-                  <option value="4">4 rep maxes</option>
-                  <option value="5">5 rep maxes</option>
-                  <option value="6">6 rep maxes</option>
-                  <option value="7">7 rep maxes</option>
-                  <option value="8">8 rep maxes</option>
-                  <option value="9">9 rep maxes</option>
-                  <option value="10">10 rep maxes</option>
-                </select>
-                  <label for="form-rep-max">Rep maxes</label>
+                <div class="col-12 grid">
+                  <div class="xl:col-4 lg:col-6 md:col-6 sm:col-12">
+                    <p-dropdown id="reps" [options]="reps" [(ngModel)]="selectedRep"
+                                styleClass="dropdown-def"
+                                optionLabel="label"
+                                (onChange)="onChangeRep($event)"></p-dropdown>
+                    <label for="reps" class="input-label" style="font-size: 13px">Rep maxes</label>
+                  </div>
                 </div>
+<!--                  <div class="xl:col-4 lg:col-6 md:col-6 sm:col-12">-->
+<!--                    <p-dropdown id="round" formControlName="round" [options]="rounds" [(ngModel)]="selectedRound"-->
+<!--                                styleClass="dropdown-def"-->
+<!--                                optionLabel="label"-->
+<!--                                (onChange)="submit()"></p-dropdown>-->
+<!--                    <label for="round" class="input-label" style="font-size: 13px">Round to nearest</label>-->
+<!--                  </div>-->
                 <!-- ngIf: standardsPage -->
-              </form>
+          </div>
             </div>
             <div class="row">
               <div class="table-responsive">
@@ -824,86 +822,86 @@
                   <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
                     <td class="ng-binding">Back Squat
                       <!-- ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
-                    <td class="ng-binding">65 lbs</td>
-                    <td class="ng-binding">100 lbs</td>
-                    <td class="ng-binding">135 lbs</td>
-                    <td class="ng-binding">170 lbs</td>
-                    <td class="ng-binding">195 lbs</td>
-                    <td class="ng-binding">225 lbs</td>
-                    <td class="ng-binding">250 lbs</td>
-                    <td class="ng-binding">280 lbs</td>
+                    <td class="ng-binding">{{response.backSquat!.Untrained}}</td>
+                    <td class="ng-binding">{{response.backSquat!.Novice}}</td>
+                    <td class="ng-binding">{{response.backSquat!.Intermediate}}</td>
+                    <td class="ng-binding">{{response.backSquat!.Proficient}}</td>
+                    <td class="ng-binding">{{response.backSquat!.Advanced}}</td>
+                    <td class="ng-binding">{{response.backSquat!.Exceptional}}</td>
+                    <td class="ng-binding">{{response.backSquat!.Elite}}</td>
+                    <td class="ng-binding">{{response.backSquat!["World class"]}}</td>
                   </tr><!-- end ngRepeat: lift in standardsCtrl.lifts -->
                   <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
                     <td class="ng-binding">Front Squat
                       <!-- ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
-                    <td class="ng-binding">55 lbs</td>
-                    <td class="ng-binding">80 lbs</td>
-                    <td class="ng-binding">105 lbs</td>
-                    <td class="ng-binding">135 lbs</td>
-                    <td class="ng-binding">155 lbs</td>
-                    <td class="ng-binding">180 lbs</td>
-                    <td class="ng-binding">200 lbs</td>
-                    <td class="ng-binding">225 lbs</td>
+                    <td class="ng-binding">{{response.frontSquat!.Untrained}}</td>
+                    <td class="ng-binding">{{response.frontSquat!.Novice}}</td>
+                    <td class="ng-binding">{{response.frontSquat!.Intermediate}}</td>
+                    <td class="ng-binding">{{response.frontSquat!.Proficient}}</td>
+                    <td class="ng-binding">{{response.frontSquat!.Advanced}}</td>
+                    <td class="ng-binding">{{response.frontSquat!.Exceptional}}</td>
+                    <td class="ng-binding">{{response.frontSquat!.Elite}}</td>
+                    <td class="ng-binding">{{response.frontSquat!["World class"]}}</td>
                   </tr><!-- end ngRepeat: lift in standardsCtrl.lifts -->
                   <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
                     <td class="ng-binding">Deadlift
                       <!-- ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
-                    <td class="ng-binding">75 lbs</td>
-                    <td class="ng-binding">115 lbs</td>
-                    <td class="ng-binding">155 lbs</td>
-                    <td class="ng-binding">195 lbs</td>
-                    <td class="ng-binding">225 lbs</td>
-                    <td class="ng-binding">255 lbs</td>
-                    <td class="ng-binding">290 lbs</td>
-                    <td class="ng-binding">320 lbs</td>
+                    <td class="ng-binding">{{response.deadlift!.Untrained}}</td>
+                    <td class="ng-binding">{{response.deadlift!.Novice}}</td>
+                    <td class="ng-binding">{{response.deadlift!.Intermediate}}</td>
+                    <td class="ng-binding">{{response.deadlift!.Proficient}}</td>
+                    <td class="ng-binding">{{response.deadlift!.Advanced}}</td>
+                    <td class="ng-binding">{{response.deadlift!.Exceptional}}</td>
+                    <td class="ng-binding">{{response.deadlift!.Elite}}</td>
+                    <td class="ng-binding">{{response.deadlift!["World class"]}}</td>
                   </tr><!-- end ngRepeat: lift in standardsCtrl.lifts -->
                   <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
                     <td class="ng-binding">Sumo Deadlift
                       <!-- ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
-                    <td class="ng-binding">75 lbs</td>
-                    <td class="ng-binding">115 lbs</td>
-                    <td class="ng-binding">155 lbs</td>
-                    <td class="ng-binding">195 lbs</td>
-                    <td class="ng-binding">225 lbs</td>
-                    <td class="ng-binding">255 lbs</td>
-                    <td class="ng-binding">290 lbs</td>
-                    <td class="ng-binding">320 lbs</td>
+                    <td class="ng-binding">{{response.sumoDeadlift!.Untrained}}</td>
+                    <td class="ng-binding">{{response.sumoDeadlift!.Novice}}</td>
+                    <td class="ng-binding">{{response.sumoDeadlift!.Intermediate}}</td>
+                    <td class="ng-binding">{{response.sumoDeadlift!.Proficient}}</td>
+                    <td class="ng-binding">{{response.sumoDeadlift!.Advanced}}</td>
+                    <td class="ng-binding">{{response.sumoDeadlift!.Exceptional}}</td>
+                    <td class="ng-binding">{{response.sumoDeadlift!.Elite}}</td>
+                    <td class="ng-binding">{{response.sumoDeadlift!["World class"]}}</td>
                   </tr><!-- end ngRepeat: lift in standardsCtrl.lifts -->
                   <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
                     <td class="ng-binding">Power Clean
                       <!-- ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
-                    <td class="ng-binding">45 lbs</td>
-                    <td class="ng-binding">65 lbs</td>
-                    <td class="ng-binding">85 lbs</td>
-                    <td class="ng-binding">110 lbs</td>
-                    <td class="ng-binding">125 lbs</td>
-                    <td class="ng-binding">145 lbs</td>
-                    <td class="ng-binding">160 lbs</td>
-                    <td class="ng-binding">180 lbs</td>
+                    <td class="ng-binding">{{response.powerClean!.Untrained}}</td>
+                    <td class="ng-binding">{{response.powerClean!.Novice}}</td>
+                    <td class="ng-binding">{{response.powerClean!.Intermediate}}</td>
+                    <td class="ng-binding">{{response.powerClean!.Proficient}}</td>
+                    <td class="ng-binding">{{response.powerClean!.Advanced}}</td>
+                    <td class="ng-binding">{{response.powerClean!.Exceptional}}</td>
+                    <td class="ng-binding">{{response.powerClean!.Elite}}</td>
+                    <td class="ng-binding">{{response.powerClean!["World class"]}}</td>
                   </tr><!-- end ngRepeat: lift in standardsCtrl.lifts -->
                   <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
                     <td class="ng-binding">Bench Press
                       <!-- ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
-                    <td class="ng-binding">50 lbs</td>
-                    <td class="ng-binding">75 lbs</td>
-                    <td class="ng-binding">100 lbs</td>
-                    <td class="ng-binding">125 lbs</td>
-                    <td class="ng-binding">145 lbs</td>
-                    <td class="ng-binding">165 lbs</td>
-                    <td class="ng-binding">190 lbs</td>
-                    <td class="ng-binding">210 lbs</td>
+                    <td class="ng-binding">{{response.benchPress!.Untrained}}</td>
+                    <td class="ng-binding">{{response.benchPress!.Novice}}</td>
+                    <td class="ng-binding">{{response.benchPress!.Intermediate}}</td>
+                    <td class="ng-binding">{{response.benchPress!.Proficient}}</td>
+                    <td class="ng-binding">{{response.benchPress!.Advanced}}</td>
+                    <td class="ng-binding">{{response.benchPress!.Exceptional}}</td>
+                    <td class="ng-binding">{{response.benchPress!.Elite}}</td>
+                    <td class="ng-binding">{{response.benchPress!["World class"]}}</td>
                   </tr><!-- end ngRepeat: lift in standardsCtrl.lifts -->
                   <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
                     <td class="ng-binding">Incline Bench Press
                       <!-- ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
-                    <td class="ng-binding">40 lbs</td>
-                    <td class="ng-binding">60 lbs</td>
-                    <td class="ng-binding">80 lbs</td>
-                    <td class="ng-binding">105 lbs</td>
-                    <td class="ng-binding">120 lbs</td>
-                    <td class="ng-binding">135 lbs</td>
-                    <td class="ng-binding">155 lbs</td>
-                    <td class="ng-binding">170 lbs</td>
+                    <td class="ng-binding">{{response.inclineBenchPress!.Untrained}}</td>
+                    <td class="ng-binding">{{response.inclineBenchPress!.Novice}}</td>
+                    <td class="ng-binding">{{response.inclineBenchPress!.Intermediate}}</td>
+                    <td class="ng-binding">{{response.inclineBenchPress!.Proficient}}</td>
+                    <td class="ng-binding">{{response.inclineBenchPress!.Advanced}}</td>
+                    <td class="ng-binding">{{response.inclineBenchPress!.Exceptional}}</td>
+                    <td class="ng-binding">{{response.inclineBenchPress!.Elite}}</td>
+                    <td class="ng-binding">{{response.inclineBenchPress!["World class"]}}</td>
                   </tr><!-- end ngRepeat: lift in standardsCtrl.lifts -->
                   <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
                     <td class="ng-binding">Dip <!-- ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --><i
@@ -912,50 +910,50 @@
                       class="fa fa-info-circle ng-scope"
                       ng-if="lift === 'dip' || lift === 'chinup' || lift === 'pullup'"></i>
                       <!-- end ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
-                    <td class="ng-binding">+15 lbs</td>
-                    <td class="ng-binding">+40 lbs</td>
-                    <td class="ng-binding">+60 lbs</td>
-                    <td class="ng-binding">+85 lbs</td>
-                    <td class="ng-binding">+100 lbs</td>
-                    <td class="ng-binding">+120 lbs</td>
-                    <td class="ng-binding">+140 lbs</td>
-                    <td class="ng-binding">+160 lbs</td>
+                    <td class="ng-binding">{{response.dip!.Untrained}}</td>
+                    <td class="ng-binding">{{response.dip!.Novice}}</td>
+                    <td class="ng-binding">{{response.dip!.Intermediate}}</td>
+                    <td class="ng-binding">{{response.dip!.Proficient}}</td>
+                    <td class="ng-binding">{{response.dip!.Advanced}}</td>
+                    <td class="ng-binding">{{response.dip!.Exceptional}}</td>
+                    <td class="ng-binding">{{response.dip!.Elite}}</td>
+                    <td class="ng-binding">{{response.dip!["World class"]}}</td>
                   </tr><!-- end ngRepeat: lift in standardsCtrl.lifts -->
                   <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
                     <td class="ng-binding">Overhead Press
                       <!-- ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
-                    <td class="ng-binding">35 lbs</td>
-                    <td class="ng-binding">50 lbs</td>
-                    <td class="ng-binding">65 lbs</td>
-                    <td class="ng-binding">80 lbs</td>
-                    <td class="ng-binding">95 lbs</td>
-                    <td class="ng-binding">110 lbs</td>
-                    <td class="ng-binding">120 lbs</td>
-                    <td class="ng-binding">135 lbs</td>
+                    <td class="ng-binding">{{response.overheadPress!.Untrained}}</td>
+                    <td class="ng-binding">{{response.overheadPress!.Novice}}</td>
+                    <td class="ng-binding">{{response.overheadPress!.Intermediate}}</td>
+                    <td class="ng-binding">{{response.overheadPress!.Proficient}}</td>
+                    <td class="ng-binding">{{response.overheadPress!.Advanced}}</td>
+                    <td class="ng-binding">{{response.overheadPress!.Exceptional}}</td>
+                    <td class="ng-binding">{{response.overheadPress!.Elite}}</td>
+                    <td class="ng-binding">{{response.overheadPress!["World class"]}}</td>
                   </tr><!-- end ngRepeat: lift in standardsCtrl.lifts -->
                   <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
                     <td class="ng-binding">Push Press
                       <!-- ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
-                    <td class="ng-binding">45 lbs</td>
-                    <td class="ng-binding">65 lbs</td>
-                    <td class="ng-binding">85 lbs</td>
-                    <td class="ng-binding">110 lbs</td>
-                    <td class="ng-binding">125 lbs</td>
-                    <td class="ng-binding">145 lbs</td>
-                    <td class="ng-binding">165 lbs</td>
-                    <td class="ng-binding">180 lbs</td>
+                    <td class="ng-binding">{{response.pushPress!.Untrained}}</td>
+                    <td class="ng-binding">{{response.pushPress!.Novice}}</td>
+                    <td class="ng-binding">{{response.pushPress!.Intermediate}}</td>
+                    <td class="ng-binding">{{response.pushPress!.Proficient}}</td>
+                    <td class="ng-binding">{{response.pushPress!.Advanced}}</td>
+                    <td class="ng-binding">{{response.pushPress!.Exceptional}}</td>
+                    <td class="ng-binding">{{response.pushPress!.Elite}}</td>
+                    <td class="ng-binding">{{response.pushPress!["World class"]}}</td>
                   </tr><!-- end ngRepeat: lift in standardsCtrl.lifts -->
                   <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
                     <td class="ng-binding">Snatch Press
                       <!-- ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
-                    <td class="ng-binding">25 lbs</td>
-                    <td class="ng-binding">40 lbs</td>
-                    <td class="ng-binding">50 lbs</td>
-                    <td class="ng-binding">65 lbs</td>
-                    <td class="ng-binding">75 lbs</td>
-                    <td class="ng-binding">85 lbs</td>
-                    <td class="ng-binding">100 lbs</td>
-                    <td class="ng-binding">110 lbs</td>
+                    <td class="ng-binding">{{response.snatchPress!.Untrained}}</td>
+                    <td class="ng-binding">{{response.snatchPress!.Novice}}</td>
+                    <td class="ng-binding">{{response.snatchPress!.Intermediate}}</td>
+                    <td class="ng-binding">{{response.snatchPress!.Proficient}}</td>
+                    <td class="ng-binding">{{response.snatchPress!.Advanced}}</td>
+                    <td class="ng-binding">{{response.snatchPress!.Exceptional}}</td>
+                    <td class="ng-binding">{{response.snatchPress!.Elite}}</td>
+                    <td class="ng-binding">{{response.snatchPress!["World class"]}}</td>
                   </tr><!-- end ngRepeat: lift in standardsCtrl.lifts -->
                   <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
                     <td class="ng-binding">Chin-up
@@ -965,14 +963,14 @@
                                                                                                 class="fa fa-info-circle ng-scope"
                                                                                                 ng-if="lift === 'dip' || lift === 'chinup' || lift === 'pullup'"></i>
                       <!-- end ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
-                    <td class="ng-binding">+5 lbs</td>
-                    <td class="ng-binding">+25 lbs</td>
-                    <td class="ng-binding">+40 lbs</td>
-                    <td class="ng-binding">+60 lbs</td>
-                    <td class="ng-binding">+75 lbs</td>
-                    <td class="ng-binding">+90 lbs</td>
-                    <td class="ng-binding">+105 lbs</td>
-                    <td class="ng-binding">+125 lbs</td>
+                    <td class="ng-binding">{{response.chinup!.Untrained}}</td>
+                    <td class="ng-binding">{{response.chinup!.Novice}}</td>
+                    <td class="ng-binding">{{response.chinup!.Intermediate}}</td>
+                    <td class="ng-binding">{{response.chinup!.Proficient}}</td>
+                    <td class="ng-binding">{{response.chinup!.Advanced}}</td>
+                    <td class="ng-binding">{{response.chinup!.Exceptional}}</td>
+                    <td class="ng-binding">{{response.chinup!.Elite}}</td>
+                    <td class="ng-binding">{{response.chinup!["World class"]}}</td>
                   </tr><!-- end ngRepeat: lift in standardsCtrl.lifts -->
                   <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
                     <td class="ng-binding">Pull-up
@@ -982,26 +980,26 @@
                                                                                                 class="fa fa-info-circle ng-scope"
                                                                                                 ng-if="lift === 'dip' || lift === 'chinup' || lift === 'pullup'"></i>
                       <!-- end ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
-                    <td class="ng-binding">+0 lbs</td>
-                    <td class="ng-binding">+20 lbs</td>
-                    <td class="ng-binding">+40 lbs</td>
-                    <td class="ng-binding">+55 lbs</td>
-                    <td class="ng-binding">+70 lbs</td>
-                    <td class="ng-binding">+85 lbs</td>
-                    <td class="ng-binding">+100 lbs</td>
-                    <td class="ng-binding">+115 lbs</td>
+                    <td class="ng-binding">{{response.pullup!.Untrained}}</td>
+                    <td class="ng-binding">{{response.pullup!.Novice}}</td>
+                    <td class="ng-binding">{{response.pullup!.Intermediate}}</td>
+                    <td class="ng-binding">{{response.pullup!.Proficient}}</td>
+                    <td class="ng-binding">{{response.pullup!.Advanced}}</td>
+                    <td class="ng-binding">{{response.pullup!.Exceptional}}</td>
+                    <td class="ng-binding">{{response.pullup!.Elite}}</td>
+                    <td class="ng-binding">{{response.pullup!["World class"]}}</td>
                   </tr><!-- end ngRepeat: lift in standardsCtrl.lifts -->
                   <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
                     <td class="ng-binding">Pendlay Row
                       <!-- ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
-                    <td class="ng-binding">40 lbs</td>
-                    <td class="ng-binding">60 lbs</td>
-                    <td class="ng-binding">80 lbs</td>
-                    <td class="ng-binding">100 lbs</td>
-                    <td class="ng-binding">120 lbs</td>
-                    <td class="ng-binding">135 lbs</td>
-                    <td class="ng-binding">155 lbs</td>
-                    <td class="ng-binding">170 lbs</td>
+                    <td class="ng-binding">{{response.pendlayRow!.Untrained}}</td>
+                    <td class="ng-binding">{{response.pendlayRow!.Novice}}</td>
+                    <td class="ng-binding">{{response.pendlayRow!.Intermediate}}</td>
+                    <td class="ng-binding">{{response.pendlayRow!.Proficient}}</td>
+                    <td class="ng-binding">{{response.pendlayRow!.Advanced}}</td>
+                    <td class="ng-binding">{{response.pendlayRow!.Exceptional}}</td>
+                    <td class="ng-binding">{{response.pendlayRow!.Elite}}</td>
+                    <td class="ng-binding">{{response.pendlayRow!["World class"]}}</td>
                   </tr><!-- end ngRepeat: lift in standardsCtrl.lifts -->
                   </tbody>
                 </table>
@@ -1087,5 +1085,4 @@
         </div>
       </div>
     </div>
-  </div>
 </div>

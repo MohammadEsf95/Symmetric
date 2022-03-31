@@ -4,6 +4,8 @@ import {AnalyzeRequestDto} from "../shared/AnalyzeRequestDto";
 import {AnalyzeResponseDto} from "../shared/AnalyzeResponseDto";
 import {LiftFieldsDto} from "../shared/LiftFieldsDto";
 import {TrainingDetails} from "../shared/TrainingDetails";
+import {StrengthStandardService} from "../../strength-standards/strength-standards/shared/strength-standard.service";
+import {StandardResponseDto} from "../../strength-standards/strength-standards/shared/StandardResponseDto";
 
 @Component({
     selector: 'app-main',
@@ -45,9 +47,15 @@ export class MainComponent implements OnInit {
     respLiftFields: LiftFieldsDto = {};
     horizontalOptions: any;
     liftVsAverageChart: any;
+    reps: any = [];
+    rounds: any = [];
+    selectedRep: any = {};
+    selectedRound: any = {};
+    response: StandardResponseDto = {};
 
     constructor(
-        private analyzeService: AnalyzeService
+        private analyzeService: AnalyzeService,
+        private strengthStandardService: StrengthStandardService
     ) {
         this.units = [
             {name: 'Metric', label: 'KG'},
@@ -60,10 +68,24 @@ export class MainComponent implements OnInit {
             {number: 5, unit: 'KG'},
             {number: 10, unit: 'KG'}
         ]
+
+        this.reps = [
+            {value: 1, label: '1 rep maxes'},
+            {value: 2, label: '2 rep maxes'},
+            {value: 3, label: '3 rep maxes'},
+            {value: 4, label: '4 rep maxes'},
+            {value: 5, label: '5 rep maxes'},
+            {value: 6, label: '6 rep maxes'},
+            {value: 7, label: '7 rep maxes'},
+            {value: 8, label: '8 rep maxes'},
+            {value: 9, label: '9 rep maxes'},
+            {value: 10, label: '10 rep maxes'},
+        ]
     }
 
     ngOnInit(): void {
         this.selectedUnit = this.units[0];
+        this.selectedRep = this.reps[0];
         this.liftFields.backSquat = this.squats[0];
         this.liftFields.frontSquat = this.squats[1]
         this.liftFields.deadlift = this.floorPull[0]
@@ -209,7 +231,13 @@ export class MainComponent implements OnInit {
         this.analyzeService.analyze(this.analyzeRequest).subscribe(data => {
             if (data.success) {
                 this.analyzeResponse = data.data;
-                this.showResult = true;
+                this.strengthStandardService.calculateStandard(this.selectedUnit.name, this.selectedGender.type, this.bodyWeight, this.age, this.selectedRep.value, this.selectedValue).subscribe(data => {
+                    if(data.success) {
+                        this.response = data.data;
+                        console.log('kir: ', this.response)
+                        this.showResult = true;
+                    }
+                })
                 console.log('resp: ', this.analyzeResponse)
 
                 this.selectedCategories.forEach(value => {
@@ -221,5 +249,15 @@ export class MainComponent implements OnInit {
                 })
             }
         })
+    }
+
+    onChangeRound(event: any) {
+        this.selectedRound = event.value;
+        this.submit();
+    }
+
+    onChangeRep(event: any) {
+        this.selectedRep = event.value;
+        this.submit();
     }
 }

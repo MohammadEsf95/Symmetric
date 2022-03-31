@@ -229,3 +229,26 @@ input, label {
 .more-stats-items .item-name {
   white-space: nowrap;
 }
+
+#muscle-figure-male path.subpar, #muscle-figure-female path.subpar {
+  fill: #e91e63;
+  fill-opacity: .5;
+  stroke-opacity: .3;
+  stroke: #af174a;
+}
+
+#muscle-figure-male path.subpar.active{
+  fill: #af174a;
+  stroke: #750f32;
+}
+
+.app-image {
+
+}
+
+.app-image .app-img {
+  width: 100%;
+  height: 100%;
+}
+
+
