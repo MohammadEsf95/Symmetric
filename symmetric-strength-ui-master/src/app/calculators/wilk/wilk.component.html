@@ -24,11 +24,11 @@
         <h2 style="font-size: 27px;">Enter your best back squat, bench press, and deadlift. <small
           style="font-size: 15px;color: #888;display: block;margin-top: 2px">If you enter more than one rep, Symmetric
           Strength will estimate your one rep max.</small></h2>
-        <div class="col-11 grid">
+        <div class="col-12 grid">
           <div class="xl:col-4 lg:col-3 md:col-12 sm:col-12">
             <h5 class="lift-title">Back Squat</h5>
           </div>
-          <div class="xl:col-4 lg:col-5 md:col-12 sm:col-12">
+          <div class="xl:col-4 lg:col-5 md:col-12 sm:col-12 general-margin-top-10">
               <span class="p-float-label">
             <p-inputNumber [min]="0" [(ngModel)]="backSquatWeight" [showButtons]="true" inputId="backSquatWeight"
                            [suffix]="' ' + selectedUnit.label">
@@ -36,7 +36,7 @@
             <label for="backSquatWeight">Weight {{selectedUnit.label}}</label>
             </span>
           </div>
-          <div class="xl:col-4 lg:col-4 md:col-12 sm:col-12">
+          <div class="xl:col-4 lg:col-4 md:col-12 sm:col-12 general-margin-top-10">
             <span class="p-float-label">
             <p-inputNumber id="backSquatReps" [min]="1" [(ngModel)]="backSquatReps" [showButtons]="true"
                            inputId="backSquatReps">
@@ -45,11 +45,11 @@
             </span>
           </div>
         </div>
-        <div class="col-11 grid">
+        <div class="col-12 grid">
           <div class="xl:col-4 lg:col-3 md:col-12 sm:col-12">
             <h5 class="lift-title">Bench Press</h5>
           </div>
-          <div class="xl:col-4 lg:col-5 md:col-12 sm:col-12">
+          <div class="xl:col-4 lg:col-5 md:col-12 sm:col-12 general-margin-top-10">
               <span class="p-float-label">
             <p-inputNumber [min]="0" [(ngModel)]="benchPressWeight" [showButtons]="true" inputId="benchPressWeight"
                            [suffix]="' ' + selectedUnit.label">
@@ -57,7 +57,7 @@
             <label for="benchPressWeight">Weight {{selectedUnit.label}}</label>
             </span>
           </div>
-          <div class="xl:col-4 lg:col-4 md:col-12 sm:col-12">
+          <div class="xl:col-4 lg:col-4 md:col-12 sm:col-12 general-margin-top-10">
             <span class="p-float-label">
             <p-inputNumber id="benchPressReps" [min]="1" [(ngModel)]="benchPressReps" [showButtons]="true"
                            inputId="benchPressReps">
@@ -66,11 +66,11 @@
             </span>
           </div>
         </div>
-        <div class="col-11 grid">
+        <div class="col-12 grid">
           <div class="xl:col-4 lg:col-3 md:col-12 sm:col-12">
             <h5 class="lift-title">Deadlift</h5>
           </div>
-          <div class="xl:col-4 lg:col-5 md:col-12 sm:col-12">
+          <div class="xl:col-4 lg:col-5 md:col-12 sm:col-12 general-margin-top-10">
               <span class="p-float-label">
             <p-inputNumber [min]="0" [(ngModel)]="deadlift" [showButtons]="true" inputId="deadlift"
                            [suffix]="' ' + selectedUnit.label">
@@ -78,7 +78,7 @@
             <label for="deadlift">Weight {{selectedUnit.label}}</label>
             </span>
           </div>
-          <div class="xl:col-4 lg:col-4 md:col-12 sm:col-12">
+          <div class="xl:col-4 lg:col-4 md:col-12 sm:col-12 general-margin-top-10">
             <span class="p-float-label">
             <p-inputNumber id="deadliftReps" [min]="1" [(ngModel)]="deadliftReps" [showButtons]="true"
                            inputId="deadliftReps">
