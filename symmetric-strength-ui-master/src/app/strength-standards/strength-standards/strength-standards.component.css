@@ -80,7 +80,7 @@ input, label {
 }
 
 .ss-inputs {
-  margin-top: 20px;
+  /*margin-top: 20px;*/
 }
 
 :host ::ng-deep .ss-inputs .p-inputnumber-buttons-stacked .p-inputnumber-input {
@@ -89,7 +89,7 @@ input, label {
 
 @media screen and (max-width: 768px) {
   .ss-inputs {
-    position: relative;
+    /*position: relative;*/
   }
 }
 
