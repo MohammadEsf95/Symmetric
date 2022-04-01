@@ -5,8 +5,30 @@
         <div class="col-6 header-title">
           <span>SYMMETRIC STRENGTH</span>
         </div>
-        <div class="col-6 login-span">
-          <p-button label="Login / Register" icon="pi pi-user" iconPos="right" (click)="navigateToRegister()"></p-button>
+        <div class="col-6 grid login-span">
+          <p-button *ngIf="!isLoggedIn" label="Login / Register" icon="pi pi-user" iconPos="right" (click)="navigateToRegister()"></p-button>
+          <div *ngIf="isLoggedIn" class="header-right">
+            <div class="top-menu hidden-xs hidden-sm">
+              <ul class="nav navbar-nav pull-right">
+                <li id="username-link" class="active">
+                  <a class="topnav-link" href="https://symmetricstrength.com/">
+                    <i class="fa fa-user"></i>
+                    <span class="username username-hide-mobile">{{userDto.username}}</span>
+                  </a>
+                </li>
+                <li id="public-page-link">
+                  <a class="topnav-link" href="https://symmetricstrength.com/lifter/Mmdesf95">
+                    <span>Public page</span>
+                  </a>
+                </li>
+                <li id="settings-link">
+                  <a class="topnav-link" href="https://symmetricstrength.com/settings"><span>Settings</span></a>
+                </li>
+                <li><a class="topnav-link" href="https://symmetricstrength.com/auth/logout"><span>Log out</span></a>
+                </li>
+              </ul>
+            </div>
+            <a class="menu-toggler" href="javascript:;"></a></div>
         </div>
       </div>
     </div>

@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuItem} from "primeng/api";
 import {Router} from "@angular/router";
+import {AuthService} from "../auth/auth.service";
+import {UserDto} from "../dto/UserDto";
 
 @Component({
   selector: 'app-header',
@@ -18,8 +20,12 @@ export class HeaderComponent implements OnInit {
   wilksCalc: string = 'Wilks Calculator'
   tdeeCalc: string = 'TDEE Calculator'
   idealBodyweightCalc: string = 'Ideal Bodyweight Calculator'
+  xAuthToken: string | null = '';
+  userDto: UserDto = {};
 
-  constructor(public router: Router,) {
+  constructor(
+    public router: Router,
+    public authService: AuthService) {
     this.items = [{
       label: 'Home',
       routerLink: '/'
@@ -68,7 +74,15 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     if (localStorage.getItem('registerToken')) {
-
+      this.xAuthToken = localStorage.getItem('registerToken');
+      if (this.xAuthToken != null) {
+        this.authService.getUser(this.xAuthToken).subscribe(data => {
+          console.log('auth: ', data)
+          this.userDto = data.data.user;
+          console.log('user: ',this.userDto)
+          this.isLoggedIn = true;
+        })
+      }
     }
   }
 

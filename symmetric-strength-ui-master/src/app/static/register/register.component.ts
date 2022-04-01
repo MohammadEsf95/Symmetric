@@ -37,6 +37,7 @@ export class RegisterComponent implements OnInit {
       this.authService.signUp(this.email).subscribe(data => {
         if(data.success == true) {
           this.emailSent = true;
+
           this.toastr.add({severity:'success', summary:'Successfully', detail:'Successfully submitted, go to your mailbox'})
         } else {
           this.toastr.add({severity:'error', summary:'Error', detail: JSON.stringify(data.errors[0].message)})

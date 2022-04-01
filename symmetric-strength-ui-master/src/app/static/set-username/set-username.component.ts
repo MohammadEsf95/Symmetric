@@ -13,7 +13,7 @@ export class SetUsernameComponent implements OnInit {
   username: string = '';
   publicPageUrl: string = 'https://symmetricstrength.com/lifter/';
   completeProfileDto: CompleteProfileDto = {};
-  xAuthToken: string = '';
+  xAuthToken: string | null = '';
 
   constructor(
     private authService: AuthService,
@@ -21,6 +21,7 @@ export class SetUsernameComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+      this.xAuthToken = localStorage.getItem('registerToken');
   }
 
   typeUserName() {
@@ -28,13 +29,15 @@ export class SetUsernameComponent implements OnInit {
   }
 
   submit() {
-    this.completeProfileDto.username = this.username;
-    this.authService.completeProfile(this.completeProfileDto, this.xAuthToken).subscribe(data => {
-      if(data.success) {
+    if(this.xAuthToken) {
+      this.completeProfileDto.username = this.username;
+      this.authService.completeProfile(this.completeProfileDto, this.xAuthToken).subscribe(data => {
+        if(data.success) {
 
-      } else {
-        this.toastr.add({severity:'error', summary:'Error', detail: JSON.stringify(data.errors[0].message)})
-      }
-    })
+        } else {
+          this.toastr.add({severity:'error', summary:'Error', detail: JSON.stringify(data.errors[0].message)})
+        }
+      })
+    }
   }
 }

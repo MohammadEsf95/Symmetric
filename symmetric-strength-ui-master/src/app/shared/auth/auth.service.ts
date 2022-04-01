@@ -68,6 +68,14 @@ export class AuthService {
     )
   }
 
+  getUser(xAuthToken: string): Observable<any> {
+    return this.http.get<string>(this.endpoint + 'user/get-user', {
+      headers: new HttpHeaders({'Content-Type': 'application/json', 'x-auth-token' : xAuthToken})
+    }).pipe(
+      catchError(this.errorHandler)
+    )
+  }
+
   errorHandler(error: HttpErrorResponse) {
     return throwError(() => error.message || "server error.");
   }

@@ -103,3 +103,15 @@
 .menu-container {
   padding: 0;
 }
+
+.top-menu .navbar-nav>li.active {
+  background-color: #f2f2f2;
+}
+
+.top-menu .navbar-nav>li .topnav-link {
+  color: #7089a2;
+}
+
+.top-menu .navbar-nav>li .topnav-link>span {
+  font-weight: 700;
+}

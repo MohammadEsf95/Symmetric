@@ -63,10 +63,9 @@ export class SetPasswordComponent implements OnInit {
       console.log(this.setPasswordDto)
       this.authService.setPassword(this.setPasswordDto).subscribe(data => {
         if(data.success == true) {
-          // this.emailSent = true;
           this.toastr.add({severity:'success', summary:'Successfully', detail:'Successfully registered!'})
           localStorage.setItem('registerToken', data.data.token)
-          this.router.navigate(['/home'])
+          this.router.navigate(['/set-username'])
         } else {
           this.toastr.add({severity:'error', summary:'Error', detail: JSON.stringify(data.errors[0].message)})
         }

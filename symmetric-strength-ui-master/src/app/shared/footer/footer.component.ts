@@ -23,9 +23,7 @@ export class FooterComponent implements OnInit {
   }
 
   modifyHeader(location: any) {
-    if (location.url === '/auth/login' || location.url === '/auth/set-password' ||
-      location.url === '/auth/forgot-password' || location.url === '/auth/register'
-      || location.url === '/auth/set-username') {
+    if (location.url.includes('/auth')) {
       this.showHeader = false;
     } else {
       this.showHeader = true;

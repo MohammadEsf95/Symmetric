@@ -48,7 +48,9 @@ export class LoginComponent implements OnInit {
     {
       if(data.success == true) {
       this.socialUser = data;
-      this.toastr.add({severity:'success', summary:'Successfully', detail:'Successfully submitted, go to your mailbox'})
+      localStorage.setItem('registerToken', data.data.token)
+      this.toastr.add({severity:'success', summary:'Successfully', detail:'Successfully logged in!'});
+      this.router.navigate(['/'])
     } else {
       this.toastr.add({severity:'error', summary:'Error', detail: JSON.stringify(data.errors[0].message)})
     }
