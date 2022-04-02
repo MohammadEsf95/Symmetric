@@ -1,4 +1,86 @@
 <div class="col-12 main-background">
+  <div *ngIf="isLoggedIn" class="xl:col-10 lg:col-10 md:col-10 sm:col-12 col-12 center content">
+    <div class="row ng-scope"
+         ng-if="(pageType === 'defaultPublic' &amp;&amp; mainCtrl.state.lastSavedLiftFields) || (pageType === 'loggedInPublic' &amp;&amp; mainCtrl.state.lastSavedLiftFields) || pageType === 'loggedIn'">
+      <div class="col-md-12">
+        <div class="portlet light">
+          <div class="portlet-body">
+            <ul class="nav nav-tabs">
+              <li ng-class="{'active':strengthProgressCtrl.state.selectedChartTab === 'categoryScores'}" class="active">
+                <a href="javascript:;" id="category-score-progress-chart-tab" data-toggle="tab"
+                   ng-click="strengthProgressCtrl.showCategoryScoreProgressChart()">Category Scores</a></li>
+              <li ng-if="!mainCtrl.hideWeight"
+                  ng-class="{'active':strengthProgressCtrl.state.selectedChartTab === 'liftOneRepMaxes'}"
+                  class="ng-scope"><a href="javascript:;" id="lift-onerepmax-progress-chart-tab" data-toggle="tab"
+                                      ng-click="strengthProgressCtrl.showLiftOneRepMaxProgressChart()">Lift 1RMs</a>
+              </li>
+              <li ng-class="{'active':strengthProgressCtrl.state.selectedChartTab === 'liftScores'}"><a
+                href="javascript:;" id="lift-score-progress-chart-tab" data-toggle="tab"
+                ng-click="strengthProgressCtrl.showLiftScoreProgressChart()">Lift Scores</a>
+              </li>
+            </ul>
+            <div class="tab-content" id="progress-chart-tabs">
+              <div class="tab-pane active" ng-show="strengthProgressCtrl.state.selectedChartTab === 'categoryScores'">
+                <div
+                  ng-show="!strengthProgressCtrl.state.noLiftData &amp;&amp; !strengthProgressCtrl.state.waitingForProgress"
+                  id="category-score-progress-chart" class="ng-hide"></div>
+                <!-- ngIf: strengthProgressCtrl.state.waitingForProgress --><p class="loading-indicator ng-scope"
+                                                                               ng-if="strengthProgressCtrl.state.waitingForProgress">
+                <i class="fa fa-spin fa-spinner"></i>
+              </p><!-- end ngIf: strengthProgressCtrl.state.waitingForProgress -->
+                <!-- ngIf: strengthProgressCtrl.state.noLiftData && !strengthProgressCtrl.state.waitingForProgress -->
+              </div>
+              <!-- ngIf: !mainCtrl.hideWeight -->
+              <div class="tab-pane active ng-scope ng-hide" ng-if="!mainCtrl.hideWeight"
+                   ng-show="strengthProgressCtrl.state.selectedChartTab === 'liftOneRepMaxes'">
+                <div
+                  ng-show="!strengthProgressCtrl.state.noLiftData &amp;&amp; !strengthProgressCtrl.state.waitingForProgress"
+                  id="lift-onerepmax-progress-chart" class="ng-hide"></div>
+                <!-- ngIf: strengthProgressCtrl.state.waitingForProgress --><p class="loading-indicator ng-scope"
+                                                                               ng-if="strengthProgressCtrl.state.waitingForProgress">
+                <i class="fa fa-spin fa-spinner"></i>
+              </p><!-- end ngIf: strengthProgressCtrl.state.waitingForProgress -->
+                <!-- ngIf: strengthProgressCtrl.state.noLiftData && !strengthProgressCtrl.state.waitingForProgress -->
+              </div><!-- end ngIf: !mainCtrl.hideWeight -->
+              <div class="tab-pane active ng-hide"
+                   ng-show="strengthProgressCtrl.state.selectedChartTab === 'liftScores'">
+                <div
+                  ng-show="!strengthProgressCtrl.state.noLiftData &amp;&amp; !strengthProgressCtrl.state.waitingForProgress"
+                  id="lift-score-progress-chart" class="ng-hide"></div>
+                <!-- ngIf: strengthProgressCtrl.state.waitingForProgress --><p class="loading-indicator ng-scope"
+                                                                               ng-if="strengthProgressCtrl.state.waitingForProgress">
+                <i class="fa fa-spin fa-spinner"></i>
+              </p><!-- end ngIf: strengthProgressCtrl.state.waitingForProgress -->
+                <!-- ngIf: strengthProgressCtrl.state.noLiftData && !strengthProgressCtrl.state.waitingForProgress -->
+              </div>
+            </div>
+            <!-- ngIf: strengthProgressCtrl.state.pointClicked -->
+          </div>
+        </div>
+      </div>
+      <div
+        ng-class="{'col-md-12': pageType === 'defaultPublic' || pageType === 'loggedInPublic', 'col-md-4': pageType === 'loggedIn'}"
+        class="col-md-4">
+        <div class="portlet light">
+          <div class="portlet-title">
+            <div class="caption caption-md"><span
+              class="caption-subject theme-font bold uppercase">Latest saved lifts</span>
+            </div>
+          </div>
+          <!-- ngIf: mainCtrl.state.lastSavedLiftFields && !mainCtrl.state.waitingForLastSaved -->
+          <!-- ngIf: mainCtrl.state.waitingForLastSaved -->
+          <!-- ngIf: !mainCtrl.state.lastSavedLiftFields && !mainCtrl.state.waitingForLastSaved -->
+          <div class="portlet-body ng-scope"
+               ng-if="!mainCtrl.state.lastSavedLiftFields &amp;&amp; !mainCtrl.state.waitingForLastSaved" style="">
+            <div class="alert alert-info">You haven't saved any lifts yet! Enter your lifts below, then click "Analyze
+              and Log Lifts".
+            </div>
+          </div><!-- end ngIf: !mainCtrl.state.lastSavedLiftFields && !mainCtrl.state.waitingForLastSaved -->
+        </div>
+      </div>
+      <!-- ngIf: pageType === 'loggedIn' && mainCtrl.state.lastSavedLiftFields -->
+    </div>
+  </div>
   <div class="xl:col-10 lg:col-10 md:col-10 sm:col-12 col-12 center content">
     <div class="xl:col-9 lg:col-9 md:col-12 sm:col-12 col-12 grid">
       <div class="xl:col-9 lg:col-9 md:col-10 sm:col-12 col-12 grid">
@@ -127,6 +209,15 @@
         </div>
         <div class="col-12">
           <p-button label="Analyze Strength" (onClick)="submit()"></p-button>
+          <p-button *ngIf="isLoggedIn" class="analyze-and-log">Analyze and Log Lifts</p-button>
+          <p-button *ngIf="isLoggedIn" class="reset-btn">Reset</p-button>
+          <p-button *ngIf="isLoggedIn" class="analyze-help-btn" (onClick)="displayHelp = !displayHelp"><i class="fa fa-question"></i></p-button>
+        </div>
+        <div class="col-12">
+          <div *ngIf="displayHelp" class="note note-info analyze-help animate-fade ng-scope" ng-if="pageType === 'loggedIn' &amp;&amp; mainCtrl.state.displayAnalyzeHelp" style=""><p><strong>Analyze:</strong> Displays a strength analysis, but does not save the data you entered. Use this if you're just curious about some results.</p>
+            <p><strong>Analyze and Log Lifts:</strong> Displays a strength analysis and saves the data you entered. Use this if the numbers you entered match your recent lifts.</p>
+            <p><strong>Reset:</strong> Loads your last logged lifts.</p>
+          </div>
         </div>
       </div>
     </div>

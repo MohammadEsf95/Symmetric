@@ -85,6 +85,67 @@
   box-shadow: none;
 }
 
+:host ::ng-deep .analyze-and-log .p-button {
+  margin-left: 8px;
+  color: #fff;
+  background-color: #44b6ae;
+  border: 1px solid #44b6ae;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+:host ::ng-deep .analyze-and-log .p-button:hover {
+  background-color: #3a9c95;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+:host ::ng-deep .analyze-and-log .p-button:focus {
+  background-color: #3a9c95;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  box-shadow: none;
+}
+
+:host ::ng-deep .reset-btn .p-button {
+  margin-left: 8px;
+  color: #fff;
+  background-color: #6a6a6a;
+  border: 1px solid #6a6a6a;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+:host ::ng-deep .reset-btn .p-button:hover {
+  background-color: #5c5c5c;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+:host ::ng-deep .reset-btn .p-button:focus {
+  background-color: #5c5c5c;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  box-shadow: none;
+}
+
+:host ::ng-deep .analyze-help-btn .p-button {
+  margin-left: 8px;
+  color: #80898e;
+  background-color: #e9edef;;
+  border: 1px solid #e9edef;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+:host ::ng-deep .analyze-help-btn .p-button:hover {
+  background-color: #d4dce0;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+:host ::ng-deep .analyze-help-btn .p-button:focus {
+  background-color: #d4dce0;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  box-shadow: none;
+}
+
+:host ::ng-deep .analyze-help-btn .fa {
+  font-size: 18px;
+}
+
 .units {
   /*padding-left: 40px;*/
 }
@@ -401,6 +462,10 @@ input, label {
 .app-image .app-img {
   width: 100%;
   height: 100%;
+}
+
+#progress-chart-tabs .tab-pane, #progress-chart-tabs #category-score-progress-chart, #progress-chart-tabs #lift-onerepmax-progress-chart, #progress-chart-tabs #lift-score-progress-chart {
+  height: 400px;
 }
 
 

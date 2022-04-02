@@ -10,6 +10,7 @@ import {CompleteProfileDto} from "../../shared/dto/CompleteProfileDto";
 })
 export class SetUsernameComponent implements OnInit {
 
+  //TODO condition checks in order to redirect to this component
   username: string = '';
   publicPageUrl: string = 'https://symmetricstrength.com/lifter/';
   completeProfileDto: CompleteProfileDto = {};

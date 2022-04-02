@@ -16,6 +16,7 @@ import {MessageService} from "primeng/api";
 export class MainComponent implements OnInit {
 
     showResult: boolean = false;
+    displayHelp: boolean = false;
     units: any[] = [];
     selectedUnit: any = {};
     selectedValue: number = 0;
@@ -53,6 +54,7 @@ export class MainComponent implements OnInit {
     selectedRep: any = {};
     selectedRound: any = {};
     response: StandardResponseDto = {};
+    isLoggedIn: boolean = false;
 
     constructor(
         private toastr: MessageService,
@@ -86,6 +88,9 @@ export class MainComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        if(localStorage.getItem('registerToken') != null) {
+            this.isLoggedIn = true;
+        }
         this.selectedUnit = this.units[0];
         this.selectedRep = this.reps[0];
         this.liftFields.backSquat = this.squats[0];
