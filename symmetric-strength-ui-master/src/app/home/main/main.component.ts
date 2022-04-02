@@ -17,6 +17,7 @@ export class MainComponent implements OnInit {
 
     showResult: boolean = false;
     displayHelp: boolean = false;
+    clicked = 0;
     units: any[] = [];
     selectedUnit: any = {};
     selectedValue: number = 0;
@@ -359,4 +360,7 @@ export class MainComponent implements OnInit {
         this.submit();
     }
 
+    select(i:any) {
+        this.clicked = i;
+    }
 }

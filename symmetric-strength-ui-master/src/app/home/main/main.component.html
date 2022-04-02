@@ -6,55 +6,41 @@
         <div class="portlet light">
           <div class="portlet-body">
             <ul class="nav nav-tabs">
-              <li ng-class="{'active':strengthProgressCtrl.state.selectedChartTab === 'categoryScores'}" class="active">
+              <li [ngClass]="clicked === 0 ? 'active' : 'ng-scope'" (click)="select(0)">
                 <a href="javascript:;" id="category-score-progress-chart-tab" data-toggle="tab"
                    ng-click="strengthProgressCtrl.showCategoryScoreProgressChart()">Category Scores</a></li>
-              <li ng-if="!mainCtrl.hideWeight"
-                  ng-class="{'active':strengthProgressCtrl.state.selectedChartTab === 'liftOneRepMaxes'}"
-                  class="ng-scope"><a href="javascript:;" id="lift-onerepmax-progress-chart-tab" data-toggle="tab"
+              <li [ngClass]="clicked === 1 ? 'active' : 'ng-scope'" (click)="select(1)"><a href="javascript:;" id="lift-onerepmax-progress-chart-tab" data-toggle="tab"
                                       ng-click="strengthProgressCtrl.showLiftOneRepMaxProgressChart()">Lift 1RMs</a>
               </li>
-              <li ng-class="{'active':strengthProgressCtrl.state.selectedChartTab === 'liftScores'}"><a
+              <li [ngClass]="clicked === 2 ? 'active' : 'ng-scope'" (click)="select(2)"><a
                 href="javascript:;" id="lift-score-progress-chart-tab" data-toggle="tab"
                 ng-click="strengthProgressCtrl.showLiftScoreProgressChart()">Lift Scores</a>
               </li>
             </ul>
             <div class="tab-content" id="progress-chart-tabs">
-              <div class="tab-pane active" ng-show="strengthProgressCtrl.state.selectedChartTab === 'categoryScores'">
+              <div *ngIf="clicked === 0" class="tab-pane active" ng-show="strengthProgressCtrl.state.selectedChartTab === 'categoryScores'">
                 <div
                   ng-show="!strengthProgressCtrl.state.noLiftData &amp;&amp; !strengthProgressCtrl.state.waitingForProgress"
                   id="category-score-progress-chart" class="ng-hide"></div>
-                <!-- ngIf: strengthProgressCtrl.state.waitingForProgress --><p class="loading-indicator ng-scope"
-                                                                               ng-if="strengthProgressCtrl.state.waitingForProgress">
+                <p class="loading-indicator ng-scope" ng-if="strengthProgressCtrl.state.waitingForProgress">
                 <i class="fa fa-spin fa-spinner"></i>
-              </p><!-- end ngIf: strengthProgressCtrl.state.waitingForProgress -->
-                <!-- ngIf: strengthProgressCtrl.state.noLiftData && !strengthProgressCtrl.state.waitingForProgress -->
+              </p>
               </div>
-              <!-- ngIf: !mainCtrl.hideWeight -->
-              <div class="tab-pane active ng-scope ng-hide" ng-if="!mainCtrl.hideWeight"
-                   ng-show="strengthProgressCtrl.state.selectedChartTab === 'liftOneRepMaxes'">
-                <div
-                  ng-show="!strengthProgressCtrl.state.noLiftData &amp;&amp; !strengthProgressCtrl.state.waitingForProgress"
+              <div *ngIf="clicked === 1" class="tab-pane active ng-scope ng-hide" ng-if="!mainCtrl.hideWeight">
+                <div ng-show="!strengthProgressCtrl.state.noLiftData &amp;&amp; !strengthProgressCtrl.state.waitingForProgress"
                   id="lift-onerepmax-progress-chart" class="ng-hide"></div>
-                <!-- ngIf: strengthProgressCtrl.state.waitingForProgress --><p class="loading-indicator ng-scope"
-                                                                               ng-if="strengthProgressCtrl.state.waitingForProgress">
+                <p class="loading-indicator ng-scope" ng-if="strengthProgressCtrl.state.waitingForProgress">
                 <i class="fa fa-spin fa-spinner"></i>
-              </p><!-- end ngIf: strengthProgressCtrl.state.waitingForProgress -->
-                <!-- ngIf: strengthProgressCtrl.state.noLiftData && !strengthProgressCtrl.state.waitingForProgress -->
-              </div><!-- end ngIf: !mainCtrl.hideWeight -->
-              <div class="tab-pane active ng-hide"
-                   ng-show="strengthProgressCtrl.state.selectedChartTab === 'liftScores'">
-                <div
-                  ng-show="!strengthProgressCtrl.state.noLiftData &amp;&amp; !strengthProgressCtrl.state.waitingForProgress"
+              </p>
+              </div>
+              <div *ngIf="clicked === 2" class="tab-pane active ng-hide">
+                <div ng-show="!strengthProgressCtrl.state.noLiftData &amp;&amp; !strengthProgressCtrl.state.waitingForProgress"
                   id="lift-score-progress-chart" class="ng-hide"></div>
-                <!-- ngIf: strengthProgressCtrl.state.waitingForProgress --><p class="loading-indicator ng-scope"
-                                                                               ng-if="strengthProgressCtrl.state.waitingForProgress">
+                  <p class="loading-indicator ng-scope" ng-if="strengthProgressCtrl.state.waitingForProgress">
                 <i class="fa fa-spin fa-spinner"></i>
-              </p><!-- end ngIf: strengthProgressCtrl.state.waitingForProgress -->
-                <!-- ngIf: strengthProgressCtrl.state.noLiftData && !strengthProgressCtrl.state.waitingForProgress -->
+              </p>
               </div>
             </div>
-            <!-- ngIf: strengthProgressCtrl.state.pointClicked -->
           </div>
         </div>
       </div>
@@ -67,9 +53,6 @@
               class="caption-subject theme-font bold uppercase">Latest saved lifts</span>
             </div>
           </div>
-          <!-- ngIf: mainCtrl.state.lastSavedLiftFields && !mainCtrl.state.waitingForLastSaved -->
-          <!-- ngIf: mainCtrl.state.waitingForLastSaved -->
-          <!-- ngIf: !mainCtrl.state.lastSavedLiftFields && !mainCtrl.state.waitingForLastSaved -->
           <div class="portlet-body ng-scope"
                ng-if="!mainCtrl.state.lastSavedLiftFields &amp;&amp; !mainCtrl.state.waitingForLastSaved" style="">
             <div class="alert alert-info">You haven't saved any lifts yet! Enter your lifts below, then click "Analyze
