@@ -89,4 +89,8 @@ export class HeaderComponent implements OnInit {
   navigateToRegister() {
     this.router.navigate(['/auth/login']);
   }
+
+  goToSetting() {
+    this.router.navigate(['/settings'])
+  }
 }

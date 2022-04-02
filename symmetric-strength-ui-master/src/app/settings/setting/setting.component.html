@@ -1,0 +1,42 @@
+<div class="col-12 main-background">
+  <div class="col-8 xl:col-8 lg:col-8 md:col-10 sm:col-12 center content">
+    <div class="col-md-12">
+      <div class="portlet light settings-portlet">
+        <div class="portlet-title">
+          <div class="caption caption-md">
+            <span class="caption-subject theme-font bold uppercase">Settings</span>
+          </div>
+        </div>
+        <div class="portlet-body">
+            <div class="md-checkbox public-page-checkbox">
+              <div class="field-checkbox checkbox-group">
+                <p-checkbox [binary]="true" [(ngModel)]="userDto.public_page"></p-checkbox>
+                <label >Share my lifter stats with others</label>
+              </div>
+              <div *ngIf="userDto.public_page" class="field-checkbox checkbox-group">
+                <p-checkbox [binary]="true" [(ngModel)]="userDto.hide_weight"></p-checkbox>
+                <label >
+                  Hide my age and bodyweight on my public page (Read the <a href="/about#faq" target="_blank">FAQ</a> regarding age and bodyweight privacy)</label>
+              </div>
+            </div>
+            <div *ngIf="!userDto.public_page" class="public-page-info ng-scope"><p>Your lifting stats will not
+              be able to be shared with others. You can always change this setting later in your profile.</p>
+            </div>
+          <div *ngIf="userDto.public_page" class="public-page-info ng-scope"><p>Your public page will be located at:</p>
+            <p><a href="{{'https://symmetricstrength.com/lifter/' + userDto.username}}" class="ng-binding">{{'https://symmetricstrength.com/lifter/' + userDto.username}}</a></p><p></p>
+            <p>This page will show the lifting stats you enter into Symmetric Strength.</p>
+          </div>
+            <div class="form-actions">
+              <button class="btn btn-lg green-haze uppercase" type="submit" (click)="submit()">Submit</button>
+            </div>
+          <hr>
+            <div class="form-actions">
+              <button class="btn btn-lg red-sunglo ng-scope" type="button"
+                      (click)="deleteAccount()">Delete Account
+              </button>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

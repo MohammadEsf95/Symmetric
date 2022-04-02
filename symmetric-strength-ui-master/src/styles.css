@@ -891,3 +891,8 @@ svg:not(:root) {
   border: 1px solid transparent;
   border-radius: 4px;
 }
+
+.red-sunglo.btn {
+  color: #fff;
+  background-color: #e26a6a;
+}

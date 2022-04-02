@@ -21,5 +21,9 @@ export const PUBLIC_ROUTES: Routes = [
   {
     path: 'calculator',
     loadChildren: () => import('../../calculators/calculators.module').then(m => m.CalculatorsModule)
+  },
+  {
+    path: 'settings',
+    loadChildren: () => import('../../settings/setting.module').then(m => m.SettingModule)
   }
 ];
