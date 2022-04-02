@@ -7,6 +7,7 @@ import {TrainingDetails} from "../shared/TrainingDetails";
 import {StrengthStandardService} from "../../strength-standards/strength-standards/shared/strength-standard.service";
 import {StandardResponseDto} from "../../strength-standards/strength-standards/shared/StandardResponseDto";
 import {MessageService} from "primeng/api";
+import {AuthService} from "../../shared/auth/auth.service";
 
 @Component({
     selector: 'app-main',
@@ -61,7 +62,8 @@ export class MainComponent implements OnInit {
     constructor(
         private toastr: MessageService,
         private analyzeService: AnalyzeService,
-        private strengthStandardService: StrengthStandardService
+        private strengthStandardService: StrengthStandardService,
+        private authService: AuthService
     ) {
         this.units = [
             {name: 'Metric', label: 'KG'},
@@ -91,8 +93,14 @@ export class MainComponent implements OnInit {
 
     ngOnInit(): void {
         if(localStorage.getItem('registerToken') != null) {
-            this.isLoggedIn = true;
             this.xAuthToken = localStorage.getItem('registerToken')
+            if (this.xAuthToken != null) {
+                this.authService.getUser(this.xAuthToken).subscribe(data => {
+                    if (data.success) {
+                        this.isLoggedIn = true;
+                    }
+                })
+            }
         }
         this.selectedUnit = this.units[0];
         this.selectedRep = this.reps[0];

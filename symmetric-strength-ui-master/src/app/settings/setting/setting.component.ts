@@ -62,7 +62,9 @@ export class SettingComponent implements OnInit {
     if (this.xAuthToken != null) {
       this.changeSettingService.deleteAccount(this.xAuthToken).subscribe(data => {
         if(data.success) {
+          this.authService.logout();
           this.toastr.add({severity:'success', summary:'Successful', detail:'Account deleted successfully!'});
+          this.router.navigate(['/'])
         } else {
           this.toastr.add({severity:'error', summary:'Error', detail: JSON.stringify(data.errors[0].message)})
         }

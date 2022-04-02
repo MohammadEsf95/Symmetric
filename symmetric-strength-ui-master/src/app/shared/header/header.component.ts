@@ -81,9 +81,11 @@ export class HeaderComponent implements OnInit {
       if (this.xAuthToken != null) {
         this.authService.getUser(this.xAuthToken).subscribe(data => {
           console.log('auth: ', data)
-          this.userDto = data.data.user;
-          console.log('user: ',this.userDto)
-          this.isLoggedIn = true;
+          if(data.success) {
+            this.userDto = data.data.user;
+            console.log('user: ',this.userDto)
+            this.isLoggedIn = true;
+          }
         })
       }
     }
@@ -107,6 +109,7 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     this.authService.logout();
+    localStorage.removeItem('registerToken')
     this.isLoggedIn = false;
     this.router.navigate(['/'])
   }
