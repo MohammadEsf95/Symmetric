@@ -719,6 +719,7 @@ svg:not(:root) {
 }
 
 .top-menu .navbar-nav {
+  cursor: pointer;
   direction: ltr;
   padding: 0;
   display: block;

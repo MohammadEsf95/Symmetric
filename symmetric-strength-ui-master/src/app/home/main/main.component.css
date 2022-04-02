@@ -468,4 +468,10 @@ input, label {
   height: 400px;
 }
 
+#category-score-progress-chart, #lift-onerepmax-progress-chart, #lift-score-progress-chart {
+  overflow: hidden;
+  padding: 0;
+  margin-bottom: 0;
+}
+
 
