@@ -76,6 +76,10 @@ export class AuthService {
     )
   }
 
+  logout() {
+    localStorage.removeItem('registerToken');
+  }
+
   errorHandler(error: HttpErrorResponse) {
     return throwError(() => error.message || "server error.");
   }

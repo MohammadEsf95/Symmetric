@@ -104,4 +104,10 @@ export class HeaderComponent implements OnInit {
   goToPublicPage() {
     this.router.navigate(['/lifter/' + this.userDto.username])
   }
+
+  logout() {
+    this.authService.logout();
+    this.isLoggedIn = false;
+    this.router.navigate(['/'])
+  }
 }
