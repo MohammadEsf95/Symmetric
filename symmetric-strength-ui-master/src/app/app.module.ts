@@ -19,6 +19,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {MessageService} from "primeng/api";
 import {ToastModule} from "primeng/toast";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {ScrollTopModule} from 'primeng/scrolltop';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     CheckboxModule,
     HttpClientModule,
     ToastModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ScrollTopModule
   ],
   providers: [
     MessageService,
