@@ -23,4 +23,14 @@ export class AnalyzeService {
     );
   }
 
+  analyzeAndLogLifts(analyzeRequest: AnalyzeRequestDto, xAuthToken: string): Observable<any> {
+    return this.http.post(this.endpoint + 'analyze-strength', analyzeRequest, {
+      headers: new HttpHeaders({'Content-Type': 'application/json', 'x-auth-token' : xAuthToken})
+    }).pipe(
+      catchError(err => {
+        console.log('Handling error and rethrowing it...', err);
+        return throwError(err);
+      })
+    );
+  }
 }

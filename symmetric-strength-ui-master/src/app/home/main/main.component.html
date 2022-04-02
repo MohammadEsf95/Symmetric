@@ -209,7 +209,7 @@
         </div>
         <div class="col-12">
           <p-button label="Analyze Strength" (onClick)="submit()"></p-button>
-          <p-button *ngIf="isLoggedIn" class="analyze-and-log">Analyze and Log Lifts</p-button>
+          <p-button *ngIf="isLoggedIn" class="analyze-and-log" (onClick)="submitAndLogLifts()">Analyze and Log Lifts</p-button>
           <p-button *ngIf="isLoggedIn" class="reset-btn">Reset</p-button>
           <p-button *ngIf="isLoggedIn" class="analyze-help-btn" (onClick)="displayHelp = !displayHelp"><i class="fa fa-question"></i></p-button>
         </div>

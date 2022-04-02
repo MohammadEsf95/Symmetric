@@ -55,6 +55,7 @@ export class MainComponent implements OnInit {
     selectedRound: any = {};
     response: StandardResponseDto = {};
     isLoggedIn: boolean = false;
+    xAuthToken: string | null = ''
 
     constructor(
         private toastr: MessageService,
@@ -90,6 +91,7 @@ export class MainComponent implements OnInit {
     ngOnInit(): void {
         if(localStorage.getItem('registerToken') != null) {
             this.isLoggedIn = true;
+            this.xAuthToken = localStorage.getItem('registerToken')
         }
         this.selectedUnit = this.units[0];
         this.selectedRep = this.reps[0];
@@ -259,6 +261,94 @@ export class MainComponent implements OnInit {
         })
     }
 
+
+    submitAndLogLifts() {
+        this.analyzeRequest.unitsystem = this.selectedUnit.name;
+        this.analyzeRequest.bodyweight = this.bodyWeight;
+        this.analyzeRequest.sex = this.selectedGender.type;
+        this.analyzeRequest.age = this.age;
+
+        this.selectedCategories.forEach(
+            value => {
+                if (value.liftName === 'Back Squat') {
+                    this.liftFields.backSquat = value;
+                    this.liftFields.backSquat.checked = true;
+                } else if (value.liftName === 'Front Squat') {
+                    this.liftFields.frontSquat = value;
+                    this.liftFields.frontSquat.checked = true;
+                } else if (value.liftName === 'Deadlift') {
+                    this.liftFields.deadlift = value;
+                    this.liftFields.deadlift.checked = true;
+                } else if (value.liftName === 'Sumo Deadlift') {
+                    this.liftFields.sumoDeadlift = value;
+                    this.liftFields.sumoDeadlift.checked = true;
+                } else if (value.liftName === 'Power Clean') {
+                    this.liftFields.powerClean = value;
+                    this.liftFields.powerClean.checked = true;
+                } else if (value.liftName === 'Bench Press') {
+                    this.liftFields.benchPress = value;
+                    this.liftFields.benchPress.checked = true;
+                } else if (value.liftName === 'Incline Bench Press') {
+                    this.liftFields.inclineBenchPress = value;
+                    this.liftFields.inclineBenchPress.checked = true;
+                } else if (value.liftName === 'Dip') {
+                    this.liftFields.dip = value;
+                    this.liftFields.dip.checked = true;
+                } else if (value.liftName === 'Overhead Press') {
+                    this.liftFields.overheadPress = value;
+                    this.liftFields.overheadPress.checked = true;
+                } else if (value.liftName === 'Push Press') {
+                    this.liftFields.pushPress = value;
+                    this.liftFields.pushPress.checked = true;
+                } else if (value.liftName === 'Snatch Press') {
+                    this.liftFields.snatchPress = value;
+                    this.liftFields.snatchPress.checked = true;
+                } else if (value.liftName === 'Chin-up') {
+                    this.liftFields.chinup = value;
+                    this.liftFields.chinup.checked = true;
+                } else if (value.liftName === 'Pull-up') {
+                    this.liftFields.pullup = value;
+                    this.liftFields.pullup.checked = true;
+                } else if (value.liftName === 'Pendlay Row') {
+                    this.liftFields.pendlayRow = value;
+                    this.liftFields.pendlayRow.checked = true;
+                }
+            }
+        )
+
+        this.analyzeRequest.liftfields = this.liftFields;
+        console.log('req: ', this.analyzeRequest)
+
+        if (this.xAuthToken != null) {
+            this.analyzeService.analyzeAndLogLifts(this.analyzeRequest, this.xAuthToken).subscribe(data => {
+                if (data.success) {
+                    this.analyzeResponse = data.data;
+                    this.strengthStandardService.calculateStandard(this.selectedUnit.name, this.selectedGender.type, this.bodyWeight, this.age, this.selectedRep.value, this.selectedValue).subscribe(data => {
+                        if (data.success) {
+                            this.response = data.data;
+                            this.showResult = true;
+                        }
+                    })
+                    console.log('resp: ', this.analyzeResponse)
+
+                    this.selectedCategories.forEach(value => {
+                        if (value.reps) {
+                            this.liftVsAverageChart.labels.push(value.liftName);
+                            this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.backSquat?.userScore);
+                            this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.backSquat?.expected);
+                        }
+                    })
+                } else {
+                    this.toastr.add({
+                        severity: 'error',
+                        summary: 'Error',
+                        detail: JSON.stringify(data.errors[0].message)
+                    })
+                }
+            })
+        }
+    }
+
     onChangeRound(event: any) {
         this.selectedRound = event.value;
         this.submit();
@@ -268,4 +358,5 @@ export class MainComponent implements OnInit {
         this.selectedRep = event.value;
         this.submit();
     }
+
 }

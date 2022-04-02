@@ -17,7 +17,7 @@
                   </a>
                 </li>
                 <li id="public-page-link">
-                  <a class="topnav-link" href="https://symmetricstrength.com/lifter/Mmdesf95">
+                  <a class="topnav-link" (click)="goToPublicPage()">
                     <span>Public page</span>
                   </a>
                 </li>
@@ -48,6 +48,7 @@
           <h1 *ngIf="router.url === '/calculator/ideal_bodyweight'" style="font-size: 25px;"> {{idealBodyweightCalc}} <small style="color: #9eacb4; font-size: 13px">Find your ideal bodyweight based on your height and fitness goals</small></h1>
           <h1 *ngIf="isLoggedIn && router.url === '/'" style="font-size: 25px;"> Welcome, {{userDto.username}}. <small style="color: #9eacb4; font-size: 13px">Log your latest lifts and view your strength analysis.</small></h1>
           <h1 *ngIf="router.url === '/settings' && isLoggedIn" style="font-size: 25px;"> Change Settings. <small style="color: #9eacb4; font-size: 13px">Select your privacy settings on Symmetric Strength</small></h1>
+          <h1 *ngIf="router.url.includes('/lifter')" style="font-size: 25px;"> Lifter profile: {{lifterUsername}} <small style="color: #9eacb4; font-size: 13px">45 years old, Male, 45 lbs</small></h1>
         </div>
       </div>
     </div>

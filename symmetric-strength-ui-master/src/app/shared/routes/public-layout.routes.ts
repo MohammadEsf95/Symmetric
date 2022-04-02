@@ -25,5 +25,9 @@ export const PUBLIC_ROUTES: Routes = [
   {
     path: 'settings',
     loadChildren: () => import('../../settings/setting.module').then(m => m.SettingModule)
+  },
+  {
+    path: 'lifter/:username',
+    loadChildren: () => import('../../public-page/public-page.module').then(m => m.PublicPageModule)
   }
 ];

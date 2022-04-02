@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MenuItem} from "primeng/api";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {AuthService} from "../auth/auth.service";
 import {UserDto} from "../dto/UserDto";
 
@@ -22,10 +22,13 @@ export class HeaderComponent implements OnInit {
   idealBodyweightCalc: string = 'Ideal Bodyweight Calculator'
   xAuthToken: string | null = '';
   userDto: UserDto = {};
+  lifterUsername: string | null = '';
 
   constructor(
     public router: Router,
-    public authService: AuthService) {
+    public authService: AuthService,
+    private route: ActivatedRoute
+  ) {
     this.items = [{
       label: 'Home',
       routerLink: '/'
@@ -84,6 +87,10 @@ export class HeaderComponent implements OnInit {
         })
       }
     }
+
+    if(this.router.url.includes('lifter')) {
+      this.lifterUsername = this.route.snapshot.paramMap.get('username');
+    }
   }
 
   navigateToRegister() {
@@ -92,5 +99,9 @@ export class HeaderComponent implements OnInit {
 
   goToSetting() {
     this.router.navigate(['/settings'])
+  }
+
+  goToPublicPage() {
+    this.router.navigate(['/lifter/' + this.userDto.username])
   }
 }
