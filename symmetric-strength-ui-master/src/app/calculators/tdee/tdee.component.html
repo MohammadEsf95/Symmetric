@@ -1,17 +1,17 @@
 <div class="col-12 main-background">
   <div class="xl:col-8 lg:col-8 md:col-10 sm:col-12 center content">
     <div class="col-12 grid">
-      <div class="xl:col-3 lg:col-4 md:col-4 sm:col-12" style="padding-left: 5px">
+      <div class="xl:col-3 lg:col-4 md:col-4 sm:col-12 col-12" style="padding-left: 5px">
         <label for="units" class="input-label">Units</label>
         <p-dropdown id="units" [options]="units" [(ngModel)]="selectedUnit" styleClass="dropdown-def"
                     placeholder="Select Unit" optionLabel="name"></p-dropdown>
       </div>
-      <div class="xl:col-3 lg:col-4 md:col-4 sm:col-12" style="padding-left: 5px">
+      <div class="xl:col-3 lg:col-4 md:col-4 sm:col-12 col-12" style="padding-left: 5px">
         <label for="genders" class="input-label">Sex</label>
         <p-dropdown id="genders" [options]="genders" [(ngModel)]="selectedGender" styleClass="dropdown-def"
                     optionLabel="type"></p-dropdown>
       </div>
-      <div class="xl:col-3 lg:col-4 md:col-4 sm:col-12" style="position: relative">
+      <div class="xl:col-3 lg:col-4 md:col-4 sm:col-12 col-12" style="position: relative">
             <span class="p-float-label" style="bottom: 8px; position: absolute;">
             <p-inputNumber id="age" [min]="0" [(ngModel)]="age" [showButtons]="true" inputId="age">
             </p-inputNumber>
@@ -64,7 +64,7 @@
       </div>
     </div>
     <div class="col-12">
-      <div class="col-5 body-fat" style="padding-left: 0">
+      <div class="col-5 body-fat" style="padding-left: 0; margin-top: 30px">
               <span class="p-float-label">
             <p-inputNumber [min]="0" [(ngModel)]="bodyFat" [showButtons]="true" inputId="bodyFat"
                            [suffix]="' %'">
@@ -81,7 +81,7 @@
       <p-button label="Calculate TDEE" (onClick)="submit()"></p-button>
     </div>
   </div>
-  <div *ngIf="showResponse" class="xl:col-8 lg:col-8 md:col-10 sm:col-12 center content" style="margin-top: 20px; margin-bottom: 20px">
+  <div *ngIf="showResponse" class="xl:col-8 lg:col-8 md:col-10 sm:col-12 col-12 center content" style="margin-top: 20px; margin-bottom: 20px">
     <div class="col-12">
       <div class="portlet light"><div class="portlet-body"><div class="row list-separated more-stats-items"><div class="col-md-3 col-xs-6"><div class="item-name font-grey-mint font-lg">TDEE</div>
         <div class="font-massive font-red-flamingo ng-binding">{{tdeeResp.tdee}}<span class="font-hg font-grey-mint">&nbsp;calories</span>
