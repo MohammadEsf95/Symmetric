@@ -10,6 +10,7 @@ import {InputNumberModule} from "primeng/inputnumber";
 import {ButtonModule} from "primeng/button";
 import {ChartModule} from 'primeng/chart';
 import {TabViewModule} from 'primeng/tabview';
+import {HighchartsChartModule} from "highcharts-angular";
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {TabViewModule} from 'primeng/tabview';
     InputNumberModule,
     ButtonModule,
     ChartModule,
-    TabViewModule
+    TabViewModule,
+    HighchartsChartModule
   ],
   providers: [
 

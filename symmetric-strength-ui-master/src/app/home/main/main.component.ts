@@ -8,6 +8,7 @@ import {StrengthStandardService} from "../../strength-standards/strength-standar
 import {StandardResponseDto} from "../../strength-standards/strength-standards/shared/StandardResponseDto";
 import {MessageService} from "primeng/api";
 import {AuthService} from "../../shared/auth/auth.service";
+import * as Highcharts from 'highcharts';
 
 @Component({
   selector: 'app-main',
@@ -59,6 +60,29 @@ export class MainComponent implements OnInit {
   isLoggedIn: boolean = false;
   xAuthToken: string | null = '';
 
+  highcharts = Highcharts;
+
+  chartOptions: Highcharts.Options = {
+    title: {
+      text: "Average Temprature"
+    },
+    xAxis: {
+      title: {
+        text: 'Tokyo'
+      },
+      categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    },
+    yAxis: {
+      title: {
+        text: "Temprature"
+      }
+    },
+    series: [{
+      data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 24.4, 19.3, 16.0, 18.4, 17.9],
+      type: 'spline'
+    }]
+  }
   constructor(
     private toastr: MessageService,
     private analyzeService: AnalyzeService,
@@ -91,7 +115,59 @@ export class MainComponent implements OnInit {
     ]
   }
 
+  // Highcharts: typeof Highcharts = Highcharts;
+  // chartOptions: Highcharts.Options = {
+  //
+  //   chart: {
+  //     renderTo: 'mohsen',
+  //     marginLeft: 100,
+  //     //  plotAreaWidth: 50,
+  //     //   plotAreaHeight: 450,
+  //   },
+  //
+  //   title: {
+  //     text: 'Bar series - data sorting'
+  //   },
+  //
+  //   yAxis: {
+  //     title: {
+  //       text: ''
+  //     }
+  //   },
+  //
+  //   xAxis: {
+  //     type: 'category',
+  //     min: 0,
+  //     labels: {
+  //       // animate: false
+  //     }
+  //   },
+  //
+  //   legend: {
+  //     enabled: false
+  //   },
+  //
+  //   series: [{
+  //     type: 'bar',
+  //     zoneAxis: 'x',
+  //     zones: [{
+  //       value: 2,
+  //       color: 'red'
+  //     }],
+  //     dataLabels: {
+  //       enabled: true,
+  //       format: '{y:,.2f}'
+  //     },
+  //     dataSorting: {
+  //       enabled: true,
+  //       sortKey: 'y'
+  //     },
+  //     data: [["hello", 1], ["hello", 1], ["hello", 1], ["hello", 1],]
+  //   }]
+  // }
+
   ngOnInit(): void {
+
     if (localStorage.getItem('registerToken') != null) {
       this.xAuthToken = localStorage.getItem('registerToken')
       if (this.xAuthToken != null) {
@@ -182,6 +258,7 @@ export class MainComponent implements OnInit {
       ]
     }
   }
+
 
   // changeValue(event: any) {
   //   this.selectedValue = event.value.number;
@@ -307,6 +384,77 @@ export class MainComponent implements OnInit {
             this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.pendlayRow?.userScore);
           }
         })
+
+
+        // var chart = Highcharts.chart("mohsen", this.chartOptions );
+
+
+        // Highcharts.chart('container', {
+        //
+        //   chart: {
+        //     type: 'columnrange',
+        //     inverted: true
+        //   },
+        //
+        //   accessibility: {
+        //     description: 'Image description: A column range chart compares the monthly temperature variations throughout 2017 in Vik I Sogn, Norway. The chart is interactive and displays the temperature range for each month when hovering over the data. The temperature is measured in degrees Celsius on the X-axis and the months are plotted on the Y-axis. The lowest temperature is recorded in March at minus 10.2 Celsius. The lowest range of temperatures is found in December ranging from a low of minus 9 to a high of 8.6 Celsius. The highest temperature is found in July at 26.2 Celsius. July also has the highest range of temperatures from 6 to 26.2 Celsius. The broadest range of temperatures is found in May ranging from a low of minus 0.6 to a high of 23.1 Celsius.'
+        //   },
+        //
+        //   title: {
+        //     text: 'Temperature variation by month'
+        //   },
+        //
+        //   subtitle: {
+        //     text: 'Observed in Vik i Sogn, Norway, 2017'
+        //   },
+        //
+        //   xAxis: {
+        //     categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+        //       'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+        //   },
+        //
+        //   yAxis: {
+        //     title: {
+        //       text: 'Temperature ( °C )'
+        //     }
+        //   },
+        //
+        //   tooltip: {
+        //     valueSuffix: '°C'
+        //   },
+        //
+        //   plotOptions: {
+        //     columnrange: {
+        //       dataLabels: {
+        //         enabled: true,
+        //         format: '{y}°C'
+        //       }
+        //     }
+        //   },
+        //
+        //   legend: {
+        //     enabled: false
+        //   },
+        //
+        //   series: [{
+        //     name: 'Temperatures',
+        //     data: [
+        //       [-9.9, 10.3],
+        //       [-8.6, 8.5],
+        //       [-10.2, 11.8],
+        //       [-1.7, 12.2],
+        //       [-0.6, 23.1],
+        //       [3.7, 25.4],
+        //       [6.0, 26.2],
+        //       [6.7, 21.4],
+        //       [3.5, 19.5],
+        //       [-1.3, 16.0],
+        //       [-8.7, 9.4],
+        //       [-9.0, 8.6]
+        //     ]
+        //   }]
+        //
+        // })
       } else {
         this.toastr.add({severity: 'error', summary: 'Error', detail: JSON.stringify(data.errors[0].message)})
       }
