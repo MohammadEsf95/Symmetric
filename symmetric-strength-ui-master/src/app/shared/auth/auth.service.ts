@@ -61,7 +61,7 @@ export class AuthService {
   }
 
   completeProfile(completeProfileDto: CompleteProfileDto, xAuthToken: string): Observable<any> {
-    return this.http.post<string>(this.endpoint + 'complete-profile', completeProfileDto, {
+    return this.http.post<string>(this.endpoint + '/user/complete-profile', completeProfileDto, {
       headers: new HttpHeaders({'Content-Type': 'application/json', 'x-auth-token' : xAuthToken})
     }).pipe(
       catchError(this.errorHandler)

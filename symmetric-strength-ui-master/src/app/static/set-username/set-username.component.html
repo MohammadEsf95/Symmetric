@@ -15,15 +15,15 @@
                      [(ngModel)]="username" (change)="typeUserName()" type="text"
                      autocomplete="off" placeholder="User name" name="username" autofocus="">
             </div>
-            <div class="form-group" id="make-public-form-group"><label class="check"><input
-              [(ngModel)]="completeProfileDto.public_page" name="enable-public" type="checkbox"
-              class="ng-pristine ng-untouched ng-valid"> Share my lifter stats with others.
+            <div class="form-group" id="make-public-form-group"><label class="check">
+              <p-checkbox [binary]="true" [(ngModel)]="completeProfileDto.public_page" name="enable-public" type="checkbox"
+                          class="ng-pristine ng-untouched ng-valid"></p-checkbox> Share my lifter stats with others.
             </label>
             </div>
             <!-- ngIf: wizardCtrl.state.makePublic -->
             <div class="form-group ng-scope" ng-if="wizardCtrl.state.makePublic" id="hide-weight-form-group"><label
-              class="check"><input [(ngModel)]="completeProfileDto.hide_weight" name="hide-weight" type="checkbox"
-                                   class="ng-pristine ng-untouched ng-valid"> Hide my age and bodyweight on my public
+              class="check"><p-checkbox [binary]="true" [(ngModel)]="completeProfileDto.hide_weight" name="hide-weight" type="checkbox"
+                                        class="ng-pristine ng-untouched ng-valid"></p-checkbox> Hide my age and bodyweight on my public
               page.
             </label>
             </div><!-- end ngIf: wizardCtrl.state.makePublic -->

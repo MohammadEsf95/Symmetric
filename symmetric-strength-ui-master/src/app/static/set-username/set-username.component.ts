@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../shared/auth/auth.service";
 import {MessageService} from "primeng/api";
 import {CompleteProfileDto} from "../../shared/dto/CompleteProfileDto";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-set-username',
@@ -18,7 +19,8 @@ export class SetUsernameComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private toastr: MessageService
+    private toastr: MessageService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -32,9 +34,12 @@ export class SetUsernameComponent implements OnInit {
   submit() {
     if(this.xAuthToken) {
       this.completeProfileDto.username = this.username;
+      console.log(this.completeProfileDto)
+      console.log(this.xAuthToken)
       this.authService.completeProfile(this.completeProfileDto, this.xAuthToken).subscribe(data => {
         if(data.success) {
-
+          this.toastr.add({severity:'success', summary:'Successful', detail:'Profile updated!'});
+          this.router.navigate(['/'])
         } else {
           this.toastr.add({severity:'error', summary:'Error', detail: JSON.stringify(data.errors[0].message)})
         }
