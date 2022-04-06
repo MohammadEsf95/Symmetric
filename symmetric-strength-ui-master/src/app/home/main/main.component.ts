@@ -126,6 +126,32 @@ export class MainComponent implements OnInit {
       ]
     }]
   }
+
+  hovering: any = {
+    upperTraps: false,
+    middleTraps: false,
+    lowerTraps: false,
+    frontDelts: false,
+    sideDelts: false,
+    rearDelts: false,
+    rotatorCuff: false,
+    upperChest: false,
+    lowerChest: false,
+    biceps: false,
+    triceps: false,
+    forearms: false,
+    serratusAndObliques: false,
+    abdominals: false,
+    latsAndTeresMajor: false,
+    spinalErectors: false,
+    glutes: false,
+    hamstrings: false,
+    quads: false,
+    hipFlexors: false,
+    hipAdductors: false,
+    calves: false
+  }
+
   constructor(
     private toastr: MessageService,
     private analyzeService: AnalyzeService,
@@ -604,4 +630,26 @@ export class MainComponent implements OnInit {
   select(i: any) {
     this.clicked = i;
   }
+
+  compareStrengthScore(n: number) {
+    if (n >= 125.0) {
+      return 'World class';
+    } else if (n >= 112.5) {
+      return 'Elite';
+    } else if (n >= 100.0) {
+      return 'Exceptional';
+    } else if (n >= 87.5) {
+      return 'Advanced';
+    } else if (n >= 75.0) {
+      return 'Proficient';
+    } else if (n >= 60.0) {
+      return 'Intermediate';
+    } else if (n >= 45.0) {
+      return 'Novice';
+    } else if (n >= 30.0) {
+      return 'Untrained';
+    } else {
+      return 'Subpar';
+    }
+  };
 }

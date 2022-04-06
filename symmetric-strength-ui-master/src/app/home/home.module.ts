@@ -1,4 +1,4 @@
-import {NgModule} from "@angular/core";
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from "@angular/core";
 import {MainComponent} from "./main/main.component";
 import {HomeRoutingModule} from "./home-routing.module";
 import {SharedModule} from "../shared/shared.module";

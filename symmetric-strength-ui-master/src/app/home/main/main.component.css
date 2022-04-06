@@ -330,7 +330,7 @@ input, label {
   stroke: #af174a;
 }
 
-#muscle-figure-male, #muscle-figure-female path.subpar.active{
+#muscle-figure-male, #muscle-figure-female path.subpar:active{
   fill: #af174a;
   stroke: #750f32;
 }
@@ -351,7 +351,7 @@ input, label {
   fill-opacity: 0.0;
 }
 
-#muscle-figure-male, #muscle-figure-female .path.active {
+#muscle-figure-male, #muscle-figure-female .path:active {
   stroke-opacity: 0.5;
 }
 
@@ -362,7 +362,7 @@ input, label {
   stroke: #3f51b5;
 }
 
-#muscle-figure-male, #muscle-figure-female path.untrained.active {
+#muscle-figure-male, #muscle-figure-female path.untrained:active {
   fill: #3f51b5;
   stroke: #456de5;
 }
@@ -374,7 +374,7 @@ input, label {
   stroke: #3f51b5;
 }
 
-#muscle-figure-male path.subpar, #muscle-figure-female path.novice.active {
+#muscle-figure-male path.subpar, #muscle-figure-female path.novice:active {
   fill: #3f51b5;
   stroke: #456de5;
 }
@@ -386,7 +386,7 @@ input, label {
   stroke: #3f51b5;
 }
 
-#muscle-figure-male path.subpar, #muscle-figure-female path.intermediate.active {
+#muscle-figure-male path.subpar, #muscle-figure-female path.intermediate:active {
    fill: #3f51b5;
    stroke: #2bb1a2;
  }
@@ -398,7 +398,7 @@ input, label {
   stroke: #cddc39;
 }
 
-#muscle-figure-male path.subpar, #muscle-figure-female path.advanced.active {
+#muscle-figure-male path.subpar, #muscle-figure-female path.advanced:active {
   fill: #cddc39;
   stroke: #beb021;
 }
@@ -410,7 +410,7 @@ input, label {
   stroke: #4caf50;
 }
 
-#muscle-figure-male path.subpar, #muscle-figure-female path.proficient.active {
+#muscle-figure-male path.subpar, #muscle-figure-female path.proficient:active {
   fill: #4caf50;
   stroke: #76ba37;
 }
@@ -422,7 +422,7 @@ input, label {
   stroke: #ffc107
 }
 
-#muscle-figure-male path.subpar, #muscle-figure-female path.exceptional.active {
+#muscle-figure-male path.subpar, #muscle-figure-female path.exceptional:active {
   fill: #ffc107;
   stroke: #d18e35;
 }
@@ -434,7 +434,7 @@ input, label {
   stroke: #ff5722;
 }
 
-#muscle-figure-male path.subpar, #muscle-figure-female path.elite.active {
+#muscle-figure-male path.subpar, #muscle-figure-female path.elite:active {
   fill: #ff5722;
   stroke: #e5562d;
 }
@@ -446,9 +446,13 @@ input, label {
   stroke: #f44336;
 }
 
-#muscle-figure-male path.subpar, #muscle-figure-female path.world-class.active {
+#muscle-figure-male path.subpar, #muscle-figure-female path.world-class:active {
   fill: #f44336;
   stroke: #dd3247;
+}
+
+#muscle-figure-male path, #muscle-figure-female path.active {
+  filter: brightness(50%);
 }
 
 #canvas-container {
