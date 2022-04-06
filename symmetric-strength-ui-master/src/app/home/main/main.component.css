@@ -160,8 +160,40 @@ input, label {
   display:block;
 }
 
-.dashboard-stat.subpar {
+.subpar {
   background-color: #e91e63;
+}
+
+.untrained {
+  background-color: #673ab7;
+}
+
+.novice {
+  background-color: #3f51b5;
+}
+
+.intermediate {
+  background-color: #009688;
+}
+
+.proficient {
+  background-color: #4caf50;
+}
+
+.advanced {
+  background-color: #cddc39;
+}
+
+.exceptional {
+  background-color: #ffc107;
+}
+
+.elite {
+  background-color: #ff5722;
+}
+
+.world-class {
+  background-color: #f44336;
 }
 
 .dashboard-stat {
@@ -474,4 +506,16 @@ input, label {
   margin-bottom: 0;
 }
 
-
+#muscle-figure-male path.novice, #muscle-figure-female path.novice {
+  fill: #3f51b5;
+  fill-opacity: .5;
+  stroke-opacity: .3;
+  stroke: #2f3d88;
+}
+#muscle-figure-male path, #muscle-figure-female path {
+  transition: all 250ms;
+  stroke: #000;
+  stroke-width: 2px;
+  stroke-opacity: 0;
+  fill-opacity: 0;
+}

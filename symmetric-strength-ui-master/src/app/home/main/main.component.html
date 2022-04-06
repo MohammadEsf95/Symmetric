@@ -209,7 +209,7 @@
   <div *ngIf="showResult" class="xl:col-10 lg:col-10 md:col-10 sm:col-12 col-12 center" style="padding-left:0">
     <div class="col-12 grid">
       <div class="xl:col-4 lg:col-4 md:col-4 sm:col-12" style="padding-left:0">
-        <div class="dashboard-stat subpar" style="">
+        <div class="dashboard-stat" [ngClass]="analyzeResponse.scoreClass!">
           <div class="visual"><i class="fa fa-bar-chart-o"></i>
           </div>
           <div class="details">

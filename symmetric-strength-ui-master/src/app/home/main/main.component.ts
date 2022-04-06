@@ -63,24 +63,67 @@ export class MainComponent implements OnInit {
   highcharts = Highcharts;
 
   chartOptions: Highcharts.Options = {
+    chart: {
+      type: 'columnrange',
+      inverted: true
+    },
+
+    accessibility: {
+      description: 'Image description: A column range chart compares the monthly temperature variations throughout 2017 in Vik I Sogn, Norway. The chart is interactive and displays the temperature range for each month when hovering over the data. The temperature is measured in degrees Celsius on the X-axis and the months are plotted on the Y-axis. The lowest temperature is recorded in March at minus 10.2 Celsius. The lowest range of temperatures is found in December ranging from a low of minus 9 to a high of 8.6 Celsius. The highest temperature is found in July at 26.2 Celsius. July also has the highest range of temperatures from 6 to 26.2 Celsius. The broadest range of temperatures is found in May ranging from a low of minus 0.6 to a high of 23.1 Celsius.'
+    },
+
     title: {
-      text: "Average Temprature"
+      text: 'Temperature variation by month'
     },
+
+    subtitle: {
+      text: 'Observed in Vik i Sogn, Norway, 2017'
+    },
+
     xAxis: {
-      title: {
-        text: 'Tokyo'
-      },
-      categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
-        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+
     },
+
     yAxis: {
       title: {
-        text: "Temprature"
+        text: 'Temperature ( °C )'
       }
     },
+
+    tooltip: {
+      valueSuffix: '°C'
+    },
+
+    plotOptions: {
+      columnrange: {
+        dataLabels: {
+          enabled: true,
+          format: '{y}°C'
+        }
+      }
+    },
+
+    legend: {
+      enabled: false
+    },
+
     series: [{
-      data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 24.4, 19.3, 16.0, 18.4, 17.9],
-      type: 'spline'
+      name: 'Temperatures',
+      type: 'column',
+      data: [
+        [10.3, -9.9],
+        [8.5, -8.6],
+        [11.8, -10.2],
+        [12.2, -1.7],
+        [23.1 ,-0.6],
+        [25.4, 3.7],
+        [26.2, 6.0],
+        [21.4, 6.7],
+        [19.5, 3.5],
+        [16.0, -1.3],
+        [9.4, -8.7],
+        [8.6, -9.0]
+      ]
     }]
   }
   constructor(
@@ -167,7 +210,6 @@ export class MainComponent implements OnInit {
   // }
 
   ngOnInit(): void {
-
     if (localStorage.getItem('registerToken') != null) {
       this.xAuthToken = localStorage.getItem('registerToken')
       if (this.xAuthToken != null) {
