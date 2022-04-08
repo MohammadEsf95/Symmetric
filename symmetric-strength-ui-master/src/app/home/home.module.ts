@@ -11,11 +11,17 @@ import {ButtonModule} from "primeng/button";
 import {ChartModule} from 'primeng/chart';
 import {TabViewModule} from 'primeng/tabview';
 import {HighchartsChartModule} from "highcharts-angular";
+import {ScoreClassPipe} from "../shared/pipes/score-class.pipe";
+import {TooltipModule} from 'primeng/tooltip';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+
 
 @NgModule({
-  declarations: [
-    MainComponent
-  ],
+    declarations: [
+        MainComponent,
+        ScoreClassPipe
+    ],
   imports: [
     HomeRoutingModule,
     SharedModule,
@@ -27,7 +33,9 @@ import {HighchartsChartModule} from "highcharts-angular";
     ButtonModule,
     ChartModule,
     TabViewModule,
-    HighchartsChartModule
+    HighchartsChartModule,
+    TooltipModule,
+    MatTooltipModule
   ],
   providers: [
 
