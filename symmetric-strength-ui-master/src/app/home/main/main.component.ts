@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AnalyzeService} from "../shared/analyze.service";
 import {AnalyzeRequestDto} from "../shared/AnalyzeRequestDto";
 import {AnalyzeResponseDto} from "../shared/AnalyzeResponseDto";
@@ -9,6 +9,8 @@ import {StandardResponseDto} from "../../strength-standards/strength-standards/s
 import {MessageService} from "primeng/api";
 import {AuthService} from "../../shared/auth/auth.service";
 import * as Highcharts from 'highcharts';
+import {map} from "rxjs";
+import * as echarts from 'echarts';
 
 @Component({
   selector: 'app-main',
@@ -51,7 +53,9 @@ export class MainComponent implements OnInit {
   liftFields: LiftFieldsDto = {};
   respLiftFields: LiftFieldsDto = {};
   horizontalOptions: any;
+  horizontalOptions2: any;
   liftVsAverageChart: any;
+  liftVsAverageChart2: any;
   reps: any = [];
   rounds: any = [];
   selectedRep: any = {};
@@ -126,6 +130,8 @@ export class MainComponent implements OnInit {
       ]
     }]
   }
+
+  @ViewChild('strengthsAndWeaknessesChart') strengthsAndWeaknessesChart!: ElementRef;
 
   hovering: any = {
     upperTraps: false,
@@ -234,6 +240,9 @@ export class MainComponent implements OnInit {
   //     data: [["hello", 1], ["hello", 1], ["hello", 1], ["hello", 1],]
   //   }]
   // }
+
+
+  dataForChart: any = [];
 
   ngOnInit(): void {
     if (localStorage.getItem('registerToken') != null) {
@@ -451,78 +460,96 @@ export class MainComponent implements OnInit {
             this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.pendlayRow?.expected);
             this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.pendlayRow?.userScore);
           }
+
+          this.liftVsAverageChart.datasets[0].data.forEach((val: any) => this.dataForChart.push(val));
+          this.liftVsAverageChart.datasets[1].data.forEach((val: any) => this.dataForChart.push(val));
         })
 
+        console.log('kopos',document.getElementById('strengthsAndWeaknessesChart'))
+        console.log('tala',this.strengthsAndWeaknessesChart)
+        this.liftVsAverageChart2 = echarts.init(document.getElementById('strengthsAndWeaknessesChart')!);
 
-        // var chart = Highcharts.chart("mohsen", this.chartOptions );
 
-
-        // Highcharts.chart('container', {
-        //
-        //   chart: {
-        //     type: 'columnrange',
-        //     inverted: true
-        //   },
-        //
-        //   accessibility: {
-        //     description: 'Image description: A column range chart compares the monthly temperature variations throughout 2017 in Vik I Sogn, Norway. The chart is interactive and displays the temperature range for each month when hovering over the data. The temperature is measured in degrees Celsius on the X-axis and the months are plotted on the Y-axis. The lowest temperature is recorded in March at minus 10.2 Celsius. The lowest range of temperatures is found in December ranging from a low of minus 9 to a high of 8.6 Celsius. The highest temperature is found in July at 26.2 Celsius. July also has the highest range of temperatures from 6 to 26.2 Celsius. The broadest range of temperatures is found in May ranging from a low of minus 0.6 to a high of 23.1 Celsius.'
-        //   },
-        //
-        //   title: {
-        //     text: 'Temperature variation by month'
-        //   },
-        //
-        //   subtitle: {
-        //     text: 'Observed in Vik i Sogn, Norway, 2017'
-        //   },
-        //
-        //   xAxis: {
-        //     categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-        //       'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-        //   },
-        //
-        //   yAxis: {
-        //     title: {
-        //       text: 'Temperature ( °C )'
-        //     }
-        //   },
-        //
-        //   tooltip: {
-        //     valueSuffix: '°C'
-        //   },
-        //
-        //   plotOptions: {
-        //     columnrange: {
-        //       dataLabels: {
-        //         enabled: true,
-        //         format: '{y}°C'
-        //       }
-        //     }
-        //   },
-        //
-        //   legend: {
-        //     enabled: false
-        //   },
-        //
-        //   series: [{
-        //     name: 'Temperatures',
-        //     data: [
-        //       [-9.9, 10.3],
-        //       [-8.6, 8.5],
-        //       [-10.2, 11.8],
-        //       [-1.7, 12.2],
-        //       [-0.6, 23.1],
-        //       [3.7, 25.4],
-        //       [6.0, 26.2],
-        //       [6.7, 21.4],
-        //       [3.5, 19.5],
-        //       [-1.3, 16.0],
-        //       [-8.7, 9.4],
-        //       [-9.0, 8.6]
-        //     ]
-        //   }]
-        //
-        // })
+        this.horizontalOptions2 = {
+          title : {
+            text: 'Relative strengths and weaknesses',
+            subtext: 'How you compare to other lifters at your level'
+          },
+          tooltip : {
+            trigger: 'axis',
+            formatter: function(params: any[]) {
+              var you = params[0];
+              var strongWeakText = function(d: string | number) {
+                if (d >= 0) {
+                  return d + '% stronger';
+                } else {
+                  return Math.abs(<number>d) + '% weaker';
+                }
+              };
+              var strongerOrWeaker = you.data < 0 ? 'weaker' : 'stronger';
+              return '<div class="lift-vs-avg-tooltip"><div class="lift-name">' + you.name + '</div><div class="you"><span class="' + strongerOrWeaker + '">' + strongWeakText(you.data) + '</span> than the average<br />lifter at your level strength level</div></div>';
+            }
+          },
+          grid: {
+            x: 130,
+            x2: 20
+          },
+          calculable : false,
+          yAxis : [
+            {
+              type : 'category',
+              data : this.liftVsAverageChart.labels
+            }
+          ],
+          xAxis : [
+            {
+              type : 'value',
+              axisLabel : {
+                formatter : function(s: string | number) {
+                  if (s <= 0) {
+                    return s + '%';
+                  } else {
+                    return '+' + s + '%';
+                  }
+                }
+              },
+            }
+          ],
+          series : [
+            {
+              name:'Comparison to avg lifter',
+              type:'bar',
+              data: this.dataForChart,
+              itemStyle: {
+                normal: {
+                  color: function(params: { data: number; }) {
+                    var color1 = '#a94442';
+                    var color2 = '#3c7630';
+                    if (params.data < 0) {
+                      return color1;
+                    } else {
+                      return color2;
+                    }
+                  },
+                  label: {
+                    show: true,
+                    position: 'inside',
+                    textStyle: {
+                      fontWeight: 'bold'
+                    },
+                    formatter: function(params: { data: string | number; }) {
+                      if (params.data <= 0) {
+                        return params.data + '%';
+                      } else {
+                        return '+' + params.data + '%';
+                      }
+                    }
+                  }
+                }
+              }
+            },
+          ]
+        };
       } else {
         this.toastr.add({severity: 'error', summary: 'Error', detail: JSON.stringify(data.errors[0].message)})
       }
