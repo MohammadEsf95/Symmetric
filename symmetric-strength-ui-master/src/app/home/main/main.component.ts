@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {AnalyzeService} from "../shared/analyze.service";
 import {AnalyzeRequestDto} from "../shared/AnalyzeRequestDto";
 import {AnalyzeResponseDto} from "../shared/AnalyzeResponseDto";
@@ -17,7 +17,11 @@ import * as echarts from 'echarts';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
-export class MainComponent implements OnInit {
+export class MainComponent implements OnInit, AfterViewInit {
+  ngAfterViewInit(): void {
+    console.log('kopos',document.getElementById('strengthsAndWeaknessesChart'))
+    console.log('tala',this.strengthsAndWeaknessesChart)
+  }
 
   showResult: boolean = false;
   displayHelp: boolean = false;
@@ -131,8 +135,6 @@ export class MainComponent implements OnInit {
     }]
   }
 
-  @ViewChild('strengthsAndWeaknessesChart') strengthsAndWeaknessesChart!: ElementRef;
-
   hovering: any = {
     upperTraps: false,
     middleTraps: false,
@@ -162,7 +164,8 @@ export class MainComponent implements OnInit {
     private toastr: MessageService,
     private analyzeService: AnalyzeService,
     private strengthStandardService: StrengthStandardService,
-    private authService: AuthService
+    private authService: AuthService,
+    private changeDetector : ChangeDetectorRef
   ) {
     this.units = [
       {name: 'Metric', label: 'KG'},
@@ -243,6 +246,14 @@ export class MainComponent implements OnInit {
 
 
   dataForChart: any = [];
+  // @ts-ignore
+  private strengthsAndWeaknessesChartElRef: ElementRef;
+
+  @ViewChild('strengthsAndWeaknessesChart', {static:false}) set strengthsAndWeaknessesChart(content: ElementRef) {
+    if(content) {
+      this.strengthsAndWeaknessesChartElRef = content;
+    }
+  }
 
   ngOnInit(): void {
     if (localStorage.getItem('registerToken') != null) {
@@ -465,8 +476,10 @@ export class MainComponent implements OnInit {
           this.liftVsAverageChart.datasets[1].data.forEach((val: any) => this.dataForChart.push(val));
         })
 
-        console.log('kopos',document.getElementById('strengthsAndWeaknessesChart'))
-        console.log('tala',this.strengthsAndWeaknessesChart)
+        this.changeDetector.detectChanges()
+        console.log('****',this.strengthsAndWeaknessesChart)
+        setTimeout(() => { this.strengthsAndWeaknessesChart.nativeElement.focus(); })
+        console.log('*****',document.getElementById('strengthsAndWeaknessesChart'))
         this.liftVsAverageChart2 = echarts.init(document.getElementById('strengthsAndWeaknessesChart')!);
 
 
