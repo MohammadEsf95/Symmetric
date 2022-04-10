@@ -33,6 +33,10 @@ export class SetUsernameComponent implements OnInit {
 
   submit() {
     if(this.xAuthToken) {
+      if(!this.completeProfileDto.public_page || !this.completeProfileDto.hide_weight) {
+        this.completeProfileDto.public_page = false
+        this.completeProfileDto.hide_weight = false
+      }
       this.completeProfileDto.username = this.username;
       console.log(this.completeProfileDto)
       console.log(this.xAuthToken)
