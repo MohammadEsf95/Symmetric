@@ -1,4 +1,4 @@
-import {AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {AfterViewInit, ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {AnalyzeService} from "../shared/analyze.service";
 import {AnalyzeRequestDto} from "../shared/AnalyzeRequestDto";
 import {AnalyzeResponseDto} from "../shared/AnalyzeResponseDto";
@@ -9,19 +9,15 @@ import {StandardResponseDto} from "../../strength-standards/strength-standards/s
 import {MessageService} from "primeng/api";
 import {AuthService} from "../../shared/auth/auth.service";
 import * as Highcharts from 'highcharts';
-import {map} from "rxjs";
 import * as echarts from 'echarts';
+import {FriendsService} from "../shared/friends.service";
 
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
-export class MainComponent implements OnInit, AfterViewInit {
-  ngAfterViewInit(): void {
-    console.log('kopos',document.getElementById('strengthsAndWeaknessesChart'))
-    console.log('tala',this.strengthsAndWeaknessesChart)
-  }
+export class MainComponent implements OnInit {
 
   showResult: boolean = false;
   displayHelp: boolean = false;
@@ -88,9 +84,7 @@ export class MainComponent implements OnInit, AfterViewInit {
       text: 'Observed in Vik i Sogn, Norway, 2017'
     },
 
-    xAxis: {
-
-    },
+    xAxis: {},
 
     yAxis: {
       title: {
@@ -123,7 +117,7 @@ export class MainComponent implements OnInit, AfterViewInit {
         [8.5, -8.6],
         [11.8, -10.2],
         [12.2, -1.7],
-        [23.1 ,-0.6],
+        [23.1, -0.6],
         [25.4, 3.7],
         [26.2, 6.0],
         [21.4, 6.7],
@@ -134,6 +128,9 @@ export class MainComponent implements OnInit, AfterViewInit {
       ]
     }]
   }
+
+  //TODO Create friend objects
+  friends: any = [];
 
   hovering: any = {
     upperTraps: false,
@@ -165,7 +162,8 @@ export class MainComponent implements OnInit, AfterViewInit {
     private analyzeService: AnalyzeService,
     private strengthStandardService: StrengthStandardService,
     private authService: AuthService,
-    private changeDetector : ChangeDetectorRef
+    private friendsService: FriendsService,
+    private changeDetector: ChangeDetectorRef
   ) {
     this.units = [
       {name: 'Metric', label: 'KG'},
@@ -246,14 +244,6 @@ export class MainComponent implements OnInit, AfterViewInit {
 
 
   dataForChart: any = [];
-  // @ts-ignore
-  private strengthsAndWeaknessesChartElRef: ElementRef;
-
-  @ViewChild('strengthsAndWeaknessesChart', {static:false}) set strengthsAndWeaknessesChart(content: ElementRef) {
-    if(content) {
-      this.strengthsAndWeaknessesChartElRef = content;
-    }
-  }
 
   ngOnInit(): void {
     if (localStorage.getItem('registerToken') != null) {
@@ -262,6 +252,16 @@ export class MainComponent implements OnInit, AfterViewInit {
         this.authService.getUser(this.xAuthToken).subscribe(data => {
           if (data.success) {
             this.isLoggedIn = true;
+            if (this.xAuthToken != null) {
+              this.friendsService.getAllFriends(this.xAuthToken).subscribe(data => {
+                if (data.success) {
+                  this.friends = data.data;
+                  console.log('friends', this.friends)
+                } else {
+                  this.friends = [];
+                }
+              })
+            }
           }
         })
       }
@@ -353,6 +353,8 @@ export class MainComponent implements OnInit, AfterViewInit {
   //   console.log(this.selectedValue)
   //   // this.selectedValue = event.value.number + ' ' + this.selectedUnit.label
   // }
+  friendName: any;
+
   submit() {
 
     this.analyzeRequest.unitsystem = this.selectedUnit.name;
@@ -418,6 +420,11 @@ export class MainComponent implements OnInit, AfterViewInit {
           if (data.success) {
             this.response = data.data;
             this.showResult = true;
+            this.changeDetector.detectChanges()
+            // console.log('****',this.strengthsAndWeaknessesChart)
+            // setTimeout(() => { this.strengthsAndWeaknessesChart.nativeElement.focus(); })
+            console.log('*****', document.getElementById('strengthsAndWeaknessesChart'))
+            this.liftVsAverageChart2 = echarts.init(document.getElementById('strengthsAndWeaknessesChart')!);
           }
         })
         console.log('resp: ', this.analyzeResponse)
@@ -428,22 +435,22 @@ export class MainComponent implements OnInit, AfterViewInit {
           }
         })
         this.liftVsAverageChart.labels.forEach((val: string) => {
-          if(val === 'Back Squat') {
+          if (val === 'Back Squat') {
             this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.backSquat?.expected);
             this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.backSquat?.userScore);
-          } else if(val === 'Front Squat') {
+          } else if (val === 'Front Squat') {
             this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.frontSquat?.expected);
             this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.frontSquat?.userScore);
-          } else if(val === 'Deadlift') {
+          } else if (val === 'Deadlift') {
             this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.deadlift?.expected);
             this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.deadlift?.userScore);
-          } else if(val === 'Sumo Deadlift') {
+          } else if (val === 'Sumo Deadlift') {
             this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.sumoDeadlift?.expected);
             this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.sumoDeadlift?.userScore);
-          } else if(val === 'Power Clean') {
+          } else if (val === 'Power Clean') {
             this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.powerClean?.expected);
             this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.powerClean?.userScore);
-          } else if(val === 'Bench Press') {
+          } else if (val === 'Bench Press') {
             this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.benchPress?.expected);
             this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.benchPress?.userScore);
           } else if (val === 'Incline Bench Press') {
@@ -476,23 +483,17 @@ export class MainComponent implements OnInit, AfterViewInit {
           this.liftVsAverageChart.datasets[1].data.forEach((val: any) => this.dataForChart.push(val));
         })
 
-        this.changeDetector.detectChanges()
-        console.log('****',this.strengthsAndWeaknessesChart)
-        setTimeout(() => { this.strengthsAndWeaknessesChart.nativeElement.focus(); })
-        console.log('*****',document.getElementById('strengthsAndWeaknessesChart'))
-        this.liftVsAverageChart2 = echarts.init(document.getElementById('strengthsAndWeaknessesChart')!);
-
 
         this.horizontalOptions2 = {
-          title : {
+          title: {
             text: 'Relative strengths and weaknesses',
             subtext: 'How you compare to other lifters at your level'
           },
-          tooltip : {
+          tooltip: {
             trigger: 'axis',
-            formatter: function(params: any[]) {
+            formatter: function (params: any[]) {
               var you = params[0];
-              var strongWeakText = function(d: string | number) {
+              var strongWeakText = function (d: string | number) {
                 if (d >= 0) {
                   return d + '% stronger';
                 } else {
@@ -507,18 +508,18 @@ export class MainComponent implements OnInit, AfterViewInit {
             x: 130,
             x2: 20
           },
-          calculable : false,
-          yAxis : [
+          calculable: false,
+          yAxis: [
             {
-              type : 'category',
-              data : this.liftVsAverageChart.labels
+              type: 'category',
+              data: this.liftVsAverageChart.labels
             }
           ],
-          xAxis : [
+          xAxis: [
             {
-              type : 'value',
-              axisLabel : {
-                formatter : function(s: string | number) {
+              type: 'value',
+              axisLabel: {
+                formatter: function (s: string | number) {
                   if (s <= 0) {
                     return s + '%';
                   } else {
@@ -528,14 +529,14 @@ export class MainComponent implements OnInit, AfterViewInit {
               },
             }
           ],
-          series : [
+          series: [
             {
-              name:'Comparison to avg lifter',
-              type:'bar',
+              name: 'Comparison to avg lifter',
+              type: 'bar',
               data: this.dataForChart,
               itemStyle: {
                 normal: {
-                  color: function(params: { data: number; }) {
+                  color: function (params: { data: number; }) {
                     var color1 = '#a94442';
                     var color2 = '#3c7630';
                     if (params.data < 0) {
@@ -550,7 +551,7 @@ export class MainComponent implements OnInit, AfterViewInit {
                     textStyle: {
                       fontWeight: 'bold'
                     },
-                    formatter: function(params: { data: string | number; }) {
+                    formatter: function (params: { data: string | number; }) {
                       if (params.data <= 0) {
                         return params.data + '%';
                       } else {
@@ -692,4 +693,48 @@ export class MainComponent implements OnInit, AfterViewInit {
       return 'Subpar';
     }
   };
+
+  addFriend() {
+    if (this.xAuthToken != null) {
+      let friend = {"username" : this.friendName}
+      this.friendsService.addFriend(this.xAuthToken, friend).subscribe(data => {
+        if (data.success && this.xAuthToken != null) {
+          this.toastr.add({severity:'success', summary:'Successfully', detail:'Successfully added!'})
+          this.friendsService.getAllFriends(this.xAuthToken).subscribe(data => {
+            if(data.success) {
+              this.friends = data.data;
+            } else {
+              this.toastr.add({severity: 'error', summary: 'Error', detail: JSON.stringify(data.errors[0].message)})
+            }
+          })
+        } else {
+          this.toastr.add({severity: 'error', summary: 'Error', detail: JSON.stringify(data.errors[0].message)})
+        }
+      })
+    }
+    this.friendName = '';
+  }
+
+  removeFriend(username: string) {
+    let friend = {"username" : username}
+    if (this.xAuthToken != null) {
+      this.friendsService.removeFriend(this.xAuthToken, friend).subscribe(data => {
+        if(data.success) {
+          this.toastr.add({severity:'success', summary:'Successfully', detail:'Successfully removed'})
+          if (this.xAuthToken != null) {
+            this.friendsService.getAllFriends(this.xAuthToken).subscribe(data => {
+              if(data.success) {
+                this.friends = data.data;
+              } else {
+                this.friends = [];
+                this.toastr.add({severity: 'error', summary: 'Error', detail: JSON.stringify(data.errors[0].message)})
+              }
+            })
+          }
+        } else {
+          this.toastr.add({severity: 'error', summary: 'Error', detail: JSON.stringify(data.errors[0].message)})
+        }
+      })
+    }
+  }
 }

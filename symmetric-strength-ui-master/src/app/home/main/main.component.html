@@ -66,23 +66,78 @@
           </div>
         </div>
       </div>
-      <div
-        ng-class="{'col-md-12': pageType === 'defaultPublic' || pageType === 'loggedInPublic', 'col-md-4': pageType === 'loggedIn'}"
-        class="col-md-4">
-        <div class="portlet light">
-          <div class="portlet-title">
-            <div class="caption caption-md"><span
-              class="caption-subject theme-font bold uppercase">Latest saved lifts</span>
+      <div class="col-12 grid">
+        <div class="xl:col-4 lg:col-4 md:col-8 sm:col-12 col-12">
+          <div class="portlet light">
+            <div class="portlet-title">
+              <div class="caption caption-md"><span
+                class="caption-subject theme-font bold uppercase">Latest saved lifts</span>
+              </div>
+            </div>
+            <div class="portlet-body ng-scope"
+                 ng-if="!mainCtrl.state.lastSavedLiftFields &amp;&amp; !mainCtrl.state.waitingForLastSaved" style="">
+              <div class="alert alert-info">You haven't saved any lifts yet! Enter your lifts below, then click "Analyze
+                and Log Lifts".
+              </div>
+            </div><!-- end ngIf: !mainCtrl.state.lastSavedLiftFields && !mainCtrl.state.waitingForLastSaved -->
+          </div>
+        </div>
+        <div class="xl:col-4 lg:col-4 md:col-8 sm:col-12 col-12">
+          <div class="portlet light friends-stats">
+            <div class="portlet-title">
+              <div class="caption caption-md">
+                <span class="caption-subject theme-font bold uppercase">Friends</span>
+              </div>
+            </div>
+            <div class="portlet-body">
+              <div class="col-md-12"><!-- ngIf: friendsStatsCtrl.state.friendData.length > 0 -->
+                <!-- ngIf: friendsStatsCtrl.state.friendData.length > 0 -->
+                <!-- ngIf: !friendsStatsCtrl.state.loadingFriendData && friendsStatsCtrl.state.friendData.length === 0 -->
+                <div class="row ng-scope"
+                     *ngIf="friends.length == 0"
+                     style="">
+                  <div class="col-md-12">
+                    <div class="alert alert-info">You haven't added any friends yet! Add a friend by entering their username
+                      below.
+                    </div>
+                  </div>
+                </div>
+                <div class="row ng-scope"
+                     *ngIf="friends.length > 0"
+                     style="">
+                  <div class="col-12">
+                    <div class="col-12 grid" *ngFor="let friend of friends">
+                      <div class="col-6" style="display:flex;"><div style="justify-content: center; align-items: center;display: flex">{{friend.username}}</div></div>
+                      <div class="col-6"><button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-sm" (click)="removeFriend(friend.username)"></button></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-7">
+                    <div class="form-group form-md-line-input form-md-floating-label"
+                         ng-class="{'has-error':friendsStatsCtrl.state.addFriendError}">
+                      <div class="input-group">
+                        <div class="input-group-control">
+                          <label for="form_control_1">Username</label>
+                          <input id="form_control_1" class="form-control input-sm ng-pristine ng-untouched ng-valid"
+                          [(ngModel)]="friendName"
+                          ng-class="{'edited':friendsStatsCtrl.state.newFriendUsername}" type="text">
+                        </div>
+                        <span class="input-group-btn btn-right">
+                          <button class="btn btn-sm green-haze" (click)="addFriend()" type="button">
+                            Add friend<i class="fa fa-plus"></i></button></span>
+                      </div>
+                      <span class="help-block ng-binding" ng-bind="friendsStatsCtrl.state.addFriendError"></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="portlet-body ng-scope"
-               ng-if="!mainCtrl.state.lastSavedLiftFields &amp;&amp; !mainCtrl.state.waitingForLastSaved" style="">
-            <div class="alert alert-info">You haven't saved any lifts yet! Enter your lifts below, then click "Analyze
-              and Log Lifts".
-            </div>
-          </div><!-- end ngIf: !mainCtrl.state.lastSavedLiftFields && !mainCtrl.state.waitingForLastSaved -->
+
         </div>
       </div>
+
       <!-- ngIf: pageType === 'loggedIn' && mainCtrl.state.lastSavedLiftFields -->
     </div>
   </div>
@@ -253,16 +308,19 @@
             <div>
               <span *ngIf="analyzeResponse.categories.floorPull"
                     class="lift-category-stats ng-binding">{{analyzeResponse.categories.floorPull}}</span>
-              <span *ngIf="analyzeResponse.categories.floorPull" class="lift-category-classification ng-binding">{{compareStrengthScore(analyzeResponse.categories.floorPull)}}</span>
+              <span *ngIf="analyzeResponse.categories.floorPull"
+                    class="lift-category-classification ng-binding">{{compareStrengthScore(analyzeResponse.categories.floorPull)}}</span>
               <span *ngIf="!analyzeResponse.categories.floorPull" class="lift-category-classification ng-binding">[Not entered]</span>
             </div>
             <div><span *ngIf="analyzeResponse.categories.horizontalPress"
                        class="lift-category-stats ng-binding">{{analyzeResponse.categories.horizontalPress}}</span>
-              <span *ngIf="analyzeResponse.categories.horizontalPress" class="lift-category-classification ng-binding">{{compareStrengthScore(analyzeResponse.categories.horizontalPress)}}</span>
+              <span *ngIf="analyzeResponse.categories.horizontalPress"
+                    class="lift-category-classification ng-binding">{{compareStrengthScore(analyzeResponse.categories.horizontalPress)}}</span>
               <span *ngIf="!analyzeResponse.categories.horizontalPress" class="lift-category-classification ng-binding">[Not entered]</span>
             </div>
             <div><span class="lift-category-stats ng-binding">{{analyzeResponse.categories.verticalPress}}</span>
-              <span *ngIf="analyzeResponse.categories.verticalPress" class="lift-category-classification ng-binding">{{compareStrengthScore(analyzeResponse.categories.verticalPress)}}</span>
+              <span *ngIf="analyzeResponse.categories.verticalPress"
+                    class="lift-category-classification ng-binding">{{compareStrengthScore(analyzeResponse.categories.verticalPress)}}</span>
               <span *ngIf="!analyzeResponse.categories.verticalPress" class="lift-category-classification ng-binding">[Not entered]</span>
             </div>
             <div><span *ngIf="analyzeResponse.categories.pullup"
@@ -322,7 +380,7 @@
           <div class="portlet-body">
             <p-tabView>
               <p-tabPanel header="Relative strengths and weaknesses">
-                <div #strengthsAndWeaknessesChart></div>
+                <div id="strengthsAndWeaknessesChart"></div>
               </p-tabPanel>
               <p-tabPanel header="Lifts vs average">
                 <div class="card">
@@ -352,38 +410,45 @@
               <!--              TODO data-title="{{tooltip('forearms')}}" is removed-->
               <path [ngClass]="{'active':hovering.forearms}" (mouseenter)="hovering.forearms = true"
                     (mouseleave)="hovering.forearms=false"
-                    class="{{analyzeResponse.scoreClass | scoreClassPipe}}" matTooltip="Enter your username" tooltipPosition="top"
+                    class="{{analyzeResponse.scoreClass | scoreClassPipe}}" matTooltip="Enter your username"
+                    tooltipPosition="top"
                     data-container="#canvas-container"
                     d="M 277.00,276.00 L 284.50,268.12 293.12,273.75 298.75,260.00 306.18,247.87 310.38,232.00 312.00,243.75 314.12,259.43 316.38,264.38 318.79,295.55 319.88,358.88 311.64,356.17 300.50,355.12 297.75,357.25 282.23,315.03 278.12,295.62 277.00,276.00 Z"/>
               <path [ngClass]="{'active':hovering.forearms}"
                     (mouseenter)="hovering.forearms = true"
                     (mouseleave)="hovering.forearms=false"
-                    class="{{analyzeResponse.scoreClass | scoreClassPipe}}" matTooltip="Enter your username" tooltipPosition="top"
+                    class="{{analyzeResponse.scoreClass | scoreClassPipe}}" matTooltip="Enter your username"
+                    tooltipPosition="top"
                     data-container="#canvas-container"
                     d="M 106.75,252.62 L 101.88,262.38 98.88,271.25 93.75,285.12 92.88,295.88 90.25,311.88 82.00,355.14 88.88,355.50 102.25,360.62 113.88,341.50 126.88,320.00 134.50,303.12 138.88,288.12 138.88,270.62 127.12,265.00 111.25,277.92 106.87,266.25 106.75,252.62 Z"/>
               <path [ngClass]="{'active': hovering.calves}"
                     (mouseenter)="hovering.calves=true" (mouseleave)="hovering.calves=false"
-                    class="{{analyzeResponse.muscleGroups!.calves | scoreClassPipe}}" matTooltip="Enter your username" tooltipPosition="top"
+                    class="{{analyzeResponse.muscleGroups!.calves | scoreClassPipe}}" matTooltip="Enter your username"
+                    tooltipPosition="top"
                     data-container="#canvas-container"
                     d="M 143.50,550.00 L 149.00,583.00 151.75,601.50 154.00,624.25 156.50,641.75 164.50,690.00 148.00,693.75 145.50,642.25 141.00,613.75 138.50,582.25 143.50,550.00 Z"/>
               <path [ngClass]="{'active':hovering.calves}"
                     (mouseenter)="hovering.calves=true" (mouseleave)="hovering.calves=false"
-                    class="{{analyzeResponse.muscleGroups!.calves | scoreClassPipe}}" matTooltip="Enter your username" tooltipPosition="top"
+                    class="{{analyzeResponse.muscleGroups!.calves | scoreClassPipe}}" matTooltip="Enter your username"
+                    tooltipPosition="top"
                     data-container="#canvas-container"
                     d="M 181.50,559.50 L 176.75,568.75 169.50,578.50 166.50,587.25 164.75,601.75 165.75,623.25 167.75,650.50 174.25,673.50 177.50,649.00 178.75,625.00 184.00,613.75 186.50,603.75 185.50,583.75 181.50,559.50 Z"/>
               <path [ngClass]="{'active':hovering.calves}"
                     (mouseenter)="hovering.calves=true" (mouseleave)="hovering.calves=false"
-                    class="{{analyzeResponse.muscleGroups!.calves | scoreClassPipe}}" matTooltip="Enter your username" tooltipPosition="top"
+                    class="{{analyzeResponse.muscleGroups!.calves | scoreClassPipe}}" matTooltip="Enter your username"
+                    tooltipPosition="top"
                     data-container="#canvas-container"
                     d="M 227.75,564.75 L 237.00,580.75 240.50,591.50 242.00,618.75 241.75,646.25 241.75,655.75 238.25,665.00 234.75,646.25 233.50,623.50 226.50,605.25 226.50,583.50 227.75,564.75 Z"/>
               <path [ngClass]="{'active':hovering.calves}"
                     (mouseenter)="hovering.calves=true" (mouseleave)="hovering.calves=false"
-                    class="{{analyzeResponse.muscleGroups!.calves | scoreClassPipe}}" matTooltip="Enter your username" tooltipPosition="top"
+                    class="{{analyzeResponse.muscleGroups!.calves | scoreClassPipe}}" matTooltip="Enter your username"
+                    tooltipPosition="top"
                     data-html="true" data-container="#canvas-container"
                     d="M 260.25,545.75 L 257.00,579.00 254.25,594.50 254.00,621.75 250.75,633.25 250.50,648.75 244.25,688.75 259.25,692.50 264.00,690.00 267.75,620.00 270.75,594.50 269.75,568.50 266.75,552.25 260.25,545.75 Z"/>
               <path [ngClass]="{'active':hovering.triceps}"
                     (mouseenter)="hovering.triceps=true" (mouseleave)="hovering.triceps=false"
-                    class="{{analyzeResponse.muscleGroups!.triceps | scoreClassPipe}}" matTooltip="Enter your username" tooltipPosition="top"
+                    class="{{analyzeResponse.muscleGroups!.triceps | scoreClassPipe}}" matTooltip="Enter your username"
+                    tooltipPosition="top"
                     data-container="#canvas-container" d="M 138.88,270.12 L 143.25,260.12 140.88,234.12"/>
               <path [ngClass]="{'active':hovering.hipFlexors}"
                     (mouseenter)="hovering.hipFlexors=true"
@@ -476,7 +541,7 @@
               <path [ngClass]="{'active':hovering.quads}" (mouseenter)="hovering.quads=true"
                     (mouseleave)="hovering.quads=false"
                     class="{{analyzeResponse.muscleGroups!.quads | scoreClassPipe}}" bs-tooltip data-animation="none"
-                     data-html="true" data-container="#canvas-container"
+                    data-html="true" data-container="#canvas-container"
                     d="M 155.75,347.25 L 149.75,369.50 141.50,386.50 133.50,400.00 128.75,411.00 123.75,435.75 122.00,457.50 125.25,485.75 132.00,501.75 136.75,510.25 139.50,526.00 143.50,515.75 143.50,505.75 141.00,500.50 152.00,500.50 155.00,512.00 158.00,523.75 162.75,529.75 168.25,529.75 174.75,525.00 178.25,516.25 177.00,497.00 173.25,469.00 172.75,458.25 163.00,421.00 156.25,377.00 155.75,347.25 Z"/>
               <path [ngClass]="{'active':hovering.sideDelts}"
                     (mouseenter)="hovering.sideDelts=true" (mouseleave)="hovering.sideDelts=false"
@@ -708,7 +773,7 @@
               <path [ngClass]="{'active':hovering.biceps}"
                     (mouseenter)="hovering.biceps=true" (mouseleave)="hovering.biceps=false"
                     class="{{analyzeResponse.muscleGroups!.biceps | scoreClassPipe}}" bs-tooltip data-animation="none"
-                   data-html="true" data-container="#canvas-container"
+                    data-html="true" data-container="#canvas-container"
                     d="M 294.25,215.25 L 297.00,231.75 298.62,260.38 293.12,273.88 284.62,268.12 277.25,276.12 277.25,255.88 272.38,237.25 268.38,219.88 268.38,188.50 269.36,179.19 287.38,203.00 294.25,215.25 Z"/>
               <path [ngClass]="{'active':hovering.triceps}"
                     (mouseenter)="hovering.triceps=true" (mouseleave)="hovering.triceps=false"
