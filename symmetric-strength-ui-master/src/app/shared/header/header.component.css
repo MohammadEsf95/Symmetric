@@ -36,6 +36,12 @@
   padding-left : 300px;
 }
 
+@media screen and (max-width: 960px) {
+  :host ::ng-deep .p-menubar .p-menubar-root-list {
+    padding-left: 0;
+  }
+}
+
 :host ::ng-deep .p-menuitem-text {
   color: white!important;
 }
