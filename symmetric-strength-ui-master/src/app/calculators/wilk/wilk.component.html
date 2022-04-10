@@ -1,17 +1,17 @@
 <div class="col-12 main-background">
-  <div class="xl:col-8 lg:col-8 md:col-10 sm:col-12 center content">
+  <div class="xl:col-8 lg:col-8 md:col-10 sm:col-12 col-12 center content">
     <div class="col-12 grid">
-      <div class="xl:col-4 lg:col-4 md:col-4 sm:col-12" style="padding-left: 5px">
+      <div class="xl:col-4 lg:col-4 md:col-4 sm:col-12 col-12" style="padding-left: 5px">
         <label for="units" class="input-label">Units</label>
         <p-dropdown id="units" [options]="units" [(ngModel)]="selectedUnit" styleClass="dropdown-def"
                     placeholder="Select Unit" optionLabel="name"></p-dropdown>
       </div>
-      <div class="xl:col-4 lg:col-4 md:col-4 sm:col-12" style="padding-left: 5px">
+      <div class="xl:col-4 lg:col-4 md:col-4 sm:col-12 col-12" style="padding-left: 5px">
         <label for="genders" class="input-label">Sex</label>
         <p-dropdown id="genders" [options]="genders" [(ngModel)]="selectedGender" styleClass="dropdown-def"
                     optionLabel="type"></p-dropdown>
       </div>
-      <div class="xl:col-4 lg:col-4 md:col-4 sm:col-12" style="margin-top: 23px">
+      <div class="xl:col-4 lg:col-4 md:col-4 sm:col-12 col-12" style="margin-top: 23px">
               <span class="p-float-label">
             <p-inputNumber [min]="0" [(ngModel)]="bodyWeight" [showButtons]="true" inputId="bodyweight"
                            [suffix]="' ' + selectedUnit.label">
@@ -25,10 +25,10 @@
           style="font-size: 15px;color: #888;display: block;margin-top: 2px">If you enter more than one rep, Symmetric
           Strength will estimate your one rep max.</small></h2>
         <div class="col-12 grid">
-          <div class="xl:col-4 lg:col-3 md:col-12 sm:col-12">
+          <div class="xl:col-4 lg:col-3 md:col-12 sm:col-12 col-12">
             <h5 class="lift-title">Back Squat</h5>
           </div>
-          <div class="xl:col-4 lg:col-5 md:col-12 sm:col-12 general-margin-top-10">
+          <div class="xl:col-4 lg:col-5 md:col-12 sm:col-12 col-12 general-margin-top-10">
               <span class="p-float-label">
             <p-inputNumber [min]="0" [(ngModel)]="backSquatWeight" [showButtons]="true" inputId="backSquatWeight"
                            [suffix]="' ' + selectedUnit.label">
@@ -36,7 +36,7 @@
             <label for="backSquatWeight">Weight {{selectedUnit.label}}</label>
             </span>
           </div>
-          <div class="xl:col-4 lg:col-4 md:col-12 sm:col-12 general-margin-top-10">
+          <div class="xl:col-4 lg:col-4 md:col-12 sm:col-12 col-12 general-margin-top-10">
             <span class="p-float-label">
             <p-inputNumber id="backSquatReps" [min]="1" [(ngModel)]="backSquatReps" [showButtons]="true"
                            inputId="backSquatReps">
@@ -46,10 +46,10 @@
           </div>
         </div>
         <div class="col-12 grid">
-          <div class="xl:col-4 lg:col-3 md:col-12 sm:col-12">
+          <div class="xl:col-4 lg:col-3 md:col-12 sm:col-12 col-12">
             <h5 class="lift-title">Bench Press</h5>
           </div>
-          <div class="xl:col-4 lg:col-5 md:col-12 sm:col-12 general-margin-top-10">
+          <div class="xl:col-4 lg:col-5 md:col-12 sm:col-12 col-12 general-margin-top-10">
               <span class="p-float-label">
             <p-inputNumber [min]="0" [(ngModel)]="benchPressWeight" [showButtons]="true" inputId="benchPressWeight"
                            [suffix]="' ' + selectedUnit.label">
@@ -57,7 +57,7 @@
             <label for="benchPressWeight">Weight {{selectedUnit.label}}</label>
             </span>
           </div>
-          <div class="xl:col-4 lg:col-4 md:col-12 sm:col-12 general-margin-top-10">
+          <div class="xl:col-4 lg:col-4 md:col-12 sm:col-12 col-12 general-margin-top-10">
             <span class="p-float-label">
             <p-inputNumber id="benchPressReps" [min]="1" [(ngModel)]="benchPressReps" [showButtons]="true"
                            inputId="benchPressReps">
@@ -67,10 +67,10 @@
           </div>
         </div>
         <div class="col-12 grid">
-          <div class="xl:col-4 lg:col-3 md:col-12 sm:col-12">
+          <div class="xl:col-4 lg:col-3 md:col-12 sm:col-12 col-12">
             <h5 class="lift-title">Deadlift</h5>
           </div>
-          <div class="xl:col-4 lg:col-5 md:col-12 sm:col-12 general-margin-top-10">
+          <div class="xl:col-4 lg:col-5 md:col-12 sm:col-12 col-12 general-margin-top-10">
               <span class="p-float-label">
             <p-inputNumber [min]="0" [(ngModel)]="deadlift" [showButtons]="true" inputId="deadlift"
                            [suffix]="' ' + selectedUnit.label">
@@ -78,7 +78,7 @@
             <label for="deadlift">Weight {{selectedUnit.label}}</label>
             </span>
           </div>
-          <div class="xl:col-4 lg:col-4 md:col-12 sm:col-12 general-margin-top-10">
+          <div class="xl:col-4 lg:col-4 md:col-12 sm:col-12 col-12 general-margin-top-10">
             <span class="p-float-label">
             <p-inputNumber id="deadliftReps" [min]="1" [(ngModel)]="deadliftReps" [showButtons]="true"
                            inputId="deadliftReps">
@@ -93,7 +93,7 @@
       </div>
     </div>
   </div>
-  <div *ngIf="showResult" class="xl:col-8 lg:col-8 md:col-10 sm:col-12 center content" style="margin-top: 20px;  margin-bottom: 20px;">
+  <div *ngIf="showResult" class="xl:col-8 lg:col-8 md:col-10 sm:col-12 col-12 center content" style="margin-top: 20px;  margin-bottom: 20px;">
     <div class="col-12">
       <div class="portlet light"><div class="portlet-body"><div class="row list-separated more-stats-items"><div class="col-md-3 col-xs-6"><div class="item-name font-grey-mint font-lg">Wilks</div>
         <div class="font-massive font-red-flamingo ng-binding">{{wilksCalcResp.wilks}}</div>

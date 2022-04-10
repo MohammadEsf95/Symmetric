@@ -1,26 +1,26 @@
 <div class="col-12 main-background">
-  <div class="xl:col-8 lg:col-8 md:col-10 sm:col-12 center content">
+  <div class="xl:col-8 lg:col-8 md:col-10 sm:col-12 col-12 center content">
     <div class="col-12 grid">
-      <div class="xl:col-3 lg:col-4 md:col-4 sm:col-12 col-12" style="padding-left: 5px">
+      <div class="xl:col-3 lg:col-4 md:col-4 sm:col-12 col-12 general-margin-top-10" style="padding-left: 5px">
         <label for="units" class="input-label">Units</label>
         <p-dropdown id="units" [options]="units" [(ngModel)]="selectedUnit" styleClass="dropdown-def"
                     placeholder="Select Unit" optionLabel="name"></p-dropdown>
       </div>
-      <div class="xl:col-3 lg:col-4 md:col-4 sm:col-12 col-12" style="padding-left: 5px">
+      <div class="xl:col-3 lg:col-4 md:col-4 sm:col-12 col-12 general-margin-top-10" style="padding-left: 5px">
         <label for="genders" class="input-label">Sex</label>
         <p-dropdown id="genders" [options]="genders" [(ngModel)]="selectedGender" styleClass="dropdown-def"
                     optionLabel="type"></p-dropdown>
       </div>
-      <div class="xl:col-3 lg:col-4 md:col-4 sm:col-12 col-12" style="position: relative">
-            <span class="p-float-label" style="bottom: 8px; position: absolute;">
+      <div class="xl:col-3 lg:col-4 md:col-4 sm:col-12 col-12" style="padding-left: 5px;margin-top: 33px;">
+            <span class="p-float-label">
+                          <label for="age">Age (Optional)</label>
             <p-inputNumber id="age" [min]="0" [(ngModel)]="age" [showButtons]="true" inputId="age">
             </p-inputNumber>
-            <label for="age">Age (Optional)</label>
             </span>
       </div>
     </div>
     <div class="col-12 grid">
-      <div class="col-8 activityLevel" style="padding-left: 5px;">
+      <div class="col-8 activityLevel general-margin-top-10" style="padding-left: 5px;">
         <label for="activityLevel" class="input-label">Activity Level</label>
         <p-dropdown id="activityLevel" [options]="activityLevels" [(ngModel)]="selectedActivity"
                     styleClass="dropdown-def"
@@ -75,56 +75,83 @@
     </div>
     <div class="col-12">
       <div class="note"><strong>Note:</strong>
-        Entering your body fat percentage is optional and is only used to fine-tune your TDEE estimate.</div>
+        Entering your body fat percentage is optional and is only used to fine-tune your TDEE estimate.
+      </div>
     </div>
     <div class="col-12">
       <p-button label="Calculate TDEE" (onClick)="submit()"></p-button>
     </div>
   </div>
-  <div *ngIf="showResponse" class="xl:col-8 lg:col-8 md:col-10 sm:col-12 col-12 center content" style="margin-top: 20px; margin-bottom: 20px">
+  <div *ngIf="showResponse" class="xl:col-8 lg:col-8 md:col-10 sm:col-12 col-12 center content"
+       style="margin-top: 20px; margin-bottom: 20px">
     <div class="col-12">
-      <div class="portlet light"><div class="portlet-body"><div class="row list-separated more-stats-items"><div class="col-md-3 col-xs-6"><div class="item-name font-grey-mint font-lg">TDEE</div>
-        <div class="font-massive font-red-flamingo ng-binding">{{tdeeResp.tdee}}<span class="font-hg font-grey-mint">&nbsp;calories</span>
+      <div class="portlet light">
+        <div class="portlet-body">
+          <div class="row list-separated more-stats-items">
+            <div class="col-md-3 col-xs-6">
+              <div class="item-name font-grey-mint font-lg">TDEE</div>
+              <div class="font-massive font-red-flamingo ng-binding">{{tdeeResp.tdee}}<span
+                class="font-hg font-grey-mint">&nbsp;calories</span>
+              </div>
+            </div>
+          </div>
+          <p>The TDEE above is the amount of calories you need to eat in order to maintain your current weight. Below
+            are caloric intake suggestions to lose or gain weight:</p>
+          <div class="row list-separated more-stats-items">
+            <div class="col-md-3 col-xs-6">
+              <div class="item-name font-grey-mint font-md ng-binding">Lose 0.5 lbs per week</div>
+              <div class="font-hg font-red-flamingo ng-binding">{{tdeeResp.cutSuperSlowCalories}}<span
+                class="font-md font-grey-mint">&nbsp;calories</span>
+              </div>
+            </div>
+            <div class="col-md-3 col-xs-6">
+              <div class="item-name font-grey-mint font-md ng-binding">Lose 1 lb per week</div>
+              <div class="font-hg font-red-flamingo ng-binding">{{tdeeResp.cutSlowCalories}}<span
+                class="font-md font-grey-mint">&nbsp;calories</span>
+              </div>
+            </div>
+            <div class="col-md-3 col-xs-6">
+              <div class="item-name font-grey-mint font-md ng-binding">Lose 1.5 lbs per week</div>
+              <div class="font-hg font-red-flamingo ng-binding">{{tdeeResp.cutFastCalories}}<span
+                class="font-md font-grey-mint">&nbsp;calories</span>
+              </div>
+            </div>
+            <div class="col-md-3 col-xs-6">
+              <div class="item-name font-grey-mint font-md ng-binding">Lose 2 lbs per week</div>
+              <div class="font-hg font-red-flamingo ng-binding">{{tdeeResp.cutSuperFastCalories}}<span
+                class="font-md font-grey-mint">&nbsp;calories</span>
+              </div>
+            </div>
+            <div class="col-md-3 col-xs-6">
+              <div class="item-name font-grey-mint font-md ng-binding">Gain 0.5 lbs per week</div>
+              <div class="font-hg font-red-flamingo ng-binding">{{tdeeResp.bulkSuperSlowCalories}}<span
+                class="font-md font-grey-mint">&nbsp;calories</span>
+              </div>
+            </div>
+            <div class="col-md-3 col-xs-6">
+              <div class="item-name font-grey-mint font-md ng-binding">Gain 1 lb per week</div>
+              <div class="font-hg font-red-flamingo ng-binding">{{tdeeResp.bulkSlowCalories}}<span
+                class="font-md font-grey-mint">&nbsp;calories</span>
+              </div>
+            </div>
+            <div class="col-md-3 col-xs-6">
+              <div class="item-name font-grey-mint font-md ng-binding">Gain 1.5 lbs per week</div>
+              <div class="font-hg font-red-flamingo ng-binding">{{tdeeResp.bulkFastCalories}}<span
+                class="font-md font-grey-mint">&nbsp;calories</span>
+              </div>
+            </div>
+            <div class="col-md-3 col-xs-6">
+              <div class="item-name font-grey-mint font-md ng-binding">Gain 2 lbs per week</div>
+              <div class="font-hg font-red-flamingo ng-binding">{{tdeeResp.bulkSuperFastCalories}}<span
+                class="font-md font-grey-mint">&nbsp;calories</span>
+              </div>
+            </div>
+          </div>
+          <div class="note note-info"><p>The total daily energy expenditure above is an estimate only. To find your true
+            energy expenditure, track your caloric intake for a period of time, then track your weight loss or weight
+            gain and adjust accordingly.</p>
+          </div>
         </div>
-      </div>
-      </div>
-        <p>The TDEE above is the amount of calories you need to eat in order to maintain your current weight. Below are caloric intake suggestions to lose or gain weight:</p>
-        <div class="row list-separated more-stats-items"><div class="col-md-3 col-xs-6"><div class="item-name font-grey-mint font-md ng-binding">Lose 0.5 lbs per week</div>
-          <div class="font-hg font-red-flamingo ng-binding">{{tdeeResp.cutSuperSlowCalories}}<span class="font-md font-grey-mint">&nbsp;calories</span>
-          </div>
-        </div>
-          <div class="col-md-3 col-xs-6"><div class="item-name font-grey-mint font-md ng-binding">Lose 1 lb per week</div>
-            <div class="font-hg font-red-flamingo ng-binding">{{tdeeResp.cutSlowCalories}}<span class="font-md font-grey-mint">&nbsp;calories</span>
-            </div>
-          </div>
-          <div class="col-md-3 col-xs-6"><div class="item-name font-grey-mint font-md ng-binding">Lose 1.5 lbs per week</div>
-            <div class="font-hg font-red-flamingo ng-binding">{{tdeeResp.cutFastCalories}}<span class="font-md font-grey-mint">&nbsp;calories</span>
-            </div>
-          </div>
-          <div class="col-md-3 col-xs-6"><div class="item-name font-grey-mint font-md ng-binding">Lose 2 lbs per week</div>
-            <div class="font-hg font-red-flamingo ng-binding">{{tdeeResp.cutSuperFastCalories}}<span class="font-md font-grey-mint">&nbsp;calories</span>
-            </div>
-          </div>
-          <div class="col-md-3 col-xs-6"><div class="item-name font-grey-mint font-md ng-binding">Gain 0.5 lbs per week</div>
-            <div class="font-hg font-red-flamingo ng-binding">{{tdeeResp.bulkSuperSlowCalories}}<span class="font-md font-grey-mint">&nbsp;calories</span>
-            </div>
-          </div>
-          <div class="col-md-3 col-xs-6"><div class="item-name font-grey-mint font-md ng-binding">Gain 1 lb per week</div>
-            <div class="font-hg font-red-flamingo ng-binding">{{tdeeResp.bulkSlowCalories}}<span class="font-md font-grey-mint">&nbsp;calories</span>
-            </div>
-          </div>
-          <div class="col-md-3 col-xs-6"><div class="item-name font-grey-mint font-md ng-binding">Gain 1.5 lbs per week</div>
-            <div class="font-hg font-red-flamingo ng-binding">{{tdeeResp.bulkFastCalories}}<span class="font-md font-grey-mint">&nbsp;calories</span>
-            </div>
-          </div>
-          <div class="col-md-3 col-xs-6"><div class="item-name font-grey-mint font-md ng-binding">Gain 2 lbs per week</div>
-            <div class="font-hg font-red-flamingo ng-binding">{{tdeeResp.bulkSuperFastCalories}}<span class="font-md font-grey-mint">&nbsp;calories</span>
-            </div>
-          </div>
-        </div>
-        <div class="note note-info"><p>The total daily energy expenditure above is an estimate only. To find your true energy expenditure, track your caloric intake for a period of time, then track your weight loss or weight gain and adjust accordingly.</p>
-        </div>
-      </div>
       </div>
     </div>
   </div>

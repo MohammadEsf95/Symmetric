@@ -1,19 +1,19 @@
 <div class="col-12 main-background">
   <div class="xl:col-8 lg:col-8 md:col-10 sm:col-12 center content">
     <div class="col-12 grid">
-      <div class="xl:col-3 lg:col-3 md:col-12 sm:col-12">
+      <div class="xl:col-3 lg:col-3 md:col-12 sm:col-12 col-12">
         <label for="units" class="input-label">Units</label>
         <p-dropdown id="units" [options]="units" [(ngModel)]="selectedUnit" styleClass="dropdown-def"
                     placeholder="Select Unit" optionLabel="name"></p-dropdown>
       </div>
-      <div class="xl:col-3 lg:col-3 md:col-12 sm:col-12 inches-and-sex">
+      <div class="xl:col-3 lg:col-3 md:col-12 sm:col-12 col-12 inches-and-sex">
         <label for="genders" class="input-label">Sex</label>
         <p-dropdown id="genders" [options]="genders" [(ngModel)]="selectedGender" styleClass="dropdown-def"
                     optionLabel="type"></p-dropdown>
       </div>
     </div>
     <div class="col-12 grid">
-      <div *ngIf="selectedUnit.name == 'Imperial'" class="xl:col-3 lg:col-3 md:col-12 sm:col-12">
+      <div *ngIf="selectedUnit.name == 'Imperial'" class="xl:col-3 lg:col-3 md:col-12 sm:col-12 col-12">
               <span class="p-float-label">
             <p-inputNumber [min]="0" [(ngModel)]="feet" [showButtons]="true" inputId="feet"
                            [suffix]="' ft'">
@@ -21,7 +21,7 @@
             <label for="feet">Feet</label>
             </span>
       </div>
-      <div *ngIf="selectedUnit.name == 'Imperial'" class="xl:col-3 lg:col-3 md:col-12 sm:col-12 inches-and-sex">
+      <div *ngIf="selectedUnit.name == 'Imperial'" class="xl:col-3 lg:col-3 md:col-12 sm:col-12 col-12 inches-and-sex">
               <span class="p-float-label">
             <p-inputNumber [min]="0" [(ngModel)]="inches" [showButtons]="true" inputId="inches"
                            [suffix]="' in'">
@@ -29,7 +29,7 @@
             <label for="bodyweight">Inches</label>
             </span>
       </div>
-      <div *ngIf="selectedUnit.name == 'Metric'" class="xl:col-3 lg:col-3 md:col-12 sm:col-12">
+      <div *ngIf="selectedUnit.name == 'Metric'" class="xl:col-3 lg:col-3 md:col-12 sm:col-12 col-12">
               <span class="p-float-label">
             <p-inputNumber [min]="0" [(ngModel)]="centimeters" [showButtons]="true" inputId="centimeters"
                            [suffix]="' cm'">
@@ -42,7 +42,7 @@
       <p-button label="Calculate Ideal Bodyweight" (onClick)="submit()"></p-button>
     </div>
   </div>
-  <div *ngIf="showResult" class="xl:col-8 lg:col-8 md:col-10 sm:col-12 center content" style="margin-top: 20px; margin-bottom: 20px">
+  <div *ngIf="showResult" class="xl:col-8 lg:col-8 md:col-10 sm:col-12 col-12 center content" style="margin-top: 20px; margin-bottom: 20px">
     <div class="col-12">
       <div class="portlet light">
         <div class="portlet-body"><!-- ngIf: idealBodyweightCtrl.state.results.sex === 'Male' -->
