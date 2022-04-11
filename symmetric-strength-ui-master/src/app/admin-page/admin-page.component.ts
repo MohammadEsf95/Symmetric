@@ -13,7 +13,6 @@ export class AdminPageComponent implements OnInit {
   page: number = 0;
   pageSize: number = 10;
   users: UserDto[] = [];
-  selectedUser: any = {};
   xAuthToken: string | null = '';
   totalRecords: number = 0;
 
