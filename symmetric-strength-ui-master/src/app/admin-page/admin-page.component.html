@@ -5,9 +5,9 @@
       <hr>
     </div>
     <div class="card">
-      <h5>Session Storage</h5>
-      <p-table #dt1 [value]="users" selectionMode="single" [(selection)]="selectedUser" dataKey="id" styleClass="p-datatable-customers" responsiveLayout="scroll"
-               [rows]="10" [paginator]="true" stateStorage="session" stateKey="statedemo-session" [totalRecords]="totalRecords">
+      <h5>User list</h5>
+      <p-table [value]="users" selectionMode="single" [(selection)]="selectedUser" dataKey="id" styleClass="p-datatable-customers" responsiveLayout="scroll"
+               [rows]="10" [paginator]="true" (onLazyLoad)="loadData()" [totalRecords]="totalRecords">
         <ng-template pTemplate="header">
           <tr>
             <th pSortableColumn="username">Username <p-sortIcon field="username"></p-sortIcon></th>

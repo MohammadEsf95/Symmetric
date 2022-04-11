@@ -10,6 +10,8 @@ import {MessageService} from "primeng/api";
 })
 export class AdminPageComponent implements OnInit {
 
+  page: number = 0;
+  pageSize: number = 10;
   users: UserDto[] = [];
   selectedUser: any = {};
   xAuthToken: string | null = '';
@@ -23,9 +25,10 @@ export class AdminPageComponent implements OnInit {
   ngOnInit(): void {
     this.xAuthToken = localStorage.getItem('registerToken');
     if(this.xAuthToken) {
-      this.adminService.getAllUsers(this.xAuthToken, 1,5).subscribe(data => {
+      this.adminService.getAllUsers(this.xAuthToken, this.page,this.pageSize).subscribe(data => {
         if(data.success) {
           this.users = data.data.docs;
+          this.page = data.data.page;
           this.totalRecords = data.data.totalDocs;
           console.log('kit ', this.totalRecords)
         } else {
@@ -37,4 +40,13 @@ export class AdminPageComponent implements OnInit {
     }
   }
 
+  loadData() {
+    this.page = this.page + 1;
+    if (this.xAuthToken != null) {
+      this.adminService.getAllUsers(this.xAuthToken, this.page, this.pageSize).subscribe(data => {
+        this.users = data.data.docs;
+        this.page = data.data.page;
+      })
+    }
+  }
 }
