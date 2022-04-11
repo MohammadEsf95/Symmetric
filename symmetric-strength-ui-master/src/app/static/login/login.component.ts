@@ -17,7 +17,8 @@ export class LoginComponent implements OnInit {
   loading = [false, false, false, false]
   loginForm: FormGroup | undefined;
   socialUser: SocialUser | undefined;
-  isLoggedin: boolean = false;
+  isLoggedIn: boolean = false;
+  isAdmin: boolean = false;
   signInDto: SignInDto = {};
 
   constructor(
@@ -36,7 +37,7 @@ export class LoginComponent implements OnInit {
     });
     this.socialAuthService.authState.subscribe((user) => {
       this.socialUser = user;
-      this.isLoggedin = (user != null);
+      this.isLoggedIn = (user != null);
       console.log(this.socialUser);
     });
   }
@@ -47,10 +48,17 @@ export class LoginComponent implements OnInit {
     this.authService.signIn(this.signInDto).subscribe((data) =>
     {
       if(data.success == true) {
-      this.socialUser = data;
-      localStorage.setItem('registerToken', data.data.token)
-      this.toastr.add({severity:'success', summary:'Successfully', detail:'Successfully logged in!'});
-      this.router.navigate(['/'])
+        if(data.data.user.is_admin) {
+          this.isAdmin = true;
+          localStorage.setItem('registerToken', data.data.token)
+          console.log('kir ', this.isAdmin)
+          this.router.navigate(['/admin'])
+        } else {
+          this.socialUser = data;
+          localStorage.setItem('registerToken', data.data.token)
+          this.toastr.add({severity:'success', summary:'Successfully', detail:'Successfully logged in!'});
+          this.router.navigate(['/'])
+        }
     } else {
       this.toastr.add({severity:'error', summary:'Error', detail: JSON.stringify(data.errors[0].message)})
     }

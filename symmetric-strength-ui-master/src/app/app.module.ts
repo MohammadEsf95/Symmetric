@@ -20,12 +20,14 @@ import {MessageService} from "primeng/api";
 import {ToastModule} from "primeng/toast";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ScrollTopModule} from 'primeng/scrolltop';
+import {AdminTemplateComponent} from './layouts/admin-template/admin-template.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PublicTemplateComponent,
-    UserTemplateComponent
+    UserTemplateComponent,
+    AdminTemplateComponent,
   ],
   imports: [
     BrowserModule,
