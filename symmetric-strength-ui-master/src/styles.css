@@ -1031,3 +1031,7 @@ muscle-figure-male, #muscle-figure-female path.world-class.active {
   /*fill: shade($cWorldClass, 25%);*/
   /*stroke: shade($cWorldClass, 50%);*/
 }
+
+.overflow-auto {
+  overflow: auto;
+}
