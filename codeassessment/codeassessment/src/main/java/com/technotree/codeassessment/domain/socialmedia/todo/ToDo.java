@@ -1,12 +1,14 @@
 package com.technotree.codeassessment.domain.socialmedia.todo;
 
-import com.technotree.codeassessment.domain.socialmedia.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "todos")
@@ -25,7 +27,4 @@ public class ToDo {
     @Column(name = "completed")
     private Boolean completed;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
 }

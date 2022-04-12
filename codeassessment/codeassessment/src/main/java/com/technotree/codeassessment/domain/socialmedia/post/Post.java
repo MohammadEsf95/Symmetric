@@ -1,7 +1,6 @@
 package com.technotree.codeassessment.domain.socialmedia.post;
 
 import com.technotree.codeassessment.domain.socialmedia.comment.Comment;
-import com.technotree.codeassessment.domain.socialmedia.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -27,9 +26,8 @@ public class Post {
     @Column(name = "body")
     private String body;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @Column(name = "user_id")
+    private Integer userId;
 
     @OneToMany(mappedBy = "post")
     private Set<Comment> comments;
