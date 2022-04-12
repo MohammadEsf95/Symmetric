@@ -4,11 +4,8 @@ import com.technotree.codeassessment.application.socialmedia.post.PostService;
 import com.technotree.codeassessment.domain.socialmedia.post.Post;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.web.client.RestTemplateBuilder;
-import org.springframework.context.annotation.Bean;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpMethod;
@@ -34,10 +31,9 @@ public class RetrievePosts implements CommandLineRunner {
     @Value("todos.path")
     private String todosUrl;
 
-    @Autowired
-    public RetrievePosts(PostService postService, RestTemplateBuilder restTemplateBuilder) {
+    public RetrievePosts(RestTemplate restTemplate, PostService postService) {
+        this.restTemplate = restTemplate;
         this.postService = postService;
-        this.restTemplate = restTemplateBuilder.build();
     }
 
 
