@@ -1,6 +1,7 @@
 package com.technotree.codeassessment.infrastructure.config;
 
 import com.technotree.codeassessment.application.socialmedia.comment.CommentService;
+import com.technotree.codeassessment.application.socialmedia.comment.dto.CommentDTO;
 import com.technotree.codeassessment.domain.socialmedia.comment.Comment;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,16 +35,14 @@ public class RetrieveComments implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        ResponseEntity<Set<Comment>> responseEntity = restTemplate.exchange(
+        ResponseEntity<Set<CommentDTO>> responseEntity = restTemplate.exchange(
                 commentsUrl,
                 HttpMethod.GET,
                 null,
-                new ParameterizedTypeReference<Set<Comment>>() {}
+                new ParameterizedTypeReference<Set<CommentDTO>>() {}
         );
 
-        Set<Comment> comments = responseEntity.getBody();
+        Set<CommentDTO> comments = responseEntity.getBody();
         commentService.saveAllComments(comments);
-        assert comments != null;
-        comments.forEach(comment -> logger.info(comment.toString()));
     }
 }

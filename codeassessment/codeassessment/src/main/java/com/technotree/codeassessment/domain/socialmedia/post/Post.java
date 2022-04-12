@@ -33,4 +33,9 @@ public class Post {
 
     @OneToMany(mappedBy = "post")
     private Set<Comment> comments;
+
+    public Post updateComments(Comment comment) {
+        this.comments.add(comment);
+        return this;
+    }
 }
