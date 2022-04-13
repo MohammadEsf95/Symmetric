@@ -21,7 +21,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let user of users" class="ng-scope">
+        <tr *ngFor="let user of users" class="ng-scope" (click)="goToUserInfo(user._id)">
         <td class="ng-binding">Back Squat
           <!-- ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
         <td class="ng-binding">{{user.username}}</td>

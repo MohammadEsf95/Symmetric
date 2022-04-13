@@ -21,4 +21,17 @@ export class AdminService {
       })
     );
   }
+
+  getUserInfo(xAuthToken: string, page: number, pageSize: number, userId: string): Observable<any> {
+    return this.http.get(this.endpoint + 'admin/get-user-lifts?page=' +
+      page + "&page_size=" + pageSize + "&user_id=" + userId,
+      {
+      headers: new HttpHeaders({'Content-Type': 'application/json','x-auth-token' : xAuthToken})
+    }).pipe(
+      catchError(err => {
+        console.log('Handling error and rethrowing it...', err);
+        return throwError(err);
+      })
+    );
+  }
 }

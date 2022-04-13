@@ -19,6 +19,7 @@ export class AdminPageComponent implements OnInit {
   totalRecords: number = 0;
   totalPages: number = 0;
   hasNextPage: boolean = false;
+  userId: string = '';
 
   constructor(
     private adminService: AdminService,
@@ -38,7 +39,6 @@ export class AdminPageComponent implements OnInit {
           this.hasNextPage = data.data.hasNextPage;
           this.totalPages = data.data.totalPages;
           this.totalRecords = data.data.totalDocs;
-          console.log('kit ', this.totalRecords)
           this.changeDetector.detectChanges();
         } else {
           this.toastr.add({severity: 'error', summary: 'Error', detail: JSON.stringify(data.errors[0].message)})
@@ -51,7 +51,6 @@ export class AdminPageComponent implements OnInit {
 
   loadData(event: any) {
     if (this.hasNextPage) {
-      console.log('here')
       this.page = event.page + 1;
       if (this.xAuthToken != null) {
         this.adminService.getAllUsers(this.xAuthToken, this.page, this.pageSize).subscribe(data => {
@@ -73,5 +72,15 @@ export class AdminPageComponent implements OnInit {
   logout() {
     this.authService.logout();
     this.route.navigate(['/'])
+  }
+
+  goToUserInfo(event: any) {
+    this.userId = event;
+    console.log(event)
+    if (this.xAuthToken != null) {
+      this.adminService.getUserInfo(this.xAuthToken, 0, 5, this.userId).subscribe(data => {
+        console.log(data)
+      })
+    }
   }
 }
