@@ -12,7 +12,7 @@ export class AdminService {
   }
 
   getAllUsers(xAuthToken: string, page: number, pageSize: number): Observable<any> {
-    return this.http.get(this.endpoint + 'admin/get-all-user?page=' + page + "&pageSize=" + pageSize, {
+    return this.http.get(this.endpoint + 'admin/get-all-user?page=' + page + "&page_size=" + pageSize, {
       headers: new HttpHeaders({'Content-Type': 'application/json','x-auth-token' : xAuthToken})
     }).pipe(
       catchError(err => {
