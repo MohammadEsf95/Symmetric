@@ -4,6 +4,7 @@ import {AdminService} from "./admin.service";
 import {MessageService} from "primeng/api";
 import { AuthService } from '../shared/auth/auth.service';
 import {Router} from "@angular/router";
+import {UserInfoDto} from "./UserInfoDto";
 
 @Component({
   selector: 'app-admin-page',
@@ -20,6 +21,8 @@ export class AdminPageComponent implements OnInit {
   totalPages: number = 0;
   hasNextPage: boolean = false;
   userId: string = '';
+  display: boolean = false;
+  userInfoDto: UserInfoDto[] = [];
 
   constructor(
     private adminService: AdminService,
@@ -76,10 +79,16 @@ export class AdminPageComponent implements OnInit {
 
   goToUserInfo(event: any) {
     this.userId = event;
-    console.log(event)
     if (this.xAuthToken != null) {
       this.adminService.getUserInfo(this.xAuthToken, 0, 5, this.userId).subscribe(data => {
         console.log(data)
+        if(data.success) {
+          this.userInfoDto = data.data.docs;
+          console.log('kir: ', this.userInfoDto)
+          this.display = true;
+        } else {
+          this.toastr.add({severity:'error', summary:'Error', detail: JSON.stringify(data.errors[0].message)})
+        }
       })
     }
   }

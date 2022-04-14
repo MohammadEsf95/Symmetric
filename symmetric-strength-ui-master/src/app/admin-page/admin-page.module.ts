@@ -5,6 +5,8 @@ import {TableModule} from "primeng/table";
 import {PaginatorModule} from "primeng/paginator";
 import {CommonModule} from "@angular/common";
 import {ButtonModule} from "primeng/button";
+import {DialogModule} from "primeng/dialog";
+import {DynamicDialogModule} from "primeng/dynamicdialog";
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import {ButtonModule} from "primeng/button";
     TableModule,
     PaginatorModule,
     CommonModule,
-    ButtonModule
+    ButtonModule,
+    DialogModule,
+    DynamicDialogModule,
   ]
 })
 export class AdminPageModule {}

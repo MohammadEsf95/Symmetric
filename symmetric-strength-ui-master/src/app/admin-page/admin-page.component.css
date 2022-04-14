@@ -15,3 +15,22 @@
   transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
   box-shadow: none;
 }
+
+:host ::ng-deep .dialog_btn .p-button {
+  color: white;
+  background-color: #59b7b0;
+  border-color: #3a9c95;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  font-size: 18px
+}
+
+:host ::ng-deep .dialog_btn .p-button:hover {
+  background-color: #3a9c95;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+:host ::ng-deep .dialog_btn .p-button:focus {
+  background-color: #3a9c95;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  box-shadow: none;
+}
