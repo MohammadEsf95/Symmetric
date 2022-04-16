@@ -12,10 +12,6 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "todos")
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@ToString
 public class ToDo {
 
     @Id
@@ -27,4 +23,33 @@ public class ToDo {
     @Column(name = "completed")
     private Boolean completed;
 
+    public ToDo() {
+    }
+
+    public ToDo(Integer id, String title, Boolean completed) {
+        this.id = id;
+        this.title = title;
+        this.completed = completed;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public Boolean getCompleted() {
+        return completed;
+    }
+
+    @Override
+    public String toString() {
+        return "ToDo{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", completed=" + completed +
+                '}';
+    }
 }

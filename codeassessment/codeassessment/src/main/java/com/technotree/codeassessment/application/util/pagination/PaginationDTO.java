@@ -10,8 +10,7 @@ public class PaginationDTO implements Serializable {
     public static Pageable pageable(int page, int pageSize) {
         return PageRequest.of(
                 page - 1,
-                pageSize,
-                Sort.by("updateDate").descending()
+                pageSize
         );
     }
 }

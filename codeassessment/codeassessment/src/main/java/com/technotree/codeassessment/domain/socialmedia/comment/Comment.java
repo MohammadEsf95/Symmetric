@@ -10,10 +10,6 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "comments")
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@ToString
 public class Comment {
 
     @Id
@@ -31,4 +27,46 @@ public class Comment {
     @ManyToOne
     @JoinColumn(name = "post_id")
     private Post post;
+
+    public Comment() {
+    }
+
+    public Comment(Integer id, String name, String email, String body, Post post) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.body = body;
+        this.post = post;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getBody() {
+        return body;
+    }
+
+    public Post getPost() {
+        return post;
+    }
+
+    @Override
+    public String toString() {
+        return "Comment{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", email='" + email + '\'' +
+                ", body='" + body + '\'' +
+                ", post=" + post +
+                '}';
+    }
 }
