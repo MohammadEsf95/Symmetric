@@ -1,10 +1,5 @@
 package com.technotree.codeassessment.domain.socialmedia.todo;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -17,6 +12,9 @@ public class ToDo {
     @Id
     private Integer id;
 
+    @Column(name = "user_id")
+    private Integer userId;
+
     @Column(name = "title")
     private String title;
 
@@ -26,14 +24,19 @@ public class ToDo {
     public ToDo() {
     }
 
-    public ToDo(Integer id, String title, Boolean completed) {
+    public ToDo(Integer id, Integer userId, String title, Boolean completed) {
         this.id = id;
+        this.userId = userId;
         this.title = title;
         this.completed = completed;
     }
 
     public Integer getId() {
         return id;
+    }
+
+    public Integer getUserId() {
+        return userId;
     }
 
     public String getTitle() {
