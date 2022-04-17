@@ -8,14 +8,21 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
 public class PostDTO {
     private Integer userId;
     private Integer id;
     private String title;
     private String body;
+
+    public PostDTO() {
+    }
+
+    public PostDTO(Integer userId, Integer id, String title, String body) {
+        this.userId = userId;
+        this.id = id;
+        this.title = title;
+        this.body = body;
+    }
 
     public static PostDTO fromPost(Post post) {
         return new PostDTO(
@@ -30,5 +37,21 @@ public class PostDTO {
         return posts.stream()
                 .map(PostDTO::fromPost)
                 .collect(Collectors.toList());
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getBody() {
+        return body;
     }
 }

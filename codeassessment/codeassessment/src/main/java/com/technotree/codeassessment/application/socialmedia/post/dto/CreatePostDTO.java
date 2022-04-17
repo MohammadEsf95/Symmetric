@@ -1,7 +1,6 @@
 package com.technotree.codeassessment.application.socialmedia.post.dto;
 
 import com.technotree.codeassessment.domain.socialmedia.post.Post;
-import lombok.AllArgsConstructor;
 
 import java.util.HashSet;
 

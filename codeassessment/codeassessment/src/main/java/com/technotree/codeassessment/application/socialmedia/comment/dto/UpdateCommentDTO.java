@@ -14,6 +14,9 @@ public class UpdateCommentDTO {
         this.body = body;
     }
 
+    public UpdateCommentDTO() {
+    }
+
     public int getId() {
         return id;
     }

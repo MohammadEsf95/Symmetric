@@ -17,6 +17,9 @@ public class CreateCommentDTO {
         this.body = body;
     }
 
+    public CreateCommentDTO() {
+    }
+
     public Integer getPostId() {
         return postId;
     }

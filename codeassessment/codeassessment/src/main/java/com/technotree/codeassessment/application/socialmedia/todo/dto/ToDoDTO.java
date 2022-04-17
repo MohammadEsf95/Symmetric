@@ -18,6 +18,9 @@ public class ToDoDTO {
         this.completed = completed;
     }
 
+    public ToDoDTO() {
+    }
+
     public int getId() {
         return id;
     }

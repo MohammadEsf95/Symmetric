@@ -23,8 +23,8 @@ public class CommentController {
     @GetMapping
     public ResponseEntity<Object> findAll(
             @RequestParam(required = false) Integer postId,
-            @RequestParam(required = false) int page,
-            @RequestParam(required = false) int pageSize
+            @RequestParam(required = false, defaultValue = "1") Integer page,
+            @RequestParam(required = false, defaultValue = "10") Integer pageSize
     ) {
         return ResponseEntityUtil.generateSuccessfulRequestResponseEntity(
                 new SuccessfulRequestResponseEntity<>(

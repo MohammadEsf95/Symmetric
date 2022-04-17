@@ -2,12 +2,10 @@ package com.technotree.codeassessment;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
-import com.technotree.codeassessment.application.socialmedia.post.PostService;
-import com.technotree.codeassessment.application.socialmedia.post.dto.CreatePostDTO;
-import com.technotree.codeassessment.application.socialmedia.post.dto.UpdatePostDTO;
-import com.technotree.codeassessment.domain.socialmedia.post.Post;
-import com.technotree.codeassessment.domain.socialmedia.post.PostJpaRepository;
-import com.technotree.codeassessment.presentation.controller.PostController;
+import com.technotree.codeassessment.application.socialmedia.comment.CommentService;
+import com.technotree.codeassessment.application.socialmedia.comment.dto.CreateCommentDTO;
+import com.technotree.codeassessment.application.socialmedia.comment.dto.UpdateCommentDTO;
+import com.technotree.codeassessment.presentation.controller.CommentController;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,25 +19,20 @@ import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilde
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import java.util.HashSet;
-
 import static org.hamcrest.Matchers.notNullValue;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(MockitoJUnitRunner.class)
-public class PostControllerTest {
+public class CommentControllerTest {
 
     private MockMvc mockMvc;
 
     @Mock
-    private PostService postService;
-
-    @Mock
-    private PostJpaRepository postJpaRepository;
+    private CommentService commentService;
 
     @InjectMocks
-    private PostController postController;
+    private CommentController commentController;
 
     ObjectMapper mapper = new ObjectMapper();
     ObjectWriter objectWriter = mapper.writer();
@@ -47,38 +40,42 @@ public class PostControllerTest {
     @Before
     public void initializeData() {
         MockitoAnnotations.openMocks(this);
-        this.mockMvc = MockMvcBuilders.standaloneSetup(postController).build();
+        this.mockMvc = MockMvcBuilders.standaloneSetup(commentController).build();
     }
 
     @Test
     public void findAll_success() throws Exception {
 
         mockMvc.perform(MockMvcRequestBuilders
-                        .get("/posts")
+                        .get("/comments")
+                        .queryParam("page", "1")
+                        .queryParam("pageSize", "10")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
 
     @Test
-    public void findById_success() throws Exception {
+    public void findByPostId_success() throws Exception {
 
         mockMvc.perform(MockMvcRequestBuilders
-                        .get("/posts/1")
+                        .get("/comments")
+                        .queryParam("postId","1")
                         .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
 
     @Test
     public void create_success() throws Exception {
-        CreatePostDTO createPostDTO = new CreatePostDTO(
-                "title",
-                "body",
-                1
+        CreateCommentDTO createCommentDTO = new CreateCommentDTO(
+                1,
+                "name",
+                "email",
+                "body"
         );
 
-        String content = objectWriter.writeValueAsString(createPostDTO);
+        String content = objectWriter.writeValueAsString(createCommentDTO);
 
-        MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.post("/posts")
+        MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.post("/comments")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(content);
 
@@ -90,11 +87,11 @@ public class PostControllerTest {
     @Test
     public void update_success() throws Exception {
 
-        UpdatePostDTO updatePostDTO = new UpdatePostDTO("changedTitle","body",1, 1);
+        UpdateCommentDTO updateCommentDTO = new UpdateCommentDTO(1, "changedTitle", "email", "body");
 
-        String content = objectWriter.writeValueAsString(updatePostDTO);
+        String content = objectWriter.writeValueAsString(updateCommentDTO);
 
-        MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.patch("/posts")
+        MockHttpServletRequestBuilder mockRequest = MockMvcRequestBuilders.patch("/comments")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(content);
 
@@ -106,8 +103,8 @@ public class PostControllerTest {
     @Test
     public void deleteSuccess() throws Exception {
         mockMvc.perform(MockMvcRequestBuilders
-                .delete("/posts/1")
-                .contentType(MediaType.APPLICATION_JSON))
+                        .delete("/comments/1")
+                        .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
 }
