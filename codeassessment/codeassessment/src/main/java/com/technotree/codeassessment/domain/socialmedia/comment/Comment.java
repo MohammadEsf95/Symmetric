@@ -1,10 +1,6 @@
 package com.technotree.codeassessment.domain.socialmedia.comment;
 
 import com.technotree.codeassessment.domain.socialmedia.post.Post;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -68,5 +64,16 @@ public class Comment {
                 ", body='" + body + '\'' +
                 ", post=" + post +
                 '}';
+    }
+
+    public Comment update(
+            String name,
+            String email,
+            String body
+    ) {
+        this.name = name;
+        this.email = email;
+        this.body = body;
+        return this;
     }
 }
