@@ -22,9 +22,6 @@ public class RetrieveComments implements CommandLineRunner {
 
     @Value("${comments.path}")
     private String commentsUrl;
-
-    private static final Logger logger = LoggerFactory.getLogger(RetrievePosts.class);
-
     private final CommentService commentService;
     private final RestTemplate restTemplate;
 
