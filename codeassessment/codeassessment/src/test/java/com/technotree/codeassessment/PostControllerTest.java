@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 import com.technotree.codeassessment.application.socialmedia.post.PostService;
 import com.technotree.codeassessment.application.socialmedia.post.dto.CreatePostDTO;
 import com.technotree.codeassessment.application.socialmedia.post.dto.UpdatePostDTO;
-import com.technotree.codeassessment.domain.socialmedia.post.Post;
 import com.technotree.codeassessment.domain.socialmedia.post.PostJpaRepository;
 import com.technotree.codeassessment.presentation.controller.PostController;
 import org.junit.Before;
@@ -20,8 +19,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilder;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
-
-import java.util.HashSet;
 
 import static org.hamcrest.Matchers.notNullValue;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
