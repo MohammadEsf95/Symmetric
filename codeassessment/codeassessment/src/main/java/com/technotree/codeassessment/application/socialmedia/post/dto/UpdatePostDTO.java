@@ -4,6 +4,9 @@ public class UpdatePostDTO extends CreatePostDTO {
 
     private Integer id;
 
+    public UpdatePostDTO() {
+    }
+
     public UpdatePostDTO(String title, String body, Integer userId, Integer id) {
         super(title, body, userId);
         this.id = id;
