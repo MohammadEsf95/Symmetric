@@ -380,7 +380,8 @@
           <div class="portlet-body">
             <p-tabView>
               <p-tabPanel header="Relative strengths and weaknesses">
-                <div id="strengthsAndWeaknessesChart"></div>
+<!--                <div id="strengthsAndWeaknessesChart"></div>-->
+                <div echarts [options]="chartOption" class="demo-chart"></div>
               </p-tabPanel>
               <p-tabPanel header="Lifts vs average">
                 <div class="card">

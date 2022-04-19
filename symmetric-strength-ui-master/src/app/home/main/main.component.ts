@@ -11,6 +11,7 @@ import {AuthService} from "../../shared/auth/auth.service";
 import * as Highcharts from 'highcharts';
 import * as echarts from 'echarts';
 import {FriendsService} from "../shared/friends.service";
+import {EChartsOption} from "echarts";
 
 @Component({
   selector: 'app-main',
@@ -131,6 +132,22 @@ export class MainComponent implements OnInit {
 
   //TODO Create friend objects
   friends: any = [];
+
+  chartOption: EChartsOption = {
+    xAxis: {
+      type: 'category',
+      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+    },
+    yAxis: {
+      type: 'value',
+    },
+    series: [
+      {
+        data: [820, 932, 901, 934, 1290, 1330, 1320],
+        type: 'line',
+      },
+    ],
+  };
 
   hovering: any = {
     upperTraps: false,

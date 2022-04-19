@@ -156,6 +156,10 @@
   }
 }
 
+.demo-chart {
+  height: 400px;
+}
+
 input, label {
   display:block;
 }

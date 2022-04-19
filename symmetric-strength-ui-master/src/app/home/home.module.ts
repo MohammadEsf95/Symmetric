@@ -15,6 +15,7 @@ import {ScoreClassPipe} from "../shared/pipes/score-class.pipe";
 import {TooltipModule} from 'primeng/tooltip';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {NgxEchartsModule} from "ngx-echarts";
 
 
 @NgModule({
@@ -35,7 +36,15 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
     TabViewModule,
     HighchartsChartModule,
     TooltipModule,
-    MatTooltipModule
+    MatTooltipModule,
+    NgxEchartsModule.forRoot({
+      /**
+       * This will import all modules from echarts.
+       * If you only need custom modules,
+       * please refer to [Custom Build] section.
+       */
+      echarts: () => import('echarts'), // or import('./path-to-my-custom-echarts')
+    })
   ],
   providers: [
 
