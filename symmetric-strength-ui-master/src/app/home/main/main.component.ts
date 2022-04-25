@@ -1,4 +1,4 @@
-import {AfterViewInit, ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {AnalyzeService} from "../shared/analyze.service";
 import {AnalyzeRequestDto} from "../shared/AnalyzeRequestDto";
 import {AnalyzeResponseDto} from "../shared/AnalyzeResponseDto";
@@ -10,8 +10,8 @@ import {MessageService} from "primeng/api";
 import {AuthService} from "../../shared/auth/auth.service";
 import * as Highcharts from 'highcharts';
 import * as echarts from 'echarts';
+import {EChartsOption} from 'echarts';
 import {FriendsService} from "../shared/friends.service";
-import {EChartsOption} from "echarts";
 
 @Component({
   selector: 'app-main',
@@ -56,7 +56,6 @@ export class MainComponent implements OnInit {
   horizontalOptions: any;
   horizontalOptions2: any;
   liftVsAverageChart: any;
-  liftVsAverageChart2: any;
   reps: any = [];
   rounds: any = [];
   selectedRep: any = {};
@@ -64,6 +63,8 @@ export class MainComponent implements OnInit {
   response: StandardResponseDto = {};
   isLoggedIn: boolean = false;
   xAuthToken: string | null = '';
+  aboveAvg: number[] = [];
+  belowAvg: number[] = [];
 
   highcharts = Highcharts;
 
@@ -133,21 +134,65 @@ export class MainComponent implements OnInit {
   //TODO Create friend objects
   friends: any = [];
 
-  chartOption: EChartsOption = {
-    xAxis: {
-      type: 'category',
-      data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+  option: EChartsOption = {
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: {
+        type: 'shadow'
+      }
     },
-    yAxis: {
-      type: 'value',
+    legend: {
+      data: ['Expenses', 'Income']
     },
+    grid: {
+      left: '3%',
+      right: '4%',
+      bottom: '3%',
+      containLabel: true
+    },
+    xAxis: [
+      {
+        type: 'value'
+      }
+    ],
+    yAxis: [
+      {
+        type: 'category',
+        axisTick: {
+          show: false
+        },
+        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+      }
+    ],
     series: [
       {
-        data: [820, 932, 901, 934, 1290, 1330, 1320],
-        type: 'line',
+        name: 'Income',
+        type: 'bar',
+        stack: 'Total',
+        label: {
+          show: true
+        },
+        emphasis: {
+          focus: 'series'
+        },
+        data: this.aboveAvg
       },
-    ],
+      {
+        name: 'Expenses',
+        type: 'bar',
+        stack: 'Total',
+        label: {
+          show: true,
+          position: 'left'
+        },
+        emphasis: {
+          focus: 'series'
+        },
+        data: this.belowAvg
+      }
+    ]
   };
+
 
   hovering: any = {
     upperTraps: false,
@@ -207,59 +252,6 @@ export class MainComponent implements OnInit {
       {value: 10, label: '10 rep maxes'},
     ]
   }
-
-  // Highcharts: typeof Highcharts = Highcharts;
-  // chartOptions: Highcharts.Options = {
-  //
-  //   chart: {
-  //     renderTo: 'mohsen',
-  //     marginLeft: 100,
-  //     //  plotAreaWidth: 50,
-  //     //   plotAreaHeight: 450,
-  //   },
-  //
-  //   title: {
-  //     text: 'Bar series - data sorting'
-  //   },
-  //
-  //   yAxis: {
-  //     title: {
-  //       text: ''
-  //     }
-  //   },
-  //
-  //   xAxis: {
-  //     type: 'category',
-  //     min: 0,
-  //     labels: {
-  //       // animate: false
-  //     }
-  //   },
-  //
-  //   legend: {
-  //     enabled: false
-  //   },
-  //
-  //   series: [{
-  //     type: 'bar',
-  //     zoneAxis: 'x',
-  //     zones: [{
-  //       value: 2,
-  //       color: 'red'
-  //     }],
-  //     dataLabels: {
-  //       enabled: true,
-  //       format: '{y:,.2f}'
-  //     },
-  //     dataSorting: {
-  //       enabled: true,
-  //       sortKey: 'y'
-  //     },
-  //     data: [["hello", 1], ["hello", 1], ["hello", 1], ["hello", 1],]
-  //   }]
-  // }
-
-
   dataForChart: any = [];
 
   ngOnInit(): void {
@@ -440,8 +432,6 @@ export class MainComponent implements OnInit {
             this.changeDetector.detectChanges()
             // console.log('****',this.strengthsAndWeaknessesChart)
             // setTimeout(() => { this.strengthsAndWeaknessesChart.nativeElement.focus(); })
-            console.log('*****', document.getElementById('strengthsAndWeaknessesChart'))
-            this.liftVsAverageChart2 = echarts.init(document.getElementById('strengthsAndWeaknessesChart')!);
           }
         })
         console.log('resp: ', this.analyzeResponse)
@@ -455,6 +445,8 @@ export class MainComponent implements OnInit {
           if (val === 'Back Squat') {
             this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.backSquat?.expected);
             this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.backSquat?.userScore);
+            this.aboveAvg.push(<number>this.analyzeResponse.lifts?.backSquat?.userScore);
+            this.belowAvg.push(<number>this.analyzeResponse.lifts?.backSquat?.expected);
           } else if (val === 'Front Squat') {
             this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.frontSquat?.expected);
             this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.frontSquat?.userScore);
@@ -500,6 +492,7 @@ export class MainComponent implements OnInit {
           this.liftVsAverageChart.datasets[1].data.forEach((val: any) => this.dataForChart.push(val));
         })
 
+        echarts.init(document.getElementById('strengthsAndWeaknessesChart')!);
 
         this.horizontalOptions2 = {
           title: {
