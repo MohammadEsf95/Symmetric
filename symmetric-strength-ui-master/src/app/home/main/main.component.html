@@ -152,7 +152,11 @@
         <div class="xl:col-6 lg:col-9 md:col-10 sm:col-12 col-12" style="margin-top: 10px">
           <label for="values" class="input-label">Round calculation to nearest</label>
           <p-dropdown id="values" [options]="values" [(ngModel)]="selectedValue" styleClass="dropdown-def"
-                      placeholder="Select Weight" optionLabel="number"></p-dropdown>
+                      placeholder="Select Weight" optionLabel="number">
+            <ng-template let-option pTemplate="item">
+              {{option.number + ' ' +selectedUnit.label}}
+            </ng-template>
+          </p-dropdown>
         </div>
       </div>
     </div>
