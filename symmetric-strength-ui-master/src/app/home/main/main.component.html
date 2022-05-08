@@ -97,7 +97,8 @@
                      *ngIf="friends.length == 0"
                      style="">
                   <div class="col-md-12">
-                    <div class="alert alert-info">You haven't added any friends yet! Add a friend by entering their username
+                    <div class="alert alert-info">You haven't added any friends yet! Add a friend by entering their
+                      username
                       below.
                     </div>
                   </div>
@@ -107,8 +108,15 @@
                      style="">
                   <div class="col-12">
                     <div class="col-12 grid" *ngFor="let friend of friends">
-                      <div class="col-6" style="display:flex;"><div style="justify-content: center; align-items: center;display: flex">{{friend.username}}</div></div>
-                      <div class="col-6"><button pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger p-button-sm" (click)="removeFriend(friend.username)"></button></div>
+                      <div class="col-6" style="display:flex;">
+                        <div
+                          style="justify-content: center; align-items: center;display: flex">{{friend.username}}</div>
+                      </div>
+                      <div class="col-6">
+                        <button pButton pRipple type="button" icon="pi pi-times"
+                                class="p-button-rounded p-button-danger p-button-sm"
+                                (click)="removeFriend(friend.username)"></button>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -120,8 +128,8 @@
                         <div class="input-group-control">
                           <label for="form_control_1">Username</label>
                           <input id="form_control_1" class="form-control input-sm ng-pristine ng-untouched ng-valid"
-                          [(ngModel)]="friendName"
-                          ng-class="{'edited':friendsStatsCtrl.state.newFriendUsername}" type="text">
+                                 [(ngModel)]="friendName"
+                                 ng-class="{'edited':friendsStatsCtrl.state.newFriendUsername}" type="text">
                         </div>
                         <span class="input-group-btn btn-right">
                           <button class="btn btn-sm green-haze" (click)="addFriend()" type="button">
@@ -154,7 +162,7 @@
           <p-dropdown id="values" [options]="values" [(ngModel)]="selectedValue" styleClass="dropdown-def"
                       placeholder="Select Weight" optionLabel="number">
             <ng-template let-option pTemplate="item">
-              {{option.number + ' ' +selectedUnit.label}}
+              {{option.number + ' ' + selectedUnit.label}}
             </ng-template>
           </p-dropdown>
         </div>
@@ -253,12 +261,39 @@
               <label for="category.id">{{category.liftName}}</label>
             </div>
             <div class="xl:col-4 lg:col-4 md:col-6 sm:col-12 col-12 general-margin-top-10">
-              <span class="p-float-label">
+              <span class="p-float-label" *ngIf="category.liftName != 'Dip' && category.liftName != 'Chin-up' && category.liftName != 'Pull-up'">
             <p-inputNumber [min]="0" [(ngModel)]="category.weight" [showButtons]="true" inputId="stacked"
                            [suffix]="' ' + selectedUnit.label">
             </p-inputNumber>
             <label for="stacked">Weight {{selectedUnit.label}}</label>
             </span>
+              <span
+                *ngIf="category.liftName == 'Dip'">
+                <p-dropdown id="typeDropDownDip"
+                            [options]="trainingTypes"
+                            [(ngModel)]="selectedTrainingTypeDip"
+                            optionLabel="type"
+                            styleClass="dropdown-def">
+                </p-dropdown>
+              </span>
+              <span
+                *ngIf="category.liftName == 'Chin-up'">
+                <p-dropdown id="typeDropDownChinUp"
+                            [options]="trainingTypes"
+                            [(ngModel)]="selectedTrainingTypeChinUp"
+                            optionLabel="type"
+                            styleClass="dropdown-def">
+                </p-dropdown>
+              </span>
+              <span
+                *ngIf="category.liftName == 'Pull-up'">
+                <p-dropdown id="typeDropDownPullUp"
+                            [options]="trainingTypes"
+                            [(ngModel)]="selectedTrainingTypePullUp"
+                            optionLabel="type"
+                            styleClass="dropdown-def">
+                </p-dropdown>
+              </span>
             </div>
             <div class="xl:col-4 lg:col-4 md:col-6 sm:col-12 col-12 general-margin-top-10">
               <span class="p-float-label">
@@ -267,6 +302,9 @@
             <label for="stacked">reps</label>
             </span>
             </div>
+            <div *ngIf="category.liftName == 'Dip'" class="note note-info col-md-10 col-md-offset-2 ng-binding"><strong>Note:</strong> If you can do over 10 reps, start doing weighted dips for the most accurate results. See the <a href="/about#faq">FAQ section</a> for more information.</div>
+            <div *ngIf="category.liftName == 'Chin-up'" class="note note-info col-md-10 col-md-offset-2 ng-binding"><strong>Note:</strong> If you can do over 10 reps, start doing weighted dips for the most accurate results. See the <a href="/about#faq">FAQ section</a> for more information.</div>
+            <div *ngIf="category.liftName == 'Pull-up'" class="note note-info col-md-10 col-md-offset-2 ng-binding"><strong>Note:</strong> If you can do over 10 reps, start doing weighted dips for the most accurate results. See the <a href="/about#faq">FAQ section</a> for more information.</div>
             <div>
             </div>
           </div>
@@ -384,7 +422,7 @@
           <div class="portlet-body">
             <p-tabView>
               <p-tabPanel header="Relative strengths and weaknesses">
-<!--                <div id="strengthsAndWeaknessesChart"></div>-->
+                <!--                <div id="strengthsAndWeaknessesChart"></div>-->
                 <div echarts [options]="option" class="demo-chart"></div>
               </p-tabPanel>
               <p-tabPanel header="Lifts vs average">

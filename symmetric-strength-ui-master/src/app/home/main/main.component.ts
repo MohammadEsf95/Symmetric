@@ -60,11 +60,16 @@ export class MainComponent implements OnInit {
   rounds: any = [];
   selectedRep: any = {};
   selectedRound: any = {};
+  selectedTrainingTypePullUp: any = {};
+  selectedTrainingTypeChinUp: any = {};
+  selectedTrainingTypeDip: any = {};
   response: StandardResponseDto = {};
   isLoggedIn: boolean = false;
   xAuthToken: string | null = '';
   aboveAvg: number[] = [];
   belowAvg: number[] = [];
+  friendName: any;
+  trainingTypes: any[] = [{type: 'Standard'}, {type: 'Weighted'}, {type: 'Assisted'}];
 
   highcharts = Highcharts;
 
@@ -362,7 +367,6 @@ export class MainComponent implements OnInit {
   //   console.log(this.selectedValue)
   //   // this.selectedValue = event.value.number + ' ' + this.selectedUnit.label
   // }
-  friendName: any;
 
   submit() {
 
@@ -396,6 +400,7 @@ export class MainComponent implements OnInit {
           this.liftFields.inclineBenchPress.checked = true;
         } else if (value.liftName === 'Dip') {
           this.liftFields.dip = value;
+          this.liftFields.dip.liftType = this.selectedTrainingTypeDip.type;
           this.liftFields.dip.checked = true;
         } else if (value.liftName === 'Overhead Press') {
           this.liftFields.overheadPress = value;
@@ -409,9 +414,11 @@ export class MainComponent implements OnInit {
         } else if (value.liftName === 'Chin-up') {
           this.liftFields.chinup = value;
           this.liftFields.chinup.checked = true;
+          this.liftFields.chinup.liftType = this.selectedTrainingTypeChinUp.type;
         } else if (value.liftName === 'Pull-up') {
           this.liftFields.pullup = value;
           this.liftFields.pullup.checked = true;
+          this.liftFields.pullup.liftType = this.selectedTrainingTypePullUp.type;
         } else if (value.liftName === 'Pendlay Row') {
           this.liftFields.pendlayRow = value;
           this.liftFields.pendlayRow.checked = true;

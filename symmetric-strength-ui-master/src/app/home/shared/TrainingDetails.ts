@@ -3,4 +3,5 @@ export class TrainingDetails {
   checked?: boolean;
   weight?: number;
   reps?: number;
+  liftType?: string;
 }
