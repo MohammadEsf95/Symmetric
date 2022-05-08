@@ -257,11 +257,12 @@
         </div>
         <div class="col-12">
           <div class="col-10 grid" *ngFor="let category of selectedCategories">
-            <div class="xl:col-4 lg:col-4 md:col-12 sm:col-12 col-12" style="display: flex; align-items: center;">
+            <div class="xl:col-3 lg:col-3 md:col-12 sm:col-12 col-12" style="display: flex; align-items: center;">
               <label for="category.id">{{category.liftName}}</label>
             </div>
-            <div class="xl:col-4 lg:col-4 md:col-6 sm:col-12 col-12 general-margin-top-10">
-              <span class="p-float-label" *ngIf="category.liftName != 'Dip' && category.liftName != 'Chin-up' && category.liftName != 'Pull-up'">
+            <div class="xl:col-3 lg:col-3 md:col-6 sm:col-12 col-12 general-margin-top-10">
+              <span class="p-float-label"
+                    *ngIf="category.liftName != 'Dip' && category.liftName != 'Chin-up' && category.liftName != 'Pull-up'">
             <p-inputNumber [min]="0" [(ngModel)]="category.weight" [showButtons]="true" inputId="stacked"
                            [suffix]="' ' + selectedUnit.label">
             </p-inputNumber>
@@ -295,16 +296,49 @@
                 </p-dropdown>
               </span>
             </div>
-            <div class="xl:col-4 lg:col-4 md:col-6 sm:col-12 col-12 general-margin-top-10">
+            <div *ngIf="category.liftName == 'Dip' && selectedTrainingTypeDip.type != 'Standard'"  class="xl:col-3 lg:col-3 md:col-6 sm:col-12 col-12 general-margin-top-10">
+              <span
+                class="p-float-label">
+                <p-inputNumber [min]="0" [(ngModel)]="category.weight" [showButtons]="true" inputId="stacked">
+            </p-inputNumber>
+            <label for="stacked">{{selectedTrainingTypeDip.type + ' added ' + selectedUnit.label}}</label>
+              </span>
+            </div>
+            <div *ngIf="category.liftName == 'Pull-up' && selectedTrainingTypePullUp.type != 'Standard'"  class="xl:col-3 lg:col-3 md:col-6 sm:col-12 col-12 general-margin-top-10">
+              <span
+                class="p-float-label">
+                <p-inputNumber [min]="0" [(ngModel)]="category.weight" [showButtons]="true" inputId="stacked">
+            </p-inputNumber>
+            <label for="stacked">{{selectedTrainingTypePullUp.type + ' added ' + selectedUnit.label}}</label>
+              </span>
+            </div>
+            <div *ngIf="category.liftName == 'Chin-up' && selectedTrainingTypeChinUp.type != 'Standard'"  class="xl:col-3 lg:col-3 md:col-6 sm:col-12 col-12 general-margin-top-10">
+              <span
+                class="p-float-label">
+                <p-inputNumber [min]="0" [(ngModel)]="category.weight" [showButtons]="true" inputId="stacked">
+            </p-inputNumber>
+            <label for="stacked">{{selectedTrainingTypeChinUp.type + ' added ' + selectedUnit.label}}</label>
+              </span>
+            </div>
+            <div class="xl:col-3 lg:col-3 md:col-6 sm:col-12 col-12 general-margin-top-10">
               <span class="p-float-label">
             <p-inputNumber [min]="0" [(ngModel)]="category.reps" [showButtons]="true" inputId="stacked">
             </p-inputNumber>
             <label for="stacked">reps</label>
             </span>
             </div>
-            <div *ngIf="category.liftName == 'Dip'" class="note note-info col-md-10 col-md-offset-2 ng-binding"><strong>Note:</strong> If you can do over 10 reps, start doing weighted dips for the most accurate results. See the <a href="/about#faq">FAQ section</a> for more information.</div>
-            <div *ngIf="category.liftName == 'Chin-up'" class="note note-info col-md-10 col-md-offset-2 ng-binding"><strong>Note:</strong> If you can do over 10 reps, start doing weighted dips for the most accurate results. See the <a href="/about#faq">FAQ section</a> for more information.</div>
-            <div *ngIf="category.liftName == 'Pull-up'" class="note note-info col-md-10 col-md-offset-2 ng-binding"><strong>Note:</strong> If you can do over 10 reps, start doing weighted dips for the most accurate results. See the <a href="/about#faq">FAQ section</a> for more information.</div>
+            <div *ngIf="category.liftName == 'Dip'" class="note note-info col-md-10 col-md-offset-2 ng-binding"><strong>Note:</strong>
+              If you can do over 10 reps, start doing weighted dips for the most accurate results. See the <a
+                href="/about#faq">FAQ section</a> for more information.
+            </div>
+            <div *ngIf="category.liftName == 'Chin-up'" class="note note-info col-md-10 col-md-offset-2 ng-binding">
+              <strong>Note:</strong> If you can do over 10 reps, start doing weighted dips for the most accurate
+              results. See the <a href="/about#faq">FAQ section</a> for more information.
+            </div>
+            <div *ngIf="category.liftName == 'Pull-up'" class="note note-info col-md-10 col-md-offset-2 ng-binding">
+              <strong>Note:</strong> If you can do over 10 reps, start doing weighted dips for the most accurate
+              results. See the <a href="/about#faq">FAQ section</a> for more information.
+            </div>
             <div>
             </div>
           </div>
