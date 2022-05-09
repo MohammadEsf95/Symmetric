@@ -382,221 +382,225 @@ export class MainComponent implements OnInit {
 
   submit() {
 
-    this.analyzeRequest.unitsystem = this.selectedUnit.name;
-    this.analyzeRequest.bodyweight = this.bodyWeight;
-    this.analyzeRequest.sex = this.selectedGender.type;
-    this.analyzeRequest.age = this.age;
+    if(this.selectedGender && this.bodyWeight && this.selectedCategories.forEach(value => value.weight)) {
+      this.analyzeRequest.unitsystem = this.selectedUnit.name;
+      this.analyzeRequest.bodyweight = this.bodyWeight;
+      this.analyzeRequest.sex = this.selectedGender.type;
+      this.analyzeRequest.age = this.age;
 
-    this.selectedCategories.forEach(
-      value => {
-        if (value.liftName === 'Back Squat') {
-          this.liftFields.backSquat = value;
-          this.liftFields.backSquat.checked = true;
-        } else if (value.liftName === 'Front Squat') {
-          this.liftFields.frontSquat = value;
-          this.liftFields.frontSquat.checked = true;
-        } else if (value.liftName === 'Deadlift') {
-          this.liftFields.deadlift = value;
-          this.liftFields.deadlift.checked = true;
-        } else if (value.liftName === 'Sumo Deadlift') {
-          this.liftFields.sumoDeadlift = value;
-          this.liftFields.sumoDeadlift.checked = true;
-        } else if (value.liftName === 'Power Clean') {
-          this.liftFields.powerClean = value;
-          this.liftFields.powerClean.checked = true;
-        } else if (value.liftName === 'Bench Press') {
-          this.liftFields.benchPress = value;
-          this.liftFields.benchPress.checked = true;
-        } else if (value.liftName === 'Incline Bench Press') {
-          this.liftFields.inclineBenchPress = value;
-          this.liftFields.inclineBenchPress.checked = true;
-        } else if (value.liftName === 'Dip') {
-          this.liftFields.dip = value;
-          this.liftFields.dip.liftType = this.selectedTrainingTypeDip.type;
-          this.liftFields.dip.checked = true;
-        } else if (value.liftName === 'Overhead Press') {
-          this.liftFields.overheadPress = value;
-          this.liftFields.overheadPress.checked = true;
-        } else if (value.liftName === 'Push Press') {
-          this.liftFields.pushPress = value;
-          this.liftFields.pushPress.checked = true;
-        } else if (value.liftName === 'Snatch Press') {
-          this.liftFields.snatchPress = value;
-          this.liftFields.snatchPress.checked = true;
-        } else if (value.liftName === 'Chin-up') {
-          this.liftFields.chinup = value;
-          this.liftFields.chinup.checked = true;
-          this.liftFields.chinup.liftType = this.selectedTrainingTypeChinUp.type;
-        } else if (value.liftName === 'Pull-up') {
-          this.liftFields.pullup = value;
-          this.liftFields.pullup.checked = true;
-          this.liftFields.pullup.liftType = this.selectedTrainingTypePullUp.type;
-        } else if (value.liftName === 'Pendlay Row') {
-          this.liftFields.pendlayRow = value;
-          this.liftFields.pendlayRow.checked = true;
+      this.selectedCategories.forEach(
+        value => {
+          if (value.liftName === 'Back Squat') {
+            this.liftFields.backSquat = value;
+            this.liftFields.backSquat.checked = true;
+          } else if (value.liftName === 'Front Squat') {
+            this.liftFields.frontSquat = value;
+            this.liftFields.frontSquat.checked = true;
+          } else if (value.liftName === 'Deadlift') {
+            this.liftFields.deadlift = value;
+            this.liftFields.deadlift.checked = true;
+          } else if (value.liftName === 'Sumo Deadlift') {
+            this.liftFields.sumoDeadlift = value;
+            this.liftFields.sumoDeadlift.checked = true;
+          } else if (value.liftName === 'Power Clean') {
+            this.liftFields.powerClean = value;
+            this.liftFields.powerClean.checked = true;
+          } else if (value.liftName === 'Bench Press') {
+            this.liftFields.benchPress = value;
+            this.liftFields.benchPress.checked = true;
+          } else if (value.liftName === 'Incline Bench Press') {
+            this.liftFields.inclineBenchPress = value;
+            this.liftFields.inclineBenchPress.checked = true;
+          } else if (value.liftName === 'Dip') {
+            this.liftFields.dip = value;
+            this.liftFields.dip.liftType = this.selectedTrainingTypeDip.type;
+            this.liftFields.dip.checked = true;
+          } else if (value.liftName === 'Overhead Press') {
+            this.liftFields.overheadPress = value;
+            this.liftFields.overheadPress.checked = true;
+          } else if (value.liftName === 'Push Press') {
+            this.liftFields.pushPress = value;
+            this.liftFields.pushPress.checked = true;
+          } else if (value.liftName === 'Snatch Press') {
+            this.liftFields.snatchPress = value;
+            this.liftFields.snatchPress.checked = true;
+          } else if (value.liftName === 'Chin-up') {
+            this.liftFields.chinup = value;
+            this.liftFields.chinup.checked = true;
+            this.liftFields.chinup.liftType = this.selectedTrainingTypeChinUp.type;
+          } else if (value.liftName === 'Pull-up') {
+            this.liftFields.pullup = value;
+            this.liftFields.pullup.checked = true;
+            this.liftFields.pullup.liftType = this.selectedTrainingTypePullUp.type;
+          } else if (value.liftName === 'Pendlay Row') {
+            this.liftFields.pendlayRow = value;
+            this.liftFields.pendlayRow.checked = true;
+          }
         }
-      }
-    )
+      )
 
-    this.analyzeRequest.liftfields = this.liftFields;
-    console.log('req: ', this.analyzeRequest)
+      this.analyzeRequest.liftfields = this.liftFields;
+      console.log('req: ', this.analyzeRequest)
 
-    this.analyzeService.analyze(this.analyzeRequest).subscribe(data => {
-      if (data.success) {
-        this.analyzeResponse = data.data;
-        this.strengthStandardService.calculateStandard(this.selectedUnit.name, this.selectedGender.type, this.bodyWeight, this.age, this.selectedRep.value, this.selectedValue).subscribe(data => {
-          if (data.success) {
-            this.response = data.data;
-            this.showResult = true;
-            this.changeDetector.detectChanges()
-            // console.log('****',this.strengthsAndWeaknessesChart)
-            // setTimeout(() => { this.strengthsAndWeaknessesChart.nativeElement.focus(); })
-          }
-        })
-        console.log('resp: ', this.analyzeResponse)
-
-        this.selectedCategories.forEach(value => {
-          if (value.reps) {
-            this.liftVsAverageChart.labels.push(value.liftName);
-          }
-        })
-        this.liftVsAverageChart.labels.forEach((val: string) => {
-          if (val === 'Back Squat') {
-            this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.backSquat?.expected);
-            this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.backSquat?.userScore);
-            this.aboveAvg.push(<number>this.analyzeResponse.lifts?.backSquat?.userScore);
-            this.belowAvg.push(<number>this.analyzeResponse.lifts?.backSquat?.expected);
-          } else if (val === 'Front Squat') {
-            this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.frontSquat?.expected);
-            this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.frontSquat?.userScore);
-          } else if (val === 'Deadlift') {
-            this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.deadlift?.expected);
-            this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.deadlift?.userScore);
-          } else if (val === 'Sumo Deadlift') {
-            this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.sumoDeadlift?.expected);
-            this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.sumoDeadlift?.userScore);
-          } else if (val === 'Power Clean') {
-            this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.powerClean?.expected);
-            this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.powerClean?.userScore);
-          } else if (val === 'Bench Press') {
-            this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.benchPress?.expected);
-            this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.benchPress?.userScore);
-          } else if (val === 'Incline Bench Press') {
-            this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.inclineBenchPress?.expected);
-            this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.inclineBenchPress?.userScore);
-          } else if (val === 'Dip') {
-            this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.dip?.expected);
-            this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.dip?.userScore);
-          } else if (val === 'Overhead Press') {
-            this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.overheadPress?.expected);
-            this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.overheadPress?.userScore);
-          } else if (val === 'Push Press') {
-            this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.pushPress?.expected);
-            this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.pushPress?.userScore);
-          } else if (val === 'Snatch Press') {
-            this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.snatchPress?.expected);
-            this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.snatchPress?.userScore);
-          } else if (val === 'Chin-up') {
-            this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.chinup?.expected);
-            this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.chinup?.userScore);
-          } else if (val === 'Pull-up') {
-            this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.pullup?.expected);
-            this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.pullup?.userScore);
-          } else if (val === 'Pendlay Row') {
-            this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.pendlayRow?.expected);
-            this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.pendlayRow?.userScore);
-          }
-
-          this.liftVsAverageChart.datasets[0].data.forEach((val: any) => this.dataForChart.push(val));
-          this.liftVsAverageChart.datasets[1].data.forEach((val: any) => this.dataForChart.push(val));
-        })
-
-        echarts.init(document.getElementById('strengthsAndWeaknessesChart')!);
-
-        this.horizontalOptions2 = {
-          title: {
-            text: 'Relative strengths and weaknesses',
-            subtext: 'How you compare to other lifters at your level'
-          },
-          tooltip: {
-            trigger: 'axis',
-            formatter: function (params: any[]) {
-              var you = params[0];
-              var strongWeakText = function (d: string | number) {
-                if (d >= 0) {
-                  return d + '% stronger';
-                } else {
-                  return Math.abs(<number>d) + '% weaker';
-                }
-              };
-              var strongerOrWeaker = you.data < 0 ? 'weaker' : 'stronger';
-              return '<div class="lift-vs-avg-tooltip"><div class="lift-name">' + you.name + '</div><div class="you"><span class="' + strongerOrWeaker + '">' + strongWeakText(you.data) + '</span> than the average<br />lifter at your level strength level</div></div>';
+      this.analyzeService.analyze(this.analyzeRequest).subscribe(data => {
+        if (data.success) {
+          this.analyzeResponse = data.data;
+          this.strengthStandardService.calculateStandard(this.selectedUnit.name, this.selectedGender.type, this.bodyWeight, this.age, this.selectedRep.value, this.selectedValue).subscribe(data => {
+            if (data.success) {
+              this.response = data.data;
+              this.showResult = true;
+              this.changeDetector.detectChanges()
+              // console.log('****',this.strengthsAndWeaknessesChart)
+              // setTimeout(() => { this.strengthsAndWeaknessesChart.nativeElement.focus(); })
             }
-          },
-          grid: {
-            x: 130,
-            x2: 20
-          },
-          calculable: false,
-          yAxis: [
-            {
-              type: 'category',
-              data: this.liftVsAverageChart.labels
+          })
+          console.log('resp: ', this.analyzeResponse)
+
+          this.selectedCategories.forEach(value => {
+            if (value.reps) {
+              this.liftVsAverageChart.labels.push(value.liftName);
             }
-          ],
-          xAxis: [
-            {
-              type: 'value',
-              axisLabel: {
-                formatter: function (s: string | number) {
-                  if (s <= 0) {
-                    return s + '%';
+          })
+          this.liftVsAverageChart.labels.forEach((val: string) => {
+            if (val === 'Back Squat') {
+              this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.backSquat?.expected);
+              this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.backSquat?.userScore);
+              this.aboveAvg.push(<number>this.analyzeResponse.lifts?.backSquat?.userScore);
+              this.belowAvg.push(<number>this.analyzeResponse.lifts?.backSquat?.expected);
+            } else if (val === 'Front Squat') {
+              this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.frontSquat?.expected);
+              this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.frontSquat?.userScore);
+            } else if (val === 'Deadlift') {
+              this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.deadlift?.expected);
+              this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.deadlift?.userScore);
+            } else if (val === 'Sumo Deadlift') {
+              this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.sumoDeadlift?.expected);
+              this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.sumoDeadlift?.userScore);
+            } else if (val === 'Power Clean') {
+              this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.powerClean?.expected);
+              this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.powerClean?.userScore);
+            } else if (val === 'Bench Press') {
+              this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.benchPress?.expected);
+              this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.benchPress?.userScore);
+            } else if (val === 'Incline Bench Press') {
+              this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.inclineBenchPress?.expected);
+              this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.inclineBenchPress?.userScore);
+            } else if (val === 'Dip') {
+              this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.dip?.expected);
+              this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.dip?.userScore);
+            } else if (val === 'Overhead Press') {
+              this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.overheadPress?.expected);
+              this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.overheadPress?.userScore);
+            } else if (val === 'Push Press') {
+              this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.pushPress?.expected);
+              this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.pushPress?.userScore);
+            } else if (val === 'Snatch Press') {
+              this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.snatchPress?.expected);
+              this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.snatchPress?.userScore);
+            } else if (val === 'Chin-up') {
+              this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.chinup?.expected);
+              this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.chinup?.userScore);
+            } else if (val === 'Pull-up') {
+              this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.pullup?.expected);
+              this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.pullup?.userScore);
+            } else if (val === 'Pendlay Row') {
+              this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.pendlayRow?.expected);
+              this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.pendlayRow?.userScore);
+            }
+
+            this.liftVsAverageChart.datasets[0].data.forEach((val: any) => this.dataForChart.push(val));
+            this.liftVsAverageChart.datasets[1].data.forEach((val: any) => this.dataForChart.push(val));
+          })
+
+          echarts.init(document.getElementById('strengthsAndWeaknessesChart')!);
+
+          this.horizontalOptions2 = {
+            title: {
+              text: 'Relative strengths and weaknesses',
+              subtext: 'How you compare to other lifters at your level'
+            },
+            tooltip: {
+              trigger: 'axis',
+              formatter: function (params: any[]) {
+                var you = params[0];
+                var strongWeakText = function (d: string | number) {
+                  if (d >= 0) {
+                    return d + '% stronger';
                   } else {
-                    return '+' + s + '%';
+                    return Math.abs(<number>d) + '% weaker';
                   }
-                }
-              },
-            }
-          ],
-          series: [
-            {
-              name: 'Comparison to avg lifter',
-              type: 'bar',
-              data: this.dataForChart,
-              itemStyle: {
-                normal: {
-                  color: function (params: { data: number; }) {
-                    var color1 = '#a94442';
-                    var color2 = '#3c7630';
-                    if (params.data < 0) {
-                      return color1;
+                };
+                var strongerOrWeaker = you.data < 0 ? 'weaker' : 'stronger';
+                return '<div class="lift-vs-avg-tooltip"><div class="lift-name">' + you.name + '</div><div class="you"><span class="' + strongerOrWeaker + '">' + strongWeakText(you.data) + '</span> than the average<br />lifter at your level strength level</div></div>';
+              }
+            },
+            grid: {
+              x: 130,
+              x2: 20
+            },
+            calculable: false,
+            yAxis: [
+              {
+                type: 'category',
+                data: this.liftVsAverageChart.labels
+              }
+            ],
+            xAxis: [
+              {
+                type: 'value',
+                axisLabel: {
+                  formatter: function (s: string | number) {
+                    if (s <= 0) {
+                      return s + '%';
                     } else {
-                      return color2;
+                      return '+' + s + '%';
                     }
-                  },
-                  label: {
-                    show: true,
-                    position: 'inside',
-                    textStyle: {
-                      fontWeight: 'bold'
-                    },
-                    formatter: function (params: { data: string | number; }) {
-                      if (params.data <= 0) {
-                        return params.data + '%';
+                  }
+                },
+              }
+            ],
+            series: [
+              {
+                name: 'Comparison to avg lifter',
+                type: 'bar',
+                data: this.dataForChart,
+                itemStyle: {
+                  normal: {
+                    color: function (params: { data: number; }) {
+                      var color1 = '#a94442';
+                      var color2 = '#3c7630';
+                      if (params.data < 0) {
+                        return color1;
                       } else {
-                        return '+' + params.data + '%';
+                        return color2;
+                      }
+                    },
+                    label: {
+                      show: true,
+                      position: 'inside',
+                      textStyle: {
+                        fontWeight: 'bold'
+                      },
+                      formatter: function (params: { data: string | number; }) {
+                        if (params.data <= 0) {
+                          return params.data + '%';
+                        } else {
+                          return '+' + params.data + '%';
+                        }
                       }
                     }
                   }
                 }
-              }
-            },
-          ]
-        };
-      } else {
-        this.toastr.add({severity: 'error', summary: 'Error', detail: JSON.stringify(data.errors[0].message)})
-      }
-    })
+              },
+            ]
+          };
+        } else {
+          this.toastr.add({severity: 'error', summary: 'Error', detail: JSON.stringify(data.errors[0].message)})
+        }
+      })
+    } else {
+      this.toastr.add({severity: 'error', summary: 'Error', detail: 'Enter required fields'})
+    }
   }
 
 
@@ -768,7 +772,6 @@ export class MainComponent implements OnInit {
   }
 
   addToCategories(event: any) {
-    console.log('kiiir: ',event)
     if(event.checked) {
       this.selectedCategories.push(event);
       console.log(this.selectedCategories)

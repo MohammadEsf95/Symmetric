@@ -231,6 +231,7 @@
                         optionLabel="type"></p-dropdown>
             <label for="dropdown">Sex</label>
             </span>
+            <small *ngIf="!selectedGender" id="dropdown-help" class="p-error block">Gender is not specified.</small>
           </div>
           <div class="xl:col-4 lg:col-6 md:col-12 sm:col-12 general-margin-top-10">
             <span class="p-float-label">
@@ -268,6 +269,7 @@
             </p-inputNumber>
             <label for="stacked">Weight {{selectedUnit.label}}</label>
             </span>
+              <small *ngIf="category.liftName != 'Dip' && category.liftName != 'Chin-up' && category.liftName != 'Pull-up' && !category.weight" class="p-error block">Enter the weight.</small>
               <span
                 *ngIf="category.liftName == 'Dip'">
                 <p-dropdown id="typeDropDownDip"
@@ -296,29 +298,38 @@
                 </p-dropdown>
               </span>
             </div>
-            <div *ngIf="category.liftName == 'Dip' && selectedTrainingTypeDip.type != 'Standard'"  class="xl:col-3 lg:col-3 md:col-6 sm:col-12 col-12 general-margin-top-10">
+            <div *ngIf="category.liftName == 'Dip' && selectedTrainingTypeDip.type != 'Standard'"
+                 class="xl:col-3 lg:col-3 md:col-6 sm:col-12 col-12 general-margin-top-10">
               <span
                 class="p-float-label">
-                <p-inputNumber [min]="0" [(ngModel)]="category.weight" [showButtons]="true" inputId="stacked">
+                <p-inputNumber [min]="0" [(ngModel)]="category.weight" [showButtons]="true" inputId="stacked"
+                               [suffix]="' ' + selectedUnit.label">
             </p-inputNumber>
             <label for="stacked">{{selectedTrainingTypeDip.type + ' added ' + selectedUnit.label}}</label>
               </span>
+              <small *ngIf="!category.weight" class="p-error block">Enter the weight.</small>
             </div>
-            <div *ngIf="category.liftName == 'Pull-up' && selectedTrainingTypePullUp.type != 'Standard'"  class="xl:col-3 lg:col-3 md:col-6 sm:col-12 col-12 general-margin-top-10">
+            <div *ngIf="category.liftName == 'Pull-up' && selectedTrainingTypePullUp.type != 'Standard'"
+                 class="xl:col-3 lg:col-3 md:col-6 sm:col-12 col-12 general-margin-top-10">
               <span
                 class="p-float-label">
-                <p-inputNumber [min]="0" [(ngModel)]="category.weight" [showButtons]="true" inputId="stacked">
+                <p-inputNumber [min]="0" [(ngModel)]="category.weight" [showButtons]="true" inputId="stacked"
+                               [suffix]="' ' + selectedUnit.label">
             </p-inputNumber>
             <label for="stacked">{{selectedTrainingTypePullUp.type + ' added ' + selectedUnit.label}}</label>
               </span>
+              <small *ngIf="!category.weight" class="p-error block">Enter the weight.</small>
             </div>
-            <div *ngIf="category.liftName == 'Chin-up' && selectedTrainingTypeChinUp.type != 'Standard'"  class="xl:col-3 lg:col-3 md:col-6 sm:col-12 col-12 general-margin-top-10">
+            <div *ngIf="category.liftName == 'Chin-up' && selectedTrainingTypeChinUp.type != 'Standard'"
+                 class="xl:col-3 lg:col-3 md:col-6 sm:col-12 col-12 general-margin-top-10">
               <span
                 class="p-float-label">
-                <p-inputNumber [min]="0" [(ngModel)]="category.weight" [showButtons]="true" inputId="stacked">
+                <p-inputNumber [min]="0" [(ngModel)]="category.weight" [showButtons]="true" inputId="stacked"
+                               [suffix]="' ' + selectedUnit.label">
             </p-inputNumber>
             <label for="stacked">{{selectedTrainingTypeChinUp.type + ' added ' + selectedUnit.label}}</label>
               </span>
+              <small *ngIf="!category.weight" class="p-error block">Enter the weight.</small>
             </div>
             <div class="xl:col-3 lg:col-3 md:col-6 sm:col-12 col-12 general-margin-top-10">
               <span class="p-float-label">
@@ -326,6 +337,7 @@
             </p-inputNumber>
             <label for="stacked">reps</label>
             </span>
+              <small *ngIf="!category.reps" class="p-error block">Enter the rep count.</small>
             </div>
             <div *ngIf="category.liftName == 'Dip'" class="note note-info col-md-10 col-md-offset-2 ng-binding"><strong>Note:</strong>
               If you can do over 10 reps, start doing weighted dips for the most accurate results. See the <a
