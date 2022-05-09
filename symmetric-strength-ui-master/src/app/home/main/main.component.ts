@@ -281,6 +281,7 @@ export class MainComponent implements OnInit {
     }
     this.selectedUnit = this.units[0];
     this.selectedRep = this.reps[0];
+    this.selectedRound = {value: 1, label: 1 + ' ' + this.selectedUnit.label};
     this.liftFields.backSquat = this.squats[0];
     this.liftFields.frontSquat = this.squats[1]
     this.liftFields.deadlift = this.floorPull[0]
@@ -445,7 +446,7 @@ export class MainComponent implements OnInit {
       this.analyzeService.analyze(this.analyzeRequest).subscribe(data => {
         if (data.success) {
           this.analyzeResponse = data.data;
-          this.strengthStandardService.calculateStandard(this.selectedUnit.name, this.selectedGender.type, this.bodyWeight, this.age, this.selectedRep.value, this.selectedValue).subscribe(data => {
+          this.strengthStandardService.calculateStandard(this.selectedUnit.name, this.selectedGender.type, this.bodyWeight, this.age, this.selectedRep.value, this.selectedRound.value).subscribe(data => {
             if (data.success) {
               this.response = data.data;
               this.showResult = true;
