@@ -377,7 +377,7 @@
       </div>
     </div>
   </div>
-  <div *ngIf="showResult" class="xl:col-10 lg:col-10 md:col-10 sm:col-12 col-12 center" style="padding-left:0">
+  <div *ngIf="showResult" class="xl:col-8 lg:col-8 md:col-10 sm:col-12 col-12 center" style="padding-left:0">
     <div class="col-12 grid">
       <div class="xl:col-4 lg:col-4 md:col-4 sm:col-12" style="padding-left:0">
         <div class="dashboard-stat" [ngClass]="analyzeResponse.scoreClass!">
@@ -470,7 +470,7 @@
             <p-tabView>
               <p-tabPanel header="Relative strengths and weaknesses">
                 <!--                <div id="strengthsAndWeaknessesChart"></div>-->
-                <div echarts [options]="option" class="demo-chart"></div>
+                <div *ngIf="showChart" echarts [options]="echartOption" class="demo-chart"></div>
               </p-tabPanel>
               <p-tabPanel header="Lifts vs average">
                 <div class="card">
@@ -1472,8 +1472,7 @@
                 </thead>
                 <tbody><!-- ngRepeat: lift in standardsCtrl.lifts -->
                 <tr ng-repeat="lift in standardsCtrl.lifts" class="ng-scope">
-                  <td class="ng-binding">Back Squat
-                    <!-- ngIf: lift === 'dip' || lift === 'chinup' || lift === 'pullup' --></td>
+                  <td class="ng-binding">Back Squat</td>
                   <td class="ng-binding">{{response.backSquat!.Untrained}}</td>
                   <td class="ng-binding">{{response.backSquat!.Novice}}</td>
                   <td class="ng-binding">{{response.backSquat!.Intermediate}}</td>

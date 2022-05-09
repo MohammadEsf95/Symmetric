@@ -28,7 +28,7 @@ export class MainComponent implements OnInit {
   selectedValue: number = 0;
   values: any[] = [];
   selectedCategories: TrainingDetails[] = [];
-  squats: any[] = [{liftName: 'Back Squat', key: 'A', checked: true}, {liftName: 'Front Squad', key: 'M', checked: false}];
+  squats: any[] = [{liftName: 'Back Squat', key: 'A', checked: true}, {liftName: 'Front Squat', key: 'M', checked: false}];
   floorPull: any[] = [{liftName: 'Deadlift', key: 'D'}, {
     liftName: 'Sumo Deadlift',
     key: 'SD'
@@ -66,8 +66,8 @@ export class MainComponent implements OnInit {
   response: StandardResponseDto = {};
   isLoggedIn: boolean = false;
   xAuthToken: string | null = '';
-  aboveAvg: number[] = [];
-  belowAvg: number[] = [];
+  aboveAvg: any[] = [];
+  belowAvg: any[] = [];
   friendName: any;
   trainingTypes: any[] = [{type: 'Standard'}, {type: 'Weighted'}, {type: 'Assisted'}];
 
@@ -138,8 +138,9 @@ export class MainComponent implements OnInit {
 
   //TODO Create friend objects
   friends: any = [];
+  yAxisValues : any[] = [];
 
-  option: EChartsOption = {
+  echartOption: EChartsOption = {
     tooltip: {
       trigger: 'axis',
       axisPointer: {
@@ -147,7 +148,7 @@ export class MainComponent implements OnInit {
       }
     },
     legend: {
-      data: ['Expenses', 'Income']
+      // data: ['Expenses', 'Income']
     },
     grid: {
       left: '3%',
@@ -166,12 +167,11 @@ export class MainComponent implements OnInit {
         axisTick: {
           show: false
         },
-        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+        data: this.yAxisValues
       }
     ],
     series: [
       {
-        name: 'Income',
         type: 'bar',
         stack: 'Total',
         label: {
@@ -180,10 +180,9 @@ export class MainComponent implements OnInit {
         emphasis: {
           focus: 'series'
         },
-        data: this.aboveAvg
+        data: [0, 38.4]
       },
       {
-        name: 'Expenses',
         type: 'bar',
         stack: 'Total',
         label: {
@@ -193,7 +192,7 @@ export class MainComponent implements OnInit {
         emphasis: {
           focus: 'series'
         },
-        data: this.belowAvg
+        data: [-71.8, 0]
       }
     ]
   };
@@ -379,8 +378,10 @@ export class MainComponent implements OnInit {
   //   console.log(this.selectedValue)
   //   // this.selectedValue = event.value.number + ' ' + this.selectedUnit.label
   // }
+  showChart: boolean = false;
 
   submit() {
+    this.clearData();
     if(this.selectedGender && this.bodyWeight) {
       this.analyzeRequest.unitsystem = this.selectedUnit.name;
       this.analyzeRequest.bodyweight = this.bodyWeight;
@@ -448,7 +449,7 @@ export class MainComponent implements OnInit {
             if (data.success) {
               this.response = data.data;
               this.showResult = true;
-              this.changeDetector.detectChanges()
+              // this.changeDetector.detectChanges()
             }
           })
           console.log('resp: ', this.analyzeResponse)
@@ -456,60 +457,174 @@ export class MainComponent implements OnInit {
           this.selectedCategories.forEach(value => {
             if (value.reps) {
               this.liftVsAverageChart.labels.push(value.liftName);
+              this.yAxisValues.push(value.liftName)
             }
           })
           this.liftVsAverageChart.labels.forEach((val: string) => {
             if (val === 'Back Squat') {
               this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.backSquat?.expected);
               this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.backSquat?.userScore);
-              this.aboveAvg.push(<number>this.analyzeResponse.lifts?.backSquat?.userScore);
-              this.belowAvg.push(<number>this.analyzeResponse.lifts?.backSquat?.expected);
+              let num = this.calcStrenghthPercent(this.analyzeResponse.lifts?.backSquat?.userScore!, this.analyzeResponse.lifts?.backSquat?.expected!);
+              if(num>0) {
+                this.aboveAvg.push(num)
+                this.belowAvg.push(0)
+              } else {
+                this.belowAvg.push(num)
+                this.aboveAvg.push(0)
+              }
             } else if (val === 'Front Squat') {
               this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.frontSquat?.expected);
               this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.frontSquat?.userScore);
+              let num = this.calcStrenghthPercent(this.analyzeResponse.lifts?.frontSquat?.userScore!, this.analyzeResponse.lifts?.frontSquat?.expected!);
+              if(num>0) {
+                this.aboveAvg.push(num)
+                this.belowAvg.push(0)
+              } else {
+                this.belowAvg.push(num)
+                this.aboveAvg.push(0)
+              }
             } else if (val === 'Deadlift') {
               this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.deadlift?.expected);
               this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.deadlift?.userScore);
+              let num = this.calcStrenghthPercent(this.analyzeResponse.lifts?.deadlift?.userScore!, this.analyzeResponse.lifts?.deadlift?.expected!);
+              if(num>0) {
+                this.aboveAvg.push(num)
+                this.belowAvg.push(0)
+              } else {
+                this.belowAvg.push(num)
+                this.aboveAvg.push(0)
+              }
             } else if (val === 'Sumo Deadlift') {
               this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.sumoDeadlift?.expected);
               this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.sumoDeadlift?.userScore);
+              let num = this.calcStrenghthPercent(this.analyzeResponse.lifts?.sumoDeadlift?.userScore!, this.analyzeResponse.lifts?.sumoDeadlift?.expected!);
+              if(num>0) {
+                this.aboveAvg.push(num)
+                this.belowAvg.push(0)
+              } else {
+                this.belowAvg.push(num)
+                this.aboveAvg.push(0)
+              }
             } else if (val === 'Power Clean') {
               this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.powerClean?.expected);
               this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.powerClean?.userScore);
+              let num = this.calcStrenghthPercent(this.analyzeResponse.lifts?.powerClean?.userScore!, this.analyzeResponse.lifts?.powerClean?.expected!);
+              if(num>0) {
+                this.aboveAvg.push(num)
+                this.belowAvg.push(0)
+              } else {
+                this.belowAvg.push(num)
+                this.aboveAvg.push(0)
+              }
             } else if (val === 'Bench Press') {
               this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.benchPress?.expected);
               this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.benchPress?.userScore);
+              let num = this.calcStrenghthPercent(this.analyzeResponse.lifts?.benchPress?.userScore!, this.analyzeResponse.lifts?.benchPress?.expected!);
+              if(num>0) {
+                this.aboveAvg.push(num)
+                this.belowAvg.push(0)
+              } else {
+                this.belowAvg.push(num)
+                this.aboveAvg.push(0)
+              }
             } else if (val === 'Incline Bench Press') {
               this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.inclineBenchPress?.expected);
               this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.inclineBenchPress?.userScore);
+              let num = this.calcStrenghthPercent(this.analyzeResponse.lifts?.inclineBenchPress?.userScore!, this.analyzeResponse.lifts?.inclineBenchPress?.expected!);
+              if(num>0) {
+                this.aboveAvg.push(num)
+                this.belowAvg.push(0)
+              } else {
+                this.belowAvg.push(num)
+                this.aboveAvg.push(0)
+              }
             } else if (val === 'Dip') {
               this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.dip?.expected);
               this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.dip?.userScore);
+              let num = this.calcStrenghthPercent(this.analyzeResponse.lifts?.dip?.userScore!, this.analyzeResponse.lifts?.dip?.expected!);
+              if(num>0) {
+                this.aboveAvg.push(num)
+                this.belowAvg.push(0)
+              } else {
+                this.belowAvg.push(num)
+                this.aboveAvg.push(0)
+              }
             } else if (val === 'Overhead Press') {
               this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.overheadPress?.expected);
               this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.overheadPress?.userScore);
+              let num = this.calcStrenghthPercent(this.analyzeResponse.lifts?.overheadPress?.userScore!, this.analyzeResponse.lifts?.overheadPress?.expected!);
+              if(num>0) {
+                this.aboveAvg.push(num)
+                this.belowAvg.push(0)
+              } else {
+                this.belowAvg.push(num)
+                this.aboveAvg.push(0)
+              }
             } else if (val === 'Push Press') {
               this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.pushPress?.expected);
               this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.pushPress?.userScore);
+              let num = this.calcStrenghthPercent(this.analyzeResponse.lifts?.pushPress?.userScore!, this.analyzeResponse.lifts?.pushPress?.expected!);
+              if(num>0) {
+                this.aboveAvg.push(num)
+                this.belowAvg.push(0)
+              } else {
+                this.belowAvg.push(num)
+                this.aboveAvg.push(0)
+              }
             } else if (val === 'Snatch Press') {
               this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.snatchPress?.expected);
               this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.snatchPress?.userScore);
+              let num = this.calcStrenghthPercent(this.analyzeResponse.lifts?.snatchPress?.userScore!, this.analyzeResponse.lifts?.snatchPress?.expected!);
+              if(num>0) {
+                this.aboveAvg.push(num)
+                this.belowAvg.push(0)
+              } else {
+                this.belowAvg.push(num)
+                this.aboveAvg.push(0)
+              }
             } else if (val === 'Chin-up') {
               this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.chinup?.expected);
               this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.chinup?.userScore);
+              let num = this.calcStrenghthPercent(this.analyzeResponse.lifts?.chinup?.userScore!, this.analyzeResponse.lifts?.chinup?.expected!);
+              if(num>0) {
+                this.aboveAvg.push(num)
+                this.belowAvg.push(0)
+              } else {
+                this.belowAvg.push(num)
+                this.aboveAvg.push(0)
+              }
             } else if (val === 'Pull-up') {
               this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.pullup?.expected);
               this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.pullup?.userScore);
+              let num = this.calcStrenghthPercent(this.analyzeResponse.lifts?.pullup?.userScore!, this.analyzeResponse.lifts?.pullup?.expected!);
+              if(num>0) {
+                this.aboveAvg.push(num)
+                this.belowAvg.push(0)
+              } else {
+                this.belowAvg.push(num)
+                this.aboveAvg.push(0)
+              }
             } else if (val === 'Pendlay Row') {
               this.liftVsAverageChart.datasets[0].data.push(this.analyzeResponse.lifts?.pendlayRow?.expected);
               this.liftVsAverageChart.datasets[1].data.push(this.analyzeResponse.lifts?.pendlayRow?.userScore);
+              let num = this.calcStrenghthPercent(this.analyzeResponse.lifts?.pendlayRow?.userScore!, this.analyzeResponse.lifts?.pendlayRow?.expected!);
+              if(num>0) {
+                this.aboveAvg.push(num)
+                this.belowAvg.push(0)
+              } else {
+                this.belowAvg.push(num)
+                this.aboveAvg.push(0)
+              }
             }
 
             this.liftVsAverageChart.datasets[0].data.forEach((val: any) => this.dataForChart.push(val));
             this.liftVsAverageChart.datasets[1].data.forEach((val: any) => this.dataForChart.push(val));
           })
 
-          echarts.init(document.getElementById('strengthsAndWeaknessesChart')!);
+          this.showChart = true;
+          this.changeDetector.detectChanges()
+
+          // echarts.init(document.getElementById('strengthsAndWeaknessesChart')!);
 
           this.horizontalOptions2 = {
             title: {
@@ -774,8 +889,22 @@ export class MainComponent implements OnInit {
       console.log(this.selectedCategories)
     } else {
       let index = this.selectedCategories.indexOf(event);
-      this.selectedCategories.splice(index);
+      this.selectedCategories.splice(index,1);
       console.log(this.selectedCategories)
     }
+  }
+
+  calcStrenghthPercent(userScore: number, expected: number): number {
+    return Math.round((((userScore - expected)*100)/expected) * 10) / 10
+  }
+
+  clearData(){
+    this.liftVsAverageChart.refresh
+    this.yAxisValues = [];
+    this.aboveAvg = [];
+    this.belowAvg = [];
+    this.liftVsAverageChart.datasets[0].data = []
+    this.liftVsAverageChart.datasets[1].data = []
+    this.liftVsAverageChart.labels = []
   }
 }
