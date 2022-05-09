@@ -381,8 +381,7 @@ export class MainComponent implements OnInit {
   // }
 
   submit() {
-
-    if(this.selectedGender && this.bodyWeight && this.selectedCategories.forEach(value => value.weight)) {
+    if(this.selectedGender && this.bodyWeight) {
       this.analyzeRequest.unitsystem = this.selectedUnit.name;
       this.analyzeRequest.bodyweight = this.bodyWeight;
       this.analyzeRequest.sex = this.selectedGender.type;
@@ -450,8 +449,6 @@ export class MainComponent implements OnInit {
               this.response = data.data;
               this.showResult = true;
               this.changeDetector.detectChanges()
-              // console.log('****',this.strengthsAndWeaknessesChart)
-              // setTimeout(() => { this.strengthsAndWeaknessesChart.nativeElement.focus(); })
             }
           })
           console.log('resp: ', this.analyzeResponse)
