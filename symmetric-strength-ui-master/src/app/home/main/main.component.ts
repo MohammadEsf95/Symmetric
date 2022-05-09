@@ -28,7 +28,7 @@ export class MainComponent implements OnInit {
   selectedValue: number = 0;
   values: any[] = [];
   selectedCategories: TrainingDetails[] = [];
-  squats: any[] = [{liftName: 'Back Squat', key: 'A'}, {liftName: 'Front Squad', key: 'M'}];
+  squats: any[] = [{liftName: 'Back Squat', key: 'A', checked: true}, {liftName: 'Front Squad', key: 'M', checked: false}];
   floorPull: any[] = [{liftName: 'Deadlift', key: 'D'}, {
     liftName: 'Sumo Deadlift',
     key: 'SD'
@@ -290,12 +290,24 @@ export class MainComponent implements OnInit {
     this.liftFields.benchPress = this.horizontalPress[0]
     this.liftFields.inclineBenchPress = this.horizontalPress[1]
     this.liftFields.dip = this.horizontalPress[2]
-    this.liftFields.overheadPress = this.horizontalPress[0]
+    this.liftFields.overheadPress = this.verticalPress[0]
     this.liftFields.pushPress = this.horizontalPress[1]
     this.liftFields.snatchPress = this.horizontalPress[2]
     this.liftFields.chinup = this.pullUps[0]
     this.liftFields.pullup = this.pullUps[1]
     this.liftFields.pendlayRow = this.pullUps[2]
+
+    this.liftFields.backSquat!.checked = true;
+    this.liftFields.deadlift!.checked = true;
+    this.liftFields.benchPress!.checked = true;
+    this.liftFields.overheadPress!.checked = true;
+    this.liftFields.chinup!.checked = true;
+
+    this.selectedCategories.push(this.liftFields.backSquat!);
+    this.selectedCategories.push(this.liftFields.deadlift!);
+    this.selectedCategories.push(this.liftFields.benchPress!);
+    this.selectedCategories.push(this.liftFields.overheadPress!);
+    this.selectedCategories.push(this.liftFields.chinup!);
 
     this.liftVsAverageChart = {
       labels: [],
@@ -752,6 +764,18 @@ export class MainComponent implements OnInit {
           this.toastr.add({severity: 'error', summary: 'Error', detail: JSON.stringify(data.errors[0].message)})
         }
       })
+    }
+  }
+
+  addToCategories(event: any) {
+    console.log('kiiir: ',event)
+    if(event.checked) {
+      this.selectedCategories.push(event);
+      console.log(this.selectedCategories)
+    } else {
+      let index = this.selectedCategories.indexOf(event);
+      this.selectedCategories.splice(index);
+      console.log(this.selectedCategories)
     }
   }
 }

@@ -149,7 +149,7 @@
       <!-- ngIf: pageType === 'loggedIn' && mainCtrl.state.lastSavedLiftFields -->
     </div>
   </div>
-  <div class="xl:col-10 lg:col-10 md:col-10 sm:col-12 col-12 center content">
+  <div class="xl:col-8 lg:col-8 md:col-10 sm:col-12 col-12 center content">
     <div class="xl:col-9 lg:col-9 md:col-12 sm:col-12 col-12 grid">
       <div class="xl:col-9 lg:col-9 md:col-10 sm:col-12 col-12 grid">
         <div class="xl:col-6 lg:col-9 md:col-10 sm:col-12 col-12 units" style="margin-top: 10px">
@@ -178,40 +178,40 @@
         <div class="xl:col-4 lg:col-4 md:col-4 sm:col-6 col-6">
           <h5 style="font-size: 15px; color: #888">Squat</h5>
           <div *ngFor="let squat of squats" class="field-checkbox checkbox-group">
-            <p-checkbox name="group2" value="squat" [value]="squat" [(ngModel)]="selectedCategories"
-                        [inputId]="squat.key"></p-checkbox>
+            <p-checkbox name="group2" value="squat" [value]="squat.checked" [(ngModel)]="squat.checked"
+                        [inputId]="squat.key" [binary]="true" (onChange)="addToCategories(squat)"></p-checkbox>
             <label [for]="squat.key">{{squat.liftName}}</label>
           </div>
         </div>
         <div class="xl:col-4 lg:col-4 md:col-4 sm:col-6 col-6">
           <h5 style="font-size: 15px; color: #888">Floor Pull</h5>
           <div *ngFor="let fp of floorPull" class="field-checkbox checkbox-group">
-            <p-checkbox name="group2" value="fpfp" [value]="fp" [(ngModel)]="selectedCategories"
-                        [inputId]="fp.key"></p-checkbox>
+            <p-checkbox name="group2" value="fpfp" [value]="fp" [(ngModel)]="fp.checked"
+                        [inputId]="fp.key" [binary]="true" (onChange)="addToCategories(fp)"></p-checkbox>
             <label [for]="fp.key">{{fp.liftName}}</label>
           </div>
         </div>
         <div class="xl:col-4 lg:col-4 md:col-4 sm:col-6 col-6">
           <h5 style="font-size: 15px; color: #888">Horizontal Press</h5>
           <div *ngFor="let hp of horizontalPress" class="field-checkbox checkbox-group">
-            <p-checkbox name="group2" value="hp" [value]="hp" [(ngModel)]="selectedCategories"
-                        [inputId]="hp.key"></p-checkbox>
+            <p-checkbox name="group2" value="hp" [value]="hp" [(ngModel)]="hp.checked"
+                        [inputId]="hp.key" [binary]="true" (onChange)="addToCategories(hp)"></p-checkbox>
             <label [for]="hp.key">{{hp.liftName}}</label>
           </div>
         </div>
         <div class="xl:col-4 lg:col-4 md:col-4 sm:col-6 col-6">
           <h5 style="font-size: 15px; color: #888">Vertical Press</h5>
           <div *ngFor="let vp of verticalPress" class="field-checkbox checkbox-group">
-            <p-checkbox name="group2" value="vp" [value]="vp" [(ngModel)]="selectedCategories"
-                        [inputId]="vp.key"></p-checkbox>
+            <p-checkbox name="group2" value="vp" [value]="vp" [(ngModel)]="vp.checked"
+                        [inputId]="vp.key" [binary]="true" (onChange)="addToCategories(vp)"></p-checkbox>
             <label [for]="vp.key">{{vp.liftName}}</label>
           </div>
         </div>
         <div class="xl:col-4 lg:col-4 md:col-4 sm:col-6 col-6">
           <h5 style="font-size: 15px; color: #888">Pull-up / Row</h5>
           <div *ngFor="let pu of pullUps" class="field-checkbox checkbox-group">
-            <p-checkbox name="group2" value="pu" [value]="pu" [(ngModel)]="selectedCategories"
-                        [inputId]="pu.key"></p-checkbox>
+            <p-checkbox name="group2" value="pu" [value]="pu" [(ngModel)]="pu.checked"
+                        [inputId]="pu.key" [binary]="true" (onChange)="addToCategories(pu)"></p-checkbox>
             <label [for]="pu.key">{{pu.liftName}}</label>
           </div>
         </div>
@@ -471,7 +471,7 @@
       </div>
     </div>
   </div>
-  <div *ngIf="showResult" class="xl:col-10 lg:col-10 md:col-10 sm:col-12 col-12 center content">
+  <div *ngIf="showResult" class="xl:col-8 lg:col-8 md:col-10 sm:col-12 col-12 center content">
     <div class="col-12">
       <div class="portlet light">
         <div class="portlet-title">
